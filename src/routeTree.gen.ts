@@ -16,6 +16,8 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
+import { Route as AuthenticatedAdminSetupRouteImport } from './routes/_authenticated/admin-setup'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
@@ -53,6 +55,16 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAccountRoute = AuthenticatedAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminSetupRoute = AuthenticatedAdminSetupRouteImport.update({
+  id: '/admin-setup',
+  path: '/admin-setup',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedCheckoutRoute = AuthenticatedCheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
@@ -71,6 +83,8 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
   '/shop': typeof ShopRoute
+  '/account': typeof AuthenticatedAccountRoute
+  '/admin-setup': typeof AuthenticatedAdminSetupRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -81,6 +95,8 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
   '/shop': typeof ShopRoute
+  '/account': typeof AuthenticatedAccountRoute
+  '/admin-setup': typeof AuthenticatedAdminSetupRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -93,6 +109,8 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
   '/shop': typeof ShopRoute
+  '/_authenticated/account': typeof AuthenticatedAccountRoute
+  '/_authenticated/admin-setup': typeof AuthenticatedAdminSetupRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -105,6 +123,8 @@ export interface FileRouteTypes {
     | '/cart'
     | '/contact'
     | '/shop'
+    | '/account'
+    | '/admin-setup'
     | '/checkout'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -115,6 +135,8 @@ export interface FileRouteTypes {
     | '/cart'
     | '/contact'
     | '/shop'
+    | '/account'
+    | '/admin-setup'
     | '/checkout'
     | '/product/$slug'
   id:
@@ -126,6 +148,8 @@ export interface FileRouteTypes {
     | '/cart'
     | '/contact'
     | '/shop'
+    | '/_authenticated/account'
+    | '/_authenticated/admin-setup'
     | '/_authenticated/checkout'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
@@ -192,6 +216,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/account': {
+      id: '/_authenticated/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AuthenticatedAccountRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin-setup': {
+      id: '/_authenticated/admin-setup'
+      path: '/admin-setup'
+      fullPath: '/admin-setup'
+      preLoaderRoute: typeof AuthenticatedAdminSetupRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/checkout': {
       id: '/_authenticated/checkout'
       path: '/checkout'
@@ -210,10 +248,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
+  AuthenticatedAdminSetupRoute: typeof AuthenticatedAdminSetupRoute
   AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAccountRoute: AuthenticatedAccountRoute,
+  AuthenticatedAdminSetupRoute: AuthenticatedAdminSetupRoute,
   AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
 }
 
