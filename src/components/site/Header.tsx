@@ -76,7 +76,7 @@ export function Header() {
               </Button>
             </>
           ) : (
-            <Link to="/auth">
+            <Link to="/auth" search={{ redirect: undefined }}>
               <Button variant="ghost" className="text-xs uppercase tracking-[0.2em]">
                 Sign in
               </Button>
