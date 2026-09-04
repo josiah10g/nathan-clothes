@@ -11,14 +11,14 @@ import { Textarea } from "@/components/ui/textarea";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Nathan's Clothes" },
+      { title: "Contact — Nathan's Clothing" },
       {
         name: "description",
         content:
-          "Questions about sizing, an order or a collaboration? Send Nathan's Clothes a message and we'll reply within two business days.",
+          "Questions about sizing, an order or a collaboration? Send Nathan's Clothing a message and we'll reply within two business days.",
       },
-      { property: "og:title", content: "Contact — Nathan's Clothes" },
-      { property: "og:description", content: "Send Nathan's Clothes a message." },
+      { property: "og:title", content: "Contact — Nathan's Clothing" },
+      { property: "og:description", content: "Send Nathan's Clothing a message." },
     ],
   }),
   component: Contact,

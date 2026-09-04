@@ -7,9 +7,9 @@ import { formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
-      { title: "Your Bag — Nathan's Clothes" },
+      { title: "Your Bag — Nathan's Clothing" },
       { name: "description", content: "Review the pieces in your bag before checking out." },
-      { property: "og:title", content: "Your Bag — Nathan's Clothes" },
+      { property: "og:title", content: "Your Bag — Nathan's Clothing" },
       { property: "og:description", content: "Review the pieces in your bag before checking out." },
     ],
   }),

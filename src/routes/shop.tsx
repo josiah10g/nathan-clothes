@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop All — Nathan's Clothes" },
+      { title: "Shop All — Nathan's Clothing" },
       {
         name: "description",
         content:
-          "Browse every piece in the Nathan's Clothes collection: heavyweight hoodies, oversized tees and joggers in black, bone and washed grey.",
+          "Browse every piece in the Nathan's Clothing collection: heavyweight hoodies, oversized tees and joggers in black, bone and washed grey.",
       },
-      { property: "og:title", content: "Shop All — Nathan's Clothes" },
+      { property: "og:title", content: "Shop All — Nathan's Clothing" },
       {
         property: "og:description",
         content: "Heavyweight hoodies, oversized tees and joggers in monochrome.",

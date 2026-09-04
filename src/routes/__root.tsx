@@ -82,13 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nathan's Clothes — Premium Dark Streetwear" },
+      { title: "Nathan's Clothing — Premium Dark Streetwear" },
       {
         name: "description",
         content:
-          "Heavyweight monochrome streetwear in limited runs. Oversized hoodies, tees and joggers from Nathan's Clothes.",
+          "Heavyweight monochrome streetwear in limited runs. Oversized hoodies, tees and joggers from Nathan's Clothing.",
       },
-      { property: "og:title", content: "Nathan's Clothes — Premium Dark Streetwear" },
+      { property: "og:title", content: "Nathan's Clothing — Premium Dark Streetwear" },
       {
         property: "og:description",
         content: "Heavyweight monochrome streetwear in limited runs.",

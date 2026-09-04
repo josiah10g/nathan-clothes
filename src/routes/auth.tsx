@@ -16,13 +16,13 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Sign In — Nathan's Clothes" },
+      { title: "Sign In — Nathan's Clothing" },
       {
         name: "description",
-        content: "Sign in or create a Nathan's Clothes account to check out and track your orders.",
+        content: "Sign in or create a Nathan's Clothing account to check out and track your orders.",
       },
-      { property: "og:title", content: "Sign In — Nathan's Clothes" },
-      { property: "og:description", content: "Sign in or create a Nathan's Clothes account." },
+      { property: "og:title", content: "Sign In — Nathan's Clothing" },
+      { property: "og:description", content: "Sign in or create a Nathan's Clothing account." },
     ],
   }),
   component: AuthPage,

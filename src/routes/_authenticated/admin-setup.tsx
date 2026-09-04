@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/_authenticated/admin-setup")({
   head: () => ({
     meta: [
-      { title: "Owner Setup — Nathan's Clothes" },
+      { title: "Owner Setup — Nathan's Clothing" },
       { name: "description", content: "One-time setup step to claim the store owner account." },
-      { property: "og:title", content: "Owner Setup — Nathan's Clothes" },
+      { property: "og:title", content: "Owner Setup — Nathan's Clothing" },
       { property: "og:description", content: "One-time setup step to claim the store owner account." },
     ],
   }),

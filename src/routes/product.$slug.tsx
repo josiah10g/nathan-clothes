@@ -14,18 +14,18 @@ export const Route = createFileRoute("/product/$slug")({
     const title = `${params.slug
       .split("-")
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ")} — Nathan's Clothes`;
+      .join(" ")} — Nathan's Clothing`;
     return {
       meta: [
         { title },
         {
           name: "description",
-          content: "Heavyweight limited-run streetwear from Nathan's Clothes. 100% cotton, oversized fit.",
+          content: "Heavyweight limited-run streetwear from Nathan's Clothing. 100% cotton, oversized fit.",
         },
         { property: "og:title", content: title },
         {
           property: "og:description",
-          content: "Heavyweight limited-run streetwear from Nathan's Clothes.",
+          content: "Heavyweight limited-run streetwear from Nathan's Clothing.",
         },
       ],
     };
