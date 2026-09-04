@@ -79,7 +79,7 @@ function Contact() {
             maxLength={100}
             onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
           />
-          {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+          {errors["name"] && <p className="text-xs text-destructive">{errors["name"]}</p>}
         </div>
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
@@ -90,7 +90,7 @@ function Contact() {
             maxLength={255}
             onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
           />
-          {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+          {errors["email"] && <p className="text-xs text-destructive">{errors["email"]}</p>}
         </div>
         <div className="grid gap-2">
           <Label htmlFor="subject">Subject</Label>
@@ -110,7 +110,7 @@ function Contact() {
             maxLength={2000}
             onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
           />
-          {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
+          {errors["message"] && <p className="text-xs text-destructive">{errors["message"]}</p>}
         </div>
         <Button
           type="submit"
