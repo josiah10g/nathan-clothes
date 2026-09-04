@@ -79,7 +79,7 @@ function Contact() {
             maxLength={100}
             onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
           />
-          {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+          {errors["name"] && <p className="text-xs text-destructive">{errors["name"]}</p>}
         </div>
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
