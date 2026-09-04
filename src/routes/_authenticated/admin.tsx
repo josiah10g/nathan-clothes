@@ -16,9 +16,9 @@ import { formatDate, formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
     meta: [
-      { title: "Admin — Nathan's Clothes" },
+      { title: "Admin — Nathan's Clothing" },
       { name: "description", content: "Manage products, orders and customer messages." },
-      { property: "og:title", content: "Admin — Nathan's Clothes" },
+      { property: "og:title", content: "Admin — Nathan's Clothing" },
       { property: "og:description", content: "Manage products, orders and customer messages." },
     ],
   }),

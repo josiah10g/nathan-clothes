@@ -8,13 +8,13 @@ import heroAsset from "@/assets/shadow-web-hoodie.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nathan's Clothes — Premium Dark Streetwear" },
+      { title: "Nathan's Clothing — Premium Dark Streetwear" },
       {
         name: "description",
         content:
-          "Limited-run heavyweight streetwear: oversized hoodies, tees and joggers in a strict monochrome palette. Shop the Nathan's Clothes collection.",
+          "Limited-run heavyweight streetwear: oversized hoodies, tees and joggers in a strict monochrome palette. Shop the Nathan's Clothing collection.",
       },
-      { property: "og:title", content: "Nathan's Clothes — Premium Dark Streetwear" },
+      { property: "og:title", content: "Nathan's Clothing — Premium Dark Streetwear" },
       {
         property: "og:description",
         content: "Limited-run heavyweight streetwear in a strict monochrome palette.",
@@ -78,7 +78,7 @@ function Home() {
           <div className="relative min-h-[60vh] bg-surface md:min-h-[80vh]">
             <img
               src={heroAsset.url}
-              alt="Black oversized hoodie with spiderweb print from the Nathan's Clothes Void Series"
+              alt="Black oversized hoodie with spiderweb print from the Nathan's Clothing Void Series"
               width={1024}
               height={1024}
               className="size-full object-cover"

@@ -13,9 +13,9 @@ import { formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/_authenticated/checkout")({
   head: () => ({
     meta: [
-      { title: "Checkout — Nathan's Clothes" },
+      { title: "Checkout — Nathan's Clothing" },
       { name: "description", content: "Confirm your shipping details and place your order." },
-      { property: "og:title", content: "Checkout — Nathan's Clothes" },
+      { property: "og:title", content: "Checkout — Nathan's Clothing" },
       { property: "og:description", content: "Confirm your shipping details and place your order." },
     ],
   }),

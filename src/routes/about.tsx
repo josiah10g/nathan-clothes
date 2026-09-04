@@ -5,13 +5,13 @@ import fabricAsset from "@/assets/web-realm-tee.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Nathan's Clothes" },
+      { title: "About — Nathan's Clothing" },
       {
         name: "description",
         content:
-          "Nathan's Clothes makes heavyweight monochrome streetwear in limited runs — 100% cotton, oversized fit, hand-drawn graphics.",
+          "Nathan's Clothing makes heavyweight monochrome streetwear in limited runs — 100% cotton, oversized fit, hand-drawn graphics.",
       },
-      { property: "og:title", content: "About — Nathan's Clothes" },
+      { property: "og:title", content: "About — Nathan's Clothing" },
       {
         property: "og:description",
         content: "Heavyweight monochrome streetwear, made in limited runs.",
