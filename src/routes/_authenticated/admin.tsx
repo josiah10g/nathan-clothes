@@ -110,7 +110,7 @@ function Admin() {
   });
 
   const updateProduct = useMutation({
-    mutationFn: async (input: { id: string; patch: Record<string, unknown> }) => {
+    mutationFn: async (input: { id: string; patch: TablesUpdate<"products"> }) => {
       const { error } = await supabase.from("products").update(input.patch).eq("id", input.id);
       if (error) throw error;
     },
