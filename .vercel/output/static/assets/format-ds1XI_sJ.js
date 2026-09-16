@@ -1,0 +1,1 @@
+function e(e){let t=Math.round((e??0)/100);return`₦${new Intl.NumberFormat(`en-NG`,{maximumFractionDigits:0,minimumFractionDigits:0}).format(t)}`}function t(e){return new Date(e).toLocaleDateString(`en-US`,{year:`numeric`,month:`short`,day:`numeric`})}export{e as n,t};

@@ -1,13 +1,23 @@
-import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
-import { Search, PackageCheck, AlertCircle, CheckCircle, Clock, Upload, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import {
+  Package,
+  CreditCard,
+  CheckCircle,
+  AlertCircle,
+  Clock,
+  ArrowRight,
+  ExternalLink,
+  ShieldCheck,
+  Phone,
+  Mail,
+  User,
+  ShoppingBag,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatDate, formatPrice } from "@/lib/format";
@@ -15,30 +25,33 @@ import { formatDate, formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
-      { title: "Order Tracking & Account — Nathan's Clothes" },
-      { name: "description", content: "Track your order by reference or sign in to view account history." },
-      { property: "og:title", content: "Order Tracking & Account — Nathan's Clothes" },
-      { property: "og:description", content: "Track your order by reference or sign in to view account history." },
+      { title: "Customer Dashboard — Nathan's Clothes" },
+      { name: "description", content: "Track orders, verify bank transfer payments, and manage your account." },
+      { property: "og:title", content: "Customer Dashboard — Nathan's Clothes" },
+      { property: "og:description", content: "Track orders, verify bank transfer payments, and manage your account." },
     ],
   }),
   component: AccountPage,
 });
 
 function AccountPage() {
-  const { user, isAdmin, signOut } = useAuth();
-  const qc = useQueryClient();
+  const { user, isAdmin, loading, signOut } = useAuth();
+  const navigate = useNavigate();
 
-  // Guest Order Tracking State
-  const [trackRef, setTrackRef] = useState("");
-  const [trackPhone, setTrackPhone] = useState("");
-  const [trackedOrder, setTrackedOrder] = useState<any | null>(null);
-  const [searching, setSearching] = useState(false);
+  // Prevent admin from viewing customer dashboard - redirect to admin portal
+  useEffect(() => {
+    if (!loading && user && isAdmin) {
+      navigate({ to: "/admin", replace: true });
+    }
+  }, [user, isAdmin, loading, navigate]);
 
-  // New receipt upload state for tracked order
-  const [newReceiptFile, setNewReceiptFile] = useState<File | null>(null);
-  const [uploadingReceipt, setUploadingReceipt] = useState(false);
+  // Extract display customer name
+  const displayName =
+    (user?.user_metadata?.["full_name"] as string) ||
+    user?.email?.split("@")[0] ||
+    "Customer";
 
-  // Logged-in orders query
+  // Query customer orders
   const { data: myOrders, isLoading: loadingMyOrders } = useQuery({
     queryKey: ["my-orders", user?.id],
     enabled: !!user,
@@ -53,381 +66,254 @@ function AccountPage() {
     },
   });
 
-  const handleTrackOrder = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!trackRef.trim() || !trackPhone.trim()) {
-      toast.error("Please enter both your Order Reference and Phone Number");
-      return;
-    }
-
-    setSearching(true);
-    try {
-      const { data, error } = await supabase.rpc("track_order", {
-        _reference: trackRef.trim(),
-        _phone: trackPhone.trim(),
-      });
-
-      if (error) {
-        toast.error("Failed to query order: " + error.message);
-        setTrackedOrder(null);
-        return;
-      }
-
-      if (data && typeof data === "object" && "error" in (data as Record<string, any>)) {
-        toast.error((data as any).error || "Order not found");
-        setTrackedOrder(null);
-        return;
-      }
-
-      setTrackedOrder(data);
-      toast.success("Order found!");
-    } catch (err: any) {
-      toast.error(err?.message || "Failed to find order");
-      setTrackedOrder(null);
-    } finally {
-      setSearching(false);
-    }
-  };
-
-  const handleAttachReceipt = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newReceiptFile || !trackedOrder) {
-      toast.error("Please select a file to upload");
-      return;
-    }
-
-    setUploadingReceipt(true);
-    try {
-      const fileExt = newReceiptFile.name.split(".").pop() || "jpg";
-      const sanitizedRef = trackedOrder.reference.toLowerCase().replace(/[^a-z0-9]/g, "");
-      const fileName = `${sanitizedRef}_reupload_${Date.now()}.${fileExt}`;
-      const filePath = `receipts/${fileName}`;
-
-      const { error: storageError } = await supabase.storage
-        .from("payment-receipts")
-        .upload(filePath, newReceiptFile, { upsert: true });
-
-      if (storageError) {
-        console.error("Storage error:", storageError);
-      }
-
-      const { data: updated, error: rpcError } = await supabase.rpc("attach_receipt", {
-        _reference: trackedOrder.reference,
-        _phone: trackPhone.trim(),
-        _path: filePath,
-      });
-
-      if (rpcError || !updated) {
-        toast.error("Failed to update receipt. Please check reference and phone.");
-        return;
-      }
-
-      toast.success("Receipt uploaded successfully. Order is now under review!");
-      setNewReceiptFile(null);
-
-      // Refresh order view
-      const { data: fresh } = await supabase.rpc("track_order", {
-        _reference: trackRef.trim(),
-        _phone: trackPhone.trim(),
-      });
-      if (fresh) setTrackedOrder(fresh);
-    } catch (err: any) {
-      toast.error(err?.message || "Failed to upload new receipt");
-    } finally {
-      setUploadingReceipt(false);
-    }
-  };
+  const ordersList = myOrders || [];
+  const confirmedPayments = ordersList.filter(
+    (o) => o.payment_status === "approved" || o.status === "paid" || o.status === "completed"
+  );
 
   const renderPaymentBadge = (status: string) => {
     switch (status) {
       case "approved":
+      case "paid":
+      case "completed":
         return (
-          <Badge className="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-[0.15em] flex items-center gap-1">
-            <CheckCircle className="size-3" /> Approved & Paid
+          <Badge className="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-[0.15em] flex items-center gap-1 text-[11px]">
+            <CheckCircle className="size-3" /> Confirmed
           </Badge>
         );
       case "declined":
         return (
-          <Badge className="bg-destructive/20 text-destructive border border-destructive/30 uppercase tracking-[0.15em] flex items-center gap-1">
-            <AlertCircle className="size-3" /> Declined / Action Required
+          <Badge className="bg-destructive/20 text-destructive border border-destructive/30 uppercase tracking-[0.15em] flex items-center gap-1 text-[11px]">
+            <AlertCircle className="size-3" /> Action Required
           </Badge>
         );
       default:
         return (
-          <Badge className="bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase tracking-[0.15em] flex items-center gap-1">
-            <Clock className="size-3" /> Pending Verification
+          <Badge className="bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase tracking-[0.15em] flex items-center gap-1 text-[11px]">
+            <Clock className="size-3" /> Under Review
           </Badge>
         );
     }
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-8">
-        <div>
-          <h1 className="text-4xl sm:text-5xl font-bold uppercase tracking-tight">Orders & Account</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {user ? `Logged in as ${user.email}` : "Track a guest order or log into your account."}
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* If not logged in */}
+      {!user ? (
+        <div className="border border-border bg-surface p-8 text-center sm:p-14 max-w-xl mx-auto my-12">
+          <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <User className="size-6" />
+          </div>
+          <h2 className="text-2xl font-bold uppercase tracking-wide">Sign in to your Dashboard</h2>
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            Sign in with your registered account to view your live orders, verify bank transfer payments, and manage your profile.
           </p>
-        </div>
-
-        <div className="flex items-center gap-3">
-          {isAdmin && (
-            <Link to="/admin">
-              <Button variant="outline" className="text-xs uppercase tracking-[0.2em]">
-                Admin Dashboard
+          <div className="mt-8 flex justify-center gap-3">
+            <Link to="/auth" search={{ mode: "signin", redirect: "/account" }}>
+              <Button className="text-xs uppercase tracking-[0.25em] px-6">Log In</Button>
+            </Link>
+            <Link to="/auth" search={{ mode: "signup", redirect: "/account" }}>
+              <Button variant="outline" className="text-xs uppercase tracking-[0.25em] px-6">
+                Create Account
               </Button>
             </Link>
-          )}
-
-          {user && (
-            <Button
-              variant="ghost"
-              onClick={() => signOut()}
-              className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground"
-            >
-              Sign out
-            </Button>
-          )}
+          </div>
         </div>
-      </div>
-
-      <Tabs defaultValue={user ? "history" : "track"} className="mt-10">
-        <TabsList className="grid w-full max-w-md grid-cols-2">
-          <TabsTrigger value="track" className="text-xs uppercase tracking-[0.2em]">
-            Track Order
-          </TabsTrigger>
-          <TabsTrigger value="history" className="text-xs uppercase tracking-[0.2em]">
-            My Account
-          </TabsTrigger>
-        </TabsList>
-
-        {/* Tab 1: Guest / Public Order Tracker */}
-        <TabsContent value="track" className="mt-8 space-y-8">
-          <div className="border border-border bg-surface p-6 sm:p-8">
-            <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-4">
-              Instant Order Lookup
-            </h2>
-            <p className="text-sm text-muted-foreground mb-6">
-              Enter the Order Reference (e.g. <span className="font-mono text-foreground">CK-A8F291E3</span>) and the
-              Phone Number provided during checkout.
-            </p>
-
-            <form onSubmit={handleTrackOrder} className="grid gap-4 sm:grid-cols-[1fr_1fr_auto]">
-              <div className="grid gap-1.5">
-                <Label htmlFor="track-ref" className="text-xs">Order Reference</Label>
-                <Input
-                  id="track-ref"
-                  placeholder="e.g. CK-12345678"
-                  value={trackRef}
-                  onChange={(e) => setTrackRef(e.target.value)}
-                  className="font-mono uppercase"
-                />
+      ) : (
+        <div>
+          {/* Dashboard Header matching reference layout */}
+          <div className="border-b border-border pb-8">
+            <span className="inline-block rounded-full bg-secondary px-3 py-1 text-[11px] font-medium tracking-wide text-secondary-foreground mb-4">
+              Customer Portal
+            </span>
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-foreground">
+                  Welcome, {displayName}!
+                </h1>
+                <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+                  Track your order statuses, verify bank transfer payments, and contact support anytime.
+                </p>
               </div>
-
-              <div className="grid gap-1.5">
-                <Label htmlFor="track-phone" className="text-xs">Phone Number</Label>
-                <Input
-                  id="track-phone"
-                  placeholder="e.g. +1 555 019 2834"
-                  value={trackPhone}
-                  onChange={(e) => setTrackPhone(e.target.value)}
-                />
-              </div>
-
-              <div className="flex items-end">
-                <Button type="submit" disabled={searching} className="w-full sm:w-auto text-xs uppercase tracking-[0.2em]">
-                  {searching ? "Searching…" : "Track"}
-                </Button>
-              </div>
-            </form>
+            </div>
           </div>
 
-          {/* Tracked Order Result Card */}
-          {trackedOrder && (
-            <div className="border border-border bg-surface p-6 sm:p-8 space-y-6">
-              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border pb-6">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Order Reference</p>
-                  <p className="mt-1 font-mono text-2xl font-bold tracking-wider text-foreground">
-                    {trackedOrder.reference}
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Placed on {formatDate(trackedOrder.created_at)}
-                  </p>
-                </div>
+          {/* Navigation Tabs */}
+          <Tabs defaultValue="orders" className="mt-8">
+            <TabsList className="h-11 bg-transparent p-0 border-b border-border w-full justify-start rounded-none gap-8">
+              <TabsTrigger
+                value="orders"
+                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
+              >
+                <Package className="size-4" />
+                <span>Orders ({ordersList.length})</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="payments"
+                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
+              >
+                <CreditCard className="size-4" />
+                <span>Payments ({confirmedPayments.length} Confirmed)</span>
+              </TabsTrigger>
+            </TabsList>
 
-                <div className="flex flex-col items-end gap-2">
-                  {renderPaymentBadge(trackedOrder.payment_status || trackedOrder.status)}
-                  <p className="text-sm font-semibold text-foreground">
-                    Total: ${Number(trackedOrder.total || trackedOrder.total_cents / 100).toFixed(2)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Admin Note / Action Instructions */}
-              {trackedOrder.admin_note && (
-                <div className="rounded border border-primary/30 bg-primary/5 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-1">
-                    Store Note / Update:
-                  </p>
-                  <p className="text-sm text-foreground">{trackedOrder.admin_note}</p>
+            {/* TAB 1: ORDERS */}
+            <TabsContent value="orders" className="mt-8 space-y-6">
+              {loadingMyOrders && (
+                <div className="p-12 text-center text-sm text-muted-foreground">
+                  Loading your orders…
                 </div>
               )}
 
-              {/* Delivery info */}
-              <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Customer</p>
-                  <p className="font-medium text-foreground mt-1">
-                    {trackedOrder.customer_name || trackedOrder.full_name}
+              {!loadingMyOrders && ordersList.length === 0 && (
+                <div className="border border-border/80 bg-surface/40 p-12 sm:p-16 text-center">
+                  <div className="mx-auto mb-4 flex size-14 items-center justify-center text-muted-foreground/50">
+                    <Package className="size-10 stroke-1" />
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-foreground">
+                    No orders placed yet
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+                    Explore our catalog of heavyweight monochrome streetwear, hoodies, tees, and accessories to submit your first order.
                   </p>
-                  <p className="text-muted-foreground">{trackedOrder.phone}</p>
-                  <p className="text-muted-foreground">{trackedOrder.email}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Delivery Address</p>
-                  <p className="text-muted-foreground mt-1">{trackedOrder.address}</p>
-                </div>
-              </div>
-
-              {/* Items breakdown */}
-              {Array.isArray(trackedOrder.items) && trackedOrder.items.length > 0 && (
-                <div className="border-t border-border pt-6">
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ordered Pieces</p>
-                  <ul className="divide-y divide-border">
-                    {trackedOrder.items.map((it: any, idx: number) => (
-                      <li key={idx} className="py-3 flex items-center justify-between text-sm">
-                        <div className="flex items-center gap-3">
-                          {it.imageUrl && (
-                            <img src={it.imageUrl} alt={it.name} className="size-12 object-cover bg-background" />
-                          )}
-                          <div>
-                            <p className="font-medium text-foreground">{it.name}</p>
-                            <p className="text-xs text-muted-foreground uppercase">
-                              Size: {it.size} × {it.quantity}
-                            </p>
-                          </div>
-                        </div>
-                        <span className="font-medium text-foreground">
-                          ${(Number(it.price || it.priceCents / 100) * it.quantity).toFixed(2)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-6">
+                    <Link to="/shop">
+                      <Button className="bg-foreground text-background hover:bg-foreground/90 text-xs uppercase tracking-[0.2em] px-6 h-11">
+                        Browse Shop
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               )}
 
-              {/* Re-upload receipt section if declined or pending */}
-              {trackedOrder.payment_status !== "approved" && (
-                <div className="border-t border-border pt-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                    Update / Re-Upload Payment Receipt
-                  </p>
-                  <p className="text-xs text-muted-foreground mb-4">
-                    If your payment transfer was made or if your previous receipt was unclear, upload your updated proof
-                    here:
-                  </p>
-
-                  <form onSubmit={handleAttachReceipt} className="flex flex-wrap items-center gap-3">
-                    <Input
-                      type="file"
-                      accept="image/*,application/pdf"
-                      onChange={(e) => setNewReceiptFile(e.target.files?.[0] || null)}
-                      className="max-w-xs"
-                    />
-                    <Button
-                      type="submit"
-                      disabled={uploadingReceipt || !newReceiptFile}
-                      className="text-xs uppercase tracking-[0.2em]"
-                    >
-                      {uploadingReceipt ? "Uploading…" : "Upload Proof"}
-                    </Button>
-                  </form>
-                </div>
-              )}
-            </div>
-          )}
-        </TabsContent>
-
-        {/* Tab 2: User Account & History */}
-        <TabsContent value="history" className="mt-8 space-y-6">
-          {!user ? (
-            <div className="border border-border bg-surface p-8 text-center sm:p-12">
-              <h2 className="text-2xl font-bold uppercase tracking-wide">Sign in to view account</h2>
-              <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
-                Sign in with your email to see all past orders, delivery addresses, and saved details.
-              </p>
-              <div className="mt-6">
-                <Link to="/auth" search={{ mode: "signin", redirect: "/account" }}>
-                  <Button className="text-xs uppercase tracking-[0.25em]">Log In / Sign Up</Button>
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div>
-              <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6">
-                Your Past Orders
-              </h2>
-
-              {loadingMyOrders && <p className="text-sm text-muted-foreground">Loading your orders…</p>}
-
-              {!loadingMyOrders && (!myOrders || myOrders.length === 0) && (
-                <div className="border border-border bg-surface p-8 text-center">
-                  <p className="text-sm text-muted-foreground">You haven&apos;t placed any orders with this account yet.</p>
-                  <Link to="/shop" className="mt-6 inline-block">
-                    <Button className="text-xs uppercase tracking-[0.25em]">Explore Collection</Button>
-                  </Link>
-                </div>
-              )}
-
-              <div className="space-y-6">
-                {(myOrders || []).map((ord) => (
-                  <article key={ord.id} className="border border-border bg-surface p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
-                      <div>
+              {ordersList.map((ord) => (
+                <article
+                  key={ord.id}
+                  className="border border-border bg-surface p-6 sm:p-8 space-y-5"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
+                    <div>
+                      <div className="flex items-center gap-2">
                         <p className="font-mono text-sm font-bold text-foreground">
-                          {ord.reference || `ORDER #${ord.id.slice(0, 8)}`}
+                          {ord.reference || `ORD-${ord.id.slice(0, 8)}`}
                         </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{formatDate(ord.created_at)}</p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
                         {renderPaymentBadge(ord.payment_status || ord.status)}
-                        <span className="font-bold text-foreground">
-                          ${Number(ord.total || ord.total_cents / 100).toFixed(2)}
-                        </span>
                       </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Placed on {formatDate(ord.created_at)}
+                      </p>
                     </div>
 
-                    {ord.admin_note && (
-                      <p className="mt-4 text-xs bg-primary/5 p-3 border border-primary/20 text-muted-foreground">
-                        <strong className="text-foreground">Store Note:</strong> {ord.admin_note}
-                      </p>
-                    )}
+                    <div className="text-right">
+                      <span className="font-bold text-foreground text-lg">
+                        {formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))}
+                      </span>
+                    </div>
+                  </div>
 
-                    {Array.isArray(ord.items) && ord.items.length > 0 && (
-                      <ul className="mt-4 space-y-2">
+                  {ord.admin_note && (
+                    <div className="border border-primary/30 bg-primary/5 p-3 text-xs leading-relaxed">
+                      <strong className="text-foreground">Store Update:</strong>{" "}
+                      <span className="text-muted-foreground">{ord.admin_note}</span>
+                    </div>
+                  )}
+
+                  {ord.address && (
+                    <div className="text-xs text-muted-foreground">
+                      <span className="uppercase tracking-wider font-semibold text-foreground">Delivery:</span>{" "}
+                      {ord.address}
+                    </div>
+                  )}
+
+                  {Array.isArray(ord.items) && ord.items.length > 0 && (
+                    <div className="border-t border-border pt-3">
+                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3 font-semibold">
+                        Ordered Items
+                      </p>
+                      <ul className="divide-y divide-border/60">
                         {ord.items.map((it: any, idx: number) => (
-                          <li key={idx} className="flex justify-between text-xs text-muted-foreground">
-                            <span>
-                              {it.name} · {it.size} × {it.quantity}
-                            </span>
-                            <span className="text-foreground">
-                              ${(Number(it.price || it.priceCents / 100) * it.quantity).toFixed(2)}
+                          <li key={idx} className="py-2.5 flex items-center justify-between text-xs">
+                            <div className="flex items-center gap-3">
+                              {it.imageUrl && (
+                                <img
+                                  src={it.imageUrl}
+                                  alt={it.name}
+                                  className="size-11 object-cover bg-background border border-border"
+                                />
+                              )}
+                              <div>
+                                <p className="font-medium text-foreground">{it.name}</p>
+                                <p className="text-[11px] text-muted-foreground uppercase">
+                                  Size {it.size} × {it.quantity}
+                                </p>
+                              </div>
+                            </div>
+                            <span className="font-medium text-foreground">
+                              {formatPrice(
+                                (it.priceCents || Math.round(Number(it.price || 0) * 100)) * it.quantity
+                              )}
                             </span>
                           </li>
                         ))}
                       </ul>
-                    )}
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-        </TabsContent>
-      </Tabs>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </TabsContent>
+
+            {/* TAB 2: PAYMENTS */}
+            <TabsContent value="payments" className="mt-8 space-y-6">
+              {ordersList.length === 0 ? (
+                <div className="border border-border/80 bg-surface/40 p-12 text-center">
+                  <CreditCard className="mx-auto size-10 text-muted-foreground/50 stroke-1 mb-3" />
+                  <p className="text-sm font-medium text-foreground">No payments recorded</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    When you place an order and submit your bank transfer receipt, status updates will appear here.
+                  </p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto border border-border bg-surface">
+                  <table className="w-full text-left text-sm">
+                    <thead>
+                      <tr className="border-b border-border text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        <th className="p-4">Order Ref</th>
+                        <th className="p-4">Date</th>
+                        <th className="p-4">Amount</th>
+                        <th className="p-4">Payment Status</th>
+                        <th className="p-4">Receipt</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border text-xs">
+                      {ordersList.map((ord) => (
+                        <tr key={ord.id} className="hover:bg-background/40">
+                          <td className="p-4 font-mono font-medium text-foreground">
+                            {ord.reference || `ORD-${ord.id.slice(0, 8)}`}
+                          </td>
+                          <td className="p-4 text-muted-foreground">{formatDate(ord.created_at)}</td>
+                          <td className="p-4 font-semibold text-foreground">
+                            {formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))}
+                          </td>
+                          <td className="p-4">
+                            {renderPaymentBadge(ord.payment_status || ord.status)}
+                          </td>
+                          <td className="p-4 text-muted-foreground">
+                            {ord.receipt_url ? (
+                              <span className="text-emerald-400 font-medium">Receipt Submitted</span>
+                            ) : (
+                              <span className="text-muted-foreground">Not uploaded</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
+        </div>
+      )}
     </div>
   );
 }

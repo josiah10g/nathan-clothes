@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
 import { ProductCard, type ProductCardData } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
 
@@ -26,6 +27,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { user } = useAuth();
+  const displayName = (user?.user_metadata?.['full_name'] as string) || user?.email?.split("@")[0] || "";
+
   const { data: featured } = useQuery({
     queryKey: ["products", "featured"],
     queryFn: async () => {

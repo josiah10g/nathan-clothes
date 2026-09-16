@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { Minus, Plus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -37,6 +38,8 @@ function ProductDetail() {
   const { slug } = Route.useParams();
   const { add } = useCart();
   const [size, setSize] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [isAdding, setIsAdding] = useState(false);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ["product", slug],
@@ -82,10 +85,12 @@ function ProductDetail() {
   const soldOut = product.stock <= 0;
 
   const handleAdd = () => {
+    if (isAdding) return; // Prevent spam / rapid-clicking
     if (!size) {
       toast.error("Choose a size first");
       return;
     }
+    setIsAdding(true);
     add({
       productId: product.id,
       slug: product.slug,
@@ -93,9 +98,14 @@ function ProductDetail() {
       imageUrl: product.image_url,
       size,
       priceCents: product.price_cents,
-      quantity: 1,
+      quantity,
     });
-    toast.success(`${product.name} (${size}) added to bag`);
+    toast.success(
+      `${quantity} × ${product.name} (${size}) added to bag`
+    );
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 1200);
   };
 
   return (
@@ -156,20 +166,65 @@ function ProductDetail() {
             </div>
           </div>
 
+          <div className="mt-8 flex flex-wrap items-center gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">Quantity</p>
+              <div className="inline-flex items-center border border-border bg-surface">
+                <button
+                  type="button"
+                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                  disabled={quantity <= 1 || soldOut}
+                  className="flex size-11 items-center justify-center text-foreground hover:bg-background/80 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  aria-label="Decrease quantity"
+                >
+                  <Minus className="size-3.5" />
+                </button>
+                <span className="w-12 text-center font-mono text-sm font-semibold text-foreground select-none">
+                  {quantity}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setQuantity((q) => Math.min(product.stock || 99, q + 1))}
+                  disabled={quantity >= (product.stock || 99) || soldOut}
+                  className="flex size-11 items-center justify-center text-foreground hover:bg-background/80 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  aria-label="Increase quantity"
+                >
+                  <Plus className="size-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {product.stock > 0 ? (
+              <div className="self-end pb-2">
+                <p className="text-[11px] text-muted-foreground uppercase tracking-wider">
+                  {product.stock} units available
+                </p>
+              </div>
+            ) : (
+              <div className="self-end pb-2">
+                <p className="text-[11px] text-destructive uppercase tracking-wider font-medium">
+                  Not in stock yet
+                </p>
+              </div>
+            )}
+          </div>
+
           <Button
             size="lg"
             onClick={handleAdd}
-            disabled={soldOut}
-            className="mt-10 w-full text-xs uppercase tracking-[0.25em]"
+            disabled={soldOut || isAdding}
+            className="mt-8 w-full text-xs uppercase tracking-[0.25em] h-12 transition-all"
           >
-            {soldOut ? "Sold out" : "Add to bag"}
+            {soldOut
+              ? "Not in stock yet"
+              : isAdding
+                ? "Added to bag ✓"
+                : `Add ${quantity > 1 ? `${quantity} items ` : ""}to bag · ${formatPrice(product.price_cents * quantity)}`}
           </Button>
 
           <ul className="mt-10 space-y-2 border-t border-border pt-8 text-xs uppercase tracking-[0.15em] text-muted-foreground">
-            <li>Free shipping over $150</li>
             <li>30-day returns</li>
-            <li>Brand: {product.brand || "Nathan Clothes"}</li>
-            <li>{product.stock > 0 && product.in_stock ? `${product.stock} left in this run` : "Sold out"}</li>
+            <li>{product.stock > 0 && product.in_stock ? `${product.stock} left in this run` : "Not in stock yet"}</li>
           </ul>
         </div>
       </div>

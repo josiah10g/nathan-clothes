@@ -28,11 +28,13 @@ export const Route = createFileRoute("/checkout")({
 const schema = z.object({
   customer_name: z.string().trim().min(2, "Full name is required").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
-  phone: z.string().trim().min(5, "Phone number is required for order tracking and delivery updates").max(30),
-  address: z.string().trim().min(5, "Street address is required").max(250),
-  city: z.string().trim().min(2, "City is required").max(100),
-  postal_code: z.string().trim().min(2, "Postal code is required").max(20),
-  country: z.string().trim().min(2, "Country is required").max(100),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Phone number must be at least 7 digits")
+    .max(15, "Phone number too long")
+    .regex(/^[0-9]+$/, "Phone number must contain numbers only"),
+  address: z.string().trim().min(5, "Delivery address is required").max(300),
   notes: z.string().trim().max(500).optional(),
 });
 
@@ -47,14 +49,18 @@ function generateReference(): string {
 
 function CheckoutPage() {
   const { user } = useAuth();
-  const { items, subtotalCents, clear } = useCart();
+  const { items, subtotalCents, clear, hydrated } = useCart();
   const navigate = useNavigate();
 
   // Unique order reference for this checkout session
-  const [orderReference, setOrderReference] = useState("");
+  const [orderReference, setOrderReference] = useState(() => generateReference());
+  // If cart is empty after hydration, inform the user to visit cart and redirect
   useEffect(() => {
-    setOrderReference(generateReference());
-  }, []);
+    if (hydrated && items.length === 0 && !completedOrder) {
+      toast.info("Your bag is empty. Please add items to your cart first.");
+      navigate({ to: "/cart" });
+    }
+  }, [hydrated, items.length, completedOrder, navigate]);
 
   // Fetch store settings for bank transfer instructions
   const { data: storeSettings, isLoading: loadingSettings } = useQuery({
@@ -77,17 +83,26 @@ function CheckoutPage() {
   const [copiedReference, setCopiedReference] = useState(false);
 
   const [values, setValues] = useState({
-    customer_name: "",
+    customer_name: (user?.user_metadata?.['full_name'] as string) ?? "",
     email: user?.email ?? "",
-    phone: "",
+    phone: (user?.user_metadata?.['phone'] as string) ?? "",
     address: "",
-    city: "",
-    postal_code: "",
-    country: "",
     notes: "",
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  useEffect(() => {
+    if (user) {
+      setValues((prev) => ({
+        ...prev,
+        email: prev.email || user.email || "",
+        phone: prev.phone || (user.user_metadata?.['phone'] as string) || "",
+        customer_name: prev.customer_name || (user.user_metadata?.['full_name'] as string) || "",
+      }));
+    }
+  }, [user]);
+
+  type CheckoutErrors = Partial<Record<keyof z.infer<typeof schema>, string>>;
+  const [errors, setErrors] = useState<CheckoutErrors>({});
   const [receiptFile, setReceiptFile] = useState<File | null>(null);
   const [receiptPreview, setReceiptPreview] = useState<string | null>(null);
   const [uploadingReceipt, setUploadingReceipt] = useState(false);
@@ -99,8 +114,7 @@ function CheckoutPage() {
     customer_name: string;
   } | null>(null);
 
-  const shippingCents = subtotalCents >= 15000 ? 0 : 900;
-  const totalCents = subtotalCents + shippingCents;
+  const totalCents = subtotalCents;
   const totalNumeric = Math.round(totalCents) / 100;
 
   const handleCopy = (text: string, type: "account" | "reference") => {
@@ -141,17 +155,13 @@ function CheckoutPage() {
 
     const parsed = schema.safeParse(values);
     if (!parsed.success) {
-      const next: Record<string, string> = {};
+      const next: CheckoutErrors = {};
       for (const issue of parsed.error.issues) {
-        next[String(issue.path[0])] = issue.message;
+        const field = issue.path[0] as keyof z.infer<typeof schema>;
+        if (field) next[field] = issue.message;
       }
       setErrors(next);
       toast.error("Please fill in all required shipping and contact details");
-      return;
-    }
-
-    if (!receiptFile) {
-      toast.error("Please upload your payment receipt or transfer proof screenshot");
       return;
     }
 
@@ -159,26 +169,27 @@ function CheckoutPage() {
     setSubmittingOrder(true);
 
     try {
-      // 1. Upload receipt to Supabase Storage: payment-receipts
-      const fileExt = receiptFile.name.split(".").pop() || "jpg";
-      const sanitizedRef = orderReference.toLowerCase().replace(/[^a-z0-9]/g, "");
-      const fileName = `${sanitizedRef}_${Date.now()}.${fileExt}`;
-      const filePath = `receipts/${fileName}`;
+      let receiptPath: string | null = null;
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from("payment-receipts")
-        .upload(filePath, receiptFile, {
-          cacheControl: "3600",
-          upsert: true,
-        });
+      // 1. Upload receipt to Supabase Storage if provided
+      if (receiptFile) {
+        const fileExt = receiptFile.name.split(".").pop() || "jpg";
+        const sanitizedRef = orderReference.toLowerCase().replace(/[^a-z0-9]/g, "");
+        const fileName = `${sanitizedRef}_${Date.now()}.${fileExt}`;
+        const filePath = `receipts/${fileName}`;
 
-      if (uploadError) {
-        console.error("Storage error:", uploadError);
-        // If storage bucket isn't setup or permission issue, record notice
-        toast.error(`Receipt upload failed: ${uploadError.message}. Proceeding to create order record.`);
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from("payment-receipts")
+          .upload(filePath, receiptFile, {
+            cacheControl: "3600",
+            upsert: true,
+          });
+
+        if (uploadError) {
+          console.warn("Storage warning:", uploadError);
+        }
+        receiptPath = uploadData?.path || filePath;
       }
-
-      const receiptPath = uploadData?.path || filePath;
 
       // 2. Insert Order into Supabase
       const orderPayload = {
@@ -188,10 +199,10 @@ function CheckoutPage() {
         full_name: parsed.data.customer_name,
         email: parsed.data.email,
         phone: parsed.data.phone,
-        address: `${parsed.data.address}, ${parsed.data.city}, ${parsed.data.postal_code}, ${parsed.data.country}`,
-        city: parsed.data.city,
-        postal_code: parsed.data.postal_code,
-        country: parsed.data.country,
+        address: parsed.data.address,
+        city: "",
+        postal_code: "",
+        country: "",
         notes: parsed.data.notes || "",
         items: items.map((i) => ({
           productId: i.productId,
@@ -216,7 +227,7 @@ function CheckoutPage() {
         .from("orders")
         .insert(orderPayload)
         .select("id, reference, phone, customer_name, total")
-        .single();
+        .maybeSingle();
 
       if (orderError) {
         console.error("Order creation error:", orderError);
@@ -228,7 +239,7 @@ function CheckoutPage() {
       // 3. Clear cart and set confirmation state
       clear();
       setCompletedOrder({
-        reference: createdOrder.reference || orderReference,
+        reference: createdOrder?.reference || orderReference,
         total: totalNumeric,
         phone: parsed.data.phone,
         customer_name: parsed.data.customer_name,
@@ -244,13 +255,11 @@ function CheckoutPage() {
 
   // 4. Order Confirmation Screen
   if (completedOrder) {
-    const whatsappNum = storeSettings?.whatsapp_number || "15550192834";
+    const whatsappNum = storeSettings?.whatsapp_number || "";
     const waText = encodeURIComponent(
-      `Hello Nathan's Clothes, I just placed an order (Ref: ${completedOrder.reference}) for $${completedOrder.total.toFixed(
-        2
-      )}. Name: ${completedOrder.customer_name}. Here is my payment confirmation.`
+      `Hello Nathan's Clothes, I just placed an order (Ref: ${completedOrder.reference}) for ₦${new Intl.NumberFormat("en-NG", { maximumFractionDigits: 0 }).format(completedOrder.total)}. Name: ${completedOrder.customer_name}. Here is my payment confirmation.`
     );
-    const waUrl = `https://wa.me/${whatsappNum}?text=${waText}`;
+    const waUrl = whatsappNum ? `https://wa.me/${whatsappNum}?text=${waText}` : "#";
 
     return (
       <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6">
@@ -356,12 +365,15 @@ function CheckoutPage() {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="grid gap-2">
-                  <Label htmlFor="phone">Phone Number (Required for Tracking) *</Label>
+                  <Label htmlFor="phone">Phone Number (numbers only) *</Label>
                   <Input
                     id="phone"
-                    placeholder="e.g. +1 555 019 2834"
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    placeholder="08012345678"
                     value={values.phone}
-                    onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
+                    onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value.replace(/[^0-9]/g, "") }))}
                   />
                   {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
                 </div>
@@ -371,7 +383,7 @@ function CheckoutPage() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="name@domain.com"
+                    placeholder="name@gmail.com"
                     value={values.email}
                     onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
                   />
@@ -380,49 +392,15 @@ function CheckoutPage() {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="address">Street Address *</Label>
-                <Input
+                <Label htmlFor="address">Delivery Address *</Label>
+                <Textarea
                   id="address"
-                  placeholder="Apartment, suite, street address"
+                  rows={3}
+                  placeholder="House/Apartment number, street name, area, city, and state"
                   value={values.address}
                   onChange={(e) => setValues((v) => ({ ...v, address: e.target.value }))}
                 />
                 {errors.address && <p className="text-xs text-destructive">{errors.address}</p>}
-              </div>
-
-              <div className="grid gap-5 sm:grid-cols-3">
-                <div className="grid gap-2">
-                  <Label htmlFor="city">City *</Label>
-                  <Input
-                    id="city"
-                    placeholder="City"
-                    value={values.city}
-                    onChange={(e) => setValues((v) => ({ ...v, city: e.target.value }))}
-                  />
-                  {errors.city && <p className="text-xs text-destructive">{errors.city}</p>}
-                </div>
-
-                <div className="grid gap-2">
-                  <Label htmlFor="postal_code">Postal Code *</Label>
-                  <Input
-                    id="postal_code"
-                    placeholder="Postal / Zip"
-                    value={values.postal_code}
-                    onChange={(e) => setValues((v) => ({ ...v, postal_code: e.target.value }))}
-                  />
-                  {errors.postal_code && <p className="text-xs text-destructive">{errors.postal_code}</p>}
-                </div>
-
-                <div className="grid gap-2">
-                  <Label htmlFor="country">Country *</Label>
-                  <Input
-                    id="country"
-                    placeholder="Country"
-                    value={values.country}
-                    onChange={(e) => setValues((v) => ({ ...v, country: e.target.value }))}
-                  />
-                  {errors.country && <p className="text-xs text-destructive">{errors.country}</p>}
-                </div>
               </div>
 
               <div className="grid gap-2">
@@ -444,24 +422,7 @@ function CheckoutPage() {
             </h2>
 
             <div className="border border-border bg-background/70 p-6 space-y-5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Order Reference (Narration)</p>
-                  <p className="mt-1 font-mono text-xl font-bold tracking-wider text-primary">{orderReference}</p>
-                </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => handleCopy(orderReference, "reference")}
-                  className="gap-1.5 text-xs uppercase tracking-[0.15em]"
-                >
-                  {copiedReference ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-                  {copiedReference ? "Copied" : "Copy Ref"}
-                </Button>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2 pt-2">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Bank Name</p>
                   <p className="mt-1 font-medium text-foreground">
@@ -509,7 +470,7 @@ function CheckoutPage() {
           {/* Step 3: Receipt Proof Upload */}
           <div className="border border-border bg-surface p-6 sm:p-8">
             <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6">
-              3. Upload Proof of Payment (Receipt / Screenshot) *
+              3. Upload Proof of Payment (Receipt / Screenshot - Optional)
             </h2>
 
             <div className="grid gap-4">
@@ -544,7 +505,7 @@ function CheckoutPage() {
             disabled={submittingOrder}
             className="w-full text-xs uppercase tracking-[0.25em] py-6 text-sm"
           >
-            {submittingOrder ? "Submitting Order & Verifying…" : `Complete Order · $${totalNumeric.toFixed(2)}`}
+            {submittingOrder ? "Submitting Order & Verifying…" : `Complete Order · ${formatPrice(subtotalCents)}`}
           </Button>
         </form>
 
@@ -576,15 +537,9 @@ function CheckoutPage() {
               <dt>Subtotal</dt>
               <dd className="font-medium text-foreground">{formatPrice(subtotalCents)}</dd>
             </div>
-            <div className="flex justify-between text-muted-foreground">
-              <dt>Shipping</dt>
-              <dd className="font-medium text-foreground">
-                {shippingCents === 0 ? "Free" : formatPrice(shippingCents)}
-              </dd>
-            </div>
             <div className="flex justify-between border-t border-border pt-4 text-base font-bold text-foreground">
               <dt>Total Amount</dt>
-              <dd>${totalNumeric.toFixed(2)}</dd>
+              <dd>{formatPrice(subtotalCents)}</dd>
             </div>
           </dl>
 

@@ -1,29 +1,46 @@
 import { useEffect, useState } from "react";
 
 export function LoadingScreen() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Check if initial load already ran in this session
+    const triggerScreen = () => {
+      setVisible(true);
+      setFading(false);
+
+      const fadeTimer = setTimeout(() => {
+        setFading(true);
+      }, 3600);
+
+      const removeTimer = setTimeout(() => {
+        setVisible(false);
+      }, 4100);
+
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(removeTimer);
+      };
+    };
+
+    // 1. Initial page load (if not loaded yet)
     const hasLoaded = sessionStorage.getItem("nc_initial_loaded");
-    if (hasLoaded) {
-      setVisible(false);
-      return;
+    let cleanupInitial: (() => void) | undefined;
+    if (!hasLoaded) {
+      sessionStorage.setItem("nc_initial_loaded", "true");
+      cleanupInitial = triggerScreen();
     }
 
-    const fadeTimer = setTimeout(() => {
-      setFading(true);
-    }, 3600);
+    // 2. Event listener for login trigger
+    const handleLoginEvent = () => {
+      triggerScreen();
+    };
 
-    const removeTimer = setTimeout(() => {
-      setVisible(false);
-      sessionStorage.setItem("nc_initial_loaded", "true");
-    }, 4100);
+    window.addEventListener("nc:show-loading-screen", handleLoginEvent);
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(removeTimer);
+      window.removeEventListener("nc:show-loading-screen", handleLoginEvent);
+      if (cleanupInitial) cleanupInitial();
     };
   }, []);
 

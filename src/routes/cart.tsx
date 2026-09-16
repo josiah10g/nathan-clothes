@@ -7,7 +7,7 @@ import { formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
-      { title: "Your Bag — Nathan's Clothing" },
+      { title: "Your Cart — Nathan's Clothing" },
       { name: "description", content: "Review the pieces in your bag before checking out." },
       { property: "og:title", content: "Your Bag — Nathan's Clothing" },
       { property: "og:description", content: "Review the pieces in your bag before checking out." },
@@ -18,7 +18,6 @@ export const Route = createFileRoute("/cart")({
 
 function CartPage() {
   const { items, subtotalCents, setQuantity, remove } = useCart();
-  const shipping = subtotalCents === 0 || subtotalCents >= 15000 ? 0 : 900;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
@@ -90,20 +89,16 @@ function CartPage() {
             <dl className="mt-6 space-y-3 text-sm">
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Subtotal</dt>
-                <dd>{formatPrice(subtotalCents)}</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-muted-foreground">Shipping</dt>
-                <dd>{shipping === 0 ? "Free" : formatPrice(shipping)}</dd>
+                <dd className="font-medium text-foreground">{formatPrice(subtotalCents)}</dd>
               </div>
               <div className="flex justify-between border-t border-border pt-3 text-base">
                 <dt>Total</dt>
-                <dd>{formatPrice(subtotalCents + shipping)}</dd>
+                <dd className="font-bold text-foreground">{formatPrice(subtotalCents)}</dd>
               </div>
             </dl>
             <Link to="/checkout" className="mt-8 block">
               <Button size="lg" className="w-full text-xs uppercase tracking-[0.25em]">
-                Checkout
+                Proceed to Checkout
               </Button>
             </Link>
           </aside>

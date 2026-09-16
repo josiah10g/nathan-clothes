@@ -1,7 +1,7 @@
 import { n as __require, r as __toESM, t as __commonJSMin } from "../../_runtime.mjs";
-import { o as require_jsx_runtime, s as require_react } from "../@radix-ui/react-collection+[...].mjs";
+import { l as require_react_dom, u as require_react } from "../@floating-ui/react-dom+[...].mjs";
+import { N as require_jsx_runtime } from "../@radix-ui/react-alert-dialog+[...].mjs";
 import { r as parseHref } from "../tanstack__history.mjs";
-import { r as require_react_dom } from "../@radix-ui/react-label+[...].mjs";
 import { PassThrough, Readable } from "node:stream";
 import { ReadableStream as ReadableStream$1 } from "node:stream/web";
 //#region node_modules/@tanstack/react-router/dist/esm/utils.js

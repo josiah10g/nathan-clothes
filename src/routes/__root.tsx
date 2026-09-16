@@ -142,7 +142,7 @@ function RootComponent() {
             <Footer />
             <WhatsAppButton />
           </div>
-          <Toaster position="top-center" />
+          <Toaster position="bottom-right" />
         </CartProvider>
       </AuthProvider>
     </QueryClientProvider>

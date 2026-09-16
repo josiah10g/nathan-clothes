@@ -1,7 +1,9 @@
 export function formatPrice(cents: number) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
-    (cents ?? 0) / 100,
-  );
+  const amount = Math.round((cents ?? 0) / 100);
+  return `₦${new Intl.NumberFormat("en-NG", {
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+  }).format(amount)}`;
 }
 
 export function formatDate(value: string) {
