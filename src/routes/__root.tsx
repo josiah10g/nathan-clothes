@@ -15,6 +15,8 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { CartProvider } from "@/hooks/useCart";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { LoadingScreen } from "@/components/site/LoadingScreen";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -134,13 +136,15 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <CartProvider>
+          <LoadingScreen />
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 animate-page-enter">
               {/* Required: nested routes render here. */}
               <Outlet />
             </main>
             <Footer />
+            <WhatsAppButton />
           </div>
           <Toaster position="top-center" />
         </CartProvider>

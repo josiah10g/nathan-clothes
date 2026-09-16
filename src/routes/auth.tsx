@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>) => ({
     redirect: typeof search["redirect"] === "string" ? search["redirect"] : undefined,
+    mode: search["mode"] === "signup" ? ("signup" as const) : ("signin" as const),
   }),
   head: () => ({
     meta: [
@@ -39,10 +40,15 @@ function safePath(path: string | undefined) {
 }
 
 function AuthPage() {
-  const { redirect } = Route.useSearch();
+  const { redirect, mode } = Route.useSearch();
   const { user } = useAuth();
   const navigate = useNavigate();
   const target = safePath(redirect);
+  const [activeTab, setActiveTab] = useState<string>(mode || "signin");
+
+  useEffect(() => {
+    if (mode) setActiveTab(mode);
+  }, [mode]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -116,7 +122,7 @@ function AuthPage() {
         Sign in to check out and follow your orders.
       </p>
 
-      <Tabs defaultValue="signin" className="mt-10">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-10">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="signin" className="text-xs uppercase tracking-[0.2em]">
             Sign in

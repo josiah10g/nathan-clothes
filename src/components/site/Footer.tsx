@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
-          <p className="text-display text-xl tracking-brand">NATHAN&apos;S</p>
+          <p className="text-display text-xl tracking-brand">NATHAN&apos;S CLOTHES</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Heavyweight monochrome streetwear, cut oversized and made in limited runs. 100% cotton,
             350&ndash;400 GSM.

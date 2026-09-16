@@ -42,7 +42,7 @@ function About() {
             restocks. When a run sells out it makes way for the next one.
           </p>
           <p>
-            Orders ship worldwide within two business days. Returns stay open for 30 days, no
+            Orders ship promptly within two business days. Returns stay open for 30 days, no
             questions asked.
           </p>
           <div className="pt-4">

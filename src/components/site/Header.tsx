@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV = [
+  { to: "/", label: "Home" },
   { to: "/shop", label: "Shop" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -36,7 +37,7 @@ export function Header() {
         </button>
 
         <Link to="/" className="text-display text-lg tracking-brand sm:text-xl">
-          NATHAN&apos;S
+          NATHAN&apos;S CLOTHES
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -76,21 +77,29 @@ export function Header() {
               </Button>
             </>
           ) : (
-            <Link to="/auth" search={{ redirect: undefined }}>
-              <Button variant="ghost" className="text-xs uppercase tracking-[0.2em]">
-                Sign in
-              </Button>
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link to="/auth" search={{ mode: "signin", redirect: undefined }}>
+                <Button variant="ghost" className="text-xs uppercase tracking-[0.2em]">
+                  Log in
+                </Button>
+              </Link>
+              <Link to="/auth" search={{ mode: "signup", redirect: undefined }}>
+                <Button variant="default" className="text-xs uppercase tracking-[0.2em]">
+                  Sign up
+                </Button>
+              </Link>
+            </div>
           )}
           <Link to="/cart" aria-label="Cart" className="relative">
-            <Button variant="ghost" size="icon">
-              <ShoppingBag className="size-5" />
+            <Button variant="ghost" className="flex items-center gap-1.5 px-2.5 text-xs uppercase tracking-[0.2em]">
+              <ShoppingBag className="size-4" />
+              <span>Cart</span>
+              {count > 0 && (
+                <span className="flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                  {count}
+                </span>
+              )}
             </Button>
-            {count > 0 && (
-              <span className="pointer-events-none absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-                {count}
-              </span>
-            )}
           </Link>
         </div>
       </div>
@@ -115,6 +124,26 @@ export function Header() {
             >
               Admin
             </Link>
+          )}
+          {!user && (
+            <div className="flex flex-col gap-1 border-t border-border pt-2">
+              <Link
+                to="/auth"
+                search={{ mode: "signin", redirect: undefined }}
+                onClick={() => setOpen(false)}
+                className="py-2.5 text-sm uppercase tracking-[0.2em] text-muted-foreground"
+              >
+                Log in
+              </Link>
+              <Link
+                to="/auth"
+                search={{ mode: "signup", redirect: undefined }}
+                onClick={() => setOpen(false)}
+                className="py-2.5 text-sm uppercase tracking-[0.2em] text-foreground font-medium"
+              >
+                Sign up
+              </Link>
+            </div>
           )}
           {user && (
             <button
