@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard, type ProductCardData } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
-import heroAsset from "@/assets/shadow-web-hoodie.jpg.asset.json";
+
+const HERO_IMAGE_URL = "/images/shadow-web-hoodie.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,7 +78,7 @@ function Home() {
           </div>
           <div className="relative min-h-[60vh] bg-surface md:min-h-[80vh]">
             <img
-              src={heroAsset.url}
+              src={HERO_IMAGE_URL}
               alt="Black oversized hoodie with spiderweb print from the Nathan's Clothing Void Series"
               width={1024}
               height={1024}

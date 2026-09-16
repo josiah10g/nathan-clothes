@@ -1,24 +1,27 @@
-# Nathan's Style Hub
+# Nathan's Clothes — Premium Dark Streetwear E-Commerce
 
-Build a full-stack, responsive e-commerce website for a clothing business named NATHAN'S CLOTHES. Use the attached image as visual inspiration: premium dark streetwear, bold product presentation, monochrome palette. Enable Lovable Cloud for product/order/contact data and authentication. Include a product catalogue with product detail, cart and order flow; signup/login including Google sign-in; customer accounts for viewing orders; a contact page that stores messages for the owner; and a protected admin dashboard for managing products, orders, and contact messages. Implement secure admin role access; provide a clear initial admin setup path rather than exposing credentials. Make the experience polished across mobile and desktop.
+Full-stack, responsive e-commerce web application for **Nathan's Clothes** built with React, TanStack Start, Tailwind CSS, and Supabase.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8ac47e7c-93d2-4196-b74d-bc5263c9f38a).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Features
+- **Monochrome & Streetwear Aesthetic**: Clean typography, high-impact product presentation, smooth interactions, and responsive layouts.
+- **Direct Bank Transfer Payment**: 1-click bank details copy, dynamic unique order reference (`CK-XXXXXXXX`), and receipt proof upload.
+- **Guest & Customer Order Tracking**: Instant tracking using order reference + phone number with receipt re-upload.
+- **Store Administration Dashboard**:
+  - Review orders, inspect payment receipts with signed URLs, approve or decline orders with admin notes.
+  - Manage product catalogue with direct image uploads.
+  - Update store settings (bank accounts, instructions, WhatsApp number, contact details).
+  - Appoint new admins by email.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+## Deployment to Vercel
+
+```sh
+npm run build
+```
+Deploy via Vercel CLI or connect the repository to Vercel (preset mapped via `vercel.json` and Nitro).

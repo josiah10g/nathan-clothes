@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import fabricAsset from "@/assets/web-realm-tee.jpg.asset.json";
+
+const FABRIC_IMAGE_URL = "/images/web-realm-tee.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -55,7 +56,7 @@ function About() {
         </div>
         <div className="bg-surface">
           <img
-            src={fabricAsset.url}
+            src={FABRIC_IMAGE_URL}
             alt="Washed grey heavyweight tee with a spiderweb back print"
             width={1024}
             height={1024}

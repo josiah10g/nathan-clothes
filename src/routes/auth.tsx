@@ -3,7 +3,6 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,13 +16,13 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Sign In — Nathan's Clothing" },
+      { title: "Sign In — Nathan's Clothes" },
       {
         name: "description",
-        content: "Sign in or create a Nathan's Clothing account to check out and track your orders.",
+        content: "Sign in or create a Nathan's Clothes account to check out and track your orders.",
       },
-      { property: "og:title", content: "Sign In — Nathan's Clothing" },
-      { property: "og:description", content: "Sign in or create a Nathan's Clothing account." },
+      { property: "og:title", content: "Sign In — Nathan's Clothes" },
+      { property: "og:description", content: "Sign in or create a Nathan's Clothes account." },
     ],
   }),
   component: AuthPage,
@@ -103,23 +102,11 @@ function AuthPage() {
     navigate({ to: target, replace: true });
   };
 
-  const googleSignIn = async () => {
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-    });
-    if (result.error) {
-      toast.error("Google sign-in failed. Please try again.");
-      return;
-    }
-    if (result.redirected) return;
-    navigate({ to: target, replace: true });
-  };
-
   return (
     <div className="mx-auto max-w-md px-4 py-20 sm:px-6">
       <h1 className="text-center text-4xl">Account</h1>
       <p className="mt-3 text-center text-sm text-muted-foreground">
-        Sign in to check out and follow your orders.
+        Sign in to manage your orders or track your purchases.
       </p>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-10">
@@ -193,20 +180,6 @@ function AuthPage() {
           </form>
         </TabsContent>
       </Tabs>
-
-      <div className="my-8 flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-        <span className="h-px flex-1 bg-border" />
-        or
-        <span className="h-px flex-1 bg-border" />
-      </div>
-
-      <Button
-        variant="outline"
-        onClick={googleSignIn}
-        className="w-full text-xs uppercase tracking-[0.2em]"
-      >
-        Continue with Google
-      </Button>
     </div>
   );
 }

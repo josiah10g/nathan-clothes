@@ -129,10 +129,17 @@ function ProductDetail() {
             {product.description}
           </p>
 
+          {product.specifications && (
+            <div className="mt-8 rounded border border-border bg-surface p-4">
+              <p className="text-xs uppercase tracking-[0.2em] font-semibold text-foreground mb-1">Specifications</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{product.specifications}</p>
+            </div>
+          )}
+
           <div className="mt-10">
             <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Size</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {product.sizes.map((s: string) => (
+              {(product.sizes || ["S", "M", "L", "XL", "XXL"]).map((s: string) => (
                 <button
                   key={s}
                   onClick={() => setSize(s)}
@@ -161,7 +168,8 @@ function ProductDetail() {
           <ul className="mt-10 space-y-2 border-t border-border pt-8 text-xs uppercase tracking-[0.15em] text-muted-foreground">
             <li>Free shipping over $150</li>
             <li>30-day returns</li>
-            <li>{product.stock > 0 ? `${product.stock} left in this run` : "Sold out"}</li>
+            <li>Brand: {product.brand || "Nathan Clothes"}</li>
+            <li>{product.stock > 0 && product.in_stock ? `${product.stock} left in this run` : "Sold out"}</li>
           </ul>
         </div>
       </div>

@@ -7,8 +7,6 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
@@ -94,94 +92,181 @@ export type Database = {
       }
       orders: {
         Row: {
+          id: string
+          reference: string
+          user_id: string | null
+          customer_name: string
+          full_name?: string
+          phone: string
+          email: string
           address: string
           city: string
-          country: string
-          created_at: string
-          email: string
-          full_name: string
-          id: string
-          phone: string
           postal_code: string
-          status: string
+          country: string
+          notes: string | null
+          items: Json
+          total: number
           total_cents: number
-          user_id: string
+          status: string
+          payment_status: string
+          receipt_path: string | null
+          receipt_uploaded_at: string | null
+          admin_note: string | null
+          reviewed_at: string | null
+          created_at: string
+          updated_at: string
         }
         Insert: {
-          address: string
-          city: string
-          country: string
-          created_at?: string
-          email: string
-          full_name: string
           id?: string
-          phone?: string
-          postal_code: string
-          status?: string
+          reference?: string
+          user_id?: string | null
+          customer_name: string
+          full_name?: string
+          phone: string
+          email: string
+          address: string
+          city?: string
+          postal_code?: string
+          country?: string
+          notes?: string | null
+          items?: Json
+          total?: number
           total_cents?: number
-          user_id: string
+          status?: string
+          payment_status?: string
+          receipt_path?: string | null
+          receipt_uploaded_at?: string | null
+          admin_note?: string | null
+          reviewed_at?: string | null
+          created_at?: string
+          updated_at?: string
         }
         Update: {
+          id?: string
+          reference?: string
+          user_id?: string | null
+          customer_name?: string
+          full_name?: string
+          phone?: string
+          email?: string
           address?: string
           city?: string
-          country?: string
-          created_at?: string
-          email?: string
-          full_name?: string
-          id?: string
-          phone?: string
           postal_code?: string
-          status?: string
+          country?: string
+          notes?: string | null
+          items?: Json
+          total?: number
           total_cents?: number
-          user_id?: string
+          status?: string
+          payment_status?: string
+          receipt_path?: string | null
+          receipt_uploaded_at?: string | null
+          admin_note?: string | null
+          reviewed_at?: string | null
+          created_at?: string
+          updated_at?: string
         }
         Relationships: []
       }
       products: {
         Row: {
-          active: boolean
-          category: string
-          colorway: string
-          created_at: string
-          description: string
-          featured: boolean
           id: string
-          image_url: string
           name: string
-          price_cents: number
-          sizes: string[]
           slug: string
+          brand: string
+          category: string
+          description: string
+          specifications: string
+          price: number
+          price_cents: number
+          image_url: string
+          colorway: string
+          sizes: string[]
+          in_stock: boolean
           stock: number
+          featured: boolean
+          active: boolean
+          sort_order: number
+          created_at: string
+          updated_at: string
         }
         Insert: {
-          active?: boolean
-          category?: string
-          colorway?: string
-          created_at?: string
-          description?: string
-          featured?: boolean
           id?: string
-          image_url?: string
           name: string
-          price_cents?: number
-          sizes?: string[]
           slug: string
+          brand?: string
+          category?: string
+          description?: string
+          specifications?: string
+          price?: number
+          price_cents?: number
+          image_url?: string
+          colorway?: string
+          sizes?: string[]
+          in_stock?: boolean
           stock?: number
+          featured?: boolean
+          active?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
         }
         Update: {
-          active?: boolean
-          category?: string
-          colorway?: string
-          created_at?: string
-          description?: string
-          featured?: boolean
           id?: string
-          image_url?: string
           name?: string
-          price_cents?: number
-          sizes?: string[]
           slug?: string
+          brand?: string
+          category?: string
+          description?: string
+          specifications?: string
+          price?: number
+          price_cents?: number
+          image_url?: string
+          colorway?: string
+          sizes?: string[]
+          in_stock?: boolean
           stock?: number
+          featured?: boolean
+          active?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      store_settings: {
+        Row: {
+          id: string
+          bank_name: string
+          account_name: string
+          account_number: string
+          payment_instructions: string
+          contact_phone: string
+          whatsapp_number: string
+          contact_email: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          bank_name?: string
+          account_name?: string
+          account_number?: string
+          payment_instructions?: string
+          contact_phone?: string
+          whatsapp_number?: string
+          contact_email?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          bank_name?: string
+          account_name?: string
+          account_number?: string
+          payment_instructions?: string
+          contact_phone?: string
+          whatsapp_number?: string
+          contact_email?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -216,7 +301,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
-          role: Database["public"]["Enums"]["app_role"]
+          role?: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
@@ -232,8 +317,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      admin_exists: { Args: never; Returns: boolean }
-      claim_first_admin: { Args: never; Returns: boolean }
+      admin_exists: { Args: Record<PropertyKey, never>; Returns: boolean }
+      claim_first_admin: { Args: Record<PropertyKey, never>; Returns: boolean }
+      grant_admin_by_email: {
+        Args: {
+          _email: string
+        }
+        Returns: boolean
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -241,9 +332,24 @@ export type Database = {
         }
         Returns: boolean
       }
+      track_order: {
+        Args: {
+          _reference: string
+          _phone: string
+        }
+        Returns: Json
+      }
+      attach_receipt: {
+        Args: {
+          _reference: string
+          _phone: string
+          _path: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      app_role: "admin" | "customer"
+      app_role: "admin" | "user" | "customer"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -251,127 +357,9 @@ export type Database = {
   }
 }
 
-type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+type DatabaseUser = Database["public"]["Tables"]
 
-type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
-
-export type Tables<
-  DefaultSchemaTableNameOrOptions extends
-    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
-  }
-    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
-    }
-    ? R
-    : never
-  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
-        DefaultSchema["Views"])
-    ? (DefaultSchema["Tables"] &
-        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
-        Row: infer R
-      }
-      ? R
-      : never
-    : never
-
-export type TablesInsert<
-  DefaultSchemaTableNameOrOptions extends
-    | keyof DefaultSchema["Tables"]
-    | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
-  }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
-    }
-    ? I
-    : never
-  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-        Insert: infer I
-      }
-      ? I
-      : never
-    : never
-
-export type TablesUpdate<
-  DefaultSchemaTableNameOrOptions extends
-    | keyof DefaultSchema["Tables"]
-    | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
-  }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
-    }
-    ? U
-    : never
-  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-        Update: infer U
-      }
-      ? U
-      : never
-    : never
-
-export type Enums<
-  DefaultSchemaEnumNameOrOptions extends
-    | keyof DefaultSchema["Enums"]
-    | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
-  }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never) = never,
-> = DefaultSchemaEnumNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
-  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
-    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
-    : never
-
-export type CompositeTypes<
-  PublicCompositeTypeNameOrOptions extends
-    | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
-  }
-    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never) = never,
-> = PublicCompositeTypeNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
-  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
-    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-    : never
-
-export const Constants = {
-  public: {
-    Enums: {
-      app_role: ["admin", "customer"],
-    },
-  },
-} as const
+export type Tables<T extends keyof DatabaseUser> = DatabaseUser[T]["Row"]
+export type TablesInsert<T extends keyof DatabaseUser> = DatabaseUser[T]["Insert"]
+export type TablesUpdate<T extends keyof DatabaseUser> = DatabaseUser[T]["Update"]
+export type Enums<T extends keyof Database["public"]["Enums"]> = Database["public"]["Enums"][T]
