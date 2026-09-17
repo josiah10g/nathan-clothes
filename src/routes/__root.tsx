@@ -41,7 +41,7 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+  console.error("Root route error:", error);
   const router = useRouter();
 
   return (
@@ -51,8 +51,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          {error?.message || "Something went wrong on our end. You can try refreshing or head back home."}
         </p>
+        {process.env.NODE_ENV !== "production" && error?.stack && (
+          <pre className="mt-4 max-h-40 overflow-auto rounded bg-muted p-2 text-left text-xs text-muted-foreground">
+            {error.stack}
+          </pre>
+        )}
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -74,6 +79,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
+
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({

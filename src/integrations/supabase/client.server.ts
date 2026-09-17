@@ -25,11 +25,12 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
 }
 
 function createSupabaseAdminClient() {
-  const SUPABASE_URL = process.env['SUPABASE_URL'];
+  const SUPABASE_URL = process.env['SUPABASE_URL'] || process.env['VITE_SUPABASE_URL'];
   // Use service role key if available, otherwise fall back to publishable key
   const SUPABASE_KEY =
     process.env['SUPABASE_SERVICE_ROLE_KEY'] ||
-    process.env['SUPABASE_PUBLISHABLE_KEY'];
+    process.env['SUPABASE_PUBLISHABLE_KEY'] ||
+    process.env['VITE_SUPABASE_PUBLISHABLE_KEY'];
 
   if (!SUPABASE_URL || !SUPABASE_KEY) {
     const message = `Missing Supabase environment variable(s): SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY. Please configure your environment variables.`;

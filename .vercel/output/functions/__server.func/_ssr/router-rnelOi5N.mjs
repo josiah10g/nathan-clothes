@@ -15,10 +15,10 @@ import { l as ProfileDialog, n as AvatarFallback, r as AvatarImage, t as Avatar 
 import { t as Route$11 } from "./auth-D-sgwxxs.mjs";
 import { n as useCart, t as CartProvider } from "./useCart-B6US-OkA.mjs";
 import { t as Route$12 } from "./product._slug-BYjMtkLh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-D6sIUDfu.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-rnelOi5N.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-Dz7atxcM.css";
+var styles_default = "/assets/styles-ClGbTGer.css";
 var DropdownMenu = Root2;
 var DropdownMenuTrigger = Trigger;
 var DropdownMenuSubTrigger = import_react.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SubTrigger2, {
@@ -518,7 +518,7 @@ function NotFoundComponent() {
 	});
 }
 function ErrorComponent({ error, reset }) {
-	console.error(error);
+	console.error("Root route error:", error);
 	const router = useRouter();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "flex min-h-screen items-center justify-center bg-background px-4",
@@ -531,8 +531,9 @@ function ErrorComponent({ error, reset }) {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "mt-2 text-sm text-muted-foreground",
-					children: "Something went wrong on our end. You can try refreshing or head back home."
+					children: error?.message || "Something went wrong on our end. You can try refreshing or head back home."
 				}),
+				false,
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "mt-6 flex flex-wrap justify-center gap-2",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
