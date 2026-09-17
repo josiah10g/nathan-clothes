@@ -20197,10 +20197,10 @@ var init_client = __esmMin((() => {
 	init_headers();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DIccz51D.js
-var _tanstack_start_manifest_v_DIccz51D_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CzWN2fVP.js
+var _tanstack_start_manifest_v_CzWN2fVP_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
+var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/__root.tsx",
@@ -20217,7 +20217,7 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 				"/product/$slug"
 			],
 			preloads: [
-				"/assets/index-Dlt4xFk8.js",
+				"/assets/index-Dl6fPHVQ.js",
 				"/assets/jsx-runtime-Dk72oS4N.js",
 				"/assets/utils-BiJ5wl_M.js",
 				"/assets/useStore-BBUHbJZj.js",
@@ -20231,15 +20231,15 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-Dlt4xFk8.js"
+				src: "/assets/index-Dl6fPHVQ.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-Dtn6US3y.js",
-				"/assets/useQuery-CngLXkKb.js",
+				"/assets/routes-BUZN75G3.js",
+				"/assets/useQuery-bivPXRzH.js",
 				"/assets/ProductCard-BUZ6Bz-b.js"
 			]
 		},
@@ -20257,10 +20257,10 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/account.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/account-SvyXMGVA.js",
-				"/assets/useQuery-CngLXkKb.js",
-				"/assets/badge-B4pRPNWB.js",
-				"/assets/tabs-C-iSfgHZ.js",
+				"/assets/account-DK4JUIYc.js",
+				"/assets/useQuery-bivPXRzH.js",
+				"/assets/badge-C4BUKdxW.js",
+				"/assets/tabs-D13YBPj8.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20268,8 +20268,8 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-BusF_My3.js",
-				"/assets/tabs-C-iSfgHZ.js",
+				"/assets/auth-BP_uRxME.js",
+				"/assets/tabs-D13YBPj8.js",
 				"/assets/types-DKSnJpxg.js"
 			]
 		},
@@ -20277,9 +20277,9 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/cart.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cart-D4xEHpUE.js",
-				"/assets/plus-DI4a77wy.js",
-				"/assets/trash-2-DnK5KnsF.js",
+				"/assets/cart-DVZbUBac.js",
+				"/assets/plus-nvmwwGFF.js",
+				"/assets/trash-2-2xGfk-UP.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20287,10 +20287,10 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/checkout.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/checkout-gn0oGM-4.js",
-				"/assets/useQuery-CngLXkKb.js",
-				"/assets/message-circle-kFSR0r0n.js",
-				"/assets/upload-D09rh28m.js",
+				"/assets/checkout--eIlNGVH.js",
+				"/assets/useQuery-bivPXRzH.js",
+				"/assets/message-circle-jMGSPwtP.js",
+				"/assets/upload-DQDKDVh1.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/types-DKSnJpxg.js"
@@ -20300,7 +20300,7 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/contact.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/contact-eOJeu4bS.js",
+				"/assets/contact-C92l2Au5.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/types-DKSnJpxg.js"
 			]
@@ -20309,8 +20309,8 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/shop.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/shop-DEh-Q_ul.js",
-				"/assets/useQuery-CngLXkKb.js",
+				"/assets/shop-DERWZcQE.js",
+				"/assets/useQuery-bivPXRzH.js",
 				"/assets/ProductCard-BUZ6Bz-b.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -20319,29 +20319,29 @@ var init__tanstack_start_manifest_v_DIccz51D = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-B4bXpmiO.js",
-				"/assets/useQuery-CngLXkKb.js",
-				"/assets/badge-B4pRPNWB.js",
-				"/assets/trash-2-DnK5KnsF.js",
-				"/assets/upload-D09rh28m.js",
+				"/assets/admin-DSUA8JEV.js",
+				"/assets/useQuery-bivPXRzH.js",
+				"/assets/badge-C4BUKdxW.js",
+				"/assets/trash-2-2xGfk-UP.js",
+				"/assets/upload-DQDKDVh1.js",
 				"/assets/textarea-CXleoTI0.js",
-				"/assets/tabs-C-iSfgHZ.js",
+				"/assets/tabs-D13YBPj8.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
 		"/_authenticated/admin-setup": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin-setup.tsx",
 			children: void 0,
-			preloads: ["/assets/admin-setup-CHHwBuVk.js", "/assets/useQuery-CngLXkKb.js"]
+			preloads: ["/assets/admin-setup-CbgkU5-r.js", "/assets/useQuery-bivPXRzH.js"]
 		},
 		"/product/$slug": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/product.$slug.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/product._slug-CHJ5YnHU.js",
-				"/assets/useQuery-CngLXkKb.js",
-				"/assets/message-circle-kFSR0r0n.js",
-				"/assets/plus-DI4a77wy.js",
+				"/assets/product._slug-DL6sdYhk.js",
+				"/assets/useQuery-bivPXRzH.js",
+				"/assets/message-circle-jMGSPwtP.js",
+				"/assets/plus-nvmwwGFF.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -64001,8 +64001,8 @@ var init_admin_setup_B8kNjt7k = __esmMin((() => {
 	init_dist$21();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CmtwLlRu.js
-var router_CmtwLlRu_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CtS31Gh8.js
+var router_CtS31Gh8_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 function Header() {
 	const { count } = useCart();
 	const { user, isAdmin, signOut } = useAuth();
@@ -64473,7 +64473,7 @@ function RootComponent() {
 	});
 }
 var import_react$1, import_react$2, import_jsx_runtime$1, styles_default, DropdownMenu, DropdownMenuTrigger, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, NAV, Toaster$1, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AboutRoute, AccountRoute, AuthRoute, CartRoute, CheckoutRoute, ContactRoute, ShopRoute, AuthenticatedAdminRoute, AuthenticatedAdminSetupRoute, ProductSlugRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_CmtwLlRu = __esmMin((() => {
+var init_router_CtS31Gh8 = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_useCart_B6US_OkA();
@@ -64917,7 +64917,8 @@ var init_router_CmtwLlRu = __esmMin((() => {
 			routeTree,
 			context: { queryClient },
 			scrollRestoration: true,
-			defaultPreloadStaleTime: 0
+			defaultPreloadStaleTime: 0,
+			defaultSsr: false
 		});
 	};
 }));
@@ -64985,8 +64986,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/server-ODPQG6ap.js
-var server_ODPQG6ap_exports = /* @__PURE__ */ __exportAll({
+//#region node_modules/.nitro/vite/services/ssr/assets/server-CVwGNfE3.js
+var server_CVwGNfE3_exports = /* @__PURE__ */ __exportAll({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -65052,7 +65053,7 @@ function getResponse() {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_DIccz51D(), _tanstack_start_manifest_v_DIccz51D_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CzWN2fVP(), _tanstack_start_manifest_v_CzWN2fVP_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -65820,7 +65821,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_CmtwLlRu(), router_CmtwLlRu_exports)),
+		Promise.resolve().then(() => (init_router_CtS31Gh8(), router_CtS31Gh8_exports)),
 		Promise.resolve().then(() => (init_start_6a91S_eZ(), start_6a91S_eZ_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -66196,7 +66197,7 @@ function createServerEntry(entry) {
 	} };
 }
 var import_jsx_runtime, defaultStreamHandler, GLOBAL_EVENT_STORAGE_KEY, globalObj$1, eventStorage, HEADERS, manifest, TSS_FORMDATA_CONTEXT, TSS_SERVER_FUNCTION, X_TSS_SERIALIZED, X_TSS_RAW_RESPONSE, TSS_CONTENT_TYPE_FRAMED, FrameType, TSS_CONTENT_TYPE_FRAMED_VERSIONED, GLOBAL_STORAGE_KEY, globalObj, startStorage, getStartOptions, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_ODPQG6ap = __esmMin((() => {
+var init_server_CVwGNfE3 = __esmMin((() => {
 	init_createCsrfMiddleware_B2To0gPJ();
 	require_react();
 	init_esm();
@@ -66559,7 +66560,7 @@ function renderErrorPage(error) {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_ODPQG6ap(), server_ODPQG6ap_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_CVwGNfE3(), server_CVwGNfE3_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {
