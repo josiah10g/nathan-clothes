@@ -15,10 +15,10 @@ import { l as ProfileDialog, n as AvatarFallback, r as AvatarImage, t as Avatar 
 import { t as Route$11 } from "./auth-D-sgwxxs.mjs";
 import { n as useCart, t as CartProvider } from "./useCart-B6US-OkA.mjs";
 import { t as Route$12 } from "./product._slug-BYjMtkLh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-rnelOi5N.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CmtwLlRu.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-ClGbTGer.css";
+var styles_default = "/assets/styles-D2xC3pGf.css";
 var DropdownMenu = Root2;
 var DropdownMenuTrigger = Trigger;
 var DropdownMenuSubTrigger = import_react.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SubTrigger2, {
@@ -529,11 +529,18 @@ function ErrorComponent({ error, reset }) {
 					className: "text-xl font-semibold tracking-tight text-foreground",
 					children: "This page didn't load"
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-2 text-sm text-muted-foreground",
-					children: error?.message || "Something went wrong on our end. You can try refreshing or head back home."
+				error?.message && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-4 rounded border border-red-200 bg-red-50 p-3 text-left font-mono text-xs text-red-900",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Error:" }),
+						" ",
+						error.message,
+						error.stack && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
+							className: "mt-2 max-h-48 overflow-auto text-[11px] text-red-800",
+							children: error.stack
+						})
+					]
 				}),
-				false,
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "mt-6 flex flex-wrap justify-center gap-2",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {

@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DPQCQA_b.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DIccz51D.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/__root.tsx",
@@ -15,7 +15,7 @@ var tsrStartManifest = () => ({ routes: {
 			"/product/$slug"
 		],
 		preloads: [
-			"/assets/index-TjPDaG-Q.js",
+			"/assets/index-Dlt4xFk8.js",
 			"/assets/jsx-runtime-Dk72oS4N.js",
 			"/assets/utils-BiJ5wl_M.js",
 			"/assets/useStore-BBUHbJZj.js",
@@ -29,15 +29,15 @@ var tsrStartManifest = () => ({ routes: {
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-TjPDaG-Q.js"
+			src: "/assets/index-Dlt4xFk8.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-B2El25r2.js",
-			"/assets/useQuery-6rqJr8i-.js",
+			"/assets/routes-Dtn6US3y.js",
+			"/assets/useQuery-CngLXkKb.js",
 			"/assets/ProductCard-BUZ6Bz-b.js"
 		]
 	},
@@ -55,10 +55,10 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/account.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/account-CnAwoR7V.js",
-			"/assets/useQuery-6rqJr8i-.js",
-			"/assets/badge-aFLG3j9b.js",
-			"/assets/tabs-BltgzSRA.js",
+			"/assets/account-SvyXMGVA.js",
+			"/assets/useQuery-CngLXkKb.js",
+			"/assets/badge-B4pRPNWB.js",
+			"/assets/tabs-C-iSfgHZ.js",
 			"/assets/format-ds1XI_sJ.js"
 		]
 	},
@@ -66,8 +66,8 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/auth.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/auth-pjV8_4Rl.js",
-			"/assets/tabs-BltgzSRA.js",
+			"/assets/auth-BusF_My3.js",
+			"/assets/tabs-C-iSfgHZ.js",
 			"/assets/types-DKSnJpxg.js"
 		]
 	},
@@ -75,9 +75,9 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/cart.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/cart-7uyvwDPI.js",
-			"/assets/plus-qeDRFNL0.js",
-			"/assets/trash-2-DjuX5fHa.js",
+			"/assets/cart-D4xEHpUE.js",
+			"/assets/plus-DI4a77wy.js",
+			"/assets/trash-2-DnK5KnsF.js",
 			"/assets/format-ds1XI_sJ.js"
 		]
 	},
@@ -85,10 +85,10 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/checkout.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/checkout--NLmDjJ7.js",
-			"/assets/useQuery-6rqJr8i-.js",
-			"/assets/message-circle-ATjUIbuK.js",
-			"/assets/upload-CuuVIT7Q.js",
+			"/assets/checkout-gn0oGM-4.js",
+			"/assets/useQuery-CngLXkKb.js",
+			"/assets/message-circle-kFSR0r0n.js",
+			"/assets/upload-D09rh28m.js",
 			"/assets/textarea-CXleoTI0.js",
 			"/assets/format-ds1XI_sJ.js",
 			"/assets/types-DKSnJpxg.js"
@@ -98,7 +98,7 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/contact.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/contact-BCmtKhnN.js",
+			"/assets/contact-eOJeu4bS.js",
 			"/assets/textarea-CXleoTI0.js",
 			"/assets/types-DKSnJpxg.js"
 		]
@@ -107,8 +107,8 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/shop.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/shop-DTUDKWoD.js",
-			"/assets/useQuery-6rqJr8i-.js",
+			"/assets/shop-DEh-Q_ul.js",
+			"/assets/useQuery-CngLXkKb.js",
 			"/assets/ProductCard-BUZ6Bz-b.js",
 			"/assets/skeleton-Ct2wXPsQ.js"
 		]
@@ -117,29 +117,29 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/admin-Be7kjb2z.js",
-			"/assets/useQuery-6rqJr8i-.js",
-			"/assets/badge-aFLG3j9b.js",
-			"/assets/trash-2-DjuX5fHa.js",
-			"/assets/upload-CuuVIT7Q.js",
+			"/assets/admin-B4bXpmiO.js",
+			"/assets/useQuery-CngLXkKb.js",
+			"/assets/badge-B4pRPNWB.js",
+			"/assets/trash-2-DnK5KnsF.js",
+			"/assets/upload-D09rh28m.js",
 			"/assets/textarea-CXleoTI0.js",
-			"/assets/tabs-BltgzSRA.js",
+			"/assets/tabs-C-iSfgHZ.js",
 			"/assets/format-ds1XI_sJ.js"
 		]
 	},
 	"/_authenticated/admin-setup": {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin-setup.tsx",
 		children: void 0,
-		preloads: ["/assets/admin-setup-CqQk6buI.js", "/assets/useQuery-6rqJr8i-.js"]
+		preloads: ["/assets/admin-setup-CHHwBuVk.js", "/assets/useQuery-CngLXkKb.js"]
 	},
 	"/product/$slug": {
 		filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/product.$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/product._slug-DxO05v_3.js",
-			"/assets/useQuery-6rqJr8i-.js",
-			"/assets/message-circle-ATjUIbuK.js",
-			"/assets/plus-qeDRFNL0.js",
+			"/assets/product._slug-CHJ5YnHU.js",
+			"/assets/useQuery-CngLXkKb.js",
+			"/assets/message-circle-kFSR0r0n.js",
+			"/assets/plus-DI4a77wy.js",
 			"/assets/format-ds1XI_sJ.js",
 			"/assets/skeleton-Ct2wXPsQ.js"
 		]

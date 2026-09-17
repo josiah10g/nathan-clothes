@@ -1,7 +1,7 @@
 import { t as supabase } from "./client-BpGEELM-.mjs";
 import { n as createMiddleware, t as createCsrfMiddleware } from "./createCsrfMiddleware-B2To0gPJ.mjs";
 import { t as renderErrorPage } from "./ssr.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/start-BS7hkaKq.js
+//#region node_modules/.nitro/vite/services/ssr/assets/start-6a91S-eZ.js
 function dedupeSerializationAdapters(deduped, serializationAdapters) {
 	for (let i = 0, len = serializationAdapters.length; i < len; i++) {
 		const current = serializationAdapters[i];
@@ -36,7 +36,7 @@ var errorMiddleware = createMiddleware().server(async ({ next }) => {
 	} catch (error) {
 		if (error != null && typeof error === "object" && "statusCode" in error) throw error;
 		console.error(error);
-		return new Response(renderErrorPage(), {
+		return new Response(renderErrorPage(error), {
 			status: 500,
 			headers: { "content-type": "text/html; charset=utf-8" }
 		});
