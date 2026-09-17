@@ -20197,10 +20197,10 @@ var init_client = __esmMin((() => {
 	init_headers();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CCso2qbR.js
-var _tanstack_start_manifest_v_CCso2qbR_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BOzXdgeQ.js
+var _tanstack_start_manifest_v_BOzXdgeQ_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
+var init__tanstack_start_manifest_v_BOzXdgeQ = __esmMin((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/__root.tsx",
@@ -20217,7 +20217,7 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 				"/product/$slug"
 			],
 			preloads: [
-				"/assets/index-DUyyWAIB.js",
+				"/assets/index-DzktSBGt.js",
 				"/assets/jsx-runtime-Dk72oS4N.js",
 				"/assets/utils-BiJ5wl_M.js",
 				"/assets/useStore-BBUHbJZj.js",
@@ -20231,15 +20231,15 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-DUyyWAIB.js"
+				src: "/assets/index-DzktSBGt.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-sI0yKBQc.js",
-				"/assets/useQuery-C646DoWF.js",
+				"/assets/routes-DHw_dgCn.js",
+				"/assets/useQuery-y5oqLG8Z.js",
 				"/assets/ProductCard-BUZ6Bz-b.js"
 			]
 		},
@@ -20257,10 +20257,10 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/account.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/account-CUI6VgRk.js",
-				"/assets/useQuery-C646DoWF.js",
-				"/assets/badge-BvQdHE-L.js",
-				"/assets/tabs-DulO9eZ0.js",
+				"/assets/account-DT7rcvwU.js",
+				"/assets/useQuery-y5oqLG8Z.js",
+				"/assets/badge-CYU1Ocw-.js",
+				"/assets/tabs-CU24bcWa.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20268,8 +20268,8 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-Bv8k6_Me.js",
-				"/assets/tabs-DulO9eZ0.js",
+				"/assets/auth-Cnwi3AL-.js",
+				"/assets/tabs-CU24bcWa.js",
 				"/assets/types-DKSnJpxg.js"
 			]
 		},
@@ -20277,9 +20277,9 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/cart.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cart-AEJZSZnC.js",
-				"/assets/plus-Dxi-6X3b.js",
-				"/assets/trash-2-BYxZgfx5.js",
+				"/assets/cart-Cnpgnxrs.js",
+				"/assets/plus-BENB1M5I.js",
+				"/assets/trash-2-DajMEOB5.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20287,10 +20287,10 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/checkout.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/checkout-CiDD6_9j.js",
-				"/assets/useQuery-C646DoWF.js",
-				"/assets/message-circle-SR0ycoFB.js",
-				"/assets/upload-Bzct0J3p.js",
+				"/assets/checkout-Igw1hQZC.js",
+				"/assets/useQuery-y5oqLG8Z.js",
+				"/assets/message-circle-rGKVNTqa.js",
+				"/assets/upload-JW_WpRa-.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/types-DKSnJpxg.js"
@@ -20300,7 +20300,7 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/contact.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/contact-CX_gCUXC.js",
+				"/assets/contact-X8FzzvAD.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/types-DKSnJpxg.js"
 			]
@@ -20309,8 +20309,8 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/shop.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/shop-Drlbge7e.js",
-				"/assets/useQuery-C646DoWF.js",
+				"/assets/shop-BVPQ2Xk8.js",
+				"/assets/useQuery-y5oqLG8Z.js",
 				"/assets/ProductCard-BUZ6Bz-b.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -20319,29 +20319,29 @@ var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-BbvX1Mpf.js",
-				"/assets/useQuery-C646DoWF.js",
-				"/assets/badge-BvQdHE-L.js",
-				"/assets/trash-2-BYxZgfx5.js",
-				"/assets/upload-Bzct0J3p.js",
+				"/assets/admin-HzHPiEwJ.js",
+				"/assets/useQuery-y5oqLG8Z.js",
+				"/assets/badge-CYU1Ocw-.js",
+				"/assets/trash-2-DajMEOB5.js",
+				"/assets/upload-JW_WpRa-.js",
 				"/assets/textarea-CXleoTI0.js",
-				"/assets/tabs-DulO9eZ0.js",
+				"/assets/tabs-CU24bcWa.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
 		"/_authenticated/admin-setup": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin-setup.tsx",
 			children: void 0,
-			preloads: ["/assets/admin-setup-vsloHO5E.js", "/assets/useQuery-C646DoWF.js"]
+			preloads: ["/assets/admin-setup-D9THybYO.js", "/assets/useQuery-y5oqLG8Z.js"]
 		},
 		"/product/$slug": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/product.$slug.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/product._slug-BDnO1m3c.js",
-				"/assets/useQuery-C646DoWF.js",
-				"/assets/message-circle-SR0ycoFB.js",
-				"/assets/plus-Dxi-6X3b.js",
+				"/assets/product._slug-J0XtUu8p.js",
+				"/assets/useQuery-y5oqLG8Z.js",
+				"/assets/message-circle-rGKVNTqa.js",
+				"/assets/plus-BENB1M5I.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -64101,8 +64101,8 @@ var init_admin_setup_B8kNjt7k = __esmMin((() => {
 	init_dist$21();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CyLX7_1j.js
-var router_CyLX7_1j_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-ZgUy7k6Q.js
+var router_ZgUy7k6Q_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 function Header() {
 	const { count } = useCart();
 	const { user, isAdmin, signOut } = useAuth();
@@ -64155,77 +64155,126 @@ function Header() {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "flex items-center gap-2 sm:gap-3",
-						children: [user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenu, {
-							open: avatarMenuOpen,
-							onOpenChange: handleAvatarOpenChange,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuTrigger, {
-								asChild: true,
-								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
-									type: "button",
-									className: "group relative flex size-9 items-center justify-center rounded-full border border-border bg-surface transition-all hover:border-foreground/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-foreground/20 cursor-pointer",
-									"aria-label": "User menu",
-									children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Avatar, {
-										className: "size-full pointer-events-none",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarImage, {
-											src: user.user_metadata?.["avatar_url"] || "",
-											alt: "User avatar",
-											className: "object-cover"
-										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarFallback, {
-											className: "bg-primary/10 text-[11px] font-bold text-primary",
-											children: (user.user_metadata?.["full_name"] || user.email || "U").slice(0, 2).toUpperCase()
-										})]
+						children: [
+							!user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+								className: "hidden md:flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+									to: "/auth",
+									search: {
+										mode: "signin",
+										redirect: void 0
+									},
+									children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
+										variant: "ghost",
+										size: "sm",
+										className: "text-xs uppercase tracking-[0.2em]",
+										children: "Log in"
 									})
-								})
-							}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenuContent, {
-								align: "end",
-								className: "w-56 mt-2 border-border bg-background p-1.5 shadow-xl",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-										className: "px-2 py-1.5 border-b border-border/60 mb-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
-											className: "text-xs font-semibold text-foreground truncate",
-											children: user.user_metadata?.["full_name"] || "User"
-										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
-											className: "text-[11px] text-muted-foreground truncate",
-											children: user.email
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
-										asChild: true,
-										children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-											to: isAdmin ? "/admin" : "/account",
-											onClick: () => setAvatarMenuOpen(false),
-											className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
-											children: isAdmin ? "Admin Dashboard" : "Customer Dashboard"
+								}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+									to: "/auth",
+									search: {
+										mode: "signup",
+										redirect: void 0
+									},
+									children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
+										variant: "default",
+										size: "sm",
+										className: "text-xs uppercase tracking-[0.2em]",
+										children: "Sign up"
+									})
+								})]
+							}),
+							user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenu, {
+								open: avatarMenuOpen,
+								onOpenChange: handleAvatarOpenChange,
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuTrigger, {
+									asChild: true,
+									children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
+										type: "button",
+										className: "group relative flex size-9 items-center justify-center rounded-full border border-border bg-surface transition-all hover:border-foreground/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-foreground/20 cursor-pointer",
+										"aria-label": "User menu",
+										children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Avatar, {
+											className: "size-full pointer-events-none",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarImage, {
+												src: user.user_metadata?.["avatar_url"] || "",
+												alt: "User avatar",
+												className: "object-cover"
+											}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarFallback, {
+												className: "bg-primary/10 text-[11px] font-bold text-primary",
+												children: (user.user_metadata?.["full_name"] || user.email || "U").slice(0, 2).toUpperCase()
+											})]
 										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
-										onClick: () => {
-											setAvatarMenuOpen(false);
-											setProfileOpen(true);
-										},
-										className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
-										children: "Manage Profile"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuSeparator, {}),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
-										onClick: handleSignOut,
-										className: "cursor-pointer text-xs uppercase tracking-[0.15em] text-destructive focus:text-destructive font-medium",
-										children: "Sign out"
 									})
-								]
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
-							className: "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface",
-							onClick: toggleHamburger,
-							"aria-label": open ? "Close menu" : "Open menu",
-							children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
-						})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenuContent, {
+									align: "end",
+									className: "w-56 mt-2 border-border bg-background p-1.5 shadow-xl",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+											className: "px-2 py-1.5 border-b border-border/60 mb-1",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
+												className: "text-xs font-semibold text-foreground truncate",
+												children: user.user_metadata?.["full_name"] || "User"
+											}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
+												className: "text-[11px] text-muted-foreground truncate",
+												children: user.email
+											})]
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
+											asChild: true,
+											children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+												to: isAdmin ? "/admin" : "/account",
+												onClick: () => setAvatarMenuOpen(false),
+												className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
+												children: isAdmin ? "Admin Dashboard" : "Customer Dashboard"
+											})
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
+											onClick: () => {
+												setAvatarMenuOpen(false);
+												setProfileOpen(true);
+											},
+											className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
+											children: "Manage Profile"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuSeparator, {}),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
+											onClick: handleSignOut,
+											className: "cursor-pointer text-xs uppercase tracking-[0.15em] text-destructive focus:text-destructive font-medium",
+											children: "Sign out"
+										})
+									]
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+								to: "/cart",
+								"aria-label": "Cart",
+								className: "hidden md:inline-flex relative shrink-0",
+								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Button, {
+									variant: "ghost",
+									size: "sm",
+									className: "flex items-center gap-1.5 px-3 text-xs uppercase tracking-[0.2em]",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ShoppingBag, { className: "size-4" }),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "Cart" }),
+										count > 0 && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+											className: "flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground",
+											children: count
+										})
+									]
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
+								className: "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface md:hidden",
+								onClick: toggleHamburger,
+								"aria-label": open ? "Close menu" : "Open menu",
+								children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
+							})
+						]
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
-				className: cn$1("border-t border-border bg-background/95 backdrop-blur", open ? "block" : "hidden"),
+				className: cn$1("border-t border-border bg-background/95 backdrop-blur md:hidden", open ? "block" : "hidden"),
 				children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("nav", {
 					className: "mx-auto flex max-w-7xl flex-col px-4 py-3 divide-y divide-border/40",
 					children: [
@@ -64550,7 +64599,7 @@ function RootComponent() {
 	});
 }
 var import_react$1, import_react$2, import_jsx_runtime$1, styles_default, DropdownMenu, DropdownMenuTrigger, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, NAV, Toaster$1, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AboutRoute, AccountRoute, AuthRoute, CartRoute, CheckoutRoute, ContactRoute, ShopRoute, AuthenticatedAdminRoute, AuthenticatedAdminSetupRoute, ProductSlugRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_CyLX7_1j = __esmMin((() => {
+var init_router_ZgUy7k6Q = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_useCart_B6US_OkA();
@@ -64567,7 +64616,7 @@ var init_router_CyLX7_1j = __esmMin((() => {
 	init_lucide_react();
 	init_dist$2();
 	init_dist$21();
-	styles_default = "/assets/styles-BiINf8cT.css";
+	styles_default = "/assets/styles-Bi_tkvwW.css";
 	DropdownMenu = Root2$1;
 	DropdownMenuTrigger = Trigger;
 	DropdownMenuSubTrigger = import_react$1.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(SubTrigger2, {
@@ -65063,8 +65112,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/server-uUvrY-2z.js
-var server_uUvrY_2z_exports = /* @__PURE__ */ __exportAll({
+//#region node_modules/.nitro/vite/services/ssr/assets/server-CI8uX6OC.js
+var server_CI8uX6OC_exports = /* @__PURE__ */ __exportAll({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -65130,7 +65179,7 @@ function getResponse() {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CCso2qbR(), _tanstack_start_manifest_v_CCso2qbR_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_BOzXdgeQ(), _tanstack_start_manifest_v_BOzXdgeQ_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -65898,7 +65947,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_CyLX7_1j(), router_CyLX7_1j_exports)),
+		Promise.resolve().then(() => (init_router_ZgUy7k6Q(), router_ZgUy7k6Q_exports)),
 		Promise.resolve().then(() => (init_start_6a91S_eZ(), start_6a91S_eZ_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -66274,7 +66323,7 @@ function createServerEntry(entry) {
 	} };
 }
 var import_jsx_runtime, defaultStreamHandler, GLOBAL_EVENT_STORAGE_KEY, globalObj$1, eventStorage, HEADERS, manifest, TSS_FORMDATA_CONTEXT, TSS_SERVER_FUNCTION, X_TSS_SERIALIZED, X_TSS_RAW_RESPONSE, TSS_CONTENT_TYPE_FRAMED, FrameType, TSS_CONTENT_TYPE_FRAMED_VERSIONED, GLOBAL_STORAGE_KEY, globalObj, startStorage, getStartOptions, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_uUvrY_2z = __esmMin((() => {
+var init_server_CI8uX6OC = __esmMin((() => {
 	init_createCsrfMiddleware_B2To0gPJ();
 	require_react();
 	init_esm();
@@ -66637,7 +66686,7 @@ function renderErrorPage(error) {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_uUvrY_2z(), server_uUvrY_2z_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_CI8uX6OC(), server_CI8uX6OC_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

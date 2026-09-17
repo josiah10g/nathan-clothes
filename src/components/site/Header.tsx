@@ -80,8 +80,25 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Right side: User avatar on left, Hamburger icon on top right corner */}
+        {/* Right side */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Desktop Logged-Out Actions */}
+          {!user && (
+            <div className="hidden md:flex items-center gap-2">
+              <Link to="/auth" search={{ mode: "signin", redirect: undefined }}>
+                <Button variant="ghost" size="sm" className="text-xs uppercase tracking-[0.2em]">
+                  Log in
+                </Button>
+              </Link>
+              <Link to="/auth" search={{ mode: "signup", redirect: undefined }}>
+                <Button variant="default" size="sm" className="text-xs uppercase tracking-[0.2em]">
+                  Sign up
+                </Button>
+              </Link>
+            </div>
+          )}
+
+          {/* User Avatar Dropdown (Desktop & Mobile) */}
           {user && (
             <DropdownMenu open={avatarMenuOpen} onOpenChange={handleAvatarOpenChange}>
               <DropdownMenuTrigger asChild>
@@ -140,9 +157,22 @@ export function Header() {
             </DropdownMenu>
           )}
 
-          {/* Hamburger Menu button at the top right corner */}
+          {/* Desktop Cart Button */}
+          <Link to="/cart" aria-label="Cart" className="hidden md:inline-flex relative shrink-0">
+            <Button variant="ghost" size="sm" className="flex items-center gap-1.5 px-3 text-xs uppercase tracking-[0.2em]">
+              <ShoppingBag className="size-4" />
+              <span>Cart</span>
+              {count > 0 && (
+                <span className="flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                  {count}
+                </span>
+              )}
+            </Button>
+          </Link>
+
+          {/* Mobile Hamburger Menu button at the top right corner (only visible on mobile) */}
           <button
-            className="inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface"
+            className="inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface md:hidden"
             onClick={toggleHamburger}
             aria-label={open ? "Close menu" : "Open menu"}
           >
@@ -151,8 +181,8 @@ export function Header() {
         </div>
       </div>
 
-      {/* Slide-down Hamburger Drawer Content */}
-      <div className={cn("border-t border-border bg-background/95 backdrop-blur", open ? "block" : "hidden")}>
+      {/* Slide-down Hamburger Drawer Content (Mobile only) */}
+      <div className={cn("border-t border-border bg-background/95 backdrop-blur md:hidden", open ? "block" : "hidden")}>
         <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3 divide-y divide-border/40">
           {/* Main navigation links */}
           <div className="flex flex-col py-1">
