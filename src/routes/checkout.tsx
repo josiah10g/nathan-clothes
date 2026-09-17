@@ -1,6 +1,6 @@
 import { useState, useId, useEffect } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Copy, Check, Upload, ArrowRight, MessageCircle, AlertCircle } from "lucide-react";
@@ -50,9 +50,28 @@ function CheckoutPage() {
   const { user } = useAuth();
   const { items, subtotalCents, clear, hydrated } = useCart();
   const navigate = useNavigate();
+  const qc = useQueryClient();
 
   // Unique order reference for this checkout session
   const [orderReference, setOrderReference] = useState(() => generateReference());
+
+  // Real-time synchronization for store bank details & instructions
+  useEffect(() => {
+    const channel = supabase
+      .channel("checkout-realtime-settings")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "store_settings" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["store-settings"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [qc]);
 
   // Fetch store settings for bank transfer instructions
   const { data: storeSettings, isLoading: loadingSettings } = useQuery({
@@ -358,22 +377,22 @@ function CheckoutPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <div className="mb-10">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:py-16 sm:px-6">
+      <div className="mb-6 sm:mb-10">
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Nathan&apos;s Clothes</p>
-        <h1 className="mt-2 text-4xl sm:text-5xl font-bold uppercase tracking-tight">Checkout</h1>
+        <h1 className="mt-2 text-3xl sm:text-5xl font-bold font-serif uppercase tracking-tight">Checkout</h1>
       </div>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_380px]">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-[1fr_380px] items-start">
         {/* Left Column: Form & Payment Transfer Steps */}
-        <form onSubmit={handleSubmitOrder} className="space-y-10">
+        <form onSubmit={handleSubmitOrder} className="space-y-6 sm:space-y-10 min-w-0">
           {/* Step 1: Customer Details */}
-          <div className="border border-border bg-surface p-6 sm:p-8">
-            <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6">
+          <div className="border border-border bg-surface p-5 sm:p-8">
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-muted-foreground mb-5 sm:mb-6">
               1. Customer Information & Delivery Address
             </h2>
 
-            <div className="grid gap-5">
+            <div className="grid gap-4 sm:gap-5">
               <div className="grid gap-2">
                 <Label htmlFor="customer_name">Full Name *</Label>
                 <Input
@@ -385,7 +404,7 @@ function CheckoutPage() {
                 {errors.customer_name && <p className="text-xs text-destructive">{errors.customer_name}</p>}
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="phone">Phone Number (numbers only) *</Label>
                   <Input
@@ -460,10 +479,10 @@ function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-border pt-4">
-                <div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-border pt-4">
+                <div className="min-w-0">
                   <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Account Number</p>
-                  <p className="mt-1 font-mono text-xl font-semibold text-foreground">
+                  <p className="mt-1 font-mono text-lg sm:text-xl font-semibold text-foreground tracking-wider break-all">
                     {storeSettings?.account_number || "0123456789"}
                   </p>
                 </div>
@@ -472,7 +491,7 @@ function CheckoutPage() {
                   variant="outline"
                   size="sm"
                   onClick={() => handleCopy(storeSettings?.account_number || "0123456789", "account")}
-                  className="gap-1.5 text-xs uppercase tracking-[0.15em]"
+                  className="gap-1.5 text-xs uppercase tracking-[0.15em] shrink-0 self-start sm:self-auto"
                 >
                   {copiedAccount ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
                   {copiedAccount ? "Copied" : "Copy Account"}

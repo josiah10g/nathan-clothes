@@ -146,17 +146,17 @@ function AccountPage() {
         </div>
       ) : (
         <div>
-          {/* Dashboard Header matching reference layout */}
-          <div className="border-b border-border pb-8">
-            <span className="inline-block rounded-full bg-secondary px-3 py-1 text-[11px] font-medium tracking-wide text-secondary-foreground mb-4">
+          {/* Dashboard Header */}
+          <div className="border-b border-border pb-6 sm:pb-8">
+            <span className="inline-block rounded-full bg-secondary px-3 py-1 text-[11px] font-medium tracking-wide text-secondary-foreground mb-3 sm:mb-4">
               Customer Portal
             </span>
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
-                <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-foreground">
+                <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-foreground break-words">
                   Welcome, {displayName}!
                 </h1>
-                <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+                <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-2xl">
                   Track your order statuses, verify bank transfer payments, and contact support anytime.
                 </p>
               </div>
@@ -164,26 +164,26 @@ function AccountPage() {
           </div>
 
           {/* Navigation Tabs */}
-          <Tabs defaultValue="orders" className="mt-8">
-            <TabsList className="h-11 bg-transparent p-0 border-b border-border w-full justify-start rounded-none gap-8">
+          <Tabs defaultValue="orders" className="mt-6 sm:mt-8">
+            <TabsList className="h-auto bg-transparent p-0 border-b border-border w-full justify-start rounded-none gap-4 sm:gap-8 flex-wrap">
               <TabsTrigger
                 value="orders"
-                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
+                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-xs sm:text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
               >
                 <Package className="size-4" />
                 <span>Orders ({ordersList.length})</span>
               </TabsTrigger>
               <TabsTrigger
                 value="payments"
-                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
+                className="relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-xs sm:text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2"
               >
                 <CreditCard className="size-4" />
-                <span>Payments ({confirmedPayments.length} Confirmed)</span>
+                <span>Payments ({confirmedPayments.length})</span>
               </TabsTrigger>
             </TabsList>
 
             {/* TAB 1: ORDERS */}
-            <TabsContent value="orders" className="mt-8 space-y-6">
+            <TabsContent value="orders" className="mt-6 sm:mt-8 space-y-6">
               {loadingMyOrders && (
                 <div className="p-12 text-center text-sm text-muted-foreground">
                   Loading your orders…
@@ -191,7 +191,7 @@ function AccountPage() {
               )}
 
               {!loadingMyOrders && ordersList.length === 0 && (
-                <div className="border border-border/80 bg-surface/40 p-12 sm:p-16 text-center">
+                <div className="border border-border/80 bg-surface/40 p-8 sm:p-16 text-center">
                   <div className="mx-auto mb-4 flex size-14 items-center justify-center text-muted-foreground/50">
                     <Package className="size-10 stroke-1" />
                   </div>
@@ -214,12 +214,12 @@ function AccountPage() {
               {ordersList.map((ord) => (
                 <article
                   key={ord.id}
-                  className="border border-border bg-surface p-6 sm:p-8 space-y-5"
+                  className="border border-border bg-surface p-5 sm:p-8 space-y-5"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
                     <div>
-                      <div className="flex items-center gap-2">
-                        <p className="font-mono text-sm font-bold text-foreground">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="font-mono text-sm font-bold text-foreground break-all">
                           {ord.reference || `ORD-${ord.id.slice(0, 8)}`}
                         </p>
                         {renderPaymentBadge(ord.payment_status || ord.status)}
@@ -230,7 +230,7 @@ function AccountPage() {
                     </div>
 
                     <div className="text-right">
-                      <span className="font-bold text-foreground text-lg">
+                      <span className="font-bold text-foreground text-base sm:text-lg">
                         {formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))}
                       </span>
                     </div>

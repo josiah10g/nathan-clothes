@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { ProductCard, type ProductCardData } from "@/components/site/ProductCard";
@@ -28,7 +29,33 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const { user } = useAuth();
+  const qc = useQueryClient();
   const displayName = (user?.user_metadata?.['full_name'] as string) || user?.email?.split("@")[0] || "";
+
+  // Live real-time updates for products on home page without reloading
+  useEffect(() => {
+    const channel = supabase
+      .channel("home-realtime-products")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "products" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["products"] });
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "store_settings" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["store-settings"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [qc]);
 
   const { data: featured } = useQuery({
     queryKey: ["products", "featured"],
@@ -48,11 +75,11 @@ function Home() {
     <div>
       <section className="relative">
         <div className="grid items-stretch md:grid-cols-2">
-          <div className="flex flex-col justify-center px-4 py-20 sm:px-8 md:py-32 lg:px-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+          <div className="flex flex-col justify-center px-4 py-16 sm:px-8 sm:py-20 md:py-32 lg:px-16">
+            <p className="text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground">
               Drop 01 &mdash; Void Series
             </p>
-            <h1 className="mt-6 text-5xl leading-[0.95] sm:text-7xl lg:text-8xl">
+            <h1 className="mt-6 text-4xl leading-[0.95] sm:text-7xl lg:text-8xl break-words font-serif">
               Built for
               <br />
               the dark
@@ -63,7 +90,7 @@ function Home() {
               Heavyweight cotton, oversized cuts and hand-drawn graphics. Made in short runs and
               never restocked.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 sm:mt-10 flex flex-wrap gap-3">
               <Link to="/shop">
                 <Button size="lg" className="text-xs uppercase tracking-[0.25em]">
                   Shop the collection
@@ -80,7 +107,7 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative min-h-[60vh] bg-surface md:min-h-[80vh]">
+          <div className="relative min-h-[45vh] sm:min-h-[60vh] bg-surface md:min-h-[80vh]">
             <img
               src={HERO_IMAGE_URL}
               alt="Black oversized hoodie with spiderweb print from the Nathan's Clothing Void Series"
@@ -93,24 +120,24 @@ function Home() {
       </section>
 
       <section className="border-y border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 text-center sm:px-6 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 text-center sm:px-6 sm:py-10 md:grid-cols-4">
           {[
             ["100% Cotton", "Combed and ring-spun"],
             ["350–400 GSM", "True heavyweight"],
             ["Oversized fit", "Boxy, dropped shoulder"],
             ["Limited runs", "No restocks"],
           ].map(([title, sub]) => (
-            <div key={title}>
-              <p className="text-display text-sm tracking-[0.2em]">{title}</p>
-              <p className="mt-2 text-xs text-muted-foreground">{sub}</p>
+            <div key={title} className="p-2">
+              <p className="text-display text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em]">{title}</p>
+              <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs text-muted-foreground">{sub}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex items-end justify-between">
-          <h2 className="text-3xl sm:text-4xl">Featured pieces</h2>
+          <h2 className="text-2xl sm:text-4xl">Featured pieces</h2>
           <Link
             to="/shop"
             className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground"
@@ -118,7 +145,7 @@ function Home() {
             View all
           </Link>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {(featured ?? []).map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}

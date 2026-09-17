@@ -693,70 +693,70 @@ function AdminPage() {
   const displayName = (user?.user_metadata?.["full_name"] as string) || user?.email?.split("@")[0] || "Admin";
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-      <div className="border-b border-border pb-8">
+    <div className="mx-auto max-w-7xl px-3 sm:px-6 py-10 sm:py-16">
+      <div className="border-b border-border pb-6 sm:pb-8">
         <div className="inline-block rounded-full bg-surface px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground border border-border">
           Admin Portal
         </div>
-        <h1 className="mt-4 text-4xl sm:text-5xl font-serif font-bold tracking-tight text-foreground">
+        <h1 className="mt-4 text-3xl sm:text-5xl font-serif font-bold tracking-tight text-foreground break-words">
           Welcome, {displayName}
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           Manage your store inventory, review customer bank receipts, and configure store settings.
         </p>
       </div>
 
-      <Tabs defaultValue="orders" className="mt-10">
+      <Tabs defaultValue="orders" className="mt-8 sm:mt-10">
         <TabsList className="flex flex-wrap h-auto bg-transparent p-0 gap-2 border-b border-border pb-4 w-full justify-start rounded-none">
           <TabsTrigger
             value="orders"
-            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2"
+            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2"
           >
             Orders &amp; payments ({rawOrders.length})
           </TabsTrigger>
           <TabsTrigger
             value="products"
-            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2"
+            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2"
           >
             Products ({(productsQuery.data || []).length})
           </TabsTrigger>
           <TabsTrigger
             value="settings"
-            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2"
+            className="text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2"
           >
             Payment details &amp; staff
           </TabsTrigger>
         </TabsList>
 
         {/* Tab 1: Orders Management */}
-        <TabsContent value="orders" className="mt-8 space-y-8">
-          {/* KPI Metrics Summary Bar (matching reference) */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            <div className="border border-border bg-surface p-5 space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Total Orders</p>
-              <p className="text-3xl font-serif font-bold text-foreground">{rawOrders.length}</p>
+        <TabsContent value="orders" className="mt-6 sm:mt-8 space-y-6 sm:space-y-8">
+          {/* KPI Metrics Summary Bar */}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">Total Orders</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground">{rawOrders.length}</p>
             </div>
-            <div className="border border-border bg-surface p-5 space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Pending Requests</p>
-              <p className="text-3xl font-serif font-bold text-foreground">
+            <div className="border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">Pending Requests</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
                 {rawOrders.filter((o: any) => (o.payment_status || o.status) === "pending").length}
               </p>
             </div>
-            <div className="border border-border bg-surface p-5 space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Successful Orders</p>
-              <p className="text-3xl font-serif font-bold text-foreground">
+            <div className="border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">Successful Orders</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
                 {rawOrders.filter((o: any) => (o.payment_status || o.status) === "approved").length}
               </p>
             </div>
-            <div className="border border-border bg-surface p-5 space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Unique Customers</p>
-              <p className="text-3xl font-serif font-bold text-foreground">
+            <div className="border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">Unique Customers</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
                 {new Set(rawOrders.map((o: any) => o.email || o.phone)).size}
               </p>
             </div>
-            <div className="border border-border bg-surface p-5 space-y-2 col-span-2 sm:col-span-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Confirmed Revenue</p>
-              <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground truncate">
+            <div className="border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2 col-span-2 sm:col-span-1">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">Confirmed Revenue</p>
+              <p className="text-xl sm:text-3xl font-serif font-bold text-foreground truncate">
                 {formatPrice(
                   rawOrders
                     .filter((o: any) => (o.payment_status || o.status) === "approved")
@@ -766,13 +766,13 @@ function AdminPage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <Button
                 variant={orderFilter === "all" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setOrderFilter("all")}
-                className="text-xs uppercase tracking-[0.15em] h-8 px-3"
+                className="text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3"
               >
                 All Requests
               </Button>
@@ -780,7 +780,7 @@ function AdminPage() {
                 variant={orderFilter === "pending" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setOrderFilter("pending")}
-                className="text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5"
+                className="text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5"
               >
                 <span className="size-2 rounded-full bg-amber-400" />
                 Pending
@@ -789,7 +789,7 @@ function AdminPage() {
                 variant={orderFilter === "approved" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setOrderFilter("approved")}
-                className="text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5"
+                className="text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5"
               >
                 <span className="size-2 rounded-full bg-emerald-400" />
                 Successful
@@ -798,7 +798,7 @@ function AdminPage() {
                 variant={orderFilter === "declined" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setOrderFilter("declined")}
-                className="text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5"
+                className="text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5"
               >
                 <span className="size-2 rounded-full bg-destructive" />
                 Declined
@@ -826,37 +826,37 @@ function AdminPage() {
               return (
                 <article key={ord.id} className="border border-border bg-surface p-6 sm:p-8 space-y-6">
                   {/* Top bar: Reference, Status, and Total */}
-                  <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border pb-6">
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <span className="font-mono text-xl font-bold tracking-wider text-foreground">
+                  <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border pb-5 sm:pb-6">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span className="font-mono text-base sm:text-xl font-bold tracking-wider text-foreground break-all">
                           {ord.reference || `ORD-${ord.id.slice(0, 8)}`}
                         </span>
                         {isApproved && (
-                          <Badge className="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase">
+                          <Badge className="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase text-[10px] sm:text-[11px]">
                             Approved & Paid
                           </Badge>
                         )}
                         {isDeclined && (
-                          <Badge className="bg-destructive/20 text-destructive border border-destructive/30 uppercase">
+                          <Badge className="bg-destructive/20 text-destructive border border-destructive/30 uppercase text-[10px] sm:text-[11px]">
                             Declined
                           </Badge>
                         )}
                         {isPending && (
-                          <Badge className="bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase">
+                          <Badge className="bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase text-[10px] sm:text-[11px]">
                             Pending Verification
                           </Badge>
                         )}
                       </div>
 
-                      <p className="text-xs text-muted-foreground mt-1">
+                      <p className="text-xs text-muted-foreground mt-1.5">
                         Placed on {formatDate(ord.created_at)} · Customer:{" "}
                         <strong className="text-foreground">{ord.customer_name || ord.full_name}</strong>
                       </p>
                     </div>
 
-                    <div className="flex flex-col items-end gap-2">
-                      <p className="text-xl font-bold text-foreground">
+                    <div className="flex flex-col items-start sm:items-end gap-2">
+                      <p className="text-lg sm:text-xl font-bold text-foreground">
                         {formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))}
                       </p>
                       {ord.receipt_path ? (
@@ -865,7 +865,7 @@ function AdminPage() {
                           size="sm"
                           disabled={loadingReceipt}
                           onClick={() => viewReceiptProof(ord)}
-                          className="gap-1.5 text-xs uppercase tracking-[0.15em]"
+                          className="gap-1.5 text-xs uppercase tracking-[0.15em] h-8"
                         >
                           <Eye className="size-3.5" /> View Receipt Proof
                         </Button>
@@ -979,7 +979,7 @@ function AdminPage() {
 
                   {/* Actions Bar */}
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <Button
                         size="sm"
                         disabled={isApproved || updateOrderStatus.isPending}
@@ -990,7 +990,7 @@ function AdminPage() {
                             status: "paid",
                           })
                         }
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs uppercase tracking-[0.15em] gap-1.5"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3"
                       >
                         <CheckCircle className="size-3.5" /> Approve Payment
                       </Button>
@@ -1006,7 +1006,7 @@ function AdminPage() {
                             status: "declined",
                           })
                         }
-                        className="border-destructive/40 text-destructive hover:bg-destructive/10 text-xs uppercase tracking-[0.15em] gap-1.5"
+                        className="border-destructive/40 text-destructive hover:bg-destructive/10 text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3"
                       >
                         <XCircle className="size-3.5" /> Decline Payment
                       </Button>
@@ -1026,7 +1026,7 @@ function AdminPage() {
                             admin_note: ord.admin_note || "",
                           })
                         }
-                        className="text-xs uppercase tracking-[0.15em] gap-1.5"
+                        className="text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3"
                       >
                         <Edit3 className="size-3.5" /> Edit Order
                       </Button>
@@ -1041,7 +1041,7 @@ function AdminPage() {
                           reference: ord.reference || `ORD-${ord.id.slice(0, 8)}`,
                         })
                       }
-                      className="text-muted-foreground hover:text-destructive text-xs uppercase tracking-[0.15em] gap-1.5"
+                      className="text-muted-foreground hover:text-destructive text-xs uppercase tracking-[0.15em] gap-1.5 h-8 px-2.5"
                     >
                       <Trash2 className="size-3.5" /> Delete
                     </Button>
@@ -1211,13 +1211,13 @@ function AdminPage() {
           </div>
 
           {/* Current Products Table */}
-          <div className="border border-border bg-surface p-6 sm:p-8">
+          <div className="border border-border bg-surface p-4 sm:p-8">
             <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6">
               Current Catalogue ({(productsQuery.data || []).length} items)
             </h2>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+            <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full text-left text-sm min-w-[580px]">
                 <thead>
                   <tr className="border-b border-border text-xs uppercase tracking-[0.2em] text-muted-foreground">
                     <th className="pb-3">Piece</th>
@@ -1231,29 +1231,29 @@ function AdminPage() {
                 <tbody className="divide-y divide-border">
                   {(productsQuery.data || []).map((p: any) => (
                     <tr key={p.id} className="hover:bg-background/40">
-                      <td className="py-4">
+                      <td className="py-3 sm:py-4">
                         <div className="flex items-center gap-3">
                           <img
                             src={p.image_url}
                             alt={p.name}
-                            className="size-12 object-cover bg-background border border-border"
+                            className="size-11 sm:size-12 object-cover bg-background border border-border shrink-0"
                           />
-                          <div>
-                            <p className="font-medium text-foreground">{p.name}</p>
+                          <div className="min-w-0">
+                            <p className="font-medium text-foreground text-xs sm:text-sm line-clamp-2">{p.name}</p>
                           </div>
                         </div>
                       </td>
-                      <td className="py-4 text-xs uppercase tracking-wider text-muted-foreground">{p.category}</td>
-                      <td className="py-4 font-medium text-foreground">
+                      <td className="py-3 sm:py-4 text-xs uppercase tracking-wider text-muted-foreground">{p.category}</td>
+                      <td className="py-3 sm:py-4 font-medium text-foreground text-xs sm:text-sm">
                         {formatPrice(p.price_cents || Math.round(Number(p.price || 0) * 100))}
                       </td>
-                      <td className="py-4 font-mono text-xs text-foreground">
+                      <td className="py-3 sm:py-4 font-mono text-xs text-foreground">
                         {p.stock ?? (p.in_stock ? "In stock" : "0")}
                       </td>
-                      <td className="py-4">
+                      <td className="py-3 sm:py-4">
                         <button
                           onClick={() => toggleStock.mutate({ id: p.id, in_stock: !p.in_stock })}
-                          className={`inline-flex items-center px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider border rounded cursor-pointer transition-colors ${
+                          className={`inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider border rounded cursor-pointer transition-colors ${
                             p.in_stock
                               ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
                               : "bg-destructive/10 text-destructive border-destructive/30 hover:bg-destructive/20"

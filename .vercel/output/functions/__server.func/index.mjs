@@ -534,15 +534,15 @@ var require_react = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 * ```
 */
 function useForwardedRef(ref) {
-	const innerRef = import_react$93.useRef(null);
-	import_react$93.useImperativeHandle(ref, () => innerRef.current, []);
+	const innerRef = import_react$94.useRef(null);
+	import_react$94.useImperativeHandle(ref, () => innerRef.current, []);
 	return innerRef;
 }
-var import_react$93, reactUse;
+var import_react$94, reactUse;
 var init_utils$3 = __esmMin((() => {
-	import_react$93 = /* @__PURE__ */ __toESM(require_react(), 1);
-	reactUse = import_react$93.use;
-	typeof window !== "undefined" ? import_react$93.useLayoutEffect : import_react$93.useEffect;
+	import_react$94 = /* @__PURE__ */ __toESM(require_react(), 1);
+	reactUse = import_react$94.use;
+	typeof window !== "undefined" ? import_react$94.useLayoutEffect : import_react$94.useEffect;
 }));
 //#endregion
 //#region node_modules/@tanstack/router-core/dist/esm/isServer/server.js
@@ -7530,7 +7530,7 @@ function CatchBoundary(props) {
 		getResetKey: props.getResetKey,
 		onCatch: props.onCatch,
 		children: ({ error, reset }) => {
-			if (error) return import_react$92.createElement(errorComponent, {
+			if (error) return import_react$93.createElement(errorComponent, {
 				error,
 				reset
 			});
@@ -7539,7 +7539,7 @@ function CatchBoundary(props) {
 	});
 }
 function ErrorComponent$1({ error }) {
-	const [show, setShow] = import_react$92.useState(false);
+	const [show, setShow] = import_react$93.useState(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime$57.jsxs)("div", {
 		style: {
 			padding: ".5rem",
@@ -7583,11 +7583,11 @@ function ErrorComponent$1({ error }) {
 		]
 	});
 }
-var import_react$92, import_jsx_runtime$57, CatchBoundaryImpl;
+var import_react$93, import_jsx_runtime$57, CatchBoundaryImpl;
 var init_CatchBoundary = __esmMin((() => {
-	import_react$92 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$93 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$57 = require_jsx_runtime();
-	CatchBoundaryImpl = class extends import_react$92.Component {
+	CatchBoundaryImpl = class extends import_react$93.Component {
 		constructor(..._args) {
 			super(..._args);
 			this.state = { error: null };
@@ -7639,7 +7639,7 @@ var init_CatchBoundary = __esmMin((() => {
 * ```
 */
 function ClientOnly({ children, fallback = null }) {
-	return useHydrated() ? /* @__PURE__ */ (0, import_jsx_runtime$56.jsx)(import_react$91.Fragment, { children }) : /* @__PURE__ */ (0, import_jsx_runtime$56.jsx)(import_react$91.Fragment, { children: fallback });
+	return useHydrated() ? /* @__PURE__ */ (0, import_jsx_runtime$56.jsx)(import_react$92.Fragment, { children }) : /* @__PURE__ */ (0, import_jsx_runtime$56.jsx)(import_react$92.Fragment, { children: fallback });
 }
 /**
 * Return a boolean indicating if the JS has been hydrated already.
@@ -7661,22 +7661,22 @@ function ClientOnly({ children, fallback = null }) {
 * @returns True if the JS has been hydrated already, false otherwise.
 */
 function useHydrated() {
-	return import_react$91.useSyncExternalStore(subscribe$1, () => true, () => false);
+	return import_react$92.useSyncExternalStore(subscribe$1, () => true, () => false);
 }
 function subscribe$1() {
 	return () => {};
 }
-var import_react$91, import_jsx_runtime$56;
+var import_react$92, import_jsx_runtime$56;
 var init_ClientOnly = __esmMin((() => {
-	import_react$91 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$92 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$56 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/routerContext.js
-var import_react$90, routerContext;
+var import_react$91, routerContext;
 var init_routerContext = __esmMin((() => {
-	import_react$90 = /* @__PURE__ */ __toESM(require_react(), 1);
-	routerContext = import_react$90.createContext(null);
+	import_react$91 = /* @__PURE__ */ __toESM(require_react(), 1);
+	routerContext = import_react$91.createContext(null);
 }));
 //#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/useRouter.js
@@ -7691,20 +7691,20 @@ var init_routerContext = __esmMin((() => {
 * @link https://tanstack.com/router/latest/docs/framework/react/api/router/useRouterHook
 */
 function useRouter(opts) {
-	return import_react$89.useContext(routerContext);
+	return import_react$90.useContext(routerContext);
 }
-var import_react$89;
+var import_react$90;
 var init_useRouter = __esmMin((() => {
 	init_routerContext();
-	import_react$89 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$90 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/matchContext.js
-var import_react$88, matchContext, dummyMatchContext;
+var import_react$89, matchContext, dummyMatchContext;
 var init_matchContext = __esmMin((() => {
-	import_react$88 = /* @__PURE__ */ __toESM(require_react(), 1);
-	matchContext = import_react$88.createContext(void 0);
-	dummyMatchContext = import_react$88.createContext(void 0);
+	import_react$89 = /* @__PURE__ */ __toESM(require_react(), 1);
+	matchContext = import_react$89.createContext(void 0);
+	dummyMatchContext = import_react$89.createContext(void 0);
 }));
 //#endregion
 //#region node_modules/@tanstack/store/dist/esm/alien.js
@@ -8080,7 +8080,7 @@ var init_esm$1 = __esmMin((() => {
 */
 function useMatch(opts) {
 	const router = useRouter();
-	const nearestMatchId = import_react$86.useContext(opts.from ? dummyMatchContext : matchContext);
+	const nearestMatchId = import_react$87.useContext(opts.from ? dummyMatchContext : matchContext);
 	const matchStore = opts.from ? router.stores.getRouteMatchStore(opts.from) : router.stores.matchStores.get(nearestMatchId);
 	{
 		const match = matchStore?.get();
@@ -8091,12 +8091,12 @@ function useMatch(opts) {
 		return opts.select ? opts.select(match) : match;
 	}
 }
-var import_react$86;
+var import_react$87;
 var init_useMatch = __esmMin((() => {
 	init_matchContext();
 	init_useRouter();
 	init_esm$3();
-	import_react$86 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$87 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_esm$1();
 	init_server$3();
 }));
@@ -8226,17 +8226,17 @@ var init_useSearch = __esmMin((() => {
 */
 function useNavigate(_defaultOpts) {
 	const router = useRouter();
-	return import_react$85.useCallback((options) => {
+	return import_react$86.useCallback((options) => {
 		return router.navigate({
 			...options,
 			from: options.from ?? _defaultOpts?.from
 		});
 	}, [_defaultOpts?.from, router]);
 }
-var import_react$85;
+var import_react$86;
 var init_useNavigate = __esmMin((() => {
 	init_useRouter();
-	import_react$85 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$86 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/useRouteContext.js
@@ -8571,13 +8571,13 @@ function isSafeInternal(to) {
 	if (zero === 47) return to.charCodeAt(1) !== 47;
 	return zero === 46;
 }
-var import_react$84, STATIC_EMPTY_OBJECT, STATIC_ACTIVE_OBJECT, STATIC_DISABLED_PROPS, STATIC_ACTIVE_PROPS, Link;
+var import_react$85, STATIC_EMPTY_OBJECT, STATIC_ACTIVE_OBJECT, STATIC_DISABLED_PROPS, STATIC_ACTIVE_PROPS, Link;
 var init_link = __esmMin((() => {
 	init_utils$3();
 	init_ClientOnly();
 	init_useRouter();
 	init_esm$3();
-	import_react$84 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$85 = /* @__PURE__ */ __toESM(require_react(), 1);
 	require_jsx_runtime();
 	init_esm$1();
 	init_server$3();
@@ -8592,15 +8592,15 @@ var init_link = __esmMin((() => {
 		"data-status": "active",
 		"aria-current": "page"
 	};
-	Link = import_react$84.forwardRef((props, ref) => {
+	Link = import_react$85.forwardRef((props, ref) => {
 		const { _asChild, ...rest } = props;
 		const { type: _type, ...linkProps } = useLinkProps(rest, ref);
 		const children = typeof rest.children === "function" ? rest.children({ isActive: linkProps["data-status"] === "active" }) : rest.children;
 		if (!_asChild) {
 			const { disabled: _, ...rest } = linkProps;
-			return import_react$84.createElement("a", rest, children);
+			return import_react$85.createElement("a", rest, children);
 		}
-		return import_react$84.createElement(_asChild, linkProps, children);
+		return import_react$85.createElement(_asChild, linkProps, children);
 	});
 }));
 //#endregion
@@ -8646,7 +8646,7 @@ function createRootRouteWithContext() {
 function createRootRoute(options) {
 	return new RootRoute(options);
 }
-var import_react$83, import_jsx_runtime$54, Route$13, RootRoute;
+var import_react$84, import_jsx_runtime$54, Route$13, RootRoute;
 var init_route = __esmMin((() => {
 	init_useMatch();
 	init_useLoaderData();
@@ -8657,7 +8657,7 @@ var init_route = __esmMin((() => {
 	init_useRouteContext();
 	init_link();
 	init_esm$3();
-	import_react$83 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$84 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$54 = require_jsx_runtime();
 	Route$13 = class extends BaseRoute {
 		/**
@@ -8707,7 +8707,7 @@ var init_route = __esmMin((() => {
 			this.useNavigate = () => {
 				return useNavigate({ from: this.fullPath });
 			};
-			this.Link = import_react$83.forwardRef((props, ref) => {
+			this.Link = import_react$84.forwardRef((props, ref) => {
 				return /* @__PURE__ */ (0, import_jsx_runtime$54.jsx)(Link, {
 					ref,
 					from: this.fullPath,
@@ -8764,7 +8764,7 @@ var init_route = __esmMin((() => {
 			this.useNavigate = () => {
 				return useNavigate({ from: this.fullPath });
 			};
-			this.Link = import_react$83.forwardRef((props, ref) => {
+			this.Link = import_react$84.forwardRef((props, ref) => {
 				return /* @__PURE__ */ (0, import_jsx_runtime$54.jsx)(Link, {
 					ref,
 					from: this.fullPath,
@@ -8847,16 +8847,16 @@ function lazyRouteComponent(importer, exportName) {
 		if (error) throw error;
 		if (!comp) if (reactUse) reactUse(load());
 		else throw load();
-		return import_react$82.createElement(comp, props);
+		return import_react$83.createElement(comp, props);
 	};
 	lazyComp.preload = load;
 	return lazyComp;
 }
-var import_react$82;
+var import_react$83;
 var init_lazyRouteComponent = __esmMin((() => {
 	init_utils$3();
 	init_esm$3();
-	import_react$82 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$83 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/not-found.js
@@ -8994,7 +8994,7 @@ function MatchView({ router, matchId, resetKey, matchState }) {
 	const routeOnCatch = route.options.onCatch ?? router.options.defaultOnCatch;
 	const routeNotFoundComponent = route.isRoot ? route.options.notFoundComponent ?? router.options.notFoundRoute?.options.component : route.options.notFoundComponent;
 	const resolvedNoSsr = matchState.ssr === false || matchState.ssr === "data-only";
-	const ResolvedSuspenseBoundary = (!route.isRoot || route.options.wrapInSuspense || resolvedNoSsr) && (route.options.wrapInSuspense ?? PendingComponent ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react$78.Suspense : SafeFragment;
+	const ResolvedSuspenseBoundary = (!route.isRoot || route.options.wrapInSuspense || resolvedNoSsr) && (route.options.wrapInSuspense ?? PendingComponent ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react$79.Suspense : SafeFragment;
 	const ResolvedCatchBoundary = routeErrorComponent ? CatchBoundary : SafeFragment;
 	const ResolvedNotFoundBoundary = routeNotFoundComponent ? CatchNotFound : SafeFragment;
 	return /* @__PURE__ */ (0, import_jsx_runtime$48.jsxs)(route.isRoot ? route.options.shellComponent ?? SafeFragment : SafeFragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$48.jsx)(matchContext.Provider, {
@@ -9015,7 +9015,7 @@ function MatchView({ router, matchId, resetKey, matchState }) {
 					fallback: (error) => {
 						error.routeId ??= matchState.routeId;
 						if (!routeNotFoundComponent || error.routeId && error.routeId !== matchState.routeId || !error.routeId && !route.isRoot) throw error;
-						return import_react$78.createElement(routeNotFoundComponent, error);
+						return import_react$79.createElement(routeNotFoundComponent, error);
 					},
 					children: resolvedNoSsr || matchState._displayPending ? /* @__PURE__ */ (0, import_jsx_runtime$48.jsx)(ClientOnly, {
 						fallback: pendingElement,
@@ -9030,7 +9030,7 @@ function OnRendered() {
 	useRouter();
 	return null;
 }
-var import_react$78, import_jsx_runtime$48, Match, MatchInner, Outlet;
+var import_react$79, import_jsx_runtime$48, Match, MatchInner, Outlet;
 var init_Match = __esmMin((() => {
 	init_utils$3();
 	init_CatchBoundary();
@@ -9042,11 +9042,11 @@ var init_Match = __esmMin((() => {
 	init_renderRouteNotFound();
 	init_scroll_restoration();
 	init_esm$3();
-	import_react$78 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$79 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$48 = require_jsx_runtime();
 	init_esm$1();
 	init_server$3();
-	Match = import_react$78.memo(function MatchImpl({ matchId }) {
+	Match = import_react$79.memo(function MatchImpl({ matchId }) {
 		const router = useRouter();
 		{
 			const match = router.stores.matchStores.get(matchId)?.get();
@@ -9066,7 +9066,7 @@ var init_Match = __esmMin((() => {
 			});
 		}
 	});
-	MatchInner = import_react$78.memo(function MatchInnerImpl({ matchId }) {
+	MatchInner = import_react$79.memo(function MatchInnerImpl({ matchId }) {
 		const router = useRouter();
 		const getMatchPromise = (match, key) => {
 			return router.getMatch(match.id)?._nonReactive[key] ?? match._nonReactive[key];
@@ -9104,9 +9104,9 @@ var init_Match = __esmMin((() => {
 			return out;
 		}
 	});
-	Outlet = import_react$78.memo(function OutletImpl() {
+	Outlet = import_react$79.memo(function OutletImpl() {
 		const router = useRouter();
-		const matchId = import_react$78.useContext(matchContext);
+		const matchId = import_react$79.useContext(matchContext);
 		let routeId;
 		let parentGlobalNotFound = false;
 		let childMatchId;
@@ -9126,7 +9126,7 @@ var init_Match = __esmMin((() => {
 		}
 		if (!childMatchId) return null;
 		const nextMatch = /* @__PURE__ */ (0, import_jsx_runtime$48.jsx)(Match, { matchId: childMatchId });
-		if (routeId === "__root__") return /* @__PURE__ */ (0, import_jsx_runtime$48.jsx)(import_react$78.Suspense, {
+		if (routeId === "__root__") return /* @__PURE__ */ (0, import_jsx_runtime$48.jsx)(import_react$79.Suspense, {
 			fallback: pendingElement,
 			children: nextMatch
 		});
@@ -9304,7 +9304,7 @@ function Script({ attrs, children, preventScriptHoist }) {
 	useRouter();
 	useHydrated();
 	const dataScript = typeof attrs?.type === "string" && attrs.type !== "" && attrs.type !== "text/javascript" && attrs.type !== "module";
-	import_react$74.useEffect(() => {
+	import_react$75.useEffect(() => {
 		if (dataScript) return;
 		if (attrs?.src) {
 			const normSrc = (() => {
@@ -9359,11 +9359,11 @@ function Script({ attrs, children, preventScriptHoist }) {
 	});
 	return null;
 }
-var import_react$74, import_jsx_runtime$45, noopScriptHandler;
+var import_react$75, import_jsx_runtime$45, noopScriptHandler;
 var init_Asset = __esmMin((() => {
 	init_ClientOnly();
 	init_useRouter();
-	import_react$74 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$75 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$45 = require_jsx_runtime();
 	init_server$3();
 	noopScriptHandler = () => {};
@@ -9511,18 +9511,18 @@ var init_headContentUtils = __esmMin((() => {
 function HeadContent(props) {
 	const tags = useTags(props.assetCrossOrigin);
 	const nonce = useRouter().options.ssr?.nonce;
-	return /* @__PURE__ */ (0, import_jsx_runtime$44.jsx)(import_jsx_runtime$44.Fragment, { children: tags.map((tag) => /* @__PURE__ */ (0, import_react$72.createElement)(Asset, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$44.jsx)(import_jsx_runtime$44.Fragment, { children: tags.map((tag) => /* @__PURE__ */ (0, import_react$73.createElement)(Asset, {
 		...tag,
 		key: `tsr-meta-${JSON.stringify(tag)}`,
 		nonce
 	})) });
 }
-var import_react$72, import_jsx_runtime$44;
+var import_react$73, import_jsx_runtime$44;
 var init_HeadContent = __esmMin((() => {
 	init_useRouter();
 	init_Asset();
 	init_headContentUtils();
-	import_react$72 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$73 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$44 = require_jsx_runtime();
 }));
 //#endregion
@@ -9533,17 +9533,17 @@ function renderScripts(router, scripts, assetScripts) {
 		const serverBufferedScript = router.serverSsr.takeBufferedScripts();
 		if (serverBufferedScript) allScripts.unshift(serverBufferedScript);
 	}
-	return /* @__PURE__ */ (0, import_jsx_runtime$43.jsx)(import_jsx_runtime$43.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ (0, import_react$71.createElement)(Asset, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$43.jsx)(import_jsx_runtime$43.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ (0, import_react$72.createElement)(Asset, {
 		...asset,
 		key: `tsr-scripts-${asset.tag}-${i}`
 	})) });
 }
-var import_react$71, import_jsx_runtime$43, Scripts;
+var import_react$72, import_jsx_runtime$43, Scripts;
 var init_Scripts = __esmMin((() => {
 	init_useRouter();
 	init_Asset();
 	init_esm$3();
-	import_react$71 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$72 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$43 = require_jsx_runtime();
 	init_esm$1();
 	init_server$3();
@@ -20197,10 +20197,10 @@ var init_client = __esmMin((() => {
 	init_headers();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CzWN2fVP.js
-var _tanstack_start_manifest_v_CzWN2fVP_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DkExaWGN.js
+var _tanstack_start_manifest_v_DkExaWGN_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
+var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/__root.tsx",
@@ -20217,7 +20217,7 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 				"/product/$slug"
 			],
 			preloads: [
-				"/assets/index-Dl6fPHVQ.js",
+				"/assets/index-DyNAH5Je.js",
 				"/assets/jsx-runtime-Dk72oS4N.js",
 				"/assets/utils-BiJ5wl_M.js",
 				"/assets/useStore-BBUHbJZj.js",
@@ -20231,15 +20231,15 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-Dl6fPHVQ.js"
+				src: "/assets/index-DyNAH5Je.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-BUZN75G3.js",
-				"/assets/useQuery-bivPXRzH.js",
+				"/assets/routes-DeeIe9vu.js",
+				"/assets/useQuery-BrFq-zlP.js",
 				"/assets/ProductCard-BUZ6Bz-b.js"
 			]
 		},
@@ -20257,10 +20257,10 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/account.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/account-DK4JUIYc.js",
-				"/assets/useQuery-bivPXRzH.js",
-				"/assets/badge-C4BUKdxW.js",
-				"/assets/tabs-D13YBPj8.js",
+				"/assets/account-CJAUKqPx.js",
+				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/badge-CjLGIPdt.js",
+				"/assets/tabs-IBYZ3fLw.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20268,8 +20268,8 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-BP_uRxME.js",
-				"/assets/tabs-D13YBPj8.js",
+				"/assets/auth-DMa1qCbt.js",
+				"/assets/tabs-IBYZ3fLw.js",
 				"/assets/types-DKSnJpxg.js"
 			]
 		},
@@ -20277,9 +20277,9 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/cart.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cart-DVZbUBac.js",
-				"/assets/plus-nvmwwGFF.js",
-				"/assets/trash-2-2xGfk-UP.js",
+				"/assets/cart-BL_ZTHkX.js",
+				"/assets/plus-DgAOnBZd.js",
+				"/assets/trash-2-hk_P_1Ys.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20287,10 +20287,10 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/checkout.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/checkout--eIlNGVH.js",
-				"/assets/useQuery-bivPXRzH.js",
-				"/assets/message-circle-jMGSPwtP.js",
-				"/assets/upload-DQDKDVh1.js",
+				"/assets/checkout-BZzCyYa8.js",
+				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/message-circle-CFDX5GFK.js",
+				"/assets/upload-zn3SbwFx.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/types-DKSnJpxg.js"
@@ -20300,7 +20300,7 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/contact.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/contact-C92l2Au5.js",
+				"/assets/contact-ibXuW8va.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/types-DKSnJpxg.js"
 			]
@@ -20309,8 +20309,8 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/shop.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/shop-DERWZcQE.js",
-				"/assets/useQuery-bivPXRzH.js",
+				"/assets/shop-18NE1Vmv.js",
+				"/assets/useQuery-BrFq-zlP.js",
 				"/assets/ProductCard-BUZ6Bz-b.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -20319,29 +20319,29 @@ var init__tanstack_start_manifest_v_CzWN2fVP = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-DSUA8JEV.js",
-				"/assets/useQuery-bivPXRzH.js",
-				"/assets/badge-C4BUKdxW.js",
-				"/assets/trash-2-2xGfk-UP.js",
-				"/assets/upload-DQDKDVh1.js",
+				"/assets/admin-Csl6QwwF.js",
+				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/badge-CjLGIPdt.js",
+				"/assets/trash-2-hk_P_1Ys.js",
+				"/assets/upload-zn3SbwFx.js",
 				"/assets/textarea-CXleoTI0.js",
-				"/assets/tabs-D13YBPj8.js",
+				"/assets/tabs-IBYZ3fLw.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
 		"/_authenticated/admin-setup": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin-setup.tsx",
 			children: void 0,
-			preloads: ["/assets/admin-setup-CbgkU5-r.js", "/assets/useQuery-bivPXRzH.js"]
+			preloads: ["/assets/admin-setup-n_zyfRxi.js", "/assets/useQuery-BrFq-zlP.js"]
 		},
 		"/product/$slug": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/product.$slug.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/product._slug-DL6sdYhk.js",
-				"/assets/useQuery-bivPXRzH.js",
-				"/assets/message-circle-jMGSPwtP.js",
-				"/assets/plus-nvmwwGFF.js",
+				"/assets/product._slug-CEEoMwUA.js",
+				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/message-circle-CFDX5GFK.js",
+				"/assets/plus-DgAOnBZd.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -41393,9 +41393,9 @@ var init_client_BpGEELM_ = __esmMin((() => {
 //#endregion
 //#region node_modules/.nitro/vite/services/ssr/assets/useAuth-DAQ2dthM.js
 function AuthProvider({ children }) {
-	const [session, setSession] = (0, import_react$70.useState)(null);
-	const [isAdmin, setIsAdmin] = (0, import_react$70.useState)(false);
-	const [loading, setLoading] = (0, import_react$70.useState)(true);
+	const [session, setSession] = (0, import_react$71.useState)(null);
+	const [isAdmin, setIsAdmin] = (0, import_react$71.useState)(false);
+	const [loading, setLoading] = (0, import_react$71.useState)(true);
 	const loadRole = async (userId) => {
 		if (!userId) {
 			setIsAdmin(false);
@@ -41404,7 +41404,7 @@ function AuthProvider({ children }) {
 		const { data } = await supabase.from("user_roles").select("role").eq("user_id", userId).eq("role", "admin").maybeSingle();
 		setIsAdmin(!!data);
 	};
-	(0, import_react$70.useEffect)(() => {
+	(0, import_react$71.useEffect)(() => {
 		const { data: sub } = supabase.auth.onAuthStateChange((_event, nextSession) => {
 			setSession(nextSession);
 			setLoading(false);
@@ -41417,7 +41417,7 @@ function AuthProvider({ children }) {
 		});
 		return () => sub.subscription.unsubscribe();
 	}, []);
-	const value = (0, import_react$70.useMemo)(() => ({
+	const value = (0, import_react$71.useMemo)(() => ({
 		session,
 		user: session?.user ?? null,
 		isAdmin,
@@ -41438,27 +41438,27 @@ function AuthProvider({ children }) {
 	});
 }
 function useAuth() {
-	const ctx = (0, import_react$70.useContext)(AuthContext);
+	const ctx = (0, import_react$71.useContext)(AuthContext);
 	if (!ctx) throw new Error("useAuth must be used inside AuthProvider");
 	return ctx;
 }
-var import_react$70, import_jsx_runtime$42, AuthContext;
+var import_react$71, import_jsx_runtime$42, AuthContext;
 var init_useAuth_DAQ2dthM = __esmMin((() => {
 	init_client_BpGEELM_();
-	import_react$70 = /* @__PURE__ */ __toESM(require_react());
+	import_react$71 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$42 = require_jsx_runtime();
-	AuthContext = (0, import_react$70.createContext)(void 0);
+	AuthContext = (0, import_react$71.createContext)(void 0);
 }));
 //#endregion
 //#region node_modules/.nitro/vite/services/ssr/assets/useCart-B6US-OkA.js
 function CartProvider({ children }) {
 	const { user, loading: authLoading } = useAuth();
-	const [items, setItems] = (0, import_react$69.useState)([]);
-	const [hydrated, setHydrated] = (0, import_react$69.useState)(false);
-	const storageKey = (0, import_react$69.useMemo)(() => {
+	const [items, setItems] = (0, import_react$70.useState)([]);
+	const [hydrated, setHydrated] = (0, import_react$70.useState)(false);
+	const storageKey = (0, import_react$70.useMemo)(() => {
 		return user ? `${BASE_STORAGE_KEY}_${user.id}` : `${BASE_STORAGE_KEY}_guest`;
 	}, [user]);
-	(0, import_react$69.useEffect)(() => {
+	(0, import_react$70.useEffect)(() => {
 		if (authLoading) return;
 		try {
 			const raw = window.localStorage.getItem(storageKey);
@@ -41469,7 +41469,7 @@ function CartProvider({ children }) {
 		}
 		setHydrated(true);
 	}, [storageKey, authLoading]);
-	(0, import_react$69.useEffect)(() => {
+	(0, import_react$70.useEffect)(() => {
 		if (!hydrated || authLoading) return;
 		window.localStorage.setItem(storageKey, JSON.stringify(items));
 	}, [
@@ -41478,7 +41478,7 @@ function CartProvider({ children }) {
 		storageKey,
 		authLoading
 	]);
-	const value = (0, import_react$69.useMemo)(() => {
+	const value = (0, import_react$70.useMemo)(() => {
 		const key = (id, size) => `${id}__${size}`;
 		return {
 			items,
@@ -41506,17 +41506,17 @@ function CartProvider({ children }) {
 	});
 }
 function useCart() {
-	const ctx = (0, import_react$69.useContext)(CartContext);
+	const ctx = (0, import_react$70.useContext)(CartContext);
 	if (!ctx) throw new Error("useCart must be used inside CartProvider");
 	return ctx;
 }
-var import_react$69, import_jsx_runtime$41, BASE_STORAGE_KEY, CartContext;
+var import_react$70, import_jsx_runtime$41, BASE_STORAGE_KEY, CartContext;
 var init_useCart_B6US_OkA = __esmMin((() => {
 	init_useAuth_DAQ2dthM();
-	import_react$69 = /* @__PURE__ */ __toESM(require_react());
+	import_react$70 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$41 = require_jsx_runtime();
 	BASE_STORAGE_KEY = "nathans-clothes-cart";
-	CartContext = (0, import_react$69.createContext)(void 0);
+	CartContext = (0, import_react$70.createContext)(void 0);
 }));
 //#endregion
 //#region node_modules/clsx/dist/clsx.mjs
@@ -45006,11 +45006,11 @@ function composeRefs(...refs) {
 	};
 }
 function useComposedRefs(...refs) {
-	return import_react$68.useCallback(composeRefs(...refs), refs);
+	return import_react$69.useCallback(composeRefs(...refs), refs);
 }
-var import_react$68, __defProp$26, __name$26;
+var import_react$69, __defProp$26, __name$26;
 var init_dist$30 = __esmMin((() => {
-	import_react$68 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$69 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$26 = Object.defineProperty;
 	__name$26 = (target, value) => __defProp$26(target, "name", {
 		value,
@@ -45024,13 +45024,13 @@ var init_dist$30 = __esmMin((() => {
 //#region node_modules/@radix-ui/react-slot/dist/index.mjs
 // @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
-	const Slot2 = import_react$67.forwardRef((props, forwardedRef) => {
+	const Slot2 = import_react$68.forwardRef((props, forwardedRef) => {
 		let { children, ...slotProps } = props;
 		let slottableElement = null;
 		let hasSlottable = false;
 		const newChildren = [];
 		if (isLazyComponent(children) && typeof use === "function") children = use(children._payload);
-		import_react$67.Children.forEach(children, (maybeSlottable) => {
+		import_react$68.Children.forEach(children, (maybeSlottable) => {
 			if (isSlottable(maybeSlottable)) {
 				hasSlottable = true;
 				const slottable = maybeSlottable;
@@ -45040,8 +45040,8 @@ function createSlot(ownerName) {
 				newChildren.push(slottableElement?.props?.children);
 			} else newChildren.push(maybeSlottable);
 		});
-		if (slottableElement) slottableElement = import_react$67.cloneElement(slottableElement, void 0, newChildren);
-		else if (!hasSlottable && import_react$67.Children.count(children) === 1 && import_react$67.isValidElement(children)) slottableElement = children;
+		if (slottableElement) slottableElement = import_react$68.cloneElement(slottableElement, void 0, newChildren);
+		else if (!hasSlottable && import_react$68.Children.count(children) === 1 && import_react$68.isValidElement(children)) slottableElement = children;
 		const slottableElementRef = slottableElement ? getElementRef$1(slottableElement) : void 0;
 		const composedRef = useComposedRefs(forwardedRef, slottableElementRef);
 		if (!slottableElement) {
@@ -45049,8 +45049,8 @@ function createSlot(ownerName) {
 			return children;
 		}
 		const mergedProps = mergeProps(slotProps, slottableElement.props ?? {});
-		if (slottableElement.type !== import_react$67.Fragment) mergedProps.ref = forwardedRef ? composedRef : slottableElementRef;
-		return import_react$67.cloneElement(slottableElement, mergedProps);
+		if (slottableElement.type !== import_react$68.Fragment) mergedProps.ref = forwardedRef ? composedRef : slottableElementRef;
+		return import_react$68.cloneElement(slottableElement, mergedProps);
 	});
 	Slot2.displayName = `${ownerName}.Slot`;
 	return Slot2;
@@ -45095,7 +45095,7 @@ function getElementRef$1(element) {
 	return element.props.ref || element.ref;
 }
 function isSlottable(child) {
-	return import_react$67.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
+	return import_react$68.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
 function isLazyComponent(element) {
 	return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike$1(element._payload);
@@ -45103,9 +45103,9 @@ function isLazyComponent(element) {
 function isPromiseLike$1(value) {
 	return typeof value === "object" && value !== null && "then" in value;
 }
-var import_react$67, __defProp$25, __name$25, Slot$2, SLOTTABLE_IDENTIFIER, getSlottableElementFromSlottable, REACT_LAZY_TYPE, createSlotError, createSlottableError, use;
+var import_react$68, __defProp$25, __name$25, Slot$2, SLOTTABLE_IDENTIFIER, getSlottableElementFromSlottable, REACT_LAZY_TYPE, createSlotError, createSlottableError, use;
 var init_dist$29 = __esmMin((() => {
-	import_react$67 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$68 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$30();
 	__defProp$25 = Object.defineProperty;
 	__name$25 = (target, value) => __defProp$25(target, "name", {
@@ -45119,10 +45119,10 @@ var init_dist$29 = __esmMin((() => {
 	getSlottableElementFromSlottable = /* @__PURE__ */ __name$25((slottable, child) => {
 		if ("child" in slottable.props) {
 			const child2 = slottable.props.child;
-			if (!import_react$67.isValidElement(child2)) return null;
-			return import_react$67.cloneElement(child2, void 0, slottable.props.children(child2.props.children));
+			if (!import_react$68.isValidElement(child2)) return null;
+			return import_react$68.cloneElement(child2, void 0, slottable.props.children(child2.props.children));
 		}
-		return import_react$67.isValidElement(child) ? child : null;
+		return import_react$68.isValidElement(child) ? child : null;
 	}, "getSlottableElementFromSlottable");
 	__name$25(mergeProps, "mergeProps");
 	__name$25(getElementRef$1, "getElementRef");
@@ -45136,7 +45136,7 @@ var init_dist$29 = __esmMin((() => {
 	createSlottableError = /* @__PURE__ */ __name$25((ownerName) => {
 		return `${ownerName} failed to slot onto its \`Slottable\`. Expected \`Slottable\` to receive a single React element child.`;
 	}, "createSlottableError");
-	use = import_react$67[" use ".trim().toString()];
+	use = import_react$68[" use ".trim().toString()];
 }));
 //#endregion
 //#region node_modules/class-variance-authority/dist/index.mjs
@@ -45184,10 +45184,10 @@ var init_dist$28 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.nitro/vite/services/ssr/assets/button-cHXlBU3y.js
-var import_react$66, import_jsx_runtime$40, buttonVariants, Button;
+var import_react$67, import_jsx_runtime$40, buttonVariants, Button;
 var init_button_cHXlBU3y = __esmMin((() => {
 	init_utils_C_uf36nf();
-	import_react$66 = /* @__PURE__ */ __toESM(require_react());
+	import_react$67 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$40 = require_jsx_runtime();
 	init_dist$29();
 	init_dist$28();
@@ -45213,7 +45213,7 @@ var init_button_cHXlBU3y = __esmMin((() => {
 			size: "default"
 		}
 	});
-	Button = import_react$66.forwardRef(({ className, variant, size, asChild = false, ...props }, ref) => {
+	Button = import_react$67.forwardRef(({ className, variant, size, asChild = false, ...props }, ref) => {
 		return /* @__PURE__ */ (0, import_jsx_runtime$40.jsx)(asChild ? Slot$2 : "button", {
 			className: cn$1(buttonVariants({
 				variant,
@@ -45231,9 +45231,9 @@ var init_button_cHXlBU3y = __esmMin((() => {
 function dispatchDiscreteCustomEvent(target, event) {
 	if (target) import_react_dom$3.flushSync(() => target.dispatchEvent(event));
 }
-var import_react$65, import_react_dom$3, import_jsx_runtime$39, __defProp$24, __name$24, Primitive;
+var import_react$66, import_react_dom$3, import_jsx_runtime$39, __defProp$24, __name$24, Primitive;
 var init_dist$27 = __esmMin((() => {
-	import_react$65 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$66 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react_dom$3 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 	init_dist$29();
 	import_jsx_runtime$39 = require_jsx_runtime();
@@ -45262,7 +45262,7 @@ var init_dist$27 = __esmMin((() => {
 		"ul"
 	].reduce((primitive, node) => {
 		const Slot = /* @__PURE__ */ createSlot(`Primitive.${node}`);
-		const Node = import_react$65.forwardRef((props, forwardedRef) => {
+		const Node = import_react$66.forwardRef((props, forwardedRef) => {
 			const { asChild, ...primitiveProps } = props;
 			const Comp = asChild ? Slot : node;
 			if (typeof window !== "undefined") window[Symbol.for("radix-ui")] = true;
@@ -45281,9 +45281,9 @@ var init_dist$27 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-label/dist/index.mjs
-var import_react$64, import_jsx_runtime$38, __defProp$23, __name$23, Label$2, Root$1;
+var import_react$65, import_jsx_runtime$38, __defProp$23, __name$23, Label$2, Root$1;
 var init_dist$26 = __esmMin((() => {
-	import_react$64 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$65 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$27();
 	import_jsx_runtime$38 = require_jsx_runtime();
 	__defProp$23 = Object.defineProperty;
@@ -45291,7 +45291,7 @@ var init_dist$26 = __esmMin((() => {
 		value,
 		configurable: true
 	});
-	Label$2 = /* @__PURE__ */ import_react$64.forwardRef(/* @__PURE__ */ __name$23(function Label2(props, forwardedRef) {
+	Label$2 = /* @__PURE__ */ import_react$65.forwardRef(/* @__PURE__ */ __name$23(function Label2(props, forwardedRef) {
 		return /* @__PURE__ */ (0, import_jsx_runtime$38.jsx)(Primitive.label, {
 			...props,
 			ref: forwardedRef,
@@ -45306,14 +45306,14 @@ var init_dist$26 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.nitro/vite/services/ssr/assets/label-B7oQAA24.js
-var import_react$63, import_jsx_runtime$37, Input, labelVariants, Label$1;
+var import_react$64, import_jsx_runtime$37, Input, labelVariants, Label$1;
 var init_label_B7oQAA24 = __esmMin((() => {
 	init_utils_C_uf36nf();
-	import_react$63 = /* @__PURE__ */ __toESM(require_react());
+	import_react$64 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$37 = require_jsx_runtime();
 	init_dist$28();
 	init_dist$26();
-	Input = import_react$63.forwardRef(({ className, type, ...props }, ref) => {
+	Input = import_react$64.forwardRef(({ className, type, ...props }, ref) => {
 		return /* @__PURE__ */ (0, import_jsx_runtime$37.jsx)("input", {
 			type,
 			className: cn$1("flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm", className),
@@ -45323,7 +45323,7 @@ var init_label_B7oQAA24 = __esmMin((() => {
 	});
 	Input.displayName = "Input";
 	labelVariants = cva("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
-	Label$1 = import_react$63.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$37.jsx)(Root$1, {
+	Label$1 = import_react$64.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$37.jsx)(Root$1, {
 		ref,
 		className: cn$1(labelVariants(), className),
 		...props
@@ -45423,13 +45423,13 @@ var init_hasA11yProp = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/lucide-react/dist/esm/Icon.js
-var import_react$62, Icon;
+var import_react$63, Icon;
 var init_Icon = __esmMin((() => {
-	import_react$62 = /* @__PURE__ */ __toESM(require_react());
+	import_react$63 = /* @__PURE__ */ __toESM(require_react());
 	init_defaultAttributes();
 	init_hasA11yProp();
 	init_mergeClasses();
-	Icon = (0, import_react$62.forwardRef)(({ color = "currentColor", size = 24, strokeWidth = 2, absoluteStrokeWidth, className = "", children, iconNode, ...rest }, ref) => (0, import_react$62.createElement)("svg", {
+	Icon = (0, import_react$63.forwardRef)(({ color = "currentColor", size = 24, strokeWidth = 2, absoluteStrokeWidth, className = "", children, iconNode, ...rest }, ref) => (0, import_react$63.createElement)("svg", {
 		ref,
 		...defaultAttributes,
 		width: size,
@@ -45439,7 +45439,7 @@ var init_Icon = __esmMin((() => {
 		className: mergeClasses("lucide", className),
 		...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
 		...rest
-	}, [...iconNode.map(([tag, attrs]) => (0, import_react$62.createElement)(tag, attrs)), ...Array.isArray(children) ? children : [children]]));
+	}, [...iconNode.map(([tag, attrs]) => (0, import_react$63.createElement)(tag, attrs)), ...Array.isArray(children) ? children : [children]]));
 }));
 /**
 * @license lucide-react v0.575.0 - ISC
@@ -45449,9 +45449,9 @@ var init_Icon = __esmMin((() => {
 */
 //#endregion
 //#region node_modules/lucide-react/dist/esm/createLucideIcon.js
-var import_react$61, createLucideIcon;
+var import_react$62, createLucideIcon;
 var init_createLucideIcon = __esmMin((() => {
-	import_react$61 = /* @__PURE__ */ __toESM(require_react());
+	import_react$62 = /* @__PURE__ */ __toESM(require_react());
 	init_mergeClasses();
 	init_toKebabCase();
 	init_toPascalCase();
@@ -45463,7 +45463,7 @@ var init_createLucideIcon = __esmMin((() => {
 		* This source code is licensed under the ISC license.
 		* See the LICENSE file in the root directory of this source tree.
 		*/
-		const Component = (0, import_react$61.forwardRef)(({ className, ...props }, ref) => (0, import_react$61.createElement)(Icon, {
+		const Component = (0, import_react$62.forwardRef)(({ className, ...props }, ref) => (0, import_react$62.createElement)(Icon, {
 			ref,
 			iconNode,
 			className: mergeClasses(`lucide-${toKebabCase(toPascalCase(iconName))}`, `lucide-${iconName}`, className),
@@ -46165,11 +46165,11 @@ var init_is_development_false = __esmMin((() => {}));
 //#region node_modules/@radix-ui/react-context/dist/index.mjs
 // @__NO_SIDE_EFFECTS__
 function createContext2(rootComponentName, defaultContext) {
-	const Context = import_react$60.createContext(defaultContext);
+	const Context = import_react$61.createContext(defaultContext);
 	Context.displayName = rootComponentName + "Context";
 	const Provider = /* @__PURE__ */ __name$22((props) => {
 		const { children, ...context } = props;
-		const value = import_react$60.useMemo(() => context, Object.values(context));
+		const value = import_react$61.useMemo(() => context, Object.values(context));
 		return /* @__PURE__ */ (0, import_jsx_runtime$36.jsx)(Context.Provider, {
 			value,
 			children
@@ -46178,7 +46178,7 @@ function createContext2(rootComponentName, defaultContext) {
 	Provider.displayName = rootComponentName + "Provider";
 	function useContext2(consumerName, options = {}) {
 		const { optional = false } = options;
-		const context = import_react$60.useContext(Context);
+		const context = import_react$61.useContext(Context);
 		if (context) return context;
 		if (defaultContext !== void 0) return defaultContext;
 		if (optional) return void 0;
@@ -46191,14 +46191,14 @@ function createContext2(rootComponentName, defaultContext) {
 function createContextScope(scopeName, createContextScopeDeps = []) {
 	let defaultContexts = [];
 	function createContext3(rootComponentName, defaultContext) {
-		const BaseContext = import_react$60.createContext(defaultContext);
+		const BaseContext = import_react$61.createContext(defaultContext);
 		BaseContext.displayName = rootComponentName + "Context";
 		const index = defaultContexts.length;
 		defaultContexts = [...defaultContexts, defaultContext];
 		const Provider = /* @__PURE__ */ __name$22((props) => {
 			const { scope, children, ...context } = props;
 			const Context = scope?.[scopeName]?.[index] || BaseContext;
-			const value = import_react$60.useMemo(() => context, Object.values(context));
+			const value = import_react$61.useMemo(() => context, Object.values(context));
 			return /* @__PURE__ */ (0, import_jsx_runtime$36.jsx)(Context.Provider, {
 				value,
 				children
@@ -46208,7 +46208,7 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
 		function useContext2(consumerName, scope, options = {}) {
 			const { optional = false } = options;
 			const Context = scope?.[scopeName]?.[index] || BaseContext;
-			const context = import_react$60.useContext(Context);
+			const context = import_react$61.useContext(Context);
 			if (context) return context;
 			if (defaultContext !== void 0) return defaultContext;
 			if (optional) return void 0;
@@ -46220,11 +46220,11 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
 	__name$22(createContext3, "createContext");
 	const createScope = /* @__PURE__ */ __name$22(() => {
 		const scopeContexts = defaultContexts.map((defaultContext) => {
-			return import_react$60.createContext(defaultContext);
+			return import_react$61.createContext(defaultContext);
 		});
 		return /* @__PURE__ */ __name$22(function useScope(scope) {
 			const contexts = scope?.[scopeName] || scopeContexts;
-			return import_react$60.useMemo(() => ({ [`__scope${scopeName}`]: {
+			return import_react$61.useMemo(() => ({ [`__scope${scopeName}`]: {
 				...scope,
 				[scopeName]: contexts
 			} }), [scope, contexts]);
@@ -46249,15 +46249,15 @@ function composeContextScopes(...scopes) {
 					...currentScope
 				};
 			}, {});
-			return import_react$60.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
+			return import_react$61.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
 		}, "useComposedScopes");
 	}, "createScope");
 	createScope.scopeName = baseScope.scopeName;
 	return createScope;
 }
-var import_react$60, import_jsx_runtime$36, __defProp$22, __name$22;
+var import_react$61, import_jsx_runtime$36, __defProp$22, __name$22;
 var init_dist$25 = __esmMin((() => {
-	import_react$60 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$61 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$36 = require_jsx_runtime();
 	__defProp$22 = Object.defineProperty;
 	__name$22 = (target, value) => __defProp$22(target, "name", {
@@ -46271,15 +46271,15 @@ var init_dist$25 = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
 function useCallbackRef$1(callback) {
-	const callbackRef = import_react$59.useRef(callback);
-	import_react$59.useEffect(() => {
+	const callbackRef = import_react$60.useRef(callback);
+	import_react$60.useEffect(() => {
 		callbackRef.current = callback;
 	});
-	return import_react$59.useMemo(() => ((...args) => callbackRef.current?.(...args)), []);
+	return import_react$60.useMemo(() => ((...args) => callbackRef.current?.(...args)), []);
 }
-var import_react$59, __defProp$21, __name$21;
+var import_react$60, __defProp$21, __name$21;
 var init_dist$24 = __esmMin((() => {
-	import_react$59 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$60 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$21 = Object.defineProperty;
 	__name$21 = (target, value) => __defProp$21(target, "name", {
 		value,
@@ -46289,10 +46289,10 @@ var init_dist$24 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
-var import_react$58, useLayoutEffect2;
+var import_react$59, useLayoutEffect2;
 var init_dist$23 = __esmMin((() => {
-	import_react$58 = /* @__PURE__ */ __toESM(require_react(), 1);
-	useLayoutEffect2 = globalThis?.document ? import_react$58.useLayoutEffect : () => {};
+	import_react$59 = /* @__PURE__ */ __toESM(require_react(), 1);
+	useLayoutEffect2 = globalThis?.document ? import_react$59.useLayoutEffect : () => {};
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-avatar/dist/index.mjs
@@ -46334,9 +46334,9 @@ function useImageCount() {
 	return STATIC_IMAGE_COUNT_STATE;
 }
 function useUpdateImageCount(setImageCount) {}
-var import_react$57, import_jsx_runtime$35, __defProp$20, __name$20, AVATAR_NAME, createAvatarContext, createAvatarScope, STATIC_IMAGE_COUNT_STATE, AvatarProvider, useAvatarContext, Avatar$1, IMAGE_NAME, AvatarImage$1, FALLBACK_NAME, AvatarFallback$1;
+var import_react$58, import_jsx_runtime$35, __defProp$20, __name$20, AVATAR_NAME, createAvatarContext, createAvatarScope, STATIC_IMAGE_COUNT_STATE, AvatarProvider, useAvatarContext, Avatar$1, IMAGE_NAME, AvatarImage$1, FALLBACK_NAME, AvatarFallback$1;
 var init_dist$22 = __esmMin((() => {
-	import_react$57 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$58 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_is_development_false();
 	init_dist$25();
 	init_dist$24();
@@ -46352,9 +46352,9 @@ var init_dist$22 = __esmMin((() => {
 	[createAvatarContext, createAvatarScope] = /* @__PURE__ */ createContextScope(AVATAR_NAME);
 	STATIC_IMAGE_COUNT_STATE = [0, () => void 0];
 	[AvatarProvider, useAvatarContext] = createAvatarContext(AVATAR_NAME);
-	Avatar$1 = /* @__PURE__ */ import_react$57.forwardRef(/* @__PURE__ */ __name$20(function Avatar2(props, forwardedRef) {
+	Avatar$1 = /* @__PURE__ */ import_react$58.forwardRef(/* @__PURE__ */ __name$20(function Avatar2(props, forwardedRef) {
 		const { __scopeAvatar, ...avatarProps } = props;
-		const [imageLoadingStatus, setImageLoadingStatus] = import_react$57.useState("idle");
+		const [imageLoadingStatus, setImageLoadingStatus] = import_react$58.useState("idle");
 		const [imageCount, setImageCount] = useImageCount();
 		return /* @__PURE__ */ (0, import_jsx_runtime$35.jsx)(AvatarProvider, {
 			scope: __scopeAvatar,
@@ -46369,7 +46369,7 @@ var init_dist$22 = __esmMin((() => {
 		});
 	}, "Avatar"));
 	IMAGE_NAME = "AvatarImage";
-	AvatarImage$1 = /* @__PURE__ */ import_react$57.forwardRef(/* @__PURE__ */ __name$20(function AvatarImage2(props, forwardedRef) {
+	AvatarImage$1 = /* @__PURE__ */ import_react$58.forwardRef(/* @__PURE__ */ __name$20(function AvatarImage2(props, forwardedRef) {
 		const { __scopeAvatar, src, onLoadingStatusChange, ...imageProps } = props;
 		const context = useAvatarContext(IMAGE_NAME, __scopeAvatar);
 		context.setImageCount;
@@ -46382,7 +46382,7 @@ var init_dist$22 = __esmMin((() => {
 		const handleLoadingStatusChange = useCallbackRef$1((status) => {
 			onLoadingStatusChange?.(status);
 		});
-		const loadingStatusRef = import_react$57.useRef(imageLoadingStatus);
+		const loadingStatusRef = import_react$58.useRef(imageLoadingStatus);
 		useLayoutEffect2(() => {
 			const previousLoadingStatus = loadingStatusRef.current;
 			loadingStatusRef.current = imageLoadingStatus;
@@ -46395,11 +46395,11 @@ var init_dist$22 = __esmMin((() => {
 		}) : null;
 	}, "AvatarImage"));
 	FALLBACK_NAME = "AvatarFallback";
-	AvatarFallback$1 = /* @__PURE__ */ import_react$57.forwardRef(/* @__PURE__ */ __name$20(function AvatarFallback2(props, forwardedRef) {
+	AvatarFallback$1 = /* @__PURE__ */ import_react$58.forwardRef(/* @__PURE__ */ __name$20(function AvatarFallback2(props, forwardedRef) {
 		const { __scopeAvatar, delayMs, ...fallbackProps } = props;
 		const context = useAvatarContext(FALLBACK_NAME, __scopeAvatar);
-		const [canRender, setCanRender] = import_react$57.useState(delayMs === void 0);
-		import_react$57.useEffect(() => {
+		const [canRender, setCanRender] = import_react$58.useState(delayMs === void 0);
+		import_react$58.useEffect(() => {
 			if (delayMs !== void 0) {
 				const timerId = window.setTimeout(() => setCanRender(true), delayMs);
 				return () => window.clearTimeout(timerId);
@@ -46475,9 +46475,9 @@ function assignOffset(defaultOffset, mobileOffset) {
 	});
 	return styles;
 }
-var import_react$56, import_react_dom$2, getAsset, bars, Loader, SuccessIcon, WarningIcon, InfoIcon, ErrorIcon, CloseIcon, useIsDocumentHidden, toastsCounter, MAX_HISTORY_SIZE, getToastId, Observer, ToastState, toastFunction, isHttpResponse, basicToast, getHistory, getToasts, toast, VISIBLE_TOASTS_AMOUNT, VIEWPORT_OFFSET, MOBILE_VIEWPORT_OFFSET, TOAST_LIFETIME, TOAST_WIDTH, GAP, SWIPE_THRESHOLD, TIME_BEFORE_UNMOUNT, Toast, Toaster;
+var import_react$57, import_react_dom$2, getAsset, bars, Loader, SuccessIcon, WarningIcon, InfoIcon, ErrorIcon, CloseIcon, useIsDocumentHidden, toastsCounter, MAX_HISTORY_SIZE, getToastId, Observer, ToastState, toastFunction, isHttpResponse, basicToast, getHistory, getToasts, toast, VISIBLE_TOASTS_AMOUNT, VIEWPORT_OFFSET, MOBILE_VIEWPORT_OFFSET, TOAST_LIFETIME, TOAST_WIDTH, GAP, SWIPE_THRESHOLD, TIME_BEFORE_UNMOUNT, Toast, Toaster;
 var init_dist$21 = __esmMin((() => {
-	import_react$56 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$57 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react_dom$2 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 	getAsset = (type) => {
 		switch (type) {
@@ -46490,63 +46490,63 @@ var init_dist$21 = __esmMin((() => {
 	};
 	bars = Array(12).fill(0);
 	Loader = ({ visible, className }) => {
-		return /*#__PURE__*/ import_react$56.createElement("div", {
+		return /*#__PURE__*/ import_react$57.createElement("div", {
 			className: ["sonner-loading-wrapper", className].filter(Boolean).join(" "),
 			"data-visible": visible
-		}, /*#__PURE__*/ import_react$56.createElement("div", { className: "sonner-spinner" }, bars.map((_, i) => /*#__PURE__*/ import_react$56.createElement("div", {
+		}, /*#__PURE__*/ import_react$57.createElement("div", { className: "sonner-spinner" }, bars.map((_, i) => /*#__PURE__*/ import_react$57.createElement("div", {
 			className: "sonner-loading-bar",
 			key: `spinner-bar-${i}`
 		}))));
 	};
-	SuccessIcon = /*#__PURE__*/ import_react$56.createElement("svg", {
+	SuccessIcon = /*#__PURE__*/ import_react$57.createElement("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 20 20",
 		fill: "currentColor",
 		height: "20",
 		width: "20",
 		"aria-hidden": "true"
-	}, /*#__PURE__*/ import_react$56.createElement("path", {
+	}, /*#__PURE__*/ import_react$57.createElement("path", {
 		fillRule: "evenodd",
 		d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z",
 		clipRule: "evenodd"
 	}));
-	WarningIcon = /*#__PURE__*/ import_react$56.createElement("svg", {
+	WarningIcon = /*#__PURE__*/ import_react$57.createElement("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 24 24",
 		fill: "currentColor",
 		height: "20",
 		width: "20",
 		"aria-hidden": "true"
-	}, /*#__PURE__*/ import_react$56.createElement("path", {
+	}, /*#__PURE__*/ import_react$57.createElement("path", {
 		fillRule: "evenodd",
 		d: "M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z",
 		clipRule: "evenodd"
 	}));
-	InfoIcon = /*#__PURE__*/ import_react$56.createElement("svg", {
+	InfoIcon = /*#__PURE__*/ import_react$57.createElement("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 20 20",
 		fill: "currentColor",
 		height: "20",
 		width: "20",
 		"aria-hidden": "true"
-	}, /*#__PURE__*/ import_react$56.createElement("path", {
+	}, /*#__PURE__*/ import_react$57.createElement("path", {
 		fillRule: "evenodd",
 		d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z",
 		clipRule: "evenodd"
 	}));
-	ErrorIcon = /*#__PURE__*/ import_react$56.createElement("svg", {
+	ErrorIcon = /*#__PURE__*/ import_react$57.createElement("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 20 20",
 		fill: "currentColor",
 		height: "20",
 		width: "20",
 		"aria-hidden": "true"
-	}, /*#__PURE__*/ import_react$56.createElement("path", {
+	}, /*#__PURE__*/ import_react$57.createElement("path", {
 		fillRule: "evenodd",
 		d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z",
 		clipRule: "evenodd"
 	}));
-	CloseIcon = /*#__PURE__*/ import_react$56.createElement("svg", {
+	CloseIcon = /*#__PURE__*/ import_react$57.createElement("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: "12",
 		height: "12",
@@ -46557,20 +46557,20 @@ var init_dist$21 = __esmMin((() => {
 		strokeLinecap: "round",
 		strokeLinejoin: "round",
 		"aria-hidden": "true"
-	}, /*#__PURE__*/ import_react$56.createElement("line", {
+	}, /*#__PURE__*/ import_react$57.createElement("line", {
 		x1: "18",
 		y1: "6",
 		x2: "6",
 		y2: "18"
-	}), /*#__PURE__*/ import_react$56.createElement("line", {
+	}), /*#__PURE__*/ import_react$57.createElement("line", {
 		x1: "6",
 		y1: "6",
 		x2: "18",
 		y2: "18"
 	}));
 	useIsDocumentHidden = () => {
-		const [isDocumentHidden, setIsDocumentHidden] = import_react$56.useState(document.hidden);
-		import_react$56.useEffect(() => {
+		const [isDocumentHidden, setIsDocumentHidden] = import_react$57.useState(document.hidden);
+		import_react$57.useEffect(() => {
 			const callback = () => {
 				setIsDocumentHidden(document.hidden);
 			};
@@ -46738,7 +46738,7 @@ var init_dist$21 = __esmMin((() => {
 				let result;
 				const originalPromise = p.then(async (response) => {
 					result = ["resolve", response];
-					if (import_react$56.isValidElement(response)) {
+					if (import_react$57.isValidElement(response)) {
 						shouldDismiss = false;
 						this.create({
 							id,
@@ -46749,7 +46749,7 @@ var init_dist$21 = __esmMin((() => {
 						shouldDismiss = false;
 						const promiseData = typeof data.error === "function" ? await data.error(`HTTP error! status: ${response.status}`) : data.error;
 						const description = typeof data.description === "function" ? await data.description(`HTTP error! status: ${response.status}`) : data.description;
-						const toastSettings = typeof promiseData === "object" && !import_react$56.isValidElement(promiseData) ? promiseData : { message: promiseData };
+						const toastSettings = typeof promiseData === "object" && !import_react$57.isValidElement(promiseData) ? promiseData : { message: promiseData };
 						this.create({
 							id,
 							type: "error",
@@ -46760,7 +46760,7 @@ var init_dist$21 = __esmMin((() => {
 						shouldDismiss = false;
 						const promiseData = typeof data.error === "function" ? await data.error(response) : data.error;
 						const description = typeof data.description === "function" ? await data.description(response) : data.description;
-						const toastSettings = typeof promiseData === "object" && !import_react$56.isValidElement(promiseData) ? promiseData : { message: promiseData };
+						const toastSettings = typeof promiseData === "object" && !import_react$57.isValidElement(promiseData) ? promiseData : { message: promiseData };
 						this.create({
 							id,
 							type: "error",
@@ -46771,7 +46771,7 @@ var init_dist$21 = __esmMin((() => {
 						shouldDismiss = false;
 						const promiseData = typeof data.success === "function" ? await data.success(response) : data.success;
 						const description = typeof data.description === "function" ? await data.description(response) : data.description;
-						const toastSettings = typeof promiseData === "object" && !import_react$56.isValidElement(promiseData) ? promiseData : { message: promiseData };
+						const toastSettings = typeof promiseData === "object" && !import_react$57.isValidElement(promiseData) ? promiseData : { message: promiseData };
 						this.create({
 							id,
 							type: "success",
@@ -46785,7 +46785,7 @@ var init_dist$21 = __esmMin((() => {
 						shouldDismiss = false;
 						const promiseData = typeof data.error === "function" ? await data.error(error) : data.error;
 						const description = typeof data.description === "function" ? await data.description(error) : data.description;
-						const toastSettings = typeof promiseData === "object" && !import_react$56.isValidElement(promiseData) ? promiseData : { message: promiseData };
+						const toastSettings = typeof promiseData === "object" && !import_react$57.isValidElement(promiseData) ? promiseData : { message: promiseData };
 						this.create({
 							id,
 							type: "error",
@@ -46859,18 +46859,18 @@ var init_dist$21 = __esmMin((() => {
 	Toast = (props) => {
 		var _toast_classNames, _toast_classNames1, _toast_classNames2, _toast_classNames3, _toast_classNames4, _toast_classNames5, _toast_classNames6, _toast_classNames7, _toast_classNames8;
 		const { invert: ToasterInvert, toast, unstyled, interacting, setHeights, visibleToasts, heights, index, toasts, expanded, removeToast, defaultRichColors, closeButton: closeButtonFromToaster, style, cancelButtonStyle, actionButtonStyle, className = "", descriptionClassName = "", duration: durationFromToaster, position, gap, expandByDefault, classNames, icons, closeButtonAriaLabel = "Close toast" } = props;
-		const [swipeDirection, setSwipeDirection] = import_react$56.useState(null);
-		const [swipeOutDirection, setSwipeOutDirection] = import_react$56.useState(null);
-		const [mounted, setMounted] = import_react$56.useState(false);
-		const [removed, setRemoved] = import_react$56.useState(false);
-		const [swiping, setSwiping] = import_react$56.useState(false);
-		const [swipeOut, setSwipeOut] = import_react$56.useState(false);
-		const [isSwiped, setIsSwiped] = import_react$56.useState(false);
-		const [offsetBeforeRemove, setOffsetBeforeRemove] = import_react$56.useState(0);
-		const [initialHeight, setInitialHeight] = import_react$56.useState(0);
-		const remainingTime = import_react$56.useRef(toast.duration || durationFromToaster || TOAST_LIFETIME);
-		const dragStartTime = import_react$56.useRef(null);
-		const toastRef = import_react$56.useRef(null);
+		const [swipeDirection, setSwipeDirection] = import_react$57.useState(null);
+		const [swipeOutDirection, setSwipeOutDirection] = import_react$57.useState(null);
+		const [mounted, setMounted] = import_react$57.useState(false);
+		const [removed, setRemoved] = import_react$57.useState(false);
+		const [swiping, setSwiping] = import_react$57.useState(false);
+		const [swipeOut, setSwipeOut] = import_react$57.useState(false);
+		const [isSwiped, setIsSwiped] = import_react$57.useState(false);
+		const [offsetBeforeRemove, setOffsetBeforeRemove] = import_react$57.useState(0);
+		const [initialHeight, setInitialHeight] = import_react$57.useState(0);
+		const remainingTime = import_react$57.useRef(toast.duration || durationFromToaster || TOAST_LIFETIME);
+		const dragStartTime = import_react$57.useRef(null);
+		const toastRef = import_react$57.useRef(null);
 		const isFront = index === 0;
 		const isVisible = index + 1 <= visibleToasts;
 		const toastType = toast.type;
@@ -46878,38 +46878,38 @@ var init_dist$21 = __esmMin((() => {
 		const dismissible = toast.dismissible !== false;
 		const toastClassname = toast.className || "";
 		const toastDescriptionClassname = toast.descriptionClassName || "";
-		const heightIndex = import_react$56.useMemo(() => heights.findIndex((height) => height.toastId === toast.id) || 0, [heights, toast.id]);
-		const closeButton = import_react$56.useMemo(() => {
+		const heightIndex = import_react$57.useMemo(() => heights.findIndex((height) => height.toastId === toast.id) || 0, [heights, toast.id]);
+		const closeButton = import_react$57.useMemo(() => {
 			var _toast_closeButton;
 			return (_toast_closeButton = toast.closeButton) != null ? _toast_closeButton : closeButtonFromToaster;
 		}, [toast.closeButton, closeButtonFromToaster]);
-		const duration = import_react$56.useMemo(() => toast.duration || durationFromToaster || TOAST_LIFETIME, [toast.duration, durationFromToaster]);
-		const closeTimerStartTimeRef = import_react$56.useRef(0);
-		const offset = import_react$56.useRef(0);
-		const lastCloseTimerStartTimeRef = import_react$56.useRef(0);
-		const pointerStartRef = import_react$56.useRef(null);
+		const duration = import_react$57.useMemo(() => toast.duration || durationFromToaster || TOAST_LIFETIME, [toast.duration, durationFromToaster]);
+		const closeTimerStartTimeRef = import_react$57.useRef(0);
+		const offset = import_react$57.useRef(0);
+		const lastCloseTimerStartTimeRef = import_react$57.useRef(0);
+		const pointerStartRef = import_react$57.useRef(null);
 		const [y, x] = position.split("-");
-		const toastsHeightBefore = import_react$56.useMemo(() => {
+		const toastsHeightBefore = import_react$57.useMemo(() => {
 			return heights.reduce((prev, curr, reducerIndex) => {
 				if (reducerIndex >= heightIndex) return prev;
 				return prev + curr.height;
 			}, 0);
 		}, [heights, heightIndex]);
 		const isDocumentHidden = useIsDocumentHidden();
-		const swipeDirections = import_react$56.useMemo(() => {
+		const swipeDirections = import_react$57.useMemo(() => {
 			var _props_swipeDirections;
 			return (_props_swipeDirections = props.swipeDirections) != null ? _props_swipeDirections : getDefaultSwipeDirections(position);
 		}, [props.swipeDirections, position]);
 		const invert = toast.invert || ToasterInvert;
 		const disabled = toastType === "loading";
-		offset.current = import_react$56.useMemo(() => heightIndex * gap + toastsHeightBefore, [heightIndex, toastsHeightBefore]);
-		import_react$56.useEffect(() => {
+		offset.current = import_react$57.useMemo(() => heightIndex * gap + toastsHeightBefore, [heightIndex, toastsHeightBefore]);
+		import_react$57.useEffect(() => {
 			remainingTime.current = duration;
 		}, [duration]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			setMounted(true);
 		}, []);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			const toastNode = toastRef.current;
 			if (toastNode) {
 				const height = toastNode.getBoundingClientRect().height;
@@ -46922,7 +46922,7 @@ var init_dist$21 = __esmMin((() => {
 				return () => setHeights((h) => h.filter((height) => height.toastId !== toast.id));
 			}
 		}, [setHeights, toast.id]);
-		import_react$56.useLayoutEffect(() => {
+		import_react$57.useLayoutEffect(() => {
 			if (!mounted) return;
 			const toastNode = toastRef.current;
 			const originalHeight = toastNode.style.height;
@@ -46951,7 +46951,7 @@ var init_dist$21 = __esmMin((() => {
 			toast.action,
 			toast.cancel
 		]);
-		const deleteToast = import_react$56.useCallback(() => {
+		const deleteToast = import_react$57.useCallback(() => {
 			setRemoved(true);
 			setOffsetBeforeRemove(offset.current);
 			setHeights((h) => h.filter((height) => height.toastId !== toast.id));
@@ -46964,7 +46964,7 @@ var init_dist$21 = __esmMin((() => {
 			setHeights,
 			offset
 		]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			if (toast.promise && toastType === "loading" || toast.duration === Infinity || toast.type === "loading") return;
 			let timeoutId;
 			const pauseTimer = () => {
@@ -46993,7 +46993,7 @@ var init_dist$21 = __esmMin((() => {
 			isDocumentHidden,
 			deleteToast
 		]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			if (toast.delete) {
 				deleteToast();
 				toast.onDismiss == null || toast.onDismiss.call(toast, toast);
@@ -47003,19 +47003,19 @@ var init_dist$21 = __esmMin((() => {
 			var _toast_classNames;
 			if (icons == null ? void 0 : icons.loading) {
 				var _toast_classNames1;
-				return /*#__PURE__*/ import_react$56.createElement("div", {
+				return /*#__PURE__*/ import_react$57.createElement("div", {
 					className: cn(classNames == null ? void 0 : classNames.loader, toast == null ? void 0 : (_toast_classNames1 = toast.classNames) == null ? void 0 : _toast_classNames1.loader, "sonner-loader"),
 					"data-visible": toastType === "loading"
 				}, icons.loading);
 			}
-			return /*#__PURE__*/ import_react$56.createElement(Loader, {
+			return /*#__PURE__*/ import_react$57.createElement(Loader, {
 				className: cn(classNames == null ? void 0 : classNames.loader, toast == null ? void 0 : (_toast_classNames = toast.classNames) == null ? void 0 : _toast_classNames.loader),
 				visible: toastType === "loading"
 			});
 		}
 		const icon = toast.icon || (icons == null ? void 0 : icons[toastType]) || getAsset(toastType);
 		var _toast_richColors, _icons_close;
-		return /*#__PURE__*/ import_react$56.createElement("li", {
+		return /*#__PURE__*/ import_react$57.createElement("li", {
 			tabIndex: 0,
 			ref: toastRef,
 			className: cn(className, toastClassname, classNames == null ? void 0 : classNames.toast, toast == null ? void 0 : (_toast_classNames = toast.classNames) == null ? void 0 : _toast_classNames.toast, classNames == null ? void 0 : classNames[toastTypeKey], toast == null ? void 0 : (_toast_classNames1 = toast.classNames) == null ? void 0 : _toast_classNames1[toastTypeKey]),
@@ -47123,7 +47123,7 @@ var init_dist$21 = __esmMin((() => {
 				(_toastRef_current = toastRef.current) == null || _toastRef_current.style.setProperty("--swipe-amount-x", `${swipeAmount.x}px`);
 				(_toastRef_current1 = toastRef.current) == null || _toastRef_current1.style.setProperty("--swipe-amount-y", `${swipeAmount.y}px`);
 			}
-		}, closeButton && !toast.jsx && toastType !== "loading" ? /*#__PURE__*/ import_react$56.createElement("button", {
+		}, closeButton && !toast.jsx && toastType !== "loading" ? /*#__PURE__*/ import_react$57.createElement("button", {
 			"aria-label": closeButtonAriaLabel,
 			"data-disabled": disabled,
 			"data-close-button": true,
@@ -47132,19 +47132,19 @@ var init_dist$21 = __esmMin((() => {
 				toast.onDismiss == null || toast.onDismiss.call(toast, toast);
 			},
 			className: cn(classNames == null ? void 0 : classNames.closeButton, toast == null ? void 0 : (_toast_classNames2 = toast.classNames) == null ? void 0 : _toast_classNames2.closeButton)
-		}, (_icons_close = icons == null ? void 0 : icons.close) != null ? _icons_close : CloseIcon) : null, (toastType || toast.icon || toast.promise) && toast.icon !== null && ((icons == null ? void 0 : icons[toastType]) !== null || toast.icon) ? /*#__PURE__*/ import_react$56.createElement("div", {
+		}, (_icons_close = icons == null ? void 0 : icons.close) != null ? _icons_close : CloseIcon) : null, (toastType || toast.icon || toast.promise) && toast.icon !== null && ((icons == null ? void 0 : icons[toastType]) !== null || toast.icon) ? /*#__PURE__*/ import_react$57.createElement("div", {
 			"data-icon": "",
 			className: cn(classNames == null ? void 0 : classNames.icon, toast == null ? void 0 : (_toast_classNames3 = toast.classNames) == null ? void 0 : _toast_classNames3.icon)
-		}, toastType === "loading" ? toast.icon || getLoadingIcon() : toast.promise ? getLoadingIcon() : null, toastType !== "loading" ? icon : null) : null, /*#__PURE__*/ import_react$56.createElement("div", {
+		}, toastType === "loading" ? toast.icon || getLoadingIcon() : toast.promise ? getLoadingIcon() : null, toastType !== "loading" ? icon : null) : null, /*#__PURE__*/ import_react$57.createElement("div", {
 			"data-content": "",
 			className: cn(classNames == null ? void 0 : classNames.content, toast == null ? void 0 : (_toast_classNames4 = toast.classNames) == null ? void 0 : _toast_classNames4.content)
-		}, /*#__PURE__*/ import_react$56.createElement("div", {
+		}, /*#__PURE__*/ import_react$57.createElement("div", {
 			"data-title": "",
 			className: cn(classNames == null ? void 0 : classNames.title, toast == null ? void 0 : (_toast_classNames5 = toast.classNames) == null ? void 0 : _toast_classNames5.title)
-		}, toast.jsx ? toast.jsx : typeof toast.title === "function" ? toast.title() : toast.title), toast.description ? /*#__PURE__*/ import_react$56.createElement("div", {
+		}, toast.jsx ? toast.jsx : typeof toast.title === "function" ? toast.title() : toast.title), toast.description ? /*#__PURE__*/ import_react$57.createElement("div", {
 			"data-description": "",
 			className: cn(descriptionClassName, toastDescriptionClassname, classNames == null ? void 0 : classNames.description, toast == null ? void 0 : (_toast_classNames6 = toast.classNames) == null ? void 0 : _toast_classNames6.description)
-		}, typeof toast.description === "function" ? toast.description() : toast.description) : null), /*#__PURE__*/ import_react$56.isValidElement(toast.cancel) ? toast.cancel : toast.cancel && isAction(toast.cancel) ? /*#__PURE__*/ import_react$56.createElement("button", {
+		}, typeof toast.description === "function" ? toast.description() : toast.description) : null), /*#__PURE__*/ import_react$57.isValidElement(toast.cancel) ? toast.cancel : toast.cancel && isAction(toast.cancel) ? /*#__PURE__*/ import_react$57.createElement("button", {
 			"data-button": true,
 			"data-cancel": true,
 			style: toast.cancelButtonStyle || cancelButtonStyle,
@@ -47155,7 +47155,7 @@ var init_dist$21 = __esmMin((() => {
 				deleteToast();
 			},
 			className: cn(classNames == null ? void 0 : classNames.cancelButton, toast == null ? void 0 : (_toast_classNames7 = toast.classNames) == null ? void 0 : _toast_classNames7.cancelButton)
-		}, toast.cancel.label) : null, /*#__PURE__*/ import_react$56.isValidElement(toast.action) ? toast.action : toast.action && isAction(toast.action) ? /*#__PURE__*/ import_react$56.createElement("button", {
+		}, toast.cancel.label) : null, /*#__PURE__*/ import_react$57.isValidElement(toast.action) ? toast.action : toast.action && isAction(toast.action) ? /*#__PURE__*/ import_react$57.createElement("button", {
 			"data-button": true,
 			"data-action": true,
 			style: toast.actionButtonStyle || actionButtonStyle,
@@ -47168,32 +47168,32 @@ var init_dist$21 = __esmMin((() => {
 			className: cn(classNames == null ? void 0 : classNames.actionButton, toast == null ? void 0 : (_toast_classNames8 = toast.classNames) == null ? void 0 : _toast_classNames8.actionButton)
 		}, toast.action.label) : null);
 	};
-	Toaster = /*#__PURE__*/ import_react$56.forwardRef(function Toaster(props, ref) {
+	Toaster = /*#__PURE__*/ import_react$57.forwardRef(function Toaster(props, ref) {
 		const { id, invert, position = "bottom-right", hotkey = ["altKey", "KeyT"], expand, closeButton, className, offset, mobileOffset, theme = "light", richColors, duration, style, visibleToasts = VISIBLE_TOASTS_AMOUNT, toastOptions, dir = getDocumentDirection(), gap = GAP, icons, customAriaLabel, containerAriaLabel = "Notifications" } = props;
-		const [toasts, setToasts] = import_react$56.useState([]);
-		const filteredToasts = import_react$56.useMemo(() => {
+		const [toasts, setToasts] = import_react$57.useState([]);
+		const filteredToasts = import_react$57.useMemo(() => {
 			if (id) return toasts.filter((toast) => toast.toasterId === id);
 			return toasts.filter((toast) => !toast.toasterId);
 		}, [toasts, id]);
-		const possiblePositions = import_react$56.useMemo(() => {
+		const possiblePositions = import_react$57.useMemo(() => {
 			return Array.from(new Set([position].concat(filteredToasts.filter((toast) => toast.position).map((toast) => toast.position))));
 		}, [filteredToasts, position]);
-		const [heights, setHeights] = import_react$56.useState([]);
-		const [expanded, setExpanded] = import_react$56.useState(false);
-		const [interacting, setInteracting] = import_react$56.useState(false);
-		const [actualTheme, setActualTheme] = import_react$56.useState(theme !== "system" ? theme : typeof window !== "undefined" ? window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : "light");
-		const listRef = import_react$56.useRef(null);
+		const [heights, setHeights] = import_react$57.useState([]);
+		const [expanded, setExpanded] = import_react$57.useState(false);
+		const [interacting, setInteracting] = import_react$57.useState(false);
+		const [actualTheme, setActualTheme] = import_react$57.useState(theme !== "system" ? theme : typeof window !== "undefined" ? window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : "light");
+		const listRef = import_react$57.useRef(null);
 		const hotkeyLabel = hotkey.join("+").replace(/Key/g, "").replace(/Digit/g, "");
-		const lastFocusedElementRef = import_react$56.useRef(null);
-		const isFocusWithinRef = import_react$56.useRef(false);
-		const removeToast = import_react$56.useCallback((toastToRemove) => {
+		const lastFocusedElementRef = import_react$57.useRef(null);
+		const isFocusWithinRef = import_react$57.useRef(false);
+		const removeToast = import_react$57.useCallback((toastToRemove) => {
 			setToasts((toasts) => {
 				var _toasts_find;
 				if (!((_toasts_find = toasts.find((toast) => toast.id === toastToRemove.id)) == null ? void 0 : _toasts_find.delete)) ToastState.dismiss(toastToRemove.id);
 				return toasts.filter(({ id }) => id !== toastToRemove.id);
 			});
 		}, []);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			return ToastState.subscribe((toast) => {
 				if (toast.dismiss) {
 					requestAnimationFrame(() => {
@@ -47222,7 +47222,7 @@ var init_dist$21 = __esmMin((() => {
 				});
 			});
 		}, []);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			if (theme !== "system") {
 				setActualTheme(theme);
 				return;
@@ -47247,10 +47247,10 @@ var init_dist$21 = __esmMin((() => {
 				});
 			}
 		}, [theme]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			if (toasts.length <= 1) setExpanded(false);
 		}, [toasts]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			const handleKeyDown = (event) => {
 				var _listRef_current;
 				if (hotkey.length > 0 && hotkey.every((key) => event[key] || event.code === key)) {
@@ -47263,7 +47263,7 @@ var init_dist$21 = __esmMin((() => {
 			document.addEventListener("keydown", handleKeyDown);
 			return () => document.removeEventListener("keydown", handleKeyDown);
 		}, [hotkey]);
-		import_react$56.useEffect(() => {
+		import_react$57.useEffect(() => {
 			if (listRef.current) return () => {
 				if (lastFocusedElementRef.current) {
 					lastFocusedElementRef.current.focus({ preventScroll: true });
@@ -47272,7 +47272,7 @@ var init_dist$21 = __esmMin((() => {
 				}
 			};
 		}, [listRef.current]);
-		return /*#__PURE__*/ import_react$56.createElement("section", {
+		return /*#__PURE__*/ import_react$57.createElement("section", {
 			ref,
 			"aria-label": customAriaLabel != null ? customAriaLabel : `${containerAriaLabel} ${hotkeyLabel}`,
 			tabIndex: -1,
@@ -47285,7 +47285,7 @@ var init_dist$21 = __esmMin((() => {
 			var _heights_;
 			const [y, x] = position.split("-");
 			if (!filteredToasts.length) return null;
-			return /*#__PURE__*/ import_react$56.createElement("ol", {
+			return /*#__PURE__*/ import_react$57.createElement("ol", {
 				key: position,
 				dir: dir === "auto" ? getDocumentDirection() : dir,
 				tabIndex: -1,
@@ -47331,7 +47331,7 @@ var init_dist$21 = __esmMin((() => {
 				onPointerUp: () => setInteracting(false)
 			}, filteredToasts.filter((toast) => !toast.position && index === 0 || toast.position === position).map((toast, index) => {
 				var _toastOptions_duration, _toastOptions_closeButton;
-				return /*#__PURE__*/ import_react$56.createElement(Toast, {
+				return /*#__PURE__*/ import_react$57.createElement(Toast, {
 					key: toast.id,
 					icons,
 					index,
@@ -47413,22 +47413,22 @@ var init_dist$20 = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-id/dist/index.mjs
 function useId(deterministicId) {
-	const [id, setId] = import_react$55.useState(useReactId());
+	const [id, setId] = import_react$56.useState(useReactId());
 	useLayoutEffect2(() => {
 		if (!deterministicId) setId((reactId) => reactId ?? String(count$1++));
 	}, [deterministicId]);
 	return deterministicId || (id ? `radix-${id}` : "");
 }
-var import_react$55, __defProp$18, __name$18, useReactId, count$1;
+var import_react$56, __defProp$18, __name$18, useReactId, count$1;
 var init_dist$19 = __esmMin((() => {
-	import_react$55 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$56 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$23();
 	__defProp$18 = Object.defineProperty;
 	__name$18 = (target, value) => __defProp$18(target, "name", {
 		value,
 		configurable: true
 	});
-	useReactId = import_react$55[" useId ".trim().toString()] || (() => void 0);
+	useReactId = import_react$56[" useId ".trim().toString()] || (() => void 0);
 	count$1 = 0;
 	__name$18(useId, "useId");
 }));
@@ -47436,7 +47436,7 @@ var init_dist$19 = __esmMin((() => {
 //#region node_modules/@radix-ui/react-use-effect-event/dist/index.mjs
 function useEffectEvent(callback) {
 	if (typeof useReactEffectEvent === "function") return useReactEffectEvent(callback);
-	const ref = import_react$54.useRef(() => {
+	const ref = import_react$55.useRef(() => {
 		throw new Error("Cannot call an event handler while rendering.");
 	});
 	if (typeof useReactInsertionEffect === "function") useReactInsertionEffect(() => {
@@ -47445,19 +47445,19 @@ function useEffectEvent(callback) {
 	else useLayoutEffect2(() => {
 		ref.current = callback;
 	});
-	return import_react$54.useMemo(() => ((...args) => ref.current?.(...args)), []);
+	return import_react$55.useMemo(() => ((...args) => ref.current?.(...args)), []);
 }
-var import_react$54, __defProp$17, __name$17, useReactEffectEvent, useReactInsertionEffect;
+var import_react$55, __defProp$17, __name$17, useReactEffectEvent, useReactInsertionEffect;
 var init_dist$18 = __esmMin((() => {
 	init_dist$23();
-	import_react$54 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$55 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$17 = Object.defineProperty;
 	__name$17 = (target, value) => __defProp$17(target, "name", {
 		value,
 		configurable: true
 	});
-	useReactEffectEvent = import_react$54[" useEffectEvent ".trim().toString()];
-	useReactInsertionEffect = import_react$54[" useInsertionEffect ".trim().toString()];
+	useReactEffectEvent = import_react$55[" useEffectEvent ".trim().toString()];
+	useReactInsertionEffect = import_react$55[" useInsertionEffect ".trim().toString()];
 	__name$17(useEffectEvent, "useEffectEvent");
 }));
 //#endregion
@@ -47468,7 +47468,7 @@ function useControllableState({ prop, defaultProp, onChange = /* @__PURE__ */ __
 		onChange
 	});
 	const isControlled = prop !== void 0;
-	return [isControlled ? prop : uncontrolledProp, import_react$52.useCallback((nextValue) => {
+	return [isControlled ? prop : uncontrolledProp, import_react$53.useCallback((nextValue) => {
 		if (isControlled) {
 			const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
 			if (value2 !== prop) onChangeRef.current?.(value2);
@@ -47481,13 +47481,13 @@ function useControllableState({ prop, defaultProp, onChange = /* @__PURE__ */ __
 	])];
 }
 function useUncontrolledState({ defaultProp, onChange }) {
-	const [value, setValue] = import_react$52.useState(defaultProp);
-	const prevValueRef = import_react$52.useRef(value);
-	const onChangeRef = import_react$52.useRef(onChange);
+	const [value, setValue] = import_react$53.useState(defaultProp);
+	const prevValueRef = import_react$53.useRef(value);
+	const onChangeRef = import_react$53.useRef(onChange);
 	useInsertionEffect(() => {
 		onChangeRef.current = onChange;
 	}, [onChange]);
-	import_react$52.useEffect(() => {
+	import_react$53.useEffect(() => {
 		if (prevValueRef.current !== value) {
 			onChangeRef.current?.(value);
 			prevValueRef.current = value;
@@ -47511,7 +47511,7 @@ function useControllableStateReducer(reducer, userArgs, initialArg, init) {
 		state: defaultProp
 	}];
 	if (init) args.push(init);
-	const [internalState, dispatch] = import_react$53.useReducer((state2, action) => {
+	const [internalState, dispatch] = import_react$54.useReducer((state2, action) => {
 		if (action.type === SYNC_STATE) return {
 			...state2,
 			state: action.state
@@ -47521,8 +47521,8 @@ function useControllableStateReducer(reducer, userArgs, initialArg, init) {
 		return next;
 	}, ...args);
 	const uncontrolledState = internalState.state;
-	const prevValueRef = import_react$53.useRef(uncontrolledState);
-	import_react$53.useEffect(() => {
+	const prevValueRef = import_react$54.useRef(uncontrolledState);
+	import_react$54.useEffect(() => {
 		if (prevValueRef.current !== uncontrolledState) {
 			prevValueRef.current = uncontrolledState;
 			if (!isControlled) onChange(uncontrolledState);
@@ -47532,14 +47532,14 @@ function useControllableStateReducer(reducer, userArgs, initialArg, init) {
 		prevValueRef,
 		isControlled
 	]);
-	const state = import_react$53.useMemo(() => {
+	const state = import_react$54.useMemo(() => {
 		if (controlledState !== void 0) return {
 			...internalState,
 			state: controlledState
 		};
 		return internalState;
 	}, [internalState, controlledState]);
-	import_react$53.useEffect(() => {
+	import_react$54.useEffect(() => {
 		if (isControlled && !Object.is(controlledState, internalState.state)) dispatch({
 			type: SYNC_STATE,
 			state: controlledState
@@ -47551,19 +47551,19 @@ function useControllableStateReducer(reducer, userArgs, initialArg, init) {
 	]);
 	return [state, dispatch];
 }
-var import_react$52, import_react$53, __defProp$16, __name$16, useInsertionEffect, SYNC_STATE;
+var import_react$53, import_react$54, __defProp$16, __name$16, useInsertionEffect, SYNC_STATE;
 var init_dist$17 = __esmMin((() => {
-	import_react$52 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$53 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_is_development_false();
 	init_dist$23();
-	import_react$53 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$54 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$18();
 	__defProp$16 = Object.defineProperty;
 	__name$16 = (target, value) => __defProp$16(target, "name", {
 		value,
 		configurable: true
 	});
-	useInsertionEffect = import_react$52[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
+	useInsertionEffect = import_react$53[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
 	__name$16(useControllableState, "useControllableState");
 	__name$16(useUncontrolledState, "useUncontrolledState");
 	__name$16(isFunction, "isFunction");
@@ -47573,9 +47573,9 @@ var init_dist$17 = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
 function useDismissableLayerSurface() {
-	const context = import_react$51.useContext(DismissableLayerContext);
-	const [node, setNode] = import_react$51.useState(null);
-	import_react$51.useEffect(() => {
+	const context = import_react$52.useContext(DismissableLayerContext);
+	const [node, setNode] = import_react$52.useState(null);
+	import_react$52.useEffect(() => {
 		if (!node) return;
 		context.dismissableSurfaces.add(node);
 		return () => {
@@ -47587,11 +47587,11 @@ function useDismissableLayerSurface() {
 function usePointerDownOutside(onPointerDownOutside, args) {
 	const { ownerDocument = globalThis?.document, deferPointerDownOutside = false, isDeferredPointerDownOutsideRef, dismissableSurfaces, shouldHandlePointerDownOutside = IS_TRUE } = args;
 	const handlePointerDownOutside = useCallbackRef$1(onPointerDownOutside);
-	const isPointerInsideReactTreeRef = import_react$51.useRef(false);
-	const isPointerDownOutsideRef = import_react$51.useRef(false);
-	const interceptedOutsideInteractionEventsRef = import_react$51.useRef(/* @__PURE__ */ new Map());
-	const handleClickRef = import_react$51.useRef(() => {});
-	import_react$51.useEffect(() => {
+	const isPointerInsideReactTreeRef = import_react$52.useRef(false);
+	const isPointerDownOutsideRef = import_react$52.useRef(false);
+	const interceptedOutsideInteractionEventsRef = import_react$52.useRef(/* @__PURE__ */ new Map());
+	const handleClickRef = import_react$52.useRef(() => {});
+	import_react$52.useEffect(() => {
 		function resetOutsideInteraction() {
 			isPointerDownOutsideRef.current = false;
 			isDeferredPointerDownOutsideRef.current = false;
@@ -47682,8 +47682,8 @@ function usePointerDownOutside(onPointerDownOutside, args) {
 }
 function useFocusOutside(onFocusOutside, ownerDocument = globalThis?.document) {
 	const handleFocusOutside = useCallbackRef$1(onFocusOutside);
-	const isFocusInsideReactTreeRef = import_react$51.useRef(false);
-	import_react$51.useEffect(() => {
+	const isFocusInsideReactTreeRef = import_react$52.useRef(false);
+	import_react$52.useEffect(() => {
 		const handleFocus = /* @__PURE__ */ __name$15((event) => {
 			if (event.target && !isFocusInsideReactTreeRef.current) handleAndDispatchCustomEvent(FOCUS_OUTSIDE, handleFocusOutside, { originalEvent: event }, { discrete: false });
 		}, "handleFocus");
@@ -47710,9 +47710,9 @@ function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
 	if (discrete) dispatchDiscreteCustomEvent(target, event);
 	else target.dispatchEvent(event);
 }
-var import_react$51, import_jsx_runtime$34, __defProp$15, __name$15, CONTEXT_UPDATE, POINTER_DOWN_OUTSIDE, FOCUS_OUTSIDE, originalBodyPointerEvents, DismissableLayerContext, DismissableLayer, IS_TRUE;
+var import_react$52, import_jsx_runtime$34, __defProp$15, __name$15, CONTEXT_UPDATE, POINTER_DOWN_OUTSIDE, FOCUS_OUTSIDE, originalBodyPointerEvents, DismissableLayerContext, DismissableLayer, IS_TRUE;
 var init_dist$16 = __esmMin((() => {
-	import_react$51 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$52 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$27();
 	init_dist$30();
@@ -47726,18 +47726,18 @@ var init_dist$16 = __esmMin((() => {
 	CONTEXT_UPDATE = "dismissableLayer.update";
 	POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
 	FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
-	DismissableLayerContext = import_react$51.createContext({
+	DismissableLayerContext = import_react$52.createContext({
 		layers: /* @__PURE__ */ new Set(),
 		layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
 		branches: /* @__PURE__ */ new Set(),
 		dismissableSurfaces: /* @__PURE__ */ new Set()
 	});
-	DismissableLayer = /* @__PURE__ */ import_react$51.forwardRef(/* @__PURE__ */ __name$15(function DismissableLayer2(props, forwardedRef) {
+	DismissableLayer = /* @__PURE__ */ import_react$52.forwardRef(/* @__PURE__ */ __name$15(function DismissableLayer2(props, forwardedRef) {
 		const { disableOutsidePointerEvents = false, deferPointerDownOutside = false, onEscapeKeyDown, onPointerDownOutside, onFocusOutside, onInteractOutside, onDismiss, ...layerProps } = props;
-		const context = import_react$51.useContext(DismissableLayerContext);
-		const [node, setNode] = import_react$51.useState(null);
+		const context = import_react$52.useContext(DismissableLayerContext);
+		const [node, setNode] = import_react$52.useState(null);
 		const ownerDocument = node?.ownerDocument ?? globalThis?.document;
-		const [, force] = import_react$51.useState({});
+		const [, force] = import_react$52.useState({});
 		const composedRefs = useComposedRefs(forwardedRef, setNode);
 		const layers = Array.from(context.layers);
 		const [highestLayerWithOutsidePointerEventsDisabled] = [...context.layersWithOutsidePointerEventsDisabled].slice(-1);
@@ -47745,7 +47745,7 @@ var init_dist$16 = __esmMin((() => {
 		const index = node ? layers.indexOf(node) : -1;
 		const isBodyPointerEventsDisabled = context.layersWithOutsidePointerEventsDisabled.size > 0;
 		const isPointerEventsEnabled = index >= highestLayerWithOutsidePointerEventsDisabledIndex;
-		const isDeferredPointerDownOutsideRef = import_react$51.useRef(false);
+		const isDeferredPointerDownOutsideRef = import_react$52.useRef(false);
 		const pointerDownOutside = usePointerDownOutside((event) => {
 			onPointerDownOutside?.(event);
 			onInteractOutside?.(event);
@@ -47755,7 +47755,7 @@ var init_dist$16 = __esmMin((() => {
 			deferPointerDownOutside,
 			isDeferredPointerDownOutsideRef,
 			dismissableSurfaces: context.dismissableSurfaces,
-			shouldHandlePointerDownOutside: import_react$51.useCallback((target) => {
+			shouldHandlePointerDownOutside: import_react$52.useCallback((target) => {
 				if (!(target instanceof Node)) return false;
 				const isPointerDownOnBranch = [...context.branches].some((branch) => branch.contains(target));
 				return isPointerEventsEnabled && !isPointerDownOnBranch;
@@ -47778,7 +47778,7 @@ var init_dist$16 = __esmMin((() => {
 				onDismiss();
 			}
 		});
-		import_react$51.useEffect(() => {
+		import_react$52.useEffect(() => {
 			if (!isHighestLayer) return;
 			ownerDocument.addEventListener("keydown", handleKeyDown, { capture: true });
 			return () => ownerDocument.removeEventListener("keydown", handleKeyDown, { capture: true });
@@ -47787,7 +47787,7 @@ var init_dist$16 = __esmMin((() => {
 			isHighestLayer,
 			handleKeyDown
 		]);
-		import_react$51.useEffect(() => {
+		import_react$52.useEffect(() => {
 			if (!node) return;
 			if (disableOutsidePointerEvents) {
 				if (context.layersWithOutsidePointerEventsDisabled.size === 0) {
@@ -47810,7 +47810,7 @@ var init_dist$16 = __esmMin((() => {
 			disableOutsidePointerEvents,
 			context
 		]);
-		import_react$51.useEffect(() => {
+		import_react$52.useEffect(() => {
 			return () => {
 				if (!node) return;
 				context.layers.delete(node);
@@ -47818,7 +47818,7 @@ var init_dist$16 = __esmMin((() => {
 				dispatchUpdate();
 			};
 		}, [node, context]);
-		import_react$51.useEffect(() => {
+		import_react$52.useEffect(() => {
 			const handleUpdate = /* @__PURE__ */ __name$15(() => force({}), "handleUpdate");
 			document.addEventListener(CONTEXT_UPDATE, handleUpdate);
 			return () => document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
@@ -47912,9 +47912,9 @@ function arrayRemove(array, item) {
 function removeLinks(items) {
 	return items.filter((item) => item.tagName !== "A");
 }
-var import_react$50, import_jsx_runtime$33, __defProp$14, __name$14, AUTOFOCUS_ON_MOUNT, AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS$1, FocusScope, focusScopesStack;
+var import_react$51, import_jsx_runtime$33, __defProp$14, __name$14, AUTOFOCUS_ON_MOUNT, AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS$1, FocusScope, focusScopesStack;
 var init_dist$15 = __esmMin((() => {
-	import_react$50 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$51 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$30();
 	init_dist$27();
 	init_dist$24();
@@ -47930,14 +47930,14 @@ var init_dist$15 = __esmMin((() => {
 		bubbles: false,
 		cancelable: true
 	};
-	FocusScope = /* @__PURE__ */ import_react$50.forwardRef(/* @__PURE__ */ __name$14(function FocusScope2(props, forwardedRef) {
+	FocusScope = /* @__PURE__ */ import_react$51.forwardRef(/* @__PURE__ */ __name$14(function FocusScope2(props, forwardedRef) {
 		const { loop = false, trapped = false, onMountAutoFocus: onMountAutoFocusProp, onUnmountAutoFocus: onUnmountAutoFocusProp, ...scopeProps } = props;
-		const [container, setContainer] = import_react$50.useState(null);
+		const [container, setContainer] = import_react$51.useState(null);
 		const onMountAutoFocus = useCallbackRef$1(onMountAutoFocusProp);
 		const onUnmountAutoFocus = useCallbackRef$1(onUnmountAutoFocusProp);
-		const lastFocusedElementRef = import_react$50.useRef(null);
+		const lastFocusedElementRef = import_react$51.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, setContainer);
-		const focusScope = import_react$50.useRef({
+		const focusScope = import_react$51.useRef({
 			paused: false,
 			pause() {
 				this.paused = true;
@@ -47946,7 +47946,7 @@ var init_dist$15 = __esmMin((() => {
 				this.paused = false;
 			}
 		}).current;
-		import_react$50.useEffect(() => {
+		import_react$51.useEffect(() => {
 			if (trapped) {
 				let handleFocusIn2 = function(event) {
 					if (focusScope.paused || !container) return;
@@ -47983,7 +47983,7 @@ var init_dist$15 = __esmMin((() => {
 			container,
 			focusScope.paused
 		]);
-		import_react$50.useEffect(() => {
+		import_react$51.useEffect(() => {
 			if (container) {
 				focusScopesStack.add(focusScope);
 				const previouslyFocusedElement = document.activeElement;
@@ -48014,7 +48014,7 @@ var init_dist$15 = __esmMin((() => {
 			onUnmountAutoFocus,
 			focusScope
 		]);
-		const handleKeyDown = import_react$50.useCallback((event) => {
+		const handleKeyDown = import_react$51.useCallback((event) => {
 			if (!loop && !trapped) return;
 			if (focusScope.paused) return;
 			const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
@@ -48058,9 +48058,9 @@ var init_dist$15 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-portal/dist/index.mjs
-var import_react$49, import_react_dom$1, import_jsx_runtime$32, __defProp$13, __name$13, Portal$1;
+var import_react$50, import_react_dom$1, import_jsx_runtime$32, __defProp$13, __name$13, Portal$1;
 var init_dist$14 = __esmMin((() => {
-	import_react$49 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$50 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react_dom$1 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 	init_dist$27();
 	init_dist$23();
@@ -48070,9 +48070,9 @@ var init_dist$14 = __esmMin((() => {
 		value,
 		configurable: true
 	});
-	Portal$1 = /* @__PURE__ */ import_react$49.forwardRef(/* @__PURE__ */ __name$13(function Portal2(props, forwardedRef) {
+	Portal$1 = /* @__PURE__ */ import_react$50.forwardRef(/* @__PURE__ */ __name$13(function Portal2(props, forwardedRef) {
 		const { container: containerProp, ...portalProps } = props;
-		const [mounted, setMounted] = import_react$49.useState(false);
+		const [mounted, setMounted] = import_react$50.useState(false);
 		useLayoutEffect2(() => setMounted(true), []);
 		const container = containerProp || mounted && globalThis?.document?.body;
 		return container ? import_react_dom$1.createPortal(/* @__PURE__ */ (0, import_jsx_runtime$32.jsx)(Primitive.div, {
@@ -48084,16 +48084,16 @@ var init_dist$14 = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-presence/dist/index.mjs
 function useStateMachine(initialState, machine) {
-	return import_react$48.useReducer((state, event) => {
+	return import_react$49.useReducer((state, event) => {
 		return machine[state][event] ?? state;
 	}, initialState);
 }
 function usePresence(present) {
-	const [node, setNode] = import_react$47.useState();
-	const stylesRef = import_react$47.useRef(null);
-	const prevPresentRef = import_react$47.useRef(present);
-	const prevAnimationNameRef = import_react$47.useRef("none");
-	const mountAnimationNameRef = import_react$47.useRef(void 0);
+	const [node, setNode] = import_react$48.useState();
+	const stylesRef = import_react$48.useRef(null);
+	const prevPresentRef = import_react$48.useRef(present);
+	const prevAnimationNameRef = import_react$48.useRef("none");
+	const mountAnimationNameRef = import_react$48.useRef(void 0);
 	const [state, send] = useStateMachine(present ? "mounted" : "unmounted", {
 		mounted: {
 			UNMOUNT: "unmounted",
@@ -48105,7 +48105,7 @@ function usePresence(present) {
 		},
 		unmounted: { MOUNT: "mounted" }
 	});
-	import_react$47.useEffect(() => {
+	import_react$48.useEffect(() => {
 		if (state === "mounted") {
 			prevAnimationNameRef.current = mountAnimationNameRef.current ?? getAnimationName(stylesRef.current);
 			mountAnimationNameRef.current = void 0;
@@ -48159,7 +48159,7 @@ function usePresence(present) {
 	}, [node, send]);
 	return {
 		isPresent: ["mounted", "unmountSuspended"].includes(state),
-		ref: import_react$47.useCallback((node2) => {
+		ref: import_react$48.useCallback((node2) => {
 			if (node2) {
 				const styles = getComputedStyle(node2);
 				stylesRef.current = styles;
@@ -48174,9 +48174,9 @@ function setRef(ref, value) {
 	else if (ref !== null && ref !== void 0) ref.current = value;
 }
 function useStableComposedRefs(...refs) {
-	const refsRef = import_react$47.useRef(refs);
+	const refsRef = import_react$48.useRef(refs);
 	refsRef.current = refs;
-	return import_react$47.useCallback((node) => {
+	return import_react$48.useCallback((node) => {
 		const currentRefs = refsRef.current;
 		let hasCleanup = false;
 		const cleanups = currentRefs.map((ref) => {
@@ -48205,11 +48205,11 @@ function getElementRef(element) {
 	if (mayWarn) return element.props.ref;
 	return element.props.ref || element.ref;
 }
-var import_react$47, import_react$48, __defProp$12, __name$12, Presence;
+var import_react$48, import_react$49, __defProp$12, __name$12, Presence;
 var init_dist$13 = __esmMin((() => {
-	import_react$47 = /* @__PURE__ */ __toESM(require_react(), 1);
-	init_dist$23();
 	import_react$48 = /* @__PURE__ */ __toESM(require_react(), 1);
+	init_dist$23();
+	import_react$49 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$12 = Object.defineProperty;
 	__name$12 = (target, value) => __defProp$12(target, "name", {
 		value,
@@ -48219,9 +48219,9 @@ var init_dist$13 = __esmMin((() => {
 	Presence = /* @__PURE__ */ __name$12((props) => {
 		const { present, children } = props;
 		const presence = usePresence(present);
-		const child = typeof children === "function" ? children({ present: presence.isPresent }) : import_react$47.Children.only(children);
+		const child = typeof children === "function" ? children({ present: presence.isPresent }) : import_react$48.Children.only(children);
 		const ref = useStableComposedRefs(presence.ref, getElementRef(child));
-		return typeof children === "function" || presence.isPresent ? import_react$47.cloneElement(child, { ref }) : null;
+		return typeof children === "function" || presence.isPresent ? import_react$48.cloneElement(child, { ref }) : null;
 	}, "Presence");
 	__name$12(usePresence, "usePresence");
 	__name$12(setRef, "setRef");
@@ -48236,7 +48236,7 @@ function FocusGuards(props) {
 	return props.children;
 }
 function useFocusGuards() {
-	import_react$46.useEffect(() => {
+	import_react$47.useEffect(() => {
 		if (!guards) guards = {
 			start: createFocusGuard(),
 			end: createFocusGuard()
@@ -48265,9 +48265,9 @@ function createFocusGuard() {
 	element.style.pointerEvents = "none";
 	return element;
 }
-var import_react$46, __defProp$11, __name$11, count, guards;
+var import_react$47, __defProp$11, __name$11, count, guards;
 var init_dist$12 = __esmMin((() => {
-	import_react$46 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$47 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$11 = Object.defineProperty;
 	__name$11 = (target, value) => __defProp$11(target, "name", {
 		value,
@@ -48326,7 +48326,7 @@ var init_assignRef = __esmMin((() => {}));
 * @returns {MutableRefObject}
 */
 function useCallbackRef(initialValue, callback) {
-	var ref = (0, import_react$45.useState)(function() {
+	var ref = (0, import_react$46.useState)(function() {
 		return {
 			value: initialValue,
 			callback,
@@ -48347,9 +48347,9 @@ function useCallbackRef(initialValue, callback) {
 	ref.callback = callback;
 	return ref.facade;
 }
-var import_react$45;
+var import_react$46;
 var init_useRef = __esmMin((() => {
-	import_react$45 = /* @__PURE__ */ __toESM(require_react());
+	import_react$46 = /* @__PURE__ */ __toESM(require_react());
 }));
 //#endregion
 //#region node_modules/use-callback-ref/dist/es2015/useMergeRef.js
@@ -48390,12 +48390,12 @@ function useMergeRefs(refs, defaultValue) {
 	}, [refs]);
 	return callbackRef;
 }
-var import_react$44, useIsomorphicLayoutEffect, currentValues;
+var import_react$45, useIsomorphicLayoutEffect, currentValues;
 var init_useMergeRef = __esmMin((() => {
-	import_react$44 = /* @__PURE__ */ __toESM(require_react());
+	import_react$45 = /* @__PURE__ */ __toESM(require_react());
 	init_assignRef();
 	init_useRef();
-	useIsomorphicLayoutEffect = typeof window !== "undefined" ? import_react$44.useLayoutEffect : import_react$44.useEffect;
+	useIsomorphicLayoutEffect = typeof window !== "undefined" ? import_react$45.useLayoutEffect : import_react$45.useEffect;
 	currentValues = /* @__PURE__ */ new WeakMap();
 }));
 //#endregion
@@ -48491,15 +48491,15 @@ function exportSidecar(medium, exported) {
 	medium.useMedium(exported);
 	return SideCar;
 }
-var import_react$43, SideCar;
+var import_react$44, SideCar;
 var init_exports = __esmMin((() => {
-	import_react$43 = /* @__PURE__ */ __toESM(require_react());
+	import_react$44 = /* @__PURE__ */ __toESM(require_react());
 	SideCar = function(_a) {
 		var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
 		if (!sideCar) throw new Error("Sidecar: please provide `sideCar` property to import the right car");
 		var Target = sideCar.read();
 		if (!Target) throw new Error("Sidecar medium not found");
-		return import_react$43.createElement(Target, __assign({}, rest));
+		return import_react$44.createElement(Target, __assign({}, rest));
 	};
 	SideCar.isSideCarExport = true;
 }));
@@ -48518,16 +48518,16 @@ var init_medium = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/react-remove-scroll/dist/es2015/UI.js
-var import_react$42, nothing, RemoveScroll;
+var import_react$43, nothing, RemoveScroll;
 var init_UI = __esmMin((() => {
-	import_react$42 = /* @__PURE__ */ __toESM(require_react());
+	import_react$43 = /* @__PURE__ */ __toESM(require_react());
 	init_constants();
 	init_es2015$6();
 	init_medium();
 	nothing = function() {};
-	RemoveScroll = import_react$42.forwardRef(function(props, parentRef) {
-		var ref = import_react$42.useRef(null);
-		var _a = import_react$42.useState({
+	RemoveScroll = import_react$43.forwardRef(function(props, parentRef) {
+		var ref = import_react$43.useRef(null);
+		var _a = import_react$43.useState({
 			onScrollCapture: nothing,
 			onWheelCapture: nothing,
 			onTouchMoveCapture: nothing
@@ -48550,7 +48550,7 @@ var init_UI = __esmMin((() => {
 		var SideCar = sideCar;
 		var containerRef = useMergeRefs([ref, parentRef]);
 		var containerProps = __assign(__assign({}, rest), callbacks);
-		return import_react$42.createElement(import_react$42.Fragment, null, enabled && import_react$42.createElement(SideCar, {
+		return import_react$43.createElement(import_react$43.Fragment, null, enabled && import_react$43.createElement(SideCar, {
 			sideCar: effectCar,
 			removeScrollBar,
 			shards,
@@ -48561,7 +48561,7 @@ var init_UI = __esmMin((() => {
 			allowPinchZoom: !!allowPinchZoom,
 			lockRef: ref,
 			gapMode
-		}), forwardProps ? import_react$42.cloneElement(import_react$42.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : import_react$42.createElement(Container, __assign({}, containerProps, {
+		}), forwardProps ? import_react$43.cloneElement(import_react$43.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : import_react$43.createElement(Container, __assign({}, containerProps, {
 			className,
 			ref: containerRef
 		}), children));
@@ -48630,14 +48630,14 @@ var init_singleton = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/react-style-singleton/dist/es2015/hook.js
-var import_react$41, styleHookSingleton;
+var import_react$42, styleHookSingleton;
 var init_hook = __esmMin((() => {
-	import_react$41 = /* @__PURE__ */ __toESM(require_react());
+	import_react$42 = /* @__PURE__ */ __toESM(require_react());
 	init_singleton();
 	styleHookSingleton = function() {
 		var sheet = stylesheetSingleton();
 		return function(styles, isDynamic) {
-			import_react$41.useEffect(function() {
+			import_react$42.useEffect(function() {
 				sheet.add(styles);
 				return function() {
 					sheet.remove();
@@ -48708,9 +48708,9 @@ var init_utils$1 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/react-remove-scroll-bar/dist/es2015/component.js
-var import_react$40, Style, lockAttribute, getStyles, getCurrentUseCounter, useLockAttribute, RemoveScrollBar;
+var import_react$41, Style, lockAttribute, getStyles, getCurrentUseCounter, useLockAttribute, RemoveScrollBar;
 var init_component = __esmMin((() => {
-	import_react$40 = /* @__PURE__ */ __toESM(require_react());
+	import_react$41 = /* @__PURE__ */ __toESM(require_react());
 	init_es2015$3();
 	init_constants();
 	init_utils$1();
@@ -48730,7 +48730,7 @@ var init_component = __esmMin((() => {
 		return isFinite(counter) ? counter : 0;
 	};
 	useLockAttribute = function() {
-		import_react$40.useEffect(function() {
+		import_react$41.useEffect(function() {
 			document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
 			return function() {
 				var newCounter = getCurrentUseCounter() - 1;
@@ -48742,10 +48742,10 @@ var init_component = __esmMin((() => {
 	RemoveScrollBar = function(_a) {
 		var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? "margin" : _b;
 		useLockAttribute();
-		var gap = import_react$40.useMemo(function() {
+		var gap = import_react$41.useMemo(function() {
 			return getGapWidth(gapMode);
 		}, [gapMode]);
-		return import_react$40.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
+		return import_react$41.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
 	};
 }));
 //#endregion
@@ -48859,16 +48859,16 @@ var init_handleScroll = __esmMin((() => {
 //#endregion
 //#region node_modules/react-remove-scroll/dist/es2015/SideEffect.js
 function RemoveScrollSideCar(props) {
-	var shouldPreventQueue = import_react$39.useRef([]);
-	var touchStartRef = import_react$39.useRef([0, 0]);
-	var activeAxis = import_react$39.useRef();
-	var id = import_react$39.useState(idCounter++)[0];
-	var Style = import_react$39.useState(styleSingleton)[0];
-	var lastProps = import_react$39.useRef(props);
-	import_react$39.useEffect(function() {
+	var shouldPreventQueue = import_react$40.useRef([]);
+	var touchStartRef = import_react$40.useRef([0, 0]);
+	var activeAxis = import_react$40.useRef();
+	var id = import_react$40.useState(idCounter++)[0];
+	var Style = import_react$40.useState(styleSingleton)[0];
+	var lastProps = import_react$40.useRef(props);
+	import_react$40.useEffect(function() {
 		lastProps.current = props;
 	}, [props]);
-	import_react$39.useEffect(function() {
+	import_react$40.useEffect(function() {
 		if (props.inert) {
 			document.body.classList.add("block-interactivity-".concat(id));
 			var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
@@ -48887,7 +48887,7 @@ function RemoveScrollSideCar(props) {
 		props.lockRef.current,
 		props.shards
 	]);
-	var shouldCancelEvent = import_react$39.useCallback(function(event, parent) {
+	var shouldCancelEvent = import_react$40.useCallback(function(event, parent) {
 		if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) return !lastProps.current.allowPinchZoom;
 		var touch = getTouchXY(event);
 		var touchStart = touchStartRef.current;
@@ -48913,7 +48913,7 @@ function RemoveScrollSideCar(props) {
 		var cancelingAxis = activeAxis.current || currentAxis;
 		return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
 	}, []);
-	var shouldPrevent = import_react$39.useCallback(function(_event) {
+	var shouldPrevent = import_react$40.useCallback(function(_event) {
 		var event = _event;
 		if (!lockStack.length || lockStack[lockStack.length - 1] !== Style) return;
 		var delta = "deltaY" in event ? getDeltaXY(event) : getTouchXY(event);
@@ -48933,7 +48933,7 @@ function RemoveScrollSideCar(props) {
 			}
 		}
 	}, []);
-	var shouldCancel = import_react$39.useCallback(function(name, delta, target, should) {
+	var shouldCancel = import_react$40.useCallback(function(name, delta, target, should) {
 		var event = {
 			name,
 			delta,
@@ -48948,17 +48948,17 @@ function RemoveScrollSideCar(props) {
 			});
 		}, 1);
 	}, []);
-	var scrollTouchStart = import_react$39.useCallback(function(event) {
+	var scrollTouchStart = import_react$40.useCallback(function(event) {
 		touchStartRef.current = getTouchXY(event);
 		activeAxis.current = void 0;
 	}, []);
-	var scrollWheel = import_react$39.useCallback(function(event) {
+	var scrollWheel = import_react$40.useCallback(function(event) {
 		shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
 	}, []);
-	var scrollTouchMove = import_react$39.useCallback(function(event) {
+	var scrollTouchMove = import_react$40.useCallback(function(event) {
 		shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
 	}, []);
-	import_react$39.useEffect(function() {
+	import_react$40.useEffect(function() {
 		lockStack.push(Style);
 		props.setCallbacks({
 			onScrollCapture: scrollWheel,
@@ -48978,7 +48978,7 @@ function RemoveScrollSideCar(props) {
 		};
 	}, []);
 	var removeScrollBar = props.removeScrollBar, inert = props.inert;
-	return import_react$39.createElement(import_react$39.Fragment, null, inert ? import_react$39.createElement(Style, { styles: generateStyle(id) }) : null, removeScrollBar ? import_react$39.createElement(RemoveScrollBar, {
+	return import_react$40.createElement(import_react$40.Fragment, null, inert ? import_react$40.createElement(Style, { styles: generateStyle(id) }) : null, removeScrollBar ? import_react$40.createElement(RemoveScrollBar, {
 		noRelative: props.noRelative,
 		gapMode: props.gapMode
 	}) : null);
@@ -48994,9 +48994,9 @@ function getOutermostShadowParent(node) {
 	}
 	return shadowParent;
 }
-var import_react$39, getTouchXY, getDeltaXY, extractRef, deltaCompare, generateStyle, idCounter, lockStack;
+var import_react$40, getTouchXY, getDeltaXY, extractRef, deltaCompare, generateStyle, idCounter, lockStack;
 var init_SideEffect = __esmMin((() => {
-	import_react$39 = /* @__PURE__ */ __toESM(require_react());
+	import_react$40 = /* @__PURE__ */ __toESM(require_react());
 	init_es2015$2();
 	init_es2015$3();
 	init_aggresiveCapture();
@@ -49030,13 +49030,13 @@ var init_sidecar = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/react-remove-scroll/dist/es2015/Combination.js
-var import_react$38, ReactRemoveScroll;
+var import_react$39, ReactRemoveScroll;
 var init_Combination = __esmMin((() => {
-	import_react$38 = /* @__PURE__ */ __toESM(require_react());
+	import_react$39 = /* @__PURE__ */ __toESM(require_react());
 	init_UI();
 	init_sidecar();
-	ReactRemoveScroll = import_react$38.forwardRef(function(props, ref) {
-		return import_react$38.createElement(RemoveScroll, __assign({}, props, {
+	ReactRemoveScroll = import_react$39.forwardRef(function(props, ref) {
+		return import_react$39.createElement(RemoveScroll, __assign({}, props, {
 			ref,
 			sideCar: sidecar_default
 		}));
@@ -49147,9 +49147,9 @@ var init_es2015 = __esmMin((() => {
 function getState(open) {
 	return open ? "open" : "closed";
 }
-var import_react$37, import_jsx_runtime$31, __defProp$10, __name$10, DIALOG_NAME, createDialogContext, createDialogScope, DialogProvider, useDialogContext, Dialog$1, TRIGGER_NAME$2, DialogTrigger, PORTAL_NAME$1, PortalProvider$1, usePortalContext$1, DialogPortal$1, OVERLAY_NAME, DialogOverlay$1, Slot$1, DialogOverlayImpl, CONTENT_NAME$4, DialogContent$1, DialogContentModal, DialogContentNonModal, DialogContentImpl, TITLE_NAME, DialogTitle$1, DESCRIPTION_NAME, DialogDescription$1, CLOSE_NAME, DialogClose;
+var import_react$38, import_jsx_runtime$31, __defProp$10, __name$10, DIALOG_NAME, createDialogContext, createDialogScope, DialogProvider, useDialogContext, Dialog$1, TRIGGER_NAME$2, DialogTrigger, PORTAL_NAME$1, PortalProvider$1, usePortalContext$1, DialogPortal$1, OVERLAY_NAME, DialogOverlay$1, Slot$1, DialogOverlayImpl, CONTENT_NAME$4, DialogContent$1, DialogContentModal, DialogContentNonModal, DialogContentImpl, TITLE_NAME, DialogTitle$1, DESCRIPTION_NAME, DialogDescription$1, CLOSE_NAME, DialogClose;
 var init_dist$11 = __esmMin((() => {
-	import_react$37 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$38 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$30();
 	init_dist$25();
@@ -49176,16 +49176,16 @@ var init_dist$11 = __esmMin((() => {
 	[DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
 	Dialog$1 = /* @__PURE__ */ __name$10((props) => {
 		const { __scopeDialog, children, open: openProp, defaultOpen, onOpenChange, modal = true } = props;
-		const triggerRef = import_react$37.useRef(null);
-		const contentRef = import_react$37.useRef(null);
+		const triggerRef = import_react$38.useRef(null);
+		const contentRef = import_react$38.useRef(null);
 		const [open, setOpen] = useControllableState({
 			prop: openProp,
 			defaultProp: defaultOpen ?? false,
 			onChange: onOpenChange,
 			caller: DIALOG_NAME
 		});
-		const [titleCount, setTitleCount] = import_react$37.useState(0);
-		const [descriptionCount, setDescriptionCount] = import_react$37.useState(0);
+		const [titleCount, setTitleCount] = import_react$38.useState(0);
+		const [descriptionCount, setDescriptionCount] = import_react$38.useState(0);
 		return /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(DialogProvider, {
 			scope: __scopeDialog,
 			triggerRef,
@@ -49199,13 +49199,13 @@ var init_dist$11 = __esmMin((() => {
 			setDescriptionCount,
 			open,
 			onOpenChange: setOpen,
-			onOpenToggle: import_react$37.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+			onOpenToggle: import_react$38.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
 			modal,
 			children
 		});
 	}, "Dialog");
 	TRIGGER_NAME$2 = "DialogTrigger";
-	DialogTrigger = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogTrigger2(props, forwardedRef) {
+	DialogTrigger = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogTrigger2(props, forwardedRef) {
 		const { __scopeDialog, ...triggerProps } = props;
 		const context = useDialogContext(TRIGGER_NAME$2, __scopeDialog);
 		const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
@@ -49228,7 +49228,7 @@ var init_dist$11 = __esmMin((() => {
 		return /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(PortalProvider$1, {
 			scope: __scopeDialog,
 			forceMount,
-			children: import_react$37.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(Presence, {
+			children: import_react$38.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(Presence, {
 				present: forceMount || context.open,
 				children: /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(Portal$1, {
 					asChild: true,
@@ -49239,7 +49239,7 @@ var init_dist$11 = __esmMin((() => {
 		});
 	}, "DialogPortal");
 	OVERLAY_NAME = "DialogOverlay";
-	DialogOverlay$1 = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogOverlay2(props, forwardedRef) {
+	DialogOverlay$1 = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogOverlay2(props, forwardedRef) {
 		const portalContext = usePortalContext$1(OVERLAY_NAME, props.__scopeDialog);
 		const { forceMount = portalContext.forceMount, ...overlayProps } = props;
 		const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
@@ -49252,7 +49252,7 @@ var init_dist$11 = __esmMin((() => {
 		}) : null;
 	}, "DialogOverlay"));
 	Slot$1 = /* @__PURE__ */ createSlot("DialogOverlay.RemoveScroll");
-	DialogOverlayImpl = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogOverlayImpl2(props, forwardedRef) {
+	DialogOverlayImpl = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogOverlayImpl2(props, forwardedRef) {
 		const { __scopeDialog, ...overlayProps } = props;
 		const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
 		const composedRefs = useComposedRefs(forwardedRef, useDismissableLayerSurface());
@@ -49272,7 +49272,7 @@ var init_dist$11 = __esmMin((() => {
 		});
 	}, "DialogOverlayImpl"));
 	CONTENT_NAME$4 = "DialogContent";
-	DialogContent$1 = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogContent2(props, forwardedRef) {
+	DialogContent$1 = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogContent2(props, forwardedRef) {
 		const portalContext = usePortalContext$1(CONTENT_NAME$4, props.__scopeDialog);
 		const { forceMount = portalContext.forceMount, ...contentProps } = props;
 		const context = useDialogContext(CONTENT_NAME$4, props.__scopeDialog);
@@ -49287,11 +49287,11 @@ var init_dist$11 = __esmMin((() => {
 			})
 		});
 	}, "DialogContent"));
-	DialogContentModal = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogContentModal2(props, forwardedRef) {
+	DialogContentModal = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogContentModal2(props, forwardedRef) {
 		const context = useDialogContext(CONTENT_NAME$4, props.__scopeDialog);
-		const contentRef = import_react$37.useRef(null);
+		const contentRef = import_react$38.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
-		import_react$37.useEffect(() => {
+		import_react$38.useEffect(() => {
 			const content = contentRef.current;
 			if (content) return hideOthers(content);
 		}, []);
@@ -49312,10 +49312,10 @@ var init_dist$11 = __esmMin((() => {
 			onFocusOutside: composeEventHandlers(props.onFocusOutside, (event) => event.preventDefault())
 		});
 	}, "DialogContentModal"));
-	DialogContentNonModal = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogContentNonModal2(props, forwardedRef) {
+	DialogContentNonModal = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogContentNonModal2(props, forwardedRef) {
 		const context = useDialogContext(CONTENT_NAME$4, props.__scopeDialog);
-		const hasInteractedOutsideRef = import_react$37.useRef(false);
-		const hasPointerDownOutsideRef = import_react$37.useRef(false);
+		const hasInteractedOutsideRef = import_react$38.useRef(false);
+		const hasPointerDownOutsideRef = import_react$38.useRef(false);
 		return /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(DialogContentImpl, {
 			...props,
 			ref: forwardedRef,
@@ -49342,7 +49342,7 @@ var init_dist$11 = __esmMin((() => {
 			}
 		});
 	}, "DialogContentNonModal"));
-	DialogContentImpl = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogContentImpl2(props, forwardedRef) {
+	DialogContentImpl = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogContentImpl2(props, forwardedRef) {
 		const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
 		const context = useDialogContext(CONTENT_NAME$4, __scopeDialog);
 		useFocusGuards();
@@ -49366,7 +49366,7 @@ var init_dist$11 = __esmMin((() => {
 		}) });
 	}, "DialogContentImpl"));
 	TITLE_NAME = "DialogTitle";
-	DialogTitle$1 = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogTitle2(props, forwardedRef) {
+	DialogTitle$1 = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogTitle2(props, forwardedRef) {
 		const { __scopeDialog, ...titleProps } = props;
 		const context = useDialogContext(TITLE_NAME, __scopeDialog);
 		const { setTitleCount } = context;
@@ -49381,7 +49381,7 @@ var init_dist$11 = __esmMin((() => {
 		});
 	}, "DialogTitle"));
 	DESCRIPTION_NAME = "DialogDescription";
-	DialogDescription$1 = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogDescription2(props, forwardedRef) {
+	DialogDescription$1 = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogDescription2(props, forwardedRef) {
 		const { __scopeDialog, ...descriptionProps } = props;
 		const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
 		const { setDescriptionCount } = context;
@@ -49396,7 +49396,7 @@ var init_dist$11 = __esmMin((() => {
 		});
 	}, "DialogDescription"));
 	CLOSE_NAME = "DialogClose";
-	DialogClose = /* @__PURE__ */ import_react$37.forwardRef(/* @__PURE__ */ __name$10(function DialogClose2(props, forwardedRef) {
+	DialogClose = /* @__PURE__ */ import_react$38.forwardRef(/* @__PURE__ */ __name$10(function DialogClose2(props, forwardedRef) {
 		const { __scopeDialog, ...closeProps } = props;
 		const context = useDialogContext(CLOSE_NAME, __scopeDialog);
 		return /* @__PURE__ */ (0, import_jsx_runtime$31.jsx)(Primitive.button, {
@@ -49412,16 +49412,16 @@ var init_dist$11 = __esmMin((() => {
 //#region node_modules/.nitro/vite/services/ssr/assets/ProfileDialog-Dde2lEsj.js
 function ProfileDialog({ open, onOpenChange }) {
 	const { user } = useAuth();
-	const [fullName, setFullName] = (0, import_react$36.useState)("");
-	const [phone, setPhone] = (0, import_react$36.useState)("");
-	const [email, setEmail] = (0, import_react$36.useState)("");
-	const [avatarUrl, setAvatarUrl] = (0, import_react$36.useState)("");
-	const [password, setPassword] = (0, import_react$36.useState)("");
-	const [confirmPassword, setConfirmPassword] = (0, import_react$36.useState)("");
-	const [showPassword, setShowPassword] = (0, import_react$36.useState)(false);
-	const [savingProfile, setSavingProfile] = (0, import_react$36.useState)(false);
-	const [uploadingAvatar, setUploadingAvatar] = (0, import_react$36.useState)(false);
-	(0, import_react$36.useEffect)(() => {
+	const [fullName, setFullName] = (0, import_react$37.useState)("");
+	const [phone, setPhone] = (0, import_react$37.useState)("");
+	const [email, setEmail] = (0, import_react$37.useState)("");
+	const [avatarUrl, setAvatarUrl] = (0, import_react$37.useState)("");
+	const [password, setPassword] = (0, import_react$37.useState)("");
+	const [confirmPassword, setConfirmPassword] = (0, import_react$37.useState)("");
+	const [showPassword, setShowPassword] = (0, import_react$37.useState)(false);
+	const [savingProfile, setSavingProfile] = (0, import_react$37.useState)(false);
+	const [uploadingAvatar, setUploadingAvatar] = (0, import_react$37.useState)(false);
+	(0, import_react$37.useEffect)(() => {
 		if (user && open) {
 			setFullName(user.user_metadata?.["full_name"] || "");
 			setPhone(user.user_metadata?.["phone"] || "");
@@ -49671,33 +49671,33 @@ function ProfileDialog({ open, onOpenChange }) {
 		})
 	});
 }
-var import_react$35, import_react$36, import_jsx_runtime$30, Avatar, AvatarImage, AvatarFallback, Dialog, DialogPortal, DialogOverlay, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription;
+var import_react$36, import_react$37, import_jsx_runtime$30, Avatar, AvatarImage, AvatarFallback, Dialog, DialogPortal, DialogOverlay, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription;
 var init_ProfileDialog_Dde2lEsj = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_utils_C_uf36nf();
 	init_button_cHXlBU3y();
 	init_label_B7oQAA24();
-	import_react$35 = /* @__PURE__ */ __toESM(require_react());
 	import_react$36 = /* @__PURE__ */ __toESM(require_react());
+	import_react$37 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$30 = require_jsx_runtime();
 	init_lucide_react();
 	init_dist$22();
 	init_dist$21();
 	init_dist$11();
-	Avatar = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(Avatar$1, {
+	Avatar = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(Avatar$1, {
 		ref,
 		className: cn$1("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className),
 		...props
 	}));
 	Avatar.displayName = Avatar$1.displayName;
-	AvatarImage = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(AvatarImage$1, {
+	AvatarImage = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(AvatarImage$1, {
 		ref,
 		className: cn$1("aspect-square h-full w-full", className),
 		...props
 	}));
 	AvatarImage.displayName = AvatarImage$1.displayName;
-	AvatarFallback = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(AvatarFallback$1, {
+	AvatarFallback = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(AvatarFallback$1, {
 		ref,
 		className: cn$1("flex h-full w-full items-center justify-center rounded-full bg-muted", className),
 		...props
@@ -49705,13 +49705,13 @@ var init_ProfileDialog_Dde2lEsj = __esmMin((() => {
 	AvatarFallback.displayName = AvatarFallback$1.displayName;
 	Dialog = Dialog$1;
 	DialogPortal = DialogPortal$1;
-	DialogOverlay = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogOverlay$1, {
+	DialogOverlay = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogOverlay$1, {
 		ref,
 		className: cn$1("fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", className),
 		...props
 	}));
 	DialogOverlay.displayName = DialogOverlay$1.displayName;
-	DialogContent = import_react$35.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsxs)(DialogPortal, { children: [/* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogOverlay, {}), /* @__PURE__ */ (0, import_jsx_runtime$30.jsxs)(DialogContent$1, {
+	DialogContent = import_react$36.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsxs)(DialogPortal, { children: [/* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogOverlay, {}), /* @__PURE__ */ (0, import_jsx_runtime$30.jsxs)(DialogContent$1, {
 		ref,
 		className: cn$1("fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg", className),
 		...props,
@@ -49734,13 +49734,13 @@ var init_ProfileDialog_Dde2lEsj = __esmMin((() => {
 		...props
 	});
 	DialogFooter.displayName = "DialogFooter";
-	DialogTitle = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogTitle$1, {
+	DialogTitle = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogTitle$1, {
 		ref,
 		className: cn$1("text-lg font-semibold leading-none tracking-tight", className),
 		...props
 	}));
 	DialogTitle.displayName = DialogTitle$1.displayName;
-	DialogDescription = import_react$35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogDescription$1, {
+	DialogDescription = import_react$36.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$30.jsx)(DialogDescription$1, {
 		ref,
 		className: cn$1("text-sm text-muted-foreground", className),
 		...props
@@ -49759,8 +49759,8 @@ function createCollection(name) {
 	});
 	const CollectionProvider = /* @__PURE__ */ __name$9((props) => {
 		const { scope, children } = props;
-		const ref = import_react$33.useRef(null);
-		const itemMap = import_react$33.useRef(/* @__PURE__ */ new Map()).current;
+		const ref = import_react$34.useRef(null);
+		const itemMap = import_react$34.useRef(/* @__PURE__ */ new Map()).current;
 		return /* @__PURE__ */ (0, import_jsx_runtime$28.jsx)(CollectionProviderImpl, {
 			scope,
 			itemMap,
@@ -49771,7 +49771,7 @@ function createCollection(name) {
 	CollectionProvider.displayName = PROVIDER_NAME;
 	const COLLECTION_SLOT_NAME = name + "CollectionSlot";
 	const CollectionSlotImpl = /* @__PURE__ */ createSlot(COLLECTION_SLOT_NAME);
-	const CollectionSlot = import_react$33.forwardRef((props, forwardedRef) => {
+	const CollectionSlot = import_react$34.forwardRef((props, forwardedRef) => {
 		const { scope, children } = props;
 		const composedRefs = useComposedRefs(forwardedRef, useCollectionContext(COLLECTION_SLOT_NAME, scope).collectionRef);
 		return /* @__PURE__ */ (0, import_jsx_runtime$28.jsx)(CollectionSlotImpl, {
@@ -49783,12 +49783,12 @@ function createCollection(name) {
 	const ITEM_SLOT_NAME = name + "CollectionItemSlot";
 	const ITEM_DATA_ATTR = "data-radix-collection-item";
 	const CollectionItemSlotImpl = /* @__PURE__ */ createSlot(ITEM_SLOT_NAME);
-	const CollectionItemSlot = import_react$33.forwardRef((props, forwardedRef) => {
+	const CollectionItemSlot = import_react$34.forwardRef((props, forwardedRef) => {
 		const { scope, children, ...itemData } = props;
-		const ref = import_react$33.useRef(null);
+		const ref = import_react$34.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
 		const context = useCollectionContext(ITEM_SLOT_NAME, scope);
-		import_react$33.useEffect(() => {
+		import_react$34.useEffect(() => {
 			context.itemMap.set(ref, {
 				ref,
 				...itemData
@@ -49804,7 +49804,7 @@ function createCollection(name) {
 	CollectionItemSlot.displayName = ITEM_SLOT_NAME;
 	function useCollection(scope) {
 		const context = useCollectionContext(name + "CollectionConsumer", scope);
-		return import_react$33.useCallback(() => {
+		return import_react$34.useCallback(() => {
 			const collectionNode = context.collectionRef.current;
 			if (!collectionNode) return [];
 			const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
@@ -49864,11 +49864,11 @@ function createCollection2(name) {
 	CollectionInit.displayName = PROVIDER_NAME + "Init";
 	const CollectionProviderImpl = /* @__PURE__ */ __name$9((props) => {
 		const { scope, children, state } = props;
-		const ref = import_react$34.useRef(null);
-		const [collectionElement, setCollectionElement] = import_react$34.useState(null);
+		const ref = import_react$35.useRef(null);
+		const [collectionElement, setCollectionElement] = import_react$35.useState(null);
 		const composeRefs = useComposedRefs(ref, setCollectionElement);
 		const [itemMap, setItemMap] = state;
-		import_react$34.useEffect(() => {
+		import_react$35.useEffect(() => {
 			if (!collectionElement) return;
 			const observer = getChildListObserver(() => {});
 			observer.observe(collectionElement, {
@@ -49892,7 +49892,7 @@ function createCollection2(name) {
 	CollectionProviderImpl.displayName = PROVIDER_NAME + "Impl";
 	const COLLECTION_SLOT_NAME = name + "CollectionSlot";
 	const CollectionSlotImpl = /* @__PURE__ */ createSlot(COLLECTION_SLOT_NAME);
-	const CollectionSlot = import_react$34.forwardRef((props, forwardedRef) => {
+	const CollectionSlot = import_react$35.forwardRef((props, forwardedRef) => {
 		const { scope, children } = props;
 		const composedRefs = useComposedRefs(forwardedRef, useCollectionContext(COLLECTION_SLOT_NAME, scope).collectionRef);
 		return /* @__PURE__ */ (0, import_jsx_runtime$29.jsx)(CollectionSlotImpl, {
@@ -49904,16 +49904,16 @@ function createCollection2(name) {
 	const ITEM_SLOT_NAME = name + "CollectionItemSlot";
 	const ITEM_DATA_ATTR = "data-radix-collection-item";
 	const CollectionItemSlotImpl = /* @__PURE__ */ createSlot(ITEM_SLOT_NAME);
-	const CollectionItemSlot = import_react$34.forwardRef((props, forwardedRef) => {
+	const CollectionItemSlot = import_react$35.forwardRef((props, forwardedRef) => {
 		const { scope, children, ...itemData } = props;
-		const ref = import_react$34.useRef(null);
-		const [element, setElement] = import_react$34.useState(null);
+		const ref = import_react$35.useRef(null);
+		const [element, setElement] = import_react$35.useState(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref, setElement);
 		const { setItemMap } = useCollectionContext(ITEM_SLOT_NAME, scope);
-		const itemDataRef = import_react$34.useRef(itemData);
+		const itemDataRef = import_react$35.useRef(itemData);
 		if (!shallowEqual(itemDataRef.current, itemData)) itemDataRef.current = itemData;
 		const memoizedItemData = itemDataRef.current;
-		import_react$34.useEffect(() => {
+		import_react$35.useEffect(() => {
 			const itemData2 = memoizedItemData;
 			setItemMap((map) => {
 				if (!element) return map;
@@ -49949,7 +49949,7 @@ function createCollection2(name) {
 	});
 	CollectionItemSlot.displayName = ITEM_SLOT_NAME;
 	function useInitCollection() {
-		return import_react$34.useState(new OrderedDict());
+		return import_react$35.useState(new OrderedDict());
 	}
 	__name$9(useInitCollection, "useInitCollection");
 	function useCollection(scope) {
@@ -49994,14 +49994,14 @@ function getChildListObserver(callback) {
 		}
 	});
 }
-var import_react$33, import_jsx_runtime$28, import_react$34, import_jsx_runtime$29, __defProp$9, __name$9, __instanciated, OrderedDict;
+var import_react$34, import_jsx_runtime$28, import_react$35, import_jsx_runtime$29, __defProp$9, __name$9, __instanciated, OrderedDict;
 var init_dist$10 = __esmMin((() => {
-	import_react$33 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$34 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$25();
 	init_dist$30();
 	init_dist$29();
 	import_jsx_runtime$28 = require_jsx_runtime();
-	import_react$34 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$35 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$29 = require_jsx_runtime();
 	__defProp$9 = Object.defineProperty;
 	__name$9 = (target, value) => __defProp$9(target, "name", {
@@ -50287,26 +50287,26 @@ var init_dist$10 = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-direction/dist/index.mjs
 function useDirection(localDir) {
-	const globalDir = import_react$32.useContext(DirectionContext);
+	const globalDir = import_react$33.useContext(DirectionContext);
 	return localDir || globalDir || "ltr";
 }
-var import_react$32, __defProp$8, __name$8, DirectionContext;
+var import_react$33, __defProp$8, __name$8, DirectionContext;
 var init_dist$9 = __esmMin((() => {
-	import_react$32 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$33 = /* @__PURE__ */ __toESM(require_react(), 1);
 	require_jsx_runtime();
 	__defProp$8 = Object.defineProperty;
 	__name$8 = (target, value) => __defProp$8(target, "name", {
 		value,
 		configurable: true
 	});
-	DirectionContext = import_react$32.createContext(void 0);
+	DirectionContext = import_react$33.createContext(void 0);
 	__name$8(useDirection, "useDirection");
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-use-is-hydrated/dist/index.mjs
 function useIsHydrated() {
-	const [isHydrated, setIsHydrated] = import_react$31.useState(_isHydrated);
-	import_react$31.useEffect(() => {
+	const [isHydrated, setIsHydrated] = import_react$32.useState(_isHydrated);
+	import_react$32.useEffect(() => {
 		if (!_isHydrated) {
 			_isHydrated = true;
 			setIsHydrated(true);
@@ -50320,10 +50320,10 @@ function subscribe() {
 function useIsHydratedModern() {
 	return useReactSyncExternalStore(subscribe, () => true, () => false);
 }
-var import_react$30, import_react$31, __defProp$7, __name$7, _isHydrated, useReactSyncExternalStore, useIsHydrated2;
+var import_react$31, import_react$32, __defProp$7, __name$7, _isHydrated, useReactSyncExternalStore, useIsHydrated2;
 var init_dist$8 = __esmMin((() => {
-	import_react$30 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react$31 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$32 = /* @__PURE__ */ __toESM(require_react(), 1);
 	__defProp$7 = Object.defineProperty;
 	__name$7 = (target, value) => __defProp$7(target, "name", {
 		value,
@@ -50331,7 +50331,7 @@ var init_dist$8 = __esmMin((() => {
 	});
 	_isHydrated = false;
 	__name$7(useIsHydrated, "useIsHydrated");
-	useReactSyncExternalStore = import_react$30[" useSyncExternalStore ".trim().toString()];
+	useReactSyncExternalStore = import_react$31[" useSyncExternalStore ".trim().toString()];
 	__name$7(subscribe, "subscribe");
 	__name$7(useIsHydratedModern, "useIsHydratedModern");
 	useIsHydrated2 = typeof useReactSyncExternalStore === "function" ? useIsHydratedModern : useIsHydrated;
@@ -50359,9 +50359,9 @@ function focusFirst$1(candidates, preventScroll = false) {
 function wrapArray$1(array, startIndex) {
 	return array.map((_, index) => array[(startIndex + index) % array.length]);
 }
-var import_react$29, import_jsx_runtime$26, __defProp$6, __name$6, ENTRY_FOCUS, EVENT_OPTIONS, GROUP_NAME, Collection$1, useCollection$1, createCollectionScope$1, createRovingFocusGroupContext, createRovingFocusGroupScope, RovingFocusProvider, useRovingFocusContext, RovingFocusGroup, RovingFocusGroupImpl, ITEM_NAME$1, RovingFocusGroupItem, MAP_KEY_TO_FOCUS_INTENT, Root, Item;
+var import_react$30, import_jsx_runtime$26, __defProp$6, __name$6, ENTRY_FOCUS, EVENT_OPTIONS, GROUP_NAME, Collection$1, useCollection$1, createCollectionScope$1, createRovingFocusGroupContext, createRovingFocusGroupScope, RovingFocusProvider, useRovingFocusContext, RovingFocusGroup, RovingFocusGroupImpl, ITEM_NAME$1, RovingFocusGroupItem, MAP_KEY_TO_FOCUS_INTENT, Root, Item;
 var init_dist$7 = __esmMin((() => {
-	import_react$29 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$30 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$10();
 	init_dist$30();
@@ -50388,7 +50388,7 @@ var init_dist$7 = __esmMin((() => {
 	[Collection$1, useCollection$1, createCollectionScope$1] = /* @__PURE__ */ createCollection(GROUP_NAME);
 	[createRovingFocusGroupContext, createRovingFocusGroupScope] = /* @__PURE__ */ createContextScope(GROUP_NAME, [createCollectionScope$1]);
 	[RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME);
-	RovingFocusGroup = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroup2(props, forwardedRef) {
+	RovingFocusGroup = /* @__PURE__ */ import_react$30.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroup2(props, forwardedRef) {
 		return /* @__PURE__ */ (0, import_jsx_runtime$26.jsx)(Collection$1.Provider, {
 			scope: props.__scopeRovingFocusGroup,
 			children: /* @__PURE__ */ (0, import_jsx_runtime$26.jsx)(Collection$1.Slot, {
@@ -50400,9 +50400,9 @@ var init_dist$7 = __esmMin((() => {
 			})
 		});
 	}, "RovingFocusGroup"));
-	RovingFocusGroupImpl = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroupImpl2(props, forwardedRef) {
+	RovingFocusGroupImpl = /* @__PURE__ */ import_react$30.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroupImpl2(props, forwardedRef) {
 		const { __scopeRovingFocusGroup, orientation, loop = false, dir, currentTabStopId: currentTabStopIdProp, defaultCurrentTabStopId, onCurrentTabStopIdChange, onEntryFocus, preventScrollOnEntryFocus = false, ...groupProps } = props;
-		const ref = import_react$29.useRef(null);
+		const ref = import_react$30.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
 		const direction = useDirection(dir);
 		const [currentTabStopId, setCurrentTabStopId] = useControllableState({
@@ -50411,12 +50411,12 @@ var init_dist$7 = __esmMin((() => {
 			onChange: onCurrentTabStopIdChange,
 			caller: GROUP_NAME
 		});
-		const [isTabbingBackOut, setIsTabbingBackOut] = import_react$29.useState(false);
+		const [isTabbingBackOut, setIsTabbingBackOut] = import_react$30.useState(false);
 		const handleEntryFocus = useCallbackRef$1(onEntryFocus);
 		const getItems = useCollection$1(__scopeRovingFocusGroup);
-		const isClickFocusRef = import_react$29.useRef(false);
-		const [focusableItemsCount, setFocusableItemsCount] = import_react$29.useState(0);
-		import_react$29.useEffect(() => {
+		const isClickFocusRef = import_react$30.useRef(false);
+		const [focusableItemsCount, setFocusableItemsCount] = import_react$30.useState(0);
+		import_react$30.useEffect(() => {
 			const node = ref.current;
 			if (node) {
 				node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
@@ -50429,10 +50429,10 @@ var init_dist$7 = __esmMin((() => {
 			dir: direction,
 			loop,
 			currentTabStopId,
-			onItemFocus: import_react$29.useCallback((tabStopId) => setCurrentTabStopId(tabStopId), [setCurrentTabStopId]),
-			onItemShiftTab: import_react$29.useCallback(() => setIsTabbingBackOut(true), []),
-			onFocusableItemAdd: import_react$29.useCallback(() => setFocusableItemsCount((prevCount) => prevCount + 1), []),
-			onFocusableItemRemove: import_react$29.useCallback(() => setFocusableItemsCount((prevCount) => prevCount - 1), []),
+			onItemFocus: import_react$30.useCallback((tabStopId) => setCurrentTabStopId(tabStopId), [setCurrentTabStopId]),
+			onItemShiftTab: import_react$30.useCallback(() => setIsTabbingBackOut(true), []),
+			onFocusableItemAdd: import_react$30.useCallback(() => setFocusableItemsCount((prevCount) => prevCount + 1), []),
+			onFocusableItemRemove: import_react$30.useCallback(() => setFocusableItemsCount((prevCount) => prevCount - 1), []),
 			children: /* @__PURE__ */ (0, import_jsx_runtime$26.jsx)(Primitive.div, {
 				tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
 				"data-orientation": orientation,
@@ -50466,7 +50466,7 @@ var init_dist$7 = __esmMin((() => {
 		});
 	}, "RovingFocusGroupImpl"));
 	ITEM_NAME$1 = "RovingFocusGroupItem";
-	RovingFocusGroupItem = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroupItem2(props, forwardedRef) {
+	RovingFocusGroupItem = /* @__PURE__ */ import_react$30.forwardRef(/* @__PURE__ */ __name$6(function RovingFocusGroupItem2(props, forwardedRef) {
 		const { __scopeRovingFocusGroup, focusable = true, active = false, tabStopId, children, ...itemProps } = props;
 		const autoId = useId();
 		const id = tabStopId || autoId;
@@ -50485,7 +50485,7 @@ var init_dist$7 = __esmMin((() => {
 			onFocusableItemAdd,
 			onFocusableItemRemove
 		]);
-		import_react$29.useEffect(() => {
+		import_react$30.useEffect(() => {
 			if (isHydrated || !focusable) return;
 			onFocusableItemAdd();
 			return () => onFocusableItemRemove();
@@ -50562,9 +50562,9 @@ function makeTriggerId(baseId, value) {
 function makeContentId(baseId, value) {
 	return `${baseId}-content-${value}`;
 }
-var import_react$28, import_jsx_runtime$25, __defProp$5, __name$5, TABS_NAME, createTabsContext, createTabsScope, useRovingFocusGroupScope$1, TabsProvider, useTabsContext, Tabs$1, TAB_LIST_NAME, TabsList$1, TRIGGER_NAME$1, TabsTrigger$1, CONTENT_NAME$3, TabsContent$1, Root2$3, List, Trigger$1, Content$1;
+var import_react$29, import_jsx_runtime$25, __defProp$5, __name$5, TABS_NAME, createTabsContext, createTabsScope, useRovingFocusGroupScope$1, TabsProvider, useTabsContext, Tabs$1, TAB_LIST_NAME, TabsList$1, TRIGGER_NAME$1, TabsTrigger$1, CONTENT_NAME$3, TabsContent$1, Root2$3, List, Trigger$1, Content$1;
 var init_dist$6 = __esmMin((() => {
-	import_react$28 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$29 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$25();
 	init_dist$7();
@@ -50583,7 +50583,7 @@ var init_dist$6 = __esmMin((() => {
 	[createTabsContext, createTabsScope] = /* @__PURE__ */ createContextScope(TABS_NAME, [createRovingFocusGroupScope]);
 	useRovingFocusGroupScope$1 = createRovingFocusGroupScope();
 	[TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
-	Tabs$1 = /* @__PURE__ */ import_react$28.forwardRef(/* @__PURE__ */ __name$5(function Tabs2(props, forwardedRef) {
+	Tabs$1 = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$5(function Tabs2(props, forwardedRef) {
 		const { __scopeTabs, value: valueProp, onValueChange, defaultValue, orientation = "horizontal", dir, activationMode = "automatic", ...tabsProps } = props;
 		const direction = useDirection(dir);
 		const [value, setValue] = useControllableState({
@@ -50609,7 +50609,7 @@ var init_dist$6 = __esmMin((() => {
 		});
 	}, "Tabs"));
 	TAB_LIST_NAME = "TabsList";
-	TabsList$1 = /* @__PURE__ */ import_react$28.forwardRef(/* @__PURE__ */ __name$5(function TabsList2(props, forwardedRef) {
+	TabsList$1 = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$5(function TabsList2(props, forwardedRef) {
 		const { __scopeTabs, loop = true, ...listProps } = props;
 		const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
 		const rovingFocusGroupScope = useRovingFocusGroupScope$1(__scopeTabs);
@@ -50628,7 +50628,7 @@ var init_dist$6 = __esmMin((() => {
 		});
 	}, "TabsList"));
 	TRIGGER_NAME$1 = "TabsTrigger";
-	TabsTrigger$1 = /* @__PURE__ */ import_react$28.forwardRef(/* @__PURE__ */ __name$5(function TabsTrigger2(props, forwardedRef) {
+	TabsTrigger$1 = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$5(function TabsTrigger2(props, forwardedRef) {
 		const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
 		const context = useTabsContext(TRIGGER_NAME$1, __scopeTabs);
 		const rovingFocusGroupScope = useRovingFocusGroupScope$1(__scopeTabs);
@@ -50667,14 +50667,14 @@ var init_dist$6 = __esmMin((() => {
 		});
 	}, "TabsTrigger"));
 	CONTENT_NAME$3 = "TabsContent";
-	TabsContent$1 = /* @__PURE__ */ import_react$28.forwardRef(/* @__PURE__ */ __name$5(function TabsContent2(props, forwardedRef) {
+	TabsContent$1 = /* @__PURE__ */ import_react$29.forwardRef(/* @__PURE__ */ __name$5(function TabsContent2(props, forwardedRef) {
 		const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
 		const context = useTabsContext(CONTENT_NAME$3, __scopeTabs);
 		const triggerId = makeTriggerId(context.baseId, value);
 		const contentId = makeContentId(context.baseId, value);
 		const isSelected = value === context.value;
-		const isMountAnimationPreventedRef = import_react$28.useRef(isSelected);
-		import_react$28.useEffect(() => {
+		const isMountAnimationPreventedRef = import_react$29.useRef(isSelected);
+		import_react$29.useEffect(() => {
 			const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
 			return () => cancelAnimationFrame(rAF);
 		}, []);
@@ -50707,26 +50707,26 @@ var init_dist$6 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.nitro/vite/services/ssr/assets/tabs-CCJRliUM.js
-var import_react$27, import_jsx_runtime$24, Tabs, TabsList, TabsTrigger, TabsContent;
+var import_react$28, import_jsx_runtime$24, Tabs, TabsList, TabsTrigger, TabsContent;
 var init_tabs_CCJRliUM = __esmMin((() => {
 	init_utils_C_uf36nf();
-	import_react$27 = /* @__PURE__ */ __toESM(require_react());
+	import_react$28 = /* @__PURE__ */ __toESM(require_react());
 	import_jsx_runtime$24 = require_jsx_runtime();
 	init_dist$6();
 	Tabs = Root2$3;
-	TabsList = import_react$27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(List, {
+	TabsList = import_react$28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(List, {
 		ref,
 		className: cn$1("inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground", className),
 		...props
 	}));
 	TabsList.displayName = List.displayName;
-	TabsTrigger = import_react$27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Trigger$1, {
+	TabsTrigger = import_react$28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Trigger$1, {
 		ref,
 		className: cn$1("inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow", className),
 		...props
 	}));
 	TabsTrigger.displayName = Trigger$1.displayName;
-	TabsContent = import_react$27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Content$1, {
+	TabsContent = import_react$28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Content$1, {
 		ref,
 		className: cn$1("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className),
 		...props
@@ -54335,22 +54335,22 @@ function AuthPage() {
 	const { user } = useAuth();
 	const navigate = useNavigate();
 	const target = safePath(redirect);
-	const [activeTab, setActiveTab] = (0, import_react$26.useState)(mode || "signin");
-	(0, import_react$26.useEffect)(() => {
+	const [activeTab, setActiveTab] = (0, import_react$27.useState)(mode || "signin");
+	(0, import_react$27.useEffect)(() => {
 		if (mode) setActiveTab(mode);
 	}, [mode]);
-	const [email, setEmail] = (0, import_react$26.useState)("");
-	const [password, setPassword] = (0, import_react$26.useState)("");
-	const [showSignInPassword, setShowSignInPassword] = (0, import_react$26.useState)(false);
-	const [signUpEmail, setSignUpEmail] = (0, import_react$26.useState)("");
-	const [signUpPhone, setSignUpPhone] = (0, import_react$26.useState)("");
-	const [signUpPassword, setSignUpPassword] = (0, import_react$26.useState)("");
-	const [signUpConfirmPassword, setSignUpConfirmPassword] = (0, import_react$26.useState)("");
-	const [showSignUpPassword, setShowSignUpPassword] = (0, import_react$26.useState)(false);
-	const [showSignUpConfirmPassword, setShowSignUpConfirmPassword] = (0, import_react$26.useState)(false);
-	const [fullName, setFullName] = (0, import_react$26.useState)("");
-	const [busy, setBusy] = (0, import_react$26.useState)(false);
-	(0, import_react$26.useEffect)(() => {
+	const [email, setEmail] = (0, import_react$27.useState)("");
+	const [password, setPassword] = (0, import_react$27.useState)("");
+	const [showSignInPassword, setShowSignInPassword] = (0, import_react$27.useState)(false);
+	const [signUpEmail, setSignUpEmail] = (0, import_react$27.useState)("");
+	const [signUpPhone, setSignUpPhone] = (0, import_react$27.useState)("");
+	const [signUpPassword, setSignUpPassword] = (0, import_react$27.useState)("");
+	const [signUpConfirmPassword, setSignUpConfirmPassword] = (0, import_react$27.useState)("");
+	const [showSignUpPassword, setShowSignUpPassword] = (0, import_react$27.useState)(false);
+	const [showSignUpConfirmPassword, setShowSignUpConfirmPassword] = (0, import_react$27.useState)(false);
+	const [fullName, setFullName] = (0, import_react$27.useState)("");
+	const [busy, setBusy] = (0, import_react$27.useState)(false);
+	(0, import_react$27.useEffect)(() => {
 		if (user) navigate({
 			to: target,
 			replace: true
@@ -54618,7 +54618,7 @@ function AuthPage() {
 		]
 	});
 }
-var import_react$26, import_jsx_runtime$23, signInSchema, signUpSchema;
+var import_react$27, import_jsx_runtime$23, signInSchema, signUpSchema;
 var init_auth_C9JI4kiL = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
@@ -54626,7 +54626,7 @@ var init_auth_C9JI4kiL = __esmMin((() => {
 	init_label_B7oQAA24();
 	init_auth_D_sgwxxs();
 	init_tabs_CCJRliUM();
-	import_react$26 = /* @__PURE__ */ __toESM(require_react());
+	import_react$27 = /* @__PURE__ */ __toESM(require_react());
 	init_esm();
 	import_jsx_runtime$23 = require_jsx_runtime();
 	init_lucide_react();
@@ -54708,19 +54708,19 @@ var init_skeleton_D9W9wFsj = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
-var import_react$25, import_jsx_runtime$21, QueryClientContext, useQueryClient, QueryClientProvider;
+var import_react$26, import_jsx_runtime$21, QueryClientContext, useQueryClient, QueryClientProvider;
 var init_QueryClientProvider = __esmMin((() => {
-	import_react$25 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$26 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_jsx_runtime$21 = require_jsx_runtime();
-	QueryClientContext = import_react$25.createContext(void 0);
+	QueryClientContext = import_react$26.createContext(void 0);
 	useQueryClient = (queryClient) => {
-		const client = import_react$25.useContext(QueryClientContext);
+		const client = import_react$26.useContext(QueryClientContext);
 		if (queryClient) return queryClient;
 		if (!client) throw new Error("No QueryClient set, use QueryClientProvider to set one");
 		return client;
 	};
 	QueryClientProvider = ({ client, children }) => {
-		import_react$25.useEffect(() => {
+		import_react$26.useEffect(() => {
 			client.mount();
 			return () => {
 				client.unmount();
@@ -56957,12 +56957,12 @@ var init_modern$1 = __esmMin((() => {
 	init_queryObserver();
 	init_mutationObserver();
 	init_queryClient();
-})), import_react$24, IsRestoringContext, useIsRestoring;
+})), import_react$25, IsRestoringContext, useIsRestoring;
 /* istanbul ignore file */
 var init_IsRestoringProvider = __esmMin((() => {
-	import_react$24 = /* @__PURE__ */ __toESM(require_react(), 1);
-	IsRestoringContext = import_react$24.createContext(false);
-	useIsRestoring = () => import_react$24.useContext(IsRestoringContext);
+	import_react$25 = /* @__PURE__ */ __toESM(require_react(), 1);
+	IsRestoringContext = import_react$25.createContext(false);
+	useIsRestoring = () => import_react$25.useContext(IsRestoringContext);
 	IsRestoringContext.Provider;
 }));
 //#endregion
@@ -56981,18 +56981,18 @@ function createValue() {
 		}
 	};
 }
-var import_react$23, QueryErrorResetBoundaryContext, useQueryErrorResetBoundary;
+var import_react$24, QueryErrorResetBoundaryContext, useQueryErrorResetBoundary;
 var init_QueryErrorResetBoundary = __esmMin((() => {
-	import_react$23 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$24 = /* @__PURE__ */ __toESM(require_react(), 1);
 	require_jsx_runtime();
-	QueryErrorResetBoundaryContext = import_react$23.createContext(createValue());
-	useQueryErrorResetBoundary = () => import_react$23.useContext(QueryErrorResetBoundaryContext);
+	QueryErrorResetBoundaryContext = import_react$24.createContext(createValue());
+	useQueryErrorResetBoundary = () => import_react$24.useContext(QueryErrorResetBoundaryContext);
 }));
 //#endregion
 //#region node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js
-var import_react$22, ensurePreventErrorBoundaryRetry, useClearResetErrorBoundary, getHasError;
+var import_react$23, ensurePreventErrorBoundaryRetry, useClearResetErrorBoundary, getHasError;
 var init_errorBoundaryUtils = __esmMin((() => {
-	import_react$22 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$23 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_modern$1();
 	ensurePreventErrorBoundaryRetry = (options, errorResetBoundary, query) => {
 		const throwOnError = query?.state.error && typeof options.throwOnError === "function" ? shouldThrowError(options.throwOnError, [query.state.error, query]) : options.throwOnError;
@@ -57001,7 +57001,7 @@ var init_errorBoundaryUtils = __esmMin((() => {
 		}
 	};
 	useClearResetErrorBoundary = (errorResetBoundary) => {
-		import_react$22.useEffect(() => {
+		import_react$23.useEffect(() => {
 			errorResetBoundary.clearReset();
 		}, [errorResetBoundary]);
 	};
@@ -57040,15 +57040,15 @@ function useBaseQuery(options, Observer, queryClient) {
 	ensureSuspenseTimers(defaultedOptions);
 	ensurePreventErrorBoundaryRetry(defaultedOptions, errorResetBoundary, query);
 	useClearResetErrorBoundary(errorResetBoundary);
-	const [observer] = import_react$21.useState(() => new Observer(client, defaultedOptions));
+	const [observer] = import_react$22.useState(() => new Observer(client, defaultedOptions));
 	const result = observer.getOptimisticResult(defaultedOptions);
 	const shouldSubscribe = !isRestoring && subscribed;
-	import_react$21.useSyncExternalStore(import_react$21.useCallback((onStoreChange) => {
+	import_react$22.useSyncExternalStore(import_react$22.useCallback((onStoreChange) => {
 		const unsubscribe = shouldSubscribe ? observer.subscribe(notifyManager.batchCalls(onStoreChange)) : noop;
 		observer.updateResult();
 		return unsubscribe;
 	}, [observer, shouldSubscribe]), () => observer.getCurrentResult(), () => observer.getCurrentResult());
-	import_react$21.useEffect(() => {
+	import_react$22.useEffect(() => {
 		observer.setOptions(defaultedOptions);
 	}, [defaultedOptions, observer]);
 	if (shouldSuspend(defaultedOptions, result)) throw fetchOptimistic(defaultedOptions, observer, errorResetBoundary);
@@ -57061,14 +57061,14 @@ function useBaseQuery(options, Observer, queryClient) {
 	})) throw result.error;
 	return !defaultedOptions.notifyOnChangeProps ? observer.trackResult(result) : result;
 }
-var import_react$21;
+var import_react$22;
 var init_useBaseQuery = __esmMin((() => {
 	init_QueryClientProvider();
 	init_IsRestoringProvider();
 	init_QueryErrorResetBoundary();
 	init_errorBoundaryUtils();
 	init_suspense();
-	import_react$21 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$22 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_modern$1();
 }));
 //#endregion
@@ -57084,12 +57084,12 @@ var init_useQuery = __esmMin((() => {
 //#region node_modules/@tanstack/react-query/build/modern/useMutation.js
 function useMutation(options, queryClient) {
 	const client = useQueryClient(queryClient);
-	const [observer] = import_react$20.useState(() => new MutationObserver$1(client, options));
-	import_react$20.useEffect(() => {
+	const [observer] = import_react$21.useState(() => new MutationObserver$1(client, options));
+	import_react$21.useEffect(() => {
 		observer.setOptions(options);
 	}, [observer, options]);
-	const result = import_react$20.useSyncExternalStore(import_react$20.useCallback((onStoreChange) => observer.subscribe(notifyManager.batchCalls(onStoreChange)), [observer]), () => observer.getCurrentResult(), () => observer.getCurrentResult());
-	const mutate = import_react$20.useCallback((...args) => {
+	const result = import_react$21.useSyncExternalStore(import_react$21.useCallback((onStoreChange) => observer.subscribe(notifyManager.batchCalls(onStoreChange)), [observer]), () => observer.getCurrentResult(), () => observer.getCurrentResult());
+	const mutate = import_react$21.useCallback((...args) => {
 		observer.mutate(args[0], args[1]).catch(noop);
 	}, [observer]);
 	if (result.error && shouldThrowError(observer.options.throwOnError, [result.error])) throw result.error;
@@ -57099,10 +57099,10 @@ function useMutation(options, queryClient) {
 		mutateAsync: result.mutate
 	};
 }
-var import_react$20;
+var import_react$21;
 var init_useMutation = __esmMin((() => {
 	init_QueryClientProvider();
-	import_react$20 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$21 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_modern$1();
 }));
 //#endregion
@@ -57115,15 +57115,35 @@ var init_modern = __esmMin((() => {
 }));
 /* istanbul ignore file */
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-9iy9Yoku.js
-var product__slug_9iy9Yoku_exports = /* @__PURE__ */ __exportAll({ component: () => ProductDetail });
+//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-CasQHjqp.js
+var product__slug_CasQHjqp_exports = /* @__PURE__ */ __exportAll({ component: () => ProductDetail });
 function ProductDetail() {
 	const { slug } = Route$11.useParams();
 	const navigate = useNavigate();
+	const qc = useQueryClient();
 	const { add } = useCart();
-	const [size, setSize] = (0, import_react$19.useState)(null);
-	const [quantity, setQuantity] = (0, import_react$19.useState)(1);
-	const [isAdding, setIsAdding] = (0, import_react$19.useState)(false);
+	const [size, setSize] = (0, import_react$20.useState)(null);
+	const [quantity, setQuantity] = (0, import_react$20.useState)(1);
+	const [isAdding, setIsAdding] = (0, import_react$20.useState)(false);
+	(0, import_react$20.useEffect)(() => {
+		const channel = supabase.channel(`product-realtime-${slug}`).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "products"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["product", slug] });
+			qc.invalidateQueries({ queryKey: ["products"] });
+		}).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "store_settings"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["store-settings"] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [slug, qc]);
 	const { data: product, isLoading } = useQuery({
 		queryKey: ["product", slug],
 		queryFn: async () => {
@@ -57216,9 +57236,9 @@ function ProductDetail() {
 	const categoryLabel = (product.category || "CLOTHING").toUpperCase();
 	const brandLabel = (product.brand || product.colorway || "STREETWEAR").toUpperCase();
 	return /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-		className: "mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8",
+		className: "mx-auto max-w-7xl px-4 py-6 sm:py-8 sm:px-6 lg:px-8",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("div", {
-			className: "mb-6",
+			className: "mb-4 sm:mb-6",
 			children: /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)(Link, {
 				to: "/shop",
 				className: "inline-flex items-center gap-1.5 text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors",
@@ -57228,7 +57248,7 @@ function ProductDetail() {
 				}), " All products"]
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-			className: "grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-start",
+			className: "grid gap-8 sm:gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-start",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("div", {
 				className: "aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-surface border border-border flex items-center justify-center",
 				children: /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("img", {
@@ -57239,10 +57259,10 @@ function ProductDetail() {
 					className: "size-full object-contain sm:object-cover"
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-				className: "space-y-6",
+				className: "space-y-5 sm:space-y-6",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("p", {
-						className: "text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold",
+						className: "text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-muted-foreground font-semibold",
 						children: [
 							categoryLabel,
 							" · ",
@@ -57250,13 +57270,13 @@ function ProductDetail() {
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("h1", {
-						className: "text-4xl sm:text-5xl font-serif font-medium tracking-tight text-foreground",
+						className: "text-3xl sm:text-5xl font-serif font-medium tracking-tight text-foreground break-words",
 						children: product.name
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
 						className: "space-y-1",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("p", {
-							className: "text-3xl font-serif font-semibold text-foreground",
+							className: "text-2xl sm:text-3xl font-serif font-semibold text-foreground",
 							children: formatPrice(product.price_cents)
 						}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("p", {
 							className: "text-xs text-muted-foreground",
@@ -57271,11 +57291,11 @@ function ProductDetail() {
 						children: "✕ Out of stock"
 					}) }),
 					product.description && /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("p", {
-						className: "text-sm leading-relaxed text-muted-foreground",
+						className: "text-xs sm:text-sm leading-relaxed text-muted-foreground",
 						children: product.description
 					}),
 					availableSizes.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-						className: "space-y-2 pt-2",
+						className: "space-y-2 pt-1",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("p", {
 							className: "text-xs uppercase tracking-[0.2em] text-muted-foreground",
 							children: "Select Size"
@@ -57284,13 +57304,13 @@ function ProductDetail() {
 							children: availableSizes.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("button", {
 								type: "button",
 								onClick: () => setSize(s),
-								className: cn$1("min-w-12 border px-3 py-2 text-xs uppercase tracking-[0.15em] transition-colors rounded-none", chosenSize === s ? "border-foreground bg-foreground text-background font-semibold" : "border-border text-muted-foreground hover:text-foreground"),
+								className: cn$1("min-w-11 border px-3 py-2 text-xs uppercase tracking-[0.15em] transition-colors rounded-none", chosenSize === s ? "border-foreground bg-foreground text-background font-semibold" : "border-border text-muted-foreground hover:text-foreground"),
 								children: s
 							}, s))
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-						className: "flex items-center gap-4 pt-1",
+						className: "flex flex-wrap items-center gap-4 pt-1",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
 								className: "text-xs uppercase tracking-[0.2em] text-muted-foreground",
@@ -57332,19 +57352,19 @@ function ProductDetail() {
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-						className: "grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3",
+						className: "grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)(Button, {
 							type: "button",
 							onClick: handleOrderNow,
 							disabled: soldOut,
-							className: "w-full bg-foreground text-background hover:bg-foreground/90 font-medium py-6 text-sm rounded-none tracking-wide",
+							className: "w-full bg-foreground text-background hover:bg-foreground/90 font-medium py-5 sm:py-6 text-xs sm:text-sm rounded-none tracking-wider uppercase",
 							children: "Order now"
 						}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)(Button, {
 							type: "button",
 							variant: "outline",
 							onClick: handleAdd,
 							disabled: soldOut || isAdding,
-							className: "w-full border-border bg-transparent text-foreground hover:bg-surface font-medium py-6 text-sm rounded-none tracking-wide gap-2",
+							className: "w-full border-border bg-transparent text-foreground hover:bg-surface font-medium py-5 sm:py-6 text-xs sm:text-sm rounded-none tracking-wider uppercase gap-2",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)(ShoppingBag, { className: "size-4" }), isAdding ? "Added to cart ✓" : "Add to cart"]
 						})]
 					}),
@@ -57371,27 +57391,27 @@ function ProductDetail() {
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-						className: "pt-6 border-t border-border space-y-3",
+						className: "pt-5 border-t border-border space-y-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("h2", {
-							className: "text-2xl font-serif font-medium tracking-tight text-foreground",
+							className: "text-xl sm:text-2xl font-serif font-medium tracking-tight text-foreground",
 							children: "Specifications"
 						}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-							className: "border-t border-border pt-3",
+							className: "border-t border-border pt-2 divide-y divide-border/40",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-									className: "flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40",
+									className: "flex flex-col sm:flex-row sm:justify-between py-2 text-xs text-muted-foreground gap-1",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
-										className: "uppercase tracking-[0.2em]",
+										className: "uppercase tracking-[0.2em] shrink-0 font-medium",
 										children: "Detail"
 									}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
-										className: "text-foreground text-right max-w-xs sm:max-w-md",
+										className: "text-foreground sm:text-right break-words max-w-full",
 										children: product.specifications || product.description || "Authentic quality & design guaranteed."
 									})]
 								}),
 								product.colorway && /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-									className: "flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40",
+									className: "flex justify-between py-2 text-xs text-muted-foreground",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
-										className: "uppercase tracking-[0.2em]",
+										className: "uppercase tracking-[0.2em] font-medium",
 										children: "Colorway"
 									}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
 										className: "text-foreground",
@@ -57399,9 +57419,9 @@ function ProductDetail() {
 									})]
 								}),
 								product.brand && /* @__PURE__ */ (0, import_jsx_runtime$19.jsxs)("div", {
-									className: "flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40",
+									className: "flex justify-between py-2 text-xs text-muted-foreground",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
-										className: "uppercase tracking-[0.2em]",
+										className: "uppercase tracking-[0.2em] font-medium",
 										children: "Brand"
 									}), /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)("span", {
 										className: "text-foreground",
@@ -57416,16 +57436,16 @@ function ProductDetail() {
 		})]
 	});
 }
-var import_react$19, import_jsx_runtime$19;
-var init_product__slug_9iy9Yoku = __esmMin((() => {
+var import_react$20, import_jsx_runtime$19;
+var init_product__slug_CasQHjqp = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useCart_B6US_OkA();
 	init_utils_C_uf36nf();
 	init_button_cHXlBU3y();
-	init_product__slug_BYjMtkLh();
+	init_product__slug_XvDWQruS();
 	init_format_JcwKzGtU();
 	init_skeleton_D9W9wFsj();
-	import_react$19 = /* @__PURE__ */ __toESM(require_react());
+	import_react$20 = /* @__PURE__ */ __toESM(require_react());
 	init_esm();
 	import_jsx_runtime$19 = require_jsx_runtime();
 	init_modern();
@@ -57433,11 +57453,11 @@ var init_product__slug_9iy9Yoku = __esmMin((() => {
 	init_dist$21();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-BYjMtkLh.js
+//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-XvDWQruS.js
 var $$splitComponentImporter$10, Route$11;
-var init_product__slug_BYjMtkLh = __esmMin((() => {
+var init_product__slug_XvDWQruS = __esmMin((() => {
 	init_esm();
-	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_product__slug_9iy9Yoku(), product__slug_9iy9Yoku_exports));
+	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_product__slug_CasQHjqp(), product__slug_CasQHjqp_exports));
 	Route$11 = createFileRoute("/product/$slug")({
 		head: ({ params }) => {
 			const title = `${params.slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} — Nathan's Clothing`;
@@ -58737,7 +58757,7 @@ function roundByDPR(element, value) {
 	return Math.round(value * dpr) / dpr;
 }
 function useLatestRef(value) {
-	const ref = import_react$17.useRef(value);
+	const ref = import_react$18.useRef(value);
 	index(() => {
 		ref.current = value;
 	});
@@ -58750,7 +58770,7 @@ function useLatestRef(value) {
 function useFloating(options) {
 	if (options === void 0) options = {};
 	const { placement = "bottom", strategy = "absolute", middleware = [], platform, elements: { reference: externalReference, floating: externalFloating } = {}, transform = true, whileElementsMounted, open } = options;
-	const [data, setData] = import_react$17.useState({
+	const [data, setData] = import_react$18.useState({
 		x: 0,
 		y: 0,
 		strategy,
@@ -58758,17 +58778,17 @@ function useFloating(options) {
 		middlewareData: {},
 		isPositioned: false
 	});
-	const [latestMiddleware, setLatestMiddleware] = import_react$17.useState(middleware);
+	const [latestMiddleware, setLatestMiddleware] = import_react$18.useState(middleware);
 	if (!deepEqual(latestMiddleware, middleware)) setLatestMiddleware(middleware);
-	const [_reference, _setReference] = import_react$17.useState(null);
-	const [_floating, _setFloating] = import_react$17.useState(null);
-	const setReference = import_react$17.useCallback((node) => {
+	const [_reference, _setReference] = import_react$18.useState(null);
+	const [_floating, _setFloating] = import_react$18.useState(null);
+	const setReference = import_react$18.useCallback((node) => {
 		if (node !== referenceRef.current) {
 			referenceRef.current = node;
 			_setReference(node);
 		}
 	}, []);
-	const setFloating = import_react$17.useCallback((node) => {
+	const setFloating = import_react$18.useCallback((node) => {
 		if (node !== floatingRef.current) {
 			floatingRef.current = node;
 			_setFloating(node);
@@ -58776,14 +58796,14 @@ function useFloating(options) {
 	}, []);
 	const referenceEl = externalReference || _reference;
 	const floatingEl = externalFloating || _floating;
-	const referenceRef = import_react$17.useRef(null);
-	const floatingRef = import_react$17.useRef(null);
-	const dataRef = import_react$17.useRef(data);
+	const referenceRef = import_react$18.useRef(null);
+	const floatingRef = import_react$18.useRef(null);
+	const dataRef = import_react$18.useRef(data);
 	const hasWhileElementsMounted = whileElementsMounted != null;
 	const whileElementsMountedRef = useLatestRef(whileElementsMounted);
 	const platformRef = useLatestRef(platform);
 	const openRef = useLatestRef(open);
-	const update = import_react$17.useCallback(() => {
+	const update = import_react$18.useCallback(() => {
 		if (!referenceRef.current || !floatingRef.current) return;
 		const config = {
 			placement,
@@ -58819,7 +58839,7 @@ function useFloating(options) {
 			}));
 		}
 	}, [open]);
-	const isMountedRef = import_react$17.useRef(false);
+	const isMountedRef = import_react$18.useRef(false);
 	index(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -58840,17 +58860,17 @@ function useFloating(options) {
 		whileElementsMountedRef,
 		hasWhileElementsMounted
 	]);
-	const refs = import_react$17.useMemo(() => ({
+	const refs = import_react$18.useMemo(() => ({
 		reference: referenceRef,
 		floating: floatingRef,
 		setReference,
 		setFloating
 	}), [setReference, setFloating]);
-	const elements = import_react$17.useMemo(() => ({
+	const elements = import_react$18.useMemo(() => ({
 		reference: referenceEl,
 		floating: floatingEl
 	}), [referenceEl, floatingEl]);
-	const floatingStyles = import_react$17.useMemo(() => {
+	const floatingStyles = import_react$18.useMemo(() => {
 		const initialStyles = {
 			position: strategy,
 			left: 0,
@@ -58876,7 +58896,7 @@ function useFloating(options) {
 		data.x,
 		data.y
 	]);
-	return import_react$17.useMemo(() => ({
+	return import_react$18.useMemo(() => ({
 		...data,
 		update,
 		refs,
@@ -58890,13 +58910,13 @@ function useFloating(options) {
 		floatingStyles
 	]);
 }
-var import_react$17, import_react$18, import_react_dom, index, arrow$1, offset, shift, limitShift, flip, size, hide, arrow;
+var import_react$18, import_react$19, import_react_dom, index, arrow$1, offset, shift, limitShift, flip, size, hide, arrow;
 var init_floating_ui_react_dom = __esmMin((() => {
 	init_floating_ui_dom();
-	import_react$17 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react$18 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$19 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_react_dom = /* @__PURE__ */ __toESM(require_react_dom(), 1);
-	index = typeof document !== "undefined" ? import_react$18.useLayoutEffect : function noop() {};
+	index = typeof document !== "undefined" ? import_react$19.useLayoutEffect : function noop() {};
 	arrow$1 = (options) => {
 		function isRef(value) {
 			return {}.hasOwnProperty.call(value, "current");
@@ -58979,7 +58999,7 @@ var init_floating_ui_react_dom = __esmMin((() => {
 //#endregion
 //#region node_modules/@radix-ui/react-use-size/dist/index.mjs
 function useSize(element) {
-	const [size, setSize] = import_react$16.useState(void 0);
+	const [size, setSize] = import_react$17.useState(void 0);
 	useLayoutEffect2(() => {
 		if (element) {
 			setSize({
@@ -59012,9 +59032,9 @@ function useSize(element) {
 	}, [element]);
 	return size;
 }
-var import_react$16, __defProp$4, __name$4;
+var import_react$17, __defProp$4, __name$4;
 var init_dist$5 = __esmMin((() => {
-	import_react$16 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$17 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$23();
 	__defProp$4 = Object.defineProperty;
 	__name$4 = (target, value) => __defProp$4(target, "name", {
@@ -59032,9 +59052,9 @@ function getSideAndAlignFromPlacement(placement) {
 	const [side, align = "center"] = placement.split("-");
 	return [side, align];
 }
-var import_react$15, import_jsx_runtime$18, __defProp$3, __name$3, POPPER_NAME, createPopperContext, createPopperScope, PopperProvider, usePopperContext, Popper, ANCHOR_NAME, PopperAnchor, CONTENT_NAME$2, PopperContentProvider, useContentContext, PopperContent, transformOrigin, Root2$2, Anchor, Content;
+var import_react$16, import_jsx_runtime$18, __defProp$3, __name$3, POPPER_NAME, createPopperContext, createPopperScope, PopperProvider, usePopperContext, Popper, ANCHOR_NAME, PopperAnchor, CONTENT_NAME$2, PopperContentProvider, useContentContext, PopperContent, transformOrigin, Root2$2, Anchor, Content;
 var init_dist$4 = __esmMin((() => {
-	import_react$15 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$16 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_floating_ui_react_dom();
 	init_dist$30();
 	init_dist$25();
@@ -59053,8 +59073,8 @@ var init_dist$4 = __esmMin((() => {
 	[PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
 	Popper = /* @__PURE__ */ __name$3((props) => {
 		const { __scopePopper, children } = props;
-		const [anchor, setAnchor] = import_react$15.useState(null);
-		const [placementState, setPlacementState] = import_react$15.useState(void 0);
+		const [anchor, setAnchor] = import_react$16.useState(null);
+		const [placementState, setPlacementState] = import_react$16.useState(void 0);
 		return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(PopperProvider, {
 			scope: __scopePopper,
 			anchor,
@@ -59065,17 +59085,17 @@ var init_dist$4 = __esmMin((() => {
 		});
 	}, "Popper");
 	ANCHOR_NAME = "PopperAnchor";
-	PopperAnchor = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$3(function PopperAnchor2(props, forwardedRef) {
+	PopperAnchor = /* @__PURE__ */ import_react$16.forwardRef(/* @__PURE__ */ __name$3(function PopperAnchor2(props, forwardedRef) {
 		const { __scopePopper, virtualRef, ...anchorProps } = props;
 		const context = usePopperContext(ANCHOR_NAME, __scopePopper);
-		const ref = import_react$15.useRef(null);
+		const ref = import_react$16.useRef(null);
 		const onAnchorChange = context.onAnchorChange;
-		const composedRefs = useComposedRefs(forwardedRef, import_react$15.useCallback((node) => {
+		const composedRefs = useComposedRefs(forwardedRef, import_react$16.useCallback((node) => {
 			ref.current = node;
 			if (node) onAnchorChange(node);
 		}, [onAnchorChange]));
-		const anchorRef = import_react$15.useRef(null);
-		import_react$15.useEffect(() => {
+		const anchorRef = import_react$16.useRef(null);
+		import_react$16.useEffect(() => {
 			if (!virtualRef) return;
 			const previousAnchor = anchorRef.current;
 			anchorRef.current = virtualRef.current;
@@ -59093,12 +59113,12 @@ var init_dist$4 = __esmMin((() => {
 	}, "PopperAnchor"));
 	CONTENT_NAME$2 = "PopperContent";
 	[PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$2);
-	PopperContent = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$3(function PopperContent2(props, forwardedRef) {
+	PopperContent = /* @__PURE__ */ import_react$16.forwardRef(/* @__PURE__ */ __name$3(function PopperContent2(props, forwardedRef) {
 		const { __scopePopper, side = "bottom", sideOffset = 0, align = "center", alignOffset = 0, arrowPadding = 0, avoidCollisions = true, collisionBoundary = [], collisionPadding: collisionPaddingProp = 0, sticky = "partial", hideWhenDetached = false, updatePositionStrategy = "optimized", onPlaced, ...contentProps } = props;
 		const context = usePopperContext(CONTENT_NAME$2, __scopePopper);
-		const [content, setContent] = import_react$15.useState(null);
+		const [content, setContent] = import_react$16.useState(null);
 		const composedRefs = useComposedRefs(forwardedRef, setContent);
-		const [arrow$4, setArrow] = import_react$15.useState(null);
+		const [arrow$4, setArrow] = import_react$16.useState(null);
 		const arrowSize = useSize(arrow$4);
 		const arrowWidth = arrowSize?.width ?? 0;
 		const arrowHeight = arrowSize?.height ?? 0;
@@ -59177,7 +59197,7 @@ var init_dist$4 = __esmMin((() => {
 		const arrowX = middlewareData.arrow?.x;
 		const arrowY = middlewareData.arrow?.y;
 		const cannotCenterArrow = middlewareData.arrow?.centerOffset !== 0;
-		const [contentZIndex, setContentZIndex] = import_react$15.useState();
+		const [contentZIndex, setContentZIndex] = import_react$16.useState();
 		useLayoutEffect2(() => {
 			if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
 		}, [content]);
@@ -59314,9 +59334,9 @@ function isPointerInGraceArea(event, area) {
 function whenMouse(handler) {
 	return (event) => event.pointerType === "mouse" ? handler(event) : void 0;
 }
-var import_react$14, import_jsx_runtime$17, __defProp$2, __name$2, SELECTION_KEYS, FIRST_KEYS, LAST_KEYS, FIRST_LAST_KEYS, SUB_OPEN_KEYS, SUB_CLOSE_KEYS, MENU_NAME, Collection, useCollection, createCollectionScope, createMenuContext, createMenuScope, usePopperScope, useRovingFocusGroupScope, MenuProvider, useMenuContext, MenuRootProvider, useMenuRootContext, Menu, MenuAnchor, PORTAL_NAME, PortalProvider, usePortalContext, MenuPortal, CONTENT_NAME$1, MenuContentProvider, useMenuContentContext, MenuContent, MenuRootContentModal, MenuRootContentNonModal, Slot, MenuContentImpl, MenuLabel, ITEM_NAME, ITEM_SELECT, MenuItem, MenuItemImpl, MenuCheckboxItem, RadioGroupProvider, useRadioGroupContext, RADIO_ITEM_NAME, MenuRadioItem, ITEM_INDICATOR_NAME, ItemIndicatorProvider, useItemIndicatorContext, MenuItemIndicator, MenuSeparator, SUB_NAME, MenuSubProvider, useMenuSubContext, SUB_TRIGGER_NAME, MenuSubTrigger, SUB_CONTENT_NAME, MenuSubContent, Root3, Anchor2, Portal, Content2$2, Label, Item2$1, CheckboxItem, RadioItem, ItemIndicator, Separator, SubTrigger, SubContent;
+var import_react$15, import_jsx_runtime$17, __defProp$2, __name$2, SELECTION_KEYS, FIRST_KEYS, LAST_KEYS, FIRST_LAST_KEYS, SUB_OPEN_KEYS, SUB_CLOSE_KEYS, MENU_NAME, Collection, useCollection, createCollectionScope, createMenuContext, createMenuScope, usePopperScope, useRovingFocusGroupScope, MenuProvider, useMenuContext, MenuRootProvider, useMenuRootContext, Menu, MenuAnchor, PORTAL_NAME, PortalProvider, usePortalContext, MenuPortal, CONTENT_NAME$1, MenuContentProvider, useMenuContentContext, MenuContent, MenuRootContentModal, MenuRootContentNonModal, Slot, MenuContentImpl, MenuLabel, ITEM_NAME, ITEM_SELECT, MenuItem, MenuItemImpl, MenuCheckboxItem, RadioGroupProvider, useRadioGroupContext, RADIO_ITEM_NAME, MenuRadioItem, ITEM_INDICATOR_NAME, ItemIndicatorProvider, useItemIndicatorContext, MenuItemIndicator, MenuSeparator, SUB_NAME, MenuSubProvider, useMenuSubContext, SUB_TRIGGER_NAME, MenuSubTrigger, SUB_CONTENT_NAME, MenuSubContent, Root3, Anchor2, Portal, Content2$2, Label, Item2$1, CheckboxItem, RadioItem, ItemIndicator, Separator, SubTrigger, SubContent;
 var init_dist$3 = __esmMin((() => {
-	import_react$14 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$15 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$10();
 	init_dist$30();
@@ -59374,11 +59394,11 @@ var init_dist$3 = __esmMin((() => {
 	Menu = /* @__PURE__ */ __name$2((props) => {
 		const { __scopeMenu, open = false, children, dir, onOpenChange, modal = true } = props;
 		const popperScope = usePopperScope(__scopeMenu);
-		const [content, setContent] = import_react$14.useState(null);
-		const isUsingKeyboardRef = import_react$14.useRef(false);
+		const [content, setContent] = import_react$15.useState(null);
+		const isUsingKeyboardRef = import_react$15.useRef(false);
 		const handleOpenChange = useCallbackRef$1(onOpenChange);
 		const direction = useDirection(dir);
-		import_react$14.useEffect(() => {
+		import_react$15.useEffect(() => {
 			const handleKeyDown = /* @__PURE__ */ __name$2(() => {
 				isUsingKeyboardRef.current = true;
 				document.addEventListener("pointerdown", handlePointer, {
@@ -59398,7 +59418,7 @@ var init_dist$3 = __esmMin((() => {
 				document.removeEventListener("pointermove", handlePointer, { capture: true });
 			};
 		}, []);
-		import_react$14.useEffect(() => {
+		import_react$15.useEffect(() => {
 			if (!open) return;
 			const handleBlur = /* @__PURE__ */ __name$2(() => handleOpenChange(false), "handleBlur");
 			window.addEventListener("blur", handleBlur);
@@ -59414,7 +59434,7 @@ var init_dist$3 = __esmMin((() => {
 				onContentChange: setContent,
 				children: /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(MenuRootProvider, {
 					scope: __scopeMenu,
-					onClose: import_react$14.useCallback(() => handleOpenChange(false), [handleOpenChange]),
+					onClose: import_react$15.useCallback(() => handleOpenChange(false), [handleOpenChange]),
 					isUsingKeyboardRef,
 					dir: direction,
 					modal,
@@ -59423,7 +59443,7 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "Menu");
-	MenuAnchor = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuAnchor2(props, forwardedRef) {
+	MenuAnchor = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuAnchor2(props, forwardedRef) {
 		const { __scopeMenu, ...anchorProps } = props;
 		const popperScope = usePopperScope(__scopeMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Anchor, {
@@ -59452,7 +59472,7 @@ var init_dist$3 = __esmMin((() => {
 	}, "MenuPortal");
 	CONTENT_NAME$1 = "MenuContent";
 	[MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME$1);
-	MenuContent = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuContent2(props, forwardedRef) {
+	MenuContent = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuContent2(props, forwardedRef) {
 		const portalContext = usePortalContext(CONTENT_NAME$1, props.__scopeMenu);
 		const { forceMount = portalContext.forceMount, ...contentProps } = props;
 		const context = useMenuContext(CONTENT_NAME$1, props.__scopeMenu);
@@ -59474,11 +59494,11 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "MenuContent"));
-	MenuRootContentModal = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuRootContentModal2(props, forwardedRef) {
+	MenuRootContentModal = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuRootContentModal2(props, forwardedRef) {
 		const context = useMenuContext(CONTENT_NAME$1, props.__scopeMenu);
-		const ref = import_react$14.useRef(null);
+		const ref = import_react$15.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
-		import_react$14.useEffect(() => {
+		import_react$15.useEffect(() => {
 			const content = ref.current;
 			if (content) return hideOthers(content);
 		}, []);
@@ -59492,7 +59512,7 @@ var init_dist$3 = __esmMin((() => {
 			onDismiss: () => context.onOpenChange(false)
 		});
 	}, "MenuRootContentModal"));
-	MenuRootContentNonModal = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuRootContentNonModal2(props, forwardedRef) {
+	MenuRootContentNonModal = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuRootContentNonModal2(props, forwardedRef) {
 		const context = useMenuContext(CONTENT_NAME$1, props.__scopeMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(MenuContentImpl, {
 			...props,
@@ -59504,23 +59524,23 @@ var init_dist$3 = __esmMin((() => {
 		});
 	}, "MenuRootContentNonModal"));
 	Slot = /* @__PURE__ */ createSlot("MenuContent.ScrollLock");
-	MenuContentImpl = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuContentImpl2(props, forwardedRef) {
+	MenuContentImpl = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuContentImpl2(props, forwardedRef) {
 		const { __scopeMenu, loop = false, trapFocus, onOpenAutoFocus, onCloseAutoFocus, disableOutsidePointerEvents, onEntryFocus, onEscapeKeyDown, onPointerDownOutside, onFocusOutside, onInteractOutside, onDismiss, disableOutsideScroll, ...contentProps } = props;
 		const context = useMenuContext(CONTENT_NAME$1, __scopeMenu);
 		const rootContext = useMenuRootContext(CONTENT_NAME$1, __scopeMenu);
 		const popperScope = usePopperScope(__scopeMenu);
 		const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeMenu);
 		const getItems = useCollection(__scopeMenu);
-		const [currentItemId, setCurrentItemId] = import_react$14.useState(null);
-		const contentRef = import_react$14.useRef(null);
+		const [currentItemId, setCurrentItemId] = import_react$15.useState(null);
+		const contentRef = import_react$15.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, contentRef, context.onContentChange);
-		const timerRef = import_react$14.useRef(0);
-		const searchRef = import_react$14.useRef("");
-		const pointerGraceTimerRef = import_react$14.useRef(0);
-		const pointerGraceIntentRef = import_react$14.useRef(null);
-		const pointerDirRef = import_react$14.useRef("right");
-		const lastPointerXRef = import_react$14.useRef(0);
-		const ScrollLockWrapper = disableOutsideScroll ? ReactRemoveScroll : import_react$14.Fragment;
+		const timerRef = import_react$15.useRef(0);
+		const searchRef = import_react$15.useRef("");
+		const pointerGraceTimerRef = import_react$15.useRef(0);
+		const pointerGraceIntentRef = import_react$15.useRef(null);
+		const pointerDirRef = import_react$15.useRef("right");
+		const lastPointerXRef = import_react$15.useRef(0);
+		const ScrollLockWrapper = disableOutsideScroll ? ReactRemoveScroll : import_react$15.Fragment;
 		const scrollLockWrapperProps = disableOutsideScroll ? {
 			as: Slot,
 			allowPinchZoom: true
@@ -59539,29 +59559,29 @@ var init_dist$3 = __esmMin((() => {
 			}), "updateSearch"))(search);
 			if (newItem) setTimeout(() => newItem.focus());
 		}, "handleTypeaheadSearch");
-		import_react$14.useEffect(() => {
+		import_react$15.useEffect(() => {
 			return () => window.clearTimeout(timerRef.current);
 		}, []);
 		useFocusGuards();
-		const isPointerMovingToSubmenu = import_react$14.useCallback((event) => {
+		const isPointerMovingToSubmenu = import_react$15.useCallback((event) => {
 			return pointerDirRef.current === pointerGraceIntentRef.current?.side && isPointerInGraceArea(event, pointerGraceIntentRef.current?.area);
 		}, []);
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(MenuContentProvider, {
 			scope: __scopeMenu,
 			searchRef,
-			onItemEnter: import_react$14.useCallback((event) => {
+			onItemEnter: import_react$15.useCallback((event) => {
 				if (isPointerMovingToSubmenu(event)) event.preventDefault();
 			}, [isPointerMovingToSubmenu]),
-			onItemLeave: import_react$14.useCallback((event) => {
+			onItemLeave: import_react$15.useCallback((event) => {
 				if (isPointerMovingToSubmenu(event)) return;
 				contentRef.current?.focus();
 				setCurrentItemId(null);
 			}, [isPointerMovingToSubmenu]),
-			onTriggerLeave: import_react$14.useCallback((event) => {
+			onTriggerLeave: import_react$15.useCallback((event) => {
 				if (isPointerMovingToSubmenu(event)) event.preventDefault();
 			}, [isPointerMovingToSubmenu]),
 			pointerGraceTimerRef,
-			onPointerGraceIntentChange: import_react$14.useCallback((intent) => {
+			onPointerGraceIntentChange: import_react$15.useCallback((intent) => {
 				pointerGraceIntentRef.current = intent;
 			}, []),
 			children: /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(ScrollLockWrapper, {
@@ -59645,7 +59665,7 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "MenuContentImpl"));
-	MenuLabel = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuLabel2(props, forwardedRef) {
+	MenuLabel = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuLabel2(props, forwardedRef) {
 		const { __scopeMenu, ...labelProps } = props;
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Primitive.div, {
 			...labelProps,
@@ -59654,13 +59674,13 @@ var init_dist$3 = __esmMin((() => {
 	}, "MenuLabel"));
 	ITEM_NAME = "MenuItem";
 	ITEM_SELECT = "menu.itemSelect";
-	MenuItem = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuItem2(props, forwardedRef) {
+	MenuItem = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuItem2(props, forwardedRef) {
 		const { disabled = false, onSelect, ...itemProps } = props;
-		const ref = import_react$14.useRef(null);
+		const ref = import_react$15.useRef(null);
 		const rootContext = useMenuRootContext(ITEM_NAME, props.__scopeMenu);
 		const contentContext = useMenuContentContext(ITEM_NAME, props.__scopeMenu);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
-		const isPointerDownRef = import_react$14.useRef(false);
+		const isPointerDownRef = import_react$15.useRef(false);
 		const handleSelect = /* @__PURE__ */ __name$2(() => {
 			const menuItem = ref.current;
 			if (!disabled && menuItem) {
@@ -59696,15 +59716,15 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "MenuItem"));
-	MenuItemImpl = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuItemImpl2(props, forwardedRef) {
+	MenuItemImpl = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuItemImpl2(props, forwardedRef) {
 		const { __scopeMenu, disabled = false, textValue, ...itemProps } = props;
 		const contentContext = useMenuContentContext(ITEM_NAME, __scopeMenu);
 		const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeMenu);
-		const ref = import_react$14.useRef(null);
+		const ref = import_react$15.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
-		const [isFocused, setIsFocused] = import_react$14.useState(false);
-		const [textContent, setTextContent] = import_react$14.useState("");
-		import_react$14.useEffect(() => {
+		const [isFocused, setIsFocused] = import_react$15.useState(false);
+		const [textContent, setTextContent] = import_react$15.useState("");
+		import_react$15.useEffect(() => {
 			const menuItem = ref.current;
 			if (menuItem) setTextContent((menuItem.textContent ?? "").trim());
 		}, [itemProps.children]);
@@ -59737,7 +59757,7 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "MenuItemImpl"));
-	MenuCheckboxItem = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuCheckboxItem2(props, forwardedRef) {
+	MenuCheckboxItem = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuCheckboxItem2(props, forwardedRef) {
 		const { checked = false, onCheckedChange, ...checkboxItemProps } = props;
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(ItemIndicatorProvider, {
 			scope: props.__scopeMenu,
@@ -59757,7 +59777,7 @@ var init_dist$3 = __esmMin((() => {
 		onValueChange: /* @__PURE__ */ __name$2(() => {}, "onValueChange")
 	});
 	RADIO_ITEM_NAME = "MenuRadioItem";
-	MenuRadioItem = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuRadioItem2(props, forwardedRef) {
+	MenuRadioItem = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuRadioItem2(props, forwardedRef) {
 		const { value, ...radioItemProps } = props;
 		const context = useRadioGroupContext(RADIO_ITEM_NAME, props.__scopeMenu);
 		const checked = value === context.value;
@@ -59776,7 +59796,7 @@ var init_dist$3 = __esmMin((() => {
 	}, "MenuRadioItem"));
 	ITEM_INDICATOR_NAME = "MenuItemIndicator";
 	[ItemIndicatorProvider, useItemIndicatorContext] = createMenuContext(ITEM_INDICATOR_NAME, { checked: false });
-	MenuItemIndicator = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuItemIndicator2(props, forwardedRef) {
+	MenuItemIndicator = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuItemIndicator2(props, forwardedRef) {
 		const { __scopeMenu, forceMount, ...itemIndicatorProps } = props;
 		const indicatorContext = useItemIndicatorContext(ITEM_INDICATOR_NAME, __scopeMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Presence, {
@@ -59788,7 +59808,7 @@ var init_dist$3 = __esmMin((() => {
 			})
 		});
 	}, "MenuItemIndicator"));
-	MenuSeparator = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuSeparator2(props, forwardedRef) {
+	MenuSeparator = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuSeparator2(props, forwardedRef) {
 		const { __scopeMenu, ...separatorProps } = props;
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Primitive.div, {
 			role: "separator",
@@ -59800,20 +59820,20 @@ var init_dist$3 = __esmMin((() => {
 	SUB_NAME = "MenuSub";
 	[MenuSubProvider, useMenuSubContext] = createMenuContext(SUB_NAME);
 	SUB_TRIGGER_NAME = "MenuSubTrigger";
-	MenuSubTrigger = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuSubTrigger2(props, forwardedRef) {
+	MenuSubTrigger = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuSubTrigger2(props, forwardedRef) {
 		const context = useMenuContext(SUB_TRIGGER_NAME, props.__scopeMenu);
 		const rootContext = useMenuRootContext(SUB_TRIGGER_NAME, props.__scopeMenu);
 		const subContext = useMenuSubContext(SUB_TRIGGER_NAME, props.__scopeMenu);
 		const contentContext = useMenuContentContext(SUB_TRIGGER_NAME, props.__scopeMenu);
-		const openTimerRef = import_react$14.useRef(null);
+		const openTimerRef = import_react$15.useRef(null);
 		const { pointerGraceTimerRef, onPointerGraceIntentChange } = contentContext;
 		const scope = { __scopeMenu: props.__scopeMenu };
-		const clearOpenTimer = import_react$14.useCallback(() => {
+		const clearOpenTimer = import_react$15.useCallback(() => {
 			if (openTimerRef.current) window.clearTimeout(openTimerRef.current);
 			openTimerRef.current = null;
 		}, []);
-		import_react$14.useEffect(() => clearOpenTimer, [clearOpenTimer]);
-		import_react$14.useEffect(() => {
+		import_react$15.useEffect(() => clearOpenTimer, [clearOpenTimer]);
+		import_react$15.useEffect(() => {
 			const pointerGraceTimer = pointerGraceTimerRef.current;
 			return () => {
 				window.clearTimeout(pointerGraceTimer);
@@ -59904,13 +59924,13 @@ var init_dist$3 = __esmMin((() => {
 		});
 	}, "MenuSubTrigger"));
 	SUB_CONTENT_NAME = "MenuSubContent";
-	MenuSubContent = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$2(function MenuSubContent2(props, forwardedRef) {
+	MenuSubContent = /* @__PURE__ */ import_react$15.forwardRef(/* @__PURE__ */ __name$2(function MenuSubContent2(props, forwardedRef) {
 		const portalContext = usePortalContext(CONTENT_NAME$1, props.__scopeMenu);
 		const { forceMount = portalContext.forceMount, align = "start", ...subContentProps } = props;
 		const context = useMenuContext(CONTENT_NAME$1, props.__scopeMenu);
 		const rootContext = useMenuRootContext(CONTENT_NAME$1, props.__scopeMenu);
 		const subContext = useMenuSubContext(SUB_CONTENT_NAME, props.__scopeMenu);
-		const ref = import_react$14.useRef(null);
+		const ref = import_react$15.useRef(null);
 		const composedRefs = useComposedRefs(forwardedRef, ref);
 		return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Collection.Provider, {
 			scope: props.__scopeMenu,
@@ -59978,9 +59998,9 @@ var init_dist$3 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/@radix-ui/react-dropdown-menu/dist/index.mjs
-var import_react$13, import_jsx_runtime$16, __defProp$1, __name$1, DROPDOWN_MENU_NAME, createDropdownMenuContext, createDropdownMenuScope, useMenuScope, DropdownMenuProvider, useDropdownMenuContext, DropdownMenu$1, TRIGGER_NAME, DropdownMenuTrigger$1, DropdownMenuPortal, CONTENT_NAME, DropdownMenuContent$1, DropdownMenuLabel$1, DropdownMenuItem$1, DropdownMenuCheckboxItem$1, DropdownMenuRadioItem$1, DropdownMenuItemIndicator, DropdownMenuSeparator$1, DropdownMenuSubTrigger$1, DropdownMenuSubContent$1, Root2$1, Trigger, Portal2$1, Content2$1, Label2, Item2, CheckboxItem2, RadioItem2, ItemIndicator2, Separator2, SubTrigger2, SubContent2;
+var import_react$14, import_jsx_runtime$16, __defProp$1, __name$1, DROPDOWN_MENU_NAME, createDropdownMenuContext, createDropdownMenuScope, useMenuScope, DropdownMenuProvider, useDropdownMenuContext, DropdownMenu$1, TRIGGER_NAME, DropdownMenuTrigger$1, DropdownMenuPortal, CONTENT_NAME, DropdownMenuContent$1, DropdownMenuLabel$1, DropdownMenuItem$1, DropdownMenuCheckboxItem$1, DropdownMenuRadioItem$1, DropdownMenuItemIndicator, DropdownMenuSeparator$1, DropdownMenuSubTrigger$1, DropdownMenuSubContent$1, Root2$1, Trigger, Portal2$1, Content2$1, Label2, Item2, CheckboxItem2, RadioItem2, ItemIndicator2, Separator2, SubTrigger2, SubContent2;
 var init_dist$2 = __esmMin((() => {
-	import_react$13 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$14 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_dist$20();
 	init_dist$30();
 	init_dist$25();
@@ -60001,7 +60021,7 @@ var init_dist$2 = __esmMin((() => {
 	DropdownMenu$1 = /* @__PURE__ */ __name$1((props) => {
 		const { __scopeDropdownMenu, children, dir, open: openProp, defaultOpen, onOpenChange, modal = true } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
-		const triggerRef = import_react$13.useRef(null);
+		const triggerRef = import_react$14.useRef(null);
 		const [open, setOpen] = useControllableState({
 			prop: openProp,
 			defaultProp: defaultOpen ?? false,
@@ -60015,7 +60035,7 @@ var init_dist$2 = __esmMin((() => {
 			contentId: useId(),
 			open,
 			onOpenChange: setOpen,
-			onOpenToggle: import_react$13.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+			onOpenToggle: import_react$14.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
 			modal,
 			children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Root3, {
 				...menuScope,
@@ -60028,7 +60048,7 @@ var init_dist$2 = __esmMin((() => {
 		});
 	}, "DropdownMenu");
 	TRIGGER_NAME = "DropdownMenuTrigger";
-	DropdownMenuTrigger$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuTrigger2(props, forwardedRef) {
+	DropdownMenuTrigger$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuTrigger2(props, forwardedRef) {
 		const { __scopeDropdownMenu, disabled = false, ...triggerProps } = props;
 		const context = useDropdownMenuContext(TRIGGER_NAME, __scopeDropdownMenu);
 		const menuScope = useMenuScope(__scopeDropdownMenu);
@@ -60075,11 +60095,11 @@ var init_dist$2 = __esmMin((() => {
 		});
 	}, "DropdownMenuPortal");
 	CONTENT_NAME = "DropdownMenuContent";
-	DropdownMenuContent$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuContent2(props, forwardedRef) {
+	DropdownMenuContent$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuContent2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...contentProps } = props;
 		const context = useDropdownMenuContext(CONTENT_NAME, __scopeDropdownMenu);
 		const menuScope = useMenuScope(__scopeDropdownMenu);
-		const hasInteractedOutsideRef = import_react$13.useRef(false);
+		const hasInteractedOutsideRef = import_react$14.useRef(false);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Content2$2, {
 			id: context.contentId,
 			"aria-labelledby": context.triggerId,
@@ -60107,7 +60127,7 @@ var init_dist$2 = __esmMin((() => {
 			}
 		});
 	}, "DropdownMenuContent"));
-	DropdownMenuLabel$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuLabel2(props, forwardedRef) {
+	DropdownMenuLabel$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuLabel2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...labelProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Label, {
@@ -60116,7 +60136,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuLabel"));
-	DropdownMenuItem$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuItem2(props, forwardedRef) {
+	DropdownMenuItem$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuItem2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...itemProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Item2$1, {
@@ -60125,7 +60145,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuItem"));
-	DropdownMenuCheckboxItem$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuCheckboxItem2(props, forwardedRef) {
+	DropdownMenuCheckboxItem$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuCheckboxItem2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...checkboxItemProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(CheckboxItem, {
@@ -60134,7 +60154,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuCheckboxItem"));
-	DropdownMenuRadioItem$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuRadioItem2(props, forwardedRef) {
+	DropdownMenuRadioItem$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuRadioItem2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...radioItemProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(RadioItem, {
@@ -60143,7 +60163,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuRadioItem"));
-	DropdownMenuItemIndicator = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuItemIndicator2(props, forwardedRef) {
+	DropdownMenuItemIndicator = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuItemIndicator2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...itemIndicatorProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ItemIndicator, {
@@ -60152,7 +60172,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuItemIndicator"));
-	DropdownMenuSeparator$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSeparator2(props, forwardedRef) {
+	DropdownMenuSeparator$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSeparator2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...separatorProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Separator, {
@@ -60161,7 +60181,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuSeparator"));
-	DropdownMenuSubTrigger$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSubTrigger2(props, forwardedRef) {
+	DropdownMenuSubTrigger$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSubTrigger2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...subTriggerProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(SubTrigger, {
@@ -60170,7 +60190,7 @@ var init_dist$2 = __esmMin((() => {
 			ref: forwardedRef
 		});
 	}, "DropdownMenuSubTrigger"));
-	DropdownMenuSubContent$1 = /* @__PURE__ */ import_react$13.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSubContent2(props, forwardedRef) {
+	DropdownMenuSubContent$1 = /* @__PURE__ */ import_react$14.forwardRef(/* @__PURE__ */ __name$1(function DropdownMenuSubContent2(props, forwardedRef) {
 		const { __scopeDropdownMenu, ...subContentProps } = props;
 		const menuScope = useMenuScope(__scopeDropdownMenu);
 		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(SubContent, {
@@ -60239,11 +60259,30 @@ var init_ProductCard_RP9ReRpc = __esmMin((() => {
 	import_jsx_runtime$15 = require_jsx_runtime();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CwOFxqD2.js
-var routes_CwOFxqD2_exports = /* @__PURE__ */ __exportAll({ component: () => Home });
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-eKtpw_VB.js
+var routes_eKtpw_VB_exports = /* @__PURE__ */ __exportAll({ component: () => Home });
 function Home() {
 	const { user } = useAuth();
+	const qc = useQueryClient();
 	user?.user_metadata?.["full_name"] || user?.email?.split("@")[0];
+	(0, import_react$13.useEffect)(() => {
+		const channel = supabase.channel("home-realtime-products").on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "products"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["products"] });
+		}).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "store_settings"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["store-settings"] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [qc]);
 	const { data: featured } = useQuery({
 		queryKey: ["products", "featured"],
 		queryFn: async () => {
@@ -60258,14 +60297,14 @@ function Home() {
 			children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
 				className: "grid items-stretch md:grid-cols-2",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
-					className: "flex flex-col justify-center px-4 py-20 sm:px-8 md:py-32 lg:px-16",
+					className: "flex flex-col justify-center px-4 py-16 sm:px-8 sm:py-20 md:py-32 lg:px-16",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("p", {
-							className: "text-xs uppercase tracking-[0.4em] text-muted-foreground",
+							className: "text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground",
 							children: "Drop 01 — Void Series"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("h1", {
-							className: "mt-6 text-5xl leading-[0.95] sm:text-7xl lg:text-8xl",
+							className: "mt-6 text-4xl leading-[0.95] sm:text-7xl lg:text-8xl break-words font-serif",
 							children: [
 								"Built for",
 								/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("br", {}),
@@ -60279,7 +60318,7 @@ function Home() {
 							children: "Heavyweight cotton, oversized cuts and hand-drawn graphics. Made in short runs and never restocked."
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
-							className: "mt-10 flex flex-wrap gap-3",
+							className: "mt-8 sm:mt-10 flex flex-wrap gap-3",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Link, {
 								to: "/shop",
 								children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Button, {
@@ -60299,7 +60338,7 @@ function Home() {
 						})
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("div", {
-					className: "relative min-h-[60vh] bg-surface md:min-h-[80vh]",
+					className: "relative min-h-[45vh] sm:min-h-[60vh] bg-surface md:min-h-[80vh]",
 					children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("img", {
 						src: HERO_IMAGE_URL,
 						alt: "Black oversized hoodie with spiderweb print from the Nathan's Clothing Void Series",
@@ -60313,27 +60352,30 @@ function Home() {
 		/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("section", {
 			className: "border-y border-border bg-surface",
 			children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("div", {
-				className: "mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 text-center sm:px-6 md:grid-cols-4",
+				className: "mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 text-center sm:px-6 sm:py-10 md:grid-cols-4",
 				children: [
 					["100% Cotton", "Combed and ring-spun"],
 					["350–400 GSM", "True heavyweight"],
 					["Oversized fit", "Boxy, dropped shoulder"],
 					["Limited runs", "No restocks"]
-				].map(([title, sub]) => /* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("p", {
-					className: "text-display text-sm tracking-[0.2em]",
-					children: title
-				}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("p", {
-					className: "mt-2 text-xs text-muted-foreground",
-					children: sub
-				})] }, title))
+				].map(([title, sub]) => /* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
+					className: "p-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("p", {
+						className: "text-display text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em]",
+						children: title
+					}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("p", {
+						className: "mt-1 sm:mt-2 text-[11px] sm:text-xs text-muted-foreground",
+						children: sub
+					})]
+				}, title))
 			})
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("section", {
-			className: "mx-auto max-w-7xl px-4 py-20 sm:px-6",
+			className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
 				className: "flex items-end justify-between",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("h2", {
-					className: "text-3xl sm:text-4xl",
+					className: "text-2xl sm:text-4xl",
 					children: "Featured pieces"
 				}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Link, {
 					to: "/shop",
@@ -60341,18 +60383,19 @@ function Home() {
 					children: "View all"
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)("div", {
-				className: "mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4",
+				className: "mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4",
 				children: (featured ?? []).map((p) => /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(ProductCard, { product: p }, p.slug))
 			})]
 		})
 	] });
 }
-var import_jsx_runtime$14, HERO_IMAGE_URL;
-var init_routes_CwOFxqD2 = __esmMin((() => {
+var import_react$13, import_jsx_runtime$14, HERO_IMAGE_URL;
+var init_routes_eKtpw_VB = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_button_cHXlBU3y();
 	init_ProductCard_RP9ReRpc();
+	import_react$13 = /* @__PURE__ */ __toESM(require_react());
 	init_esm();
 	import_jsx_runtime$14 = require_jsx_runtime();
 	init_modern();
@@ -60442,8 +60485,8 @@ var init_badge_D1Dupn2y = __esmMin((() => {
 	});
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/account-DffZwsbZ.js
-var account_DffZwsbZ_exports = /* @__PURE__ */ __exportAll({ component: () => AccountPage });
+//#region node_modules/.nitro/vite/services/ssr/assets/account-B-RzdbcR.js
+var account_B_RzdbcR_exports = /* @__PURE__ */ __exportAll({ component: () => AccountPage });
 function AccountPage() {
 	const { user, isAdmin, loading, signOut } = useAuth();
 	const navigate = useNavigate();
@@ -60547,33 +60590,33 @@ function AccountPage() {
 				})
 			]
 		}) : /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", {
-			className: "border-b border-border pb-8",
+			className: "border-b border-border pb-6 sm:pb-8",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("span", {
-				className: "inline-block rounded-full bg-secondary px-3 py-1 text-[11px] font-medium tracking-wide text-secondary-foreground mb-4",
+				className: "inline-block rounded-full bg-secondary px-3 py-1 text-[11px] font-medium tracking-wide text-secondary-foreground mb-3 sm:mb-4",
 				children: "Customer Portal"
 			}), /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("div", {
 				className: "flex flex-wrap items-baseline justify-between gap-4",
 				children: /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("h1", {
-					className: "text-4xl sm:text-5xl font-serif font-bold tracking-tight text-foreground",
+					className: "text-3xl sm:text-5xl font-serif font-bold tracking-tight text-foreground break-words",
 					children: [
 						"Welcome, ",
 						displayName,
 						"!"
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("p", {
-					className: "mt-2 text-sm text-muted-foreground max-w-2xl",
+					className: "mt-2 text-xs sm:text-sm text-muted-foreground max-w-2xl",
 					children: "Track your order statuses, verify bank transfer payments, and contact support anytime."
 				})] })
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)(Tabs, {
 			defaultValue: "orders",
-			className: "mt-8",
+			className: "mt-6 sm:mt-8",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)(TabsList, {
-					className: "h-11 bg-transparent p-0 border-b border-border w-full justify-start rounded-none gap-8",
+					className: "h-auto bg-transparent p-0 border-b border-border w-full justify-start rounded-none gap-4 sm:gap-8 flex-wrap",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)(TabsTrigger, {
 						value: "orders",
-						className: "relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2",
+						className: "relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-xs sm:text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsx)(Package, { className: "size-4" }), /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("span", { children: [
 							"Orders (",
 							ordersList.length,
@@ -60581,24 +60624,24 @@ function AccountPage() {
 						] })]
 					}), /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)(TabsTrigger, {
 						value: "payments",
-						className: "relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2",
+						className: "relative rounded-none border-b-2 border-transparent px-2 pb-3 pt-2 text-xs sm:text-sm font-medium tracking-wide text-muted-foreground data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none flex items-center gap-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsx)(CreditCard, { className: "size-4" }), /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("span", { children: [
 							"Payments (",
 							confirmedPayments.length,
-							" Confirmed)"
+							")"
 						] })]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)(TabsContent, {
 					value: "orders",
-					className: "mt-8 space-y-6",
+					className: "mt-6 sm:mt-8 space-y-6",
 					children: [
 						loadingMyOrders && /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("div", {
 							className: "p-12 text-center text-sm text-muted-foreground",
 							children: "Loading your orders…"
 						}),
 						!loadingMyOrders && ordersList.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", {
-							className: "border border-border/80 bg-surface/40 p-12 sm:p-16 text-center",
+							className: "border border-border/80 bg-surface/40 p-8 sm:p-16 text-center",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("div", {
 									className: "mx-auto mb-4 flex size-14 items-center justify-center text-muted-foreground/50",
@@ -60625,14 +60668,14 @@ function AccountPage() {
 							]
 						}),
 						ordersList.map((ord) => /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("article", {
-							className: "border border-border bg-surface p-6 sm:p-8 space-y-5",
+							className: "border border-border bg-surface p-5 sm:p-8 space-y-5",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", {
-									className: "flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4",
+									className: "flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("div", {
-										className: "flex items-center gap-2",
+										className: "flex flex-wrap items-center gap-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("p", {
-											className: "font-mono text-sm font-bold text-foreground",
+											className: "font-mono text-sm font-bold text-foreground break-all",
 											children: ord.reference || `ORD-${ord.id.slice(0, 8)}`
 										}), renderPaymentBadge(ord.payment_status || ord.status)]
 									}), /* @__PURE__ */ (0, import_jsx_runtime$10.jsxs)("p", {
@@ -60641,7 +60684,7 @@ function AccountPage() {
 									})] }), /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("div", {
 										className: "text-right",
 										children: /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)("span", {
-											className: "font-bold text-foreground text-lg",
+											className: "font-bold text-foreground text-base sm:text-lg",
 											children: formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))
 										})
 									})]
@@ -60795,7 +60838,7 @@ function AccountPage() {
 	});
 }
 var import_react$11, import_jsx_runtime$10;
-var init_account_DffZwsbZ = __esmMin((() => {
+var init_account_B_RzdbcR = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_button_cHXlBU3y();
@@ -60809,17 +60852,17 @@ var init_account_DffZwsbZ = __esmMin((() => {
 	init_lucide_react();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/cart-C_Ph3P60.js
-var cart_C_Ph3P60_exports = /* @__PURE__ */ __exportAll({ component: () => CartPage });
+//#region node_modules/.nitro/vite/services/ssr/assets/cart-CW43hSFC.js
+var cart_CW43hSFC_exports = /* @__PURE__ */ __exportAll({ component: () => CartPage });
 function CartPage() {
 	const { items, subtotalCents, setQuantity, remove } = useCart();
 	return /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-		className: "mx-auto max-w-5xl px-4 py-16 sm:px-6",
+		className: "mx-auto max-w-5xl px-4 py-12 sm:py-16 sm:px-6",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("h1", {
-			className: "text-4xl sm:text-5xl",
+			className: "text-3xl sm:text-5xl font-serif",
 			children: "Your bag"
 		}), items.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-			className: "mt-12",
+			className: "mt-8 sm:mt-12",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
 				className: "text-sm text-muted-foreground",
 				children: "Your bag is empty."
@@ -60832,50 +60875,69 @@ function CartPage() {
 				})
 			})]
 		}) : /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-			className: "mt-12 grid gap-12 lg:grid-cols-[1fr_320px]",
+			className: "mt-8 sm:mt-12 grid gap-8 lg:grid-cols-[1fr_320px] items-start",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("ul", {
 				className: "divide-y divide-border border-y border-border",
 				children: items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("li", {
-					className: "flex gap-4 py-6",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("img", {
-						src: item.imageUrl,
-						alt: item.name,
-						width: 1024,
-						height: 1024,
-						loading: "lazy",
-						className: "size-24 shrink-0 bg-surface object-cover sm:size-32"
+					className: "flex flex-col sm:flex-row gap-4 py-5 sm:py-6",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
+						className: "flex gap-4 items-start sm:items-center",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("img", {
+							src: item.imageUrl,
+							alt: item.name,
+							width: 1024,
+							height: 1024,
+							loading: "lazy",
+							className: "size-20 sm:size-28 shrink-0 bg-surface object-cover border border-border"
+						}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
+							className: "flex-1 sm:hidden",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
+									className: "text-sm font-medium tracking-wide text-foreground",
+									children: item.name
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("p", {
+									className: "mt-0.5 text-xs uppercase tracking-[0.2em] text-muted-foreground",
+									children: ["Size ", item.size]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
+									className: "mt-2 text-sm font-semibold text-foreground",
+									children: formatPrice(item.priceCents * item.quantity)
+								})
+							]
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
 						className: "flex flex-1 flex-col justify-between",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-							className: "flex justify-between gap-3",
+							className: "hidden sm:flex justify-between gap-3",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
-								className: "text-sm tracking-[0.1em]",
+								className: "text-sm tracking-wide text-foreground font-medium",
 								children: item.name
 							}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("p", {
 								className: "mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground",
 								children: ["Size ", item.size]
 							})] }), /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
-								className: "text-sm",
+								className: "text-sm font-semibold",
 								children: formatPrice(item.priceCents * item.quantity)
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-							className: "mt-4 flex items-center justify-between",
+							className: "mt-3 sm:mt-4 flex items-center justify-between",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
-								className: "flex items-center border border-border",
+								className: "flex items-center border border-border bg-surface",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("button", {
 										"aria-label": "Decrease quantity",
-										className: "px-3 py-2 text-muted-foreground hover:text-foreground",
+										className: "px-2.5 sm:px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors",
 										onClick: () => setQuantity(item.productId, item.size, item.quantity - 1),
 										children: /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(Minus, { className: "size-3" })
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("span", {
-										className: "min-w-8 text-center text-sm",
+										className: "min-w-7 sm:min-w-8 text-center text-xs sm:text-sm font-mono font-medium",
 										children: item.quantity
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("button", {
 										"aria-label": "Increase quantity",
-										className: "px-3 py-2 text-muted-foreground hover:text-foreground",
+										className: "px-2.5 sm:px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors",
 										onClick: () => setQuantity(item.productId, item.size, item.quantity + 1),
 										children: /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(Plus, { className: "size-3" })
 									})
@@ -60883,21 +60945,21 @@ function CartPage() {
 							}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("button", {
 								"aria-label": "Remove item",
 								onClick: () => remove(item.productId, item.size),
-								className: "text-muted-foreground hover:text-destructive",
+								className: "p-1 text-muted-foreground hover:text-destructive transition-colors",
 								children: /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(Trash2, { className: "size-4" })
 							})]
 						})]
 					})]
 				}, `${item.productId}-${item.size}`))
 			}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("aside", {
-				className: "h-fit border border-border bg-surface p-6",
+				className: "h-fit border border-border bg-surface p-5 sm:p-6 lg:sticky lg:top-24",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("p", {
-						className: "text-xs uppercase tracking-[0.25em] text-muted-foreground",
+						className: "text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold",
 						children: "Summary"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("dl", {
-						className: "mt-6 space-y-3 text-sm",
+						className: "mt-5 space-y-3 text-sm",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
 							className: "flex justify-between",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("dt", {
@@ -60909,7 +60971,10 @@ function CartPage() {
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsxs)("div", {
 							className: "flex justify-between border-t border-border pt-3 text-base",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("dt", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("dd", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("dt", {
+								className: "font-semibold text-foreground",
+								children: "Total"
+							}), /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)("dd", {
 								className: "font-bold text-foreground",
 								children: formatPrice(subtotalCents)
 							})]
@@ -60917,10 +60982,10 @@ function CartPage() {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(Link, {
 						to: "/checkout",
-						className: "mt-8 block",
+						className: "mt-6 block",
 						children: /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(Button, {
 							size: "lg",
-							className: "w-full text-xs uppercase tracking-[0.25em]",
+							className: "w-full text-xs uppercase tracking-[0.25em] py-5",
 							children: "Proceed to Checkout"
 						})
 					})
@@ -60930,7 +60995,7 @@ function CartPage() {
 	});
 }
 var import_jsx_runtime$9;
-var init_cart_C_Ph3P60 = __esmMin((() => {
+var init_cart_CW43hSFC = __esmMin((() => {
 	init_useCart_B6US_OkA();
 	init_button_cHXlBU3y();
 	init_format_JcwKzGtU();
@@ -60955,8 +61020,8 @@ var init_textarea_kko37XEX = __esmMin((() => {
 	Textarea.displayName = "Textarea";
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/checkout-C3gU7Lzf.js
-var checkout_C3gU7Lzf_exports = /* @__PURE__ */ __exportAll({ component: () => CheckoutPage });
+//#region node_modules/.nitro/vite/services/ssr/assets/checkout-B_jK94YZ.js
+var checkout_B_jK94YZ_exports = /* @__PURE__ */ __exportAll({ component: () => CheckoutPage });
 function generateReference() {
 	const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 	let result = "CK-";
@@ -60967,7 +61032,20 @@ function CheckoutPage() {
 	const { user } = useAuth();
 	const { items, subtotalCents, clear, hydrated } = useCart();
 	useNavigate();
+	const qc = useQueryClient();
 	const [orderReference, setOrderReference] = (0, import_react$9.useState)(() => generateReference());
+	(0, import_react$9.useEffect)(() => {
+		const channel = supabase.channel("checkout-realtime-settings").on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "store_settings"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["store-settings"] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [qc]);
 	const { data: storeSettings, isLoading: loadingSettings } = useQuery({
 		queryKey: ["store-settings"],
 		queryFn: async () => {
@@ -61230,29 +61308,29 @@ function CheckoutPage() {
 		]
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-		className: "mx-auto max-w-6xl px-4 py-16 sm:px-6",
+		className: "mx-auto max-w-6xl px-4 py-10 sm:py-16 sm:px-6",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-			className: "mb-10",
+			className: "mb-6 sm:mb-10",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", {
 				className: "text-xs uppercase tracking-[0.3em] text-muted-foreground",
 				children: "Nathan's Clothes"
 			}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("h1", {
-				className: "mt-2 text-4xl sm:text-5xl font-bold uppercase tracking-tight",
+				className: "mt-2 text-3xl sm:text-5xl font-bold font-serif uppercase tracking-tight",
 				children: "Checkout"
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-			className: "grid gap-12 lg:grid-cols-[1fr_380px]",
+			className: "grid gap-8 sm:gap-12 lg:grid-cols-[1fr_380px] items-start",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("form", {
 				onSubmit: handleSubmitOrder,
-				className: "space-y-10",
+				className: "space-y-6 sm:space-y-10 min-w-0",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-						className: "border border-border bg-surface p-6 sm:p-8",
+						className: "border border-border bg-surface p-5 sm:p-8",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("h2", {
-							className: "text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6",
+							className: "text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-muted-foreground mb-5 sm:mb-6",
 							children: "1. Customer Information & Delivery Address"
 						}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-							className: "grid gap-5",
+							className: "grid gap-4 sm:gap-5",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 									className: "grid gap-2",
@@ -61277,7 +61355,7 @@ function CheckoutPage() {
 									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-									className: "grid gap-5 sm:grid-cols-2",
+									className: "grid gap-4 sm:gap-5 sm:grid-cols-2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 										className: "grid gap-2",
 										children: [
@@ -61392,19 +61470,22 @@ function CheckoutPage() {
 									})] })]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
-									className: "flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-border pt-4",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", {
-										className: "text-xs uppercase tracking-[0.2em] text-muted-foreground",
-										children: "Account Number"
-									}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", {
-										className: "mt-1 font-mono text-xl font-semibold text-foreground",
-										children: storeSettings?.account_number || "0123456789"
-									})] }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)(Button, {
+									className: "flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-border pt-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
+										className: "min-w-0",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", {
+											className: "text-xs uppercase tracking-[0.2em] text-muted-foreground",
+											children: "Account Number"
+										}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", {
+											className: "mt-1 font-mono text-lg sm:text-xl font-semibold text-foreground tracking-wider break-all",
+											children: storeSettings?.account_number || "0123456789"
+										})]
+									}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)(Button, {
 										type: "button",
 										variant: "outline",
 										size: "sm",
 										onClick: () => handleCopy(storeSettings?.account_number || "0123456789", "account"),
-										className: "gap-1.5 text-xs uppercase tracking-[0.15em]",
+										className: "gap-1.5 text-xs uppercase tracking-[0.15em] shrink-0 self-start sm:self-auto",
 										children: [copiedAccount ? /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(Check, { className: "size-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(Copy, { className: "size-3.5" }), copiedAccount ? "Copied" : "Copy Account"]
 									})]
 								}),
@@ -61541,7 +61622,7 @@ function CheckoutPage() {
 	});
 }
 var import_react$9, import_jsx_runtime$7, schema$1;
-var init_checkout_C3gU7Lzf = __esmMin((() => {
+var init_checkout_B_jK94YZ = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_useCart_B6US_OkA();
@@ -61782,18 +61863,24 @@ var init_contact_h7xSEnw_ = __esmMin((() => {
 	});
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/shop-D3JsBCHF.js
-var shop_D3JsBCHF_exports = /* @__PURE__ */ __exportAll({ component: () => Shop });
+//#region node_modules/.nitro/vite/services/ssr/assets/shop-rzyWuG3b.js
+var shop_rzyWuG3b_exports = /* @__PURE__ */ __exportAll({ component: () => Shop });
 function Shop() {
 	const [filter, setFilter] = (0, import_react$7.useState)("all");
 	const qc = useQueryClient();
 	(0, import_react$7.useEffect)(() => {
-		const channel = supabase.channel("shop-realtime-products").on("postgres_changes", {
+		const channel = supabase.channel("shop-realtime-sync").on("postgres_changes", {
 			event: "*",
 			schema: "public",
 			table: "products"
 		}, () => {
 			qc.invalidateQueries({ queryKey: ["products"] });
+		}).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "store_settings"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["store-settings"] });
 		}).subscribe();
 		return () => {
 			supabase.removeChannel(channel);
@@ -61809,27 +61896,34 @@ function Shop() {
 	});
 	const products = (data ?? []).filter((p) => filter === "all" || p.category === filter);
 	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
-		className: "mx-auto max-w-7xl px-4 py-16 sm:px-6",
+		className: "mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h1", {
-				className: "text-4xl sm:text-5xl",
+				className: "text-3xl sm:text-5xl font-serif",
 				children: "The collection"
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", {
-				className: "mt-3 max-w-lg text-sm text-muted-foreground",
+				className: "mt-3 max-w-lg text-xs sm:text-sm text-muted-foreground",
 				children: "Every piece is made in a limited run. Once it's gone, it's gone."
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
-				className: "mt-10 flex flex-wrap gap-2",
+				className: "mt-8 sm:mt-10 flex flex-wrap gap-2 overflow-x-auto pb-2",
 				children: FILTERS.map((f) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("button", {
 					onClick: () => setFilter(f.key),
-					className: cn$1("border px-4 py-2 text-xs uppercase tracking-[0.2em] transition-colors", filter === f.key ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground"),
+					className: cn$1("shrink-0 border px-3 sm:px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors", filter === f.key ? "border-primary bg-primary text-primary-foreground font-semibold" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40"),
 					children: f.label
 				}, f.key))
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
-				className: "mt-12 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-3",
-				children: isLoading ? Array.from({ length: 6 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Skeleton, { className: "aspect-square w-full" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Skeleton, { className: "mt-4 h-4 w-2/3" })] }, i)) : products.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(ProductCard, {
+				className: "mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3",
+				children: isLoading ? Array.from({ length: 6 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+					className: "space-y-3",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Skeleton, { className: "aspect-square w-full" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Skeleton, { className: "h-4 w-2/3" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Skeleton, { className: "h-3 w-1/3" })
+					]
+				}, i)) : products.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(ProductCard, {
 					product: p,
 					eager: i < 3
 				}, p.slug))
@@ -61842,7 +61936,7 @@ function Shop() {
 	});
 }
 var import_react$7, import_jsx_runtime$5, FILTERS;
-var init_shop_D3JsBCHF = __esmMin((() => {
+var init_shop_rzyWuG3b = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_utils_C_uf36nf();
 	init_ProductCard_RP9ReRpc();
@@ -61991,8 +62085,8 @@ var init_dist$1 = __esmMin((() => {
 	Description2 = AlertDialogDescription$1;
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/admin-BCxph_Cq.js
-var admin_BCxph_Cq_exports = /* @__PURE__ */ __exportAll({ component: () => AdminPage });
+//#region node_modules/.nitro/vite/services/ssr/assets/admin-Cca5xk4F.js
+var admin_Cca5xk4F_exports = /* @__PURE__ */ __exportAll({ component: () => AdminPage });
 function AdminPage() {
 	const { user, isAdmin, loading, signOut } = useAuth();
 	const navigate = useNavigate();
@@ -62435,35 +62529,35 @@ function AdminPage() {
 	});
 	const displayName = user?.user_metadata?.["full_name"] || user?.email?.split("@")[0] || "Admin";
 	return /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-		className: "mx-auto max-w-7xl px-4 py-16 sm:px-6",
+		className: "mx-auto max-w-7xl px-3 sm:px-6 py-10 sm:py-16",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-				className: "border-b border-border pb-8",
+				className: "border-b border-border pb-6 sm:pb-8",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("div", {
 						className: "inline-block rounded-full bg-surface px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground border border-border",
 						children: "Admin Portal"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("h1", {
-						className: "mt-4 text-4xl sm:text-5xl font-serif font-bold tracking-tight text-foreground",
+						className: "mt-4 text-3xl sm:text-5xl font-serif font-bold tracking-tight text-foreground break-words",
 						children: ["Welcome, ", displayName]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-						className: "mt-2 text-sm text-muted-foreground",
+						className: "mt-2 text-xs sm:text-sm text-muted-foreground",
 						children: "Manage your store inventory, review customer bank receipts, and configure store settings."
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Tabs, {
 				defaultValue: "orders",
-				className: "mt-10",
+				className: "mt-8 sm:mt-10",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(TabsList, {
 						className: "flex flex-wrap h-auto bg-transparent p-0 gap-2 border-b border-border pb-4 w-full justify-start rounded-none",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(TabsTrigger, {
 								value: "orders",
-								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2",
+								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2",
 								children: [
 									"Orders & payments (",
 									rawOrders.length,
@@ -62472,7 +62566,7 @@ function AdminPage() {
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(TabsTrigger, {
 								value: "products",
-								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2",
+								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2",
 								children: [
 									"Products (",
 									(productsQuery.data || []).length,
@@ -62481,101 +62575,101 @@ function AdminPage() {
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(TabsTrigger, {
 								value: "settings",
-								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-4 py-2",
+								className: "text-xs uppercase tracking-[0.15em] data-[state=active]:bg-foreground data-[state=active]:text-background rounded px-3 sm:px-4 py-2",
 								children: "Payment details & staff"
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(TabsContent, {
 						value: "orders",
-						className: "mt-8 space-y-8",
+						className: "mt-6 sm:mt-8 space-y-6 sm:space-y-8",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-								className: "grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5",
+								className: "grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-										className: "border border-border bg-surface p-5 space-y-2",
+										className: "border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground",
+											className: "text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground",
 											children: "Total Orders"
 										}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-3xl font-serif font-bold text-foreground",
+											className: "text-2xl sm:text-3xl font-serif font-bold text-foreground",
 											children: rawOrders.length
 										})]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-										className: "border border-border bg-surface p-5 space-y-2",
+										className: "border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground",
+											className: "text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground",
 											children: "Pending Requests"
 										}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-3xl font-serif font-bold text-foreground",
+											className: "text-2xl sm:text-3xl font-serif font-bold text-foreground",
 											children: rawOrders.filter((o) => (o.payment_status || o.status) === "pending").length
 										})]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-										className: "border border-border bg-surface p-5 space-y-2",
+										className: "border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground",
+											className: "text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground",
 											children: "Successful Orders"
 										}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-3xl font-serif font-bold text-foreground",
+											className: "text-2xl sm:text-3xl font-serif font-bold text-foreground",
 											children: rawOrders.filter((o) => (o.payment_status || o.status) === "approved").length
 										})]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-										className: "border border-border bg-surface p-5 space-y-2",
+										className: "border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground",
+											className: "text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground",
 											children: "Unique Customers"
 										}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-3xl font-serif font-bold text-foreground",
+											className: "text-2xl sm:text-3xl font-serif font-bold text-foreground",
 											children: new Set(rawOrders.map((o) => o.email || o.phone)).size
 										})]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-										className: "border border-border bg-surface p-5 space-y-2 col-span-2 sm:col-span-1",
+										className: "border border-border bg-surface p-4 sm:p-5 space-y-1.5 sm:space-y-2 col-span-2 sm:col-span-1",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground",
+											className: "text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground",
 											children: "Confirmed Revenue"
 										}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-											className: "text-2xl sm:text-3xl font-serif font-bold text-foreground truncate",
+											className: "text-xl sm:text-3xl font-serif font-bold text-foreground truncate",
 											children: formatPrice(rawOrders.filter((o) => (o.payment_status || o.status) === "approved").reduce((sum, o) => sum + (o.total_cents || Math.round(Number(o.total || 0) * 100)), 0))
 										})]
 									})
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-								className: "flex flex-wrap items-center justify-between gap-4",
+								className: "flex flex-wrap items-center justify-between gap-3",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-									className: "flex flex-wrap items-center gap-2",
+									className: "flex flex-wrap items-center gap-1.5 sm:gap-2",
 									children: [
 										/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Button, {
 											variant: orderFilter === "all" ? "default" : "outline",
 											size: "sm",
 											onClick: () => setOrderFilter("all"),
-											className: "text-xs uppercase tracking-[0.15em] h-8 px-3",
+											className: "text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3",
 											children: "All Requests"
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
 											variant: orderFilter === "pending" ? "default" : "outline",
 											size: "sm",
 											onClick: () => setOrderFilter("pending"),
-											className: "text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5",
+											className: "text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5",
 											children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", { className: "size-2 rounded-full bg-amber-400" }), "Pending"]
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
 											variant: orderFilter === "approved" ? "default" : "outline",
 											size: "sm",
 											onClick: () => setOrderFilter("approved"),
-											className: "text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5",
+											className: "text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5",
 											children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", { className: "size-2 rounded-full bg-emerald-400" }), "Successful"]
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
 											variant: orderFilter === "declined" ? "default" : "outline",
 											size: "sm",
 											onClick: () => setOrderFilter("declined"),
-											className: "text-xs uppercase tracking-[0.15em] h-8 px-3 gap-1.5",
+											className: "text-xs uppercase tracking-[0.15em] h-8 px-2.5 sm:px-3 gap-1.5",
 											children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", { className: "size-2 rounded-full bg-destructive" }), "Declined"]
 										})
 									]
@@ -62611,50 +62705,53 @@ function AdminPage() {
 										className: "border border-border bg-surface p-6 sm:p-8 space-y-6",
 										children: [
 											/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-												className: "flex flex-wrap items-start justify-between gap-4 border-b border-border pb-6",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-													className: "flex items-center gap-3",
-													children: [
-														/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", {
-															className: "font-mono text-xl font-bold tracking-wider text-foreground",
-															children: ord.reference || `ORD-${ord.id.slice(0, 8)}`
-														}),
-														isApproved && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
-															className: "bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase",
-															children: "Approved & Paid"
-														}),
-														isDeclined && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
-															className: "bg-destructive/20 text-destructive border border-destructive/30 uppercase",
-															children: "Declined"
-														}),
-														isPending && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
-															className: "bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase",
-															children: "Pending Verification"
-														})
-													]
-												}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("p", {
-													className: "text-xs text-muted-foreground mt-1",
-													children: [
-														"Placed on ",
-														formatDate(ord.created_at),
-														" · Customer:",
-														" ",
-														/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("strong", {
-															className: "text-foreground",
-															children: ord.customer_name || ord.full_name
-														})
-													]
-												})] }), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-													className: "flex flex-col items-end gap-2",
+												className: "flex flex-wrap items-start justify-between gap-4 border-b border-border pb-5 sm:pb-6",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
+													className: "min-w-0",
+													children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
+														className: "flex flex-wrap items-center gap-2 sm:gap-3",
+														children: [
+															/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", {
+																className: "font-mono text-base sm:text-xl font-bold tracking-wider text-foreground break-all",
+																children: ord.reference || `ORD-${ord.id.slice(0, 8)}`
+															}),
+															isApproved && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
+																className: "bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 uppercase text-[10px] sm:text-[11px]",
+																children: "Approved & Paid"
+															}),
+															isDeclined && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
+																className: "bg-destructive/20 text-destructive border border-destructive/30 uppercase text-[10px] sm:text-[11px]",
+																children: "Declined"
+															}),
+															isPending && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Badge, {
+																className: "bg-amber-600/20 text-amber-400 border border-amber-500/30 uppercase text-[10px] sm:text-[11px]",
+																children: "Pending Verification"
+															})
+														]
+													}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("p", {
+														className: "text-xs text-muted-foreground mt-1.5",
+														children: [
+															"Placed on ",
+															formatDate(ord.created_at),
+															" · Customer:",
+															" ",
+															/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("strong", {
+																className: "text-foreground",
+																children: ord.customer_name || ord.full_name
+															})
+														]
+													})]
+												}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
+													className: "flex flex-col items-start sm:items-end gap-2",
 													children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-														className: "text-xl font-bold text-foreground",
+														className: "text-lg sm:text-xl font-bold text-foreground",
 														children: formatPrice(ord.total_cents || Math.round(Number(ord.total || 0) * 100))
 													}), ord.receipt_path ? /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
 														variant: "outline",
 														size: "sm",
 														disabled: loadingReceipt,
 														onClick: () => viewReceiptProof(ord),
-														className: "gap-1.5 text-xs uppercase tracking-[0.15em]",
+														className: "gap-1.5 text-xs uppercase tracking-[0.15em] h-8",
 														children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Eye, { className: "size-3.5" }), " View Receipt Proof"]
 													}) : /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", {
 														className: "text-xs text-muted-foreground italic",
@@ -62784,7 +62881,7 @@ function AdminPage() {
 											/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
 												className: "flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4",
 												children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-													className: "flex flex-wrap gap-2",
+													className: "flex flex-wrap items-center gap-2",
 													children: [
 														/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
 															size: "sm",
@@ -62794,7 +62891,7 @@ function AdminPage() {
 																payment_status: "approved",
 																status: "paid"
 															}),
-															className: "bg-emerald-600 hover:bg-emerald-700 text-white text-xs uppercase tracking-[0.15em] gap-1.5",
+															className: "bg-emerald-600 hover:bg-emerald-700 text-white text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3",
 															children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(CircleCheckBig, { className: "size-3.5" }), " Approve Payment"]
 														}),
 														/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
@@ -62806,7 +62903,7 @@ function AdminPage() {
 																payment_status: "declined",
 																status: "declined"
 															}),
-															className: "border-destructive/40 text-destructive hover:bg-destructive/10 text-xs uppercase tracking-[0.15em] gap-1.5",
+															className: "border-destructive/40 text-destructive hover:bg-destructive/10 text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3",
 															children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(CircleX, { className: "size-3.5" }), " Decline Payment"]
 														}),
 														/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(Button, {
@@ -62823,7 +62920,7 @@ function AdminPage() {
 																payment_status: ord.payment_status || "pending",
 																admin_note: ord.admin_note || ""
 															}),
-															className: "text-xs uppercase tracking-[0.15em] gap-1.5",
+															className: "text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] gap-1.5 h-8 px-2.5 sm:px-3",
 															children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(PenLine, { className: "size-3.5" }), " Edit Order"]
 														})
 													]
@@ -62834,7 +62931,7 @@ function AdminPage() {
 														id: ord.id,
 														reference: ord.reference || `ORD-${ord.id.slice(0, 8)}`
 													}),
-													className: "text-muted-foreground hover:text-destructive text-xs uppercase tracking-[0.15em] gap-1.5",
+													className: "text-muted-foreground hover:text-destructive text-xs uppercase tracking-[0.15em] gap-1.5 h-8 px-2.5",
 													children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Trash2, { className: "size-3.5" }), " Delete"]
 												})]
 											})
@@ -63053,7 +63150,7 @@ function AdminPage() {
 								})
 							]
 						}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-							className: "border border-border bg-surface p-6 sm:p-8",
+							className: "border border-border bg-surface p-4 sm:p-8",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("h2", {
 								className: "text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-6",
 								children: [
@@ -63062,9 +63159,9 @@ function AdminPage() {
 									" items)"
 								]
 							}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("div", {
-								className: "overflow-x-auto",
+								className: "overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0",
 								children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("table", {
-									className: "w-full text-left text-sm",
+									className: "w-full text-left text-sm min-w-[580px]",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("tr", {
 										className: "border-b border-border text-xs uppercase tracking-[0.2em] text-muted-foreground",
 										children: [
@@ -63099,39 +63196,42 @@ function AdminPage() {
 											className: "hover:bg-background/40",
 											children: [
 												/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("td", {
-													className: "py-4",
+													className: "py-3 sm:py-4",
 													children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
 														className: "flex items-center gap-3",
 														children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("img", {
 															src: p.image_url,
 															alt: p.name,
-															className: "size-12 object-cover bg-background border border-border"
-														}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-															className: "font-medium text-foreground",
-															children: p.name
-														}) })]
+															className: "size-11 sm:size-12 object-cover bg-background border border-border shrink-0"
+														}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("div", {
+															className: "min-w-0",
+															children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
+																className: "font-medium text-foreground text-xs sm:text-sm line-clamp-2",
+																children: p.name
+															})
+														})]
 													})
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("td", {
-													className: "py-4 text-xs uppercase tracking-wider text-muted-foreground",
+													className: "py-3 sm:py-4 text-xs uppercase tracking-wider text-muted-foreground",
 													children: p.category
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("td", {
-													className: "py-4 font-medium text-foreground",
+													className: "py-3 sm:py-4 font-medium text-foreground text-xs sm:text-sm",
 													children: formatPrice(p.price_cents || Math.round(Number(p.price || 0) * 100))
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("td", {
-													className: "py-4 font-mono text-xs text-foreground",
+													className: "py-3 sm:py-4 font-mono text-xs text-foreground",
 													children: p.stock ?? (p.in_stock ? "In stock" : "0")
 												}),
 												/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("td", {
-													className: "py-4",
+													className: "py-3 sm:py-4",
 													children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("button", {
 														onClick: () => toggleStock.mutate({
 															id: p.id,
 															in_stock: !p.in_stock
 														}),
-														className: `inline-flex items-center px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider border rounded cursor-pointer transition-colors ${p.in_stock ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20" : "bg-destructive/10 text-destructive border-destructive/30 hover:bg-destructive/20"}`,
+														className: `inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider border rounded cursor-pointer transition-colors ${p.in_stock ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20" : "bg-destructive/10 text-destructive border-destructive/30 hover:bg-destructive/20"}`,
 														children: p.in_stock ? "In Stock" : "Sold Out"
 													})
 												}),
@@ -63850,7 +63950,7 @@ function AdminPage() {
 	});
 }
 var import_react$4, import_react$5, import_jsx_runtime$3, AlertDialog, AlertDialogPortal, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription, AlertDialogAction, AlertDialogCancel;
-var init_admin_BCxph_Cq = __esmMin((() => {
+var init_admin_Cca5xk4F = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_utils_C_uf36nf();
@@ -64001,8 +64101,8 @@ var init_admin_setup_B8kNjt7k = __esmMin((() => {
 	init_dist$21();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CtS31Gh8.js
-var router_CtS31Gh8_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-BqU2HOfO.js
+var router_BqU2HOfO_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 function Header() {
 	const { count } = useCart();
 	const { user, isAdmin, signOut } = useAuth();
@@ -64021,18 +64121,20 @@ function Header() {
 		className: "sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-				className: "mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6",
+				className: "mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
-						className: "mr-2 inline-flex size-9 items-center justify-center text-foreground md:hidden",
-						onClick: () => setOpen((v) => !v),
-						"aria-label": open ? "Close menu" : "Open menu",
-						children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-						to: user ? isAdmin ? "/admin" : "/account" : "/",
-						className: "text-display text-lg tracking-brand sm:text-xl",
-						children: "NATHAN'S CLOTHES"
+					/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+						className: "flex items-center gap-1 sm:gap-2 min-w-0",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
+							className: "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface md:hidden",
+							onClick: () => setOpen((v) => !v),
+							"aria-label": open ? "Close menu" : "Open menu",
+							children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
+						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+							to: user ? isAdmin ? "/admin" : "/account" : "/",
+							className: "text-display text-sm tracking-[0.18em] sm:text-xl sm:tracking-brand truncate",
+							children: "NATHAN'S CLOTHES"
+						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("nav", {
 						className: "hidden items-center gap-8 md:flex",
@@ -64100,7 +64202,7 @@ function Header() {
 								]
 							})] })
 						}) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-							className: "flex items-center gap-2",
+							className: "flex items-center gap-1 sm:gap-2",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
 								to: "/auth",
 								search: {
@@ -64109,7 +64211,8 @@ function Header() {
 								},
 								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
 									variant: "ghost",
-									className: "text-xs uppercase tracking-[0.2em]",
+									size: "sm",
+									className: "px-2 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
 									children: "Log in"
 								})
 							}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
@@ -64120,20 +64223,25 @@ function Header() {
 								},
 								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
 									variant: "default",
-									className: "text-xs uppercase tracking-[0.2em]",
+									size: "sm",
+									className: "px-2.5 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
 									children: "Sign up"
 								})
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
 							to: "/cart",
 							"aria-label": "Cart",
-							className: "relative",
+							className: "relative shrink-0",
 							children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Button, {
 								variant: "ghost",
-								className: "flex items-center gap-1.5 px-2.5 text-xs uppercase tracking-[0.2em]",
+								size: "sm",
+								className: "flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ShoppingBag, { className: "size-4" }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "Cart" }),
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+										className: "hidden xs:inline sm:inline",
+										children: "Cart"
+									}),
 									count > 0 && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 										className: "flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground",
 										children: count
@@ -64473,7 +64581,7 @@ function RootComponent() {
 	});
 }
 var import_react$1, import_react$2, import_jsx_runtime$1, styles_default, DropdownMenu, DropdownMenuTrigger, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, NAV, Toaster$1, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AboutRoute, AccountRoute, AuthRoute, CartRoute, CheckoutRoute, ContactRoute, ShopRoute, AuthenticatedAdminRoute, AuthenticatedAdminSetupRoute, ProductSlugRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_CtS31Gh8 = __esmMin((() => {
+var init_router_BqU2HOfO = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_useCart_B6US_OkA();
@@ -64481,7 +64589,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 	init_button_cHXlBU3y();
 	init_ProfileDialog_Dde2lEsj();
 	init_auth_D_sgwxxs();
-	init_product__slug_BYjMtkLh();
+	init_product__slug_XvDWQruS();
 	import_react$1 = /* @__PURE__ */ __toESM(require_react());
 	import_react$2 = /* @__PURE__ */ __toESM(require_react());
 	init_esm();
@@ -64490,7 +64598,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 	init_lucide_react();
 	init_dist$2();
 	init_dist$21();
-	styles_default = "/assets/styles-D2xC3pGf.css";
+	styles_default = "/assets/styles-CezQ073_.css";
 	DropdownMenu = Root2$1;
 	DropdownMenuTrigger = Trigger;
 	DropdownMenuSubTrigger = import_react$1.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(SubTrigger2, {
@@ -64651,7 +64759,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		notFoundComponent: NotFoundComponent,
 		errorComponent: ErrorComponent
 	});
-	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_routes_CwOFxqD2(), routes_CwOFxqD2_exports));
+	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_routes_eKtpw_VB(), routes_eKtpw_VB_exports));
 	Route$9 = createFileRoute("/")({
 		head: () => ({ meta: [
 			{ title: "Nathan's Clothing — Premium Dark Streetwear" },
@@ -64702,7 +64810,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$7, "component")
 	});
-	$$splitComponentImporter$6 = () => Promise.resolve().then(() => (init_account_DffZwsbZ(), account_DffZwsbZ_exports));
+	$$splitComponentImporter$6 = () => Promise.resolve().then(() => (init_account_B_RzdbcR(), account_B_RzdbcR_exports));
 	Route$6 = createFileRoute("/account")({
 		head: () => ({ meta: [
 			{ title: "Customer Dashboard — Nathan's Clothes" },
@@ -64721,7 +64829,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$6, "component")
 	});
-	$$splitComponentImporter$5 = () => Promise.resolve().then(() => (init_cart_C_Ph3P60(), cart_C_Ph3P60_exports));
+	$$splitComponentImporter$5 = () => Promise.resolve().then(() => (init_cart_CW43hSFC(), cart_CW43hSFC_exports));
 	Route$5 = createFileRoute("/cart")({
 		head: () => ({ meta: [
 			{ title: "Your Cart — Nathan's Clothing" },
@@ -64740,7 +64848,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$5, "component")
 	});
-	$$splitComponentImporter$4 = () => Promise.resolve().then(() => (init_checkout_C3gU7Lzf(), checkout_C3gU7Lzf_exports));
+	$$splitComponentImporter$4 = () => Promise.resolve().then(() => (init_checkout_B_jK94YZ(), checkout_B_jK94YZ_exports));
 	Route$4 = createFileRoute("/checkout")({
 		head: () => ({ meta: [
 			{ title: "Checkout & Bank Transfer — Nathan's Clothes" },
@@ -64778,7 +64886,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$3, "component")
 	});
-	$$splitComponentImporter$2 = () => Promise.resolve().then(() => (init_shop_D3JsBCHF(), shop_D3JsBCHF_exports));
+	$$splitComponentImporter$2 = () => Promise.resolve().then(() => (init_shop_rzyWuG3b(), shop_rzyWuG3b_exports));
 	Route$2 = createFileRoute("/shop")({
 		head: () => ({ meta: [
 			{ title: "Shop All — Nathan's Clothing" },
@@ -64797,7 +64905,7 @@ var init_router_CtS31Gh8 = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$2, "component")
 	});
-	$$splitComponentImporter$1 = () => Promise.resolve().then(() => (init_admin_BCxph_Cq(), admin_BCxph_Cq_exports));
+	$$splitComponentImporter$1 = () => Promise.resolve().then(() => (init_admin_Cca5xk4F(), admin_Cca5xk4F_exports));
 	Route$1 = createFileRoute("/_authenticated/admin")({
 		head: () => ({ meta: [
 			{ title: "Admin Management — Nathan's Clothes" },
@@ -64986,8 +65094,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/server-CVwGNfE3.js
-var server_CVwGNfE3_exports = /* @__PURE__ */ __exportAll({
+//#region node_modules/.nitro/vite/services/ssr/assets/server-D23z72ot.js
+var server_D23z72ot_exports = /* @__PURE__ */ __exportAll({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -65053,7 +65161,7 @@ function getResponse() {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CzWN2fVP(), _tanstack_start_manifest_v_CzWN2fVP_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_DkExaWGN(), _tanstack_start_manifest_v_DkExaWGN_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -65821,7 +65929,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_CtS31Gh8(), router_CtS31Gh8_exports)),
+		Promise.resolve().then(() => (init_router_BqU2HOfO(), router_BqU2HOfO_exports)),
 		Promise.resolve().then(() => (init_start_6a91S_eZ(), start_6a91S_eZ_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -66197,7 +66305,7 @@ function createServerEntry(entry) {
 	} };
 }
 var import_jsx_runtime, defaultStreamHandler, GLOBAL_EVENT_STORAGE_KEY, globalObj$1, eventStorage, HEADERS, manifest, TSS_FORMDATA_CONTEXT, TSS_SERVER_FUNCTION, X_TSS_SERIALIZED, X_TSS_RAW_RESPONSE, TSS_CONTENT_TYPE_FRAMED, FrameType, TSS_CONTENT_TYPE_FRAMED_VERSIONED, GLOBAL_STORAGE_KEY, globalObj, startStorage, getStartOptions, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_CVwGNfE3 = __esmMin((() => {
+var init_server_D23z72ot = __esmMin((() => {
 	init_createCsrfMiddleware_B2To0gPJ();
 	require_react();
 	init_esm();
@@ -66560,7 +66668,7 @@ function renderErrorPage(error) {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_CVwGNfE3(), server_CVwGNfE3_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_D23z72ot(), server_D23z72ot_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Minus, Plus, ShoppingBag, MessageCircle, Phone, Mail, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -37,10 +37,37 @@ export const Route = createFileRoute("/product/$slug")({
 function ProductDetail() {
   const { slug } = Route.useParams();
   const navigate = useNavigate();
+  const qc = useQueryClient();
   const { add } = useCart();
   const [size, setSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
   const [isAdding, setIsAdding] = useState(false);
+
+  // Live real-time updates for product stock and store settings without reloading
+  useEffect(() => {
+    const channel = supabase
+      .channel(`product-realtime-${slug}`)
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "products" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["product", slug] });
+          void qc.invalidateQueries({ queryKey: ["products"] });
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "store_settings" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["store-settings"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [slug, qc]);
 
   // Fetch product
   const { data: product, isLoading } = useQuery({
@@ -146,9 +173,9 @@ function ProductDetail() {
   const brandLabel = (product.brand || product.colorway || "STREETWEAR").toUpperCase();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Top back navigation matching reference */}
-      <div className="mb-6">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8 sm:px-6 lg:px-8">
+      {/* Top back navigation */}
+      <div className="mb-4 sm:mb-6">
         <Link
           to="/shop"
           className="inline-flex items-center gap-1.5 text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors"
@@ -157,8 +184,8 @@ function ProductDetail() {
         </Link>
       </div>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-start">
-        {/* Left: Product Image in dedicated showcase frame */}
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-start">
+        {/* Left: Product Image */}
         <div className="aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-surface border border-border flex items-center justify-center">
           <img
             src={product.image_url}
@@ -169,21 +196,21 @@ function ProductDetail() {
           />
         </div>
 
-        {/* Right: Product Info and actions formatted to user reference */}
-        <div className="space-y-6">
+        {/* Right: Product Info */}
+        <div className="space-y-5 sm:space-y-6">
           {/* Category breadcrumb */}
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold">
+          <p className="text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-muted-foreground font-semibold">
             {categoryLabel} &middot; {brandLabel}
           </p>
 
-          {/* Editorial Title */}
-          <h1 className="text-4xl sm:text-5xl font-serif font-medium tracking-tight text-foreground">
+          {/* Title */}
+          <h1 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight text-foreground break-words">
             {product.name}
           </h1>
 
           {/* Price & Note */}
           <div className="space-y-1">
-            <p className="text-3xl font-serif font-semibold text-foreground">
+            <p className="text-2xl sm:text-3xl font-serif font-semibold text-foreground">
               {formatPrice(product.price_cents)}
             </p>
             <p className="text-xs text-muted-foreground">
@@ -204,16 +231,16 @@ function ProductDetail() {
             )}
           </div>
 
-          {/* Description if present */}
+          {/* Description */}
           {product.description && (
-            <p className="text-sm leading-relaxed text-muted-foreground">
+            <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
               {product.description}
             </p>
           )}
 
           {/* Size Selector */}
           {availableSizes.length > 1 && (
-            <div className="space-y-2 pt-2">
+            <div className="space-y-2 pt-1">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Select Size</p>
               <div className="flex flex-wrap gap-2">
                 {availableSizes.map((s: string) => (
@@ -222,7 +249,7 @@ function ProductDetail() {
                     type="button"
                     onClick={() => setSize(s)}
                     className={cn(
-                      "min-w-12 border px-3 py-2 text-xs uppercase tracking-[0.15em] transition-colors rounded-none",
+                      "min-w-11 border px-3 py-2 text-xs uppercase tracking-[0.15em] transition-colors rounded-none",
                       chosenSize === s
                         ? "border-foreground bg-foreground text-background font-semibold"
                         : "border-border text-muted-foreground hover:text-foreground"
@@ -236,7 +263,7 @@ function ProductDetail() {
           )}
 
           {/* Quantity Counter */}
-          <div className="flex items-center gap-4 pt-1">
+          <div className="flex flex-wrap items-center gap-4 pt-1">
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Quantity</span>
             <div className="inline-flex items-center border border-border bg-surface">
               <button
@@ -268,13 +295,13 @@ function ProductDetail() {
             )}
           </div>
 
-          {/* Primary Action Buttons Row (Matching Reference Image) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+          {/* Primary Action Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             <Button
               type="button"
               onClick={handleOrderNow}
               disabled={soldOut}
-              className="w-full bg-foreground text-background hover:bg-foreground/90 font-medium py-6 text-sm rounded-none tracking-wide"
+              className="w-full bg-foreground text-background hover:bg-foreground/90 font-medium py-5 sm:py-6 text-xs sm:text-sm rounded-none tracking-wider uppercase"
             >
               Order now
             </Button>
@@ -284,7 +311,7 @@ function ProductDetail() {
               variant="outline"
               onClick={handleAdd}
               disabled={soldOut || isAdding}
-              className="w-full border-border bg-transparent text-foreground hover:bg-surface font-medium py-6 text-sm rounded-none tracking-wide gap-2"
+              className="w-full border-border bg-transparent text-foreground hover:bg-surface font-medium py-5 sm:py-6 text-xs sm:text-sm rounded-none tracking-wider uppercase gap-2"
             >
               <ShoppingBag className="size-4" />
               {isAdding ? "Added to cart ✓" : "Add to cart"}
@@ -322,27 +349,27 @@ function ProductDetail() {
             </a>
           </div>
 
-          {/* Specifications Section (Matching Reference Image) */}
-          <div className="pt-6 border-t border-border space-y-3">
-            <h2 className="text-2xl font-serif font-medium tracking-tight text-foreground">
+          {/* Specifications Section */}
+          <div className="pt-5 border-t border-border space-y-3">
+            <h2 className="text-xl sm:text-2xl font-serif font-medium tracking-tight text-foreground">
               Specifications
             </h2>
-            <div className="border-t border-border pt-3">
-              <div className="flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40">
-                <span className="uppercase tracking-[0.2em]">Detail</span>
-                <span className="text-foreground text-right max-w-xs sm:max-w-md">
+            <div className="border-t border-border pt-2 divide-y divide-border/40">
+              <div className="flex flex-col sm:flex-row sm:justify-between py-2 text-xs text-muted-foreground gap-1">
+                <span className="uppercase tracking-[0.2em] shrink-0 font-medium">Detail</span>
+                <span className="text-foreground sm:text-right break-words max-w-full">
                   {product.specifications || product.description || "Authentic quality & design guaranteed."}
                 </span>
               </div>
               {product.colorway && (
-                <div className="flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40">
-                  <span className="uppercase tracking-[0.2em]">Colorway</span>
+                <div className="flex justify-between py-2 text-xs text-muted-foreground">
+                  <span className="uppercase tracking-[0.2em] font-medium">Colorway</span>
                   <span className="text-foreground">{product.colorway}</span>
                 </div>
               )}
               {product.brand && (
-                <div className="flex justify-between py-2 text-xs text-muted-foreground border-b border-border/40">
-                  <span className="uppercase tracking-[0.2em]">Brand</span>
+                <div className="flex justify-between py-2 text-xs text-muted-foreground">
+                  <span className="uppercase tracking-[0.2em] font-medium">Brand</span>
                   <span className="text-foreground">{product.brand}</span>
                 </div>
               )}

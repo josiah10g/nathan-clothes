@@ -36,22 +36,24 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <button
-          className="mr-2 inline-flex size-9 items-center justify-center text-foreground md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6">
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+          <button
+            className="inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
 
-        {/* Logo routes to dashboard if logged in, otherwise home */}
-        <Link
-          to={user ? (isAdmin ? "/admin" : "/account") : "/"}
-          className="text-display text-lg tracking-brand sm:text-xl"
-        >
-          NATHAN&apos;S CLOTHES
-        </Link>
+          {/* Logo routes to dashboard if logged in, otherwise home */}
+          <Link
+            to={user ? (isAdmin ? "/admin" : "/account") : "/"}
+            className="text-display text-sm tracking-[0.18em] sm:text-xl sm:tracking-brand truncate"
+          >
+            NATHAN&apos;S CLOTHES
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
@@ -122,23 +124,23 @@ export function Header() {
               </DropdownMenu>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <Link to="/auth" search={{ mode: "signin", redirect: undefined }}>
-                <Button variant="ghost" className="text-xs uppercase tracking-[0.2em]">
+                <Button variant="ghost" size="sm" className="px-2 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                   Log in
                 </Button>
               </Link>
               <Link to="/auth" search={{ mode: "signup", redirect: undefined }}>
-                <Button variant="default" className="text-xs uppercase tracking-[0.2em]">
+                <Button variant="default" size="sm" className="px-2.5 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                   Sign up
                 </Button>
               </Link>
             </div>
           )}
-          <Link to="/cart" aria-label="Cart" className="relative">
-            <Button variant="ghost" className="flex items-center gap-1.5 px-2.5 text-xs uppercase tracking-[0.2em]">
+          <Link to="/cart" aria-label="Cart" className="relative shrink-0">
+            <Button variant="ghost" size="sm" className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]">
               <ShoppingBag className="size-4" />
-              <span>Cart</span>
+              <span className="hidden xs:inline sm:inline">Cart</span>
               {count > 0 && (
                 <span className="flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
                   {count}
