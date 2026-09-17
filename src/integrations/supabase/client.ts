@@ -27,8 +27,24 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
 
 
 function createSupabaseClient() {
-  const SUPABASE_URL = import.meta.env['VITE_SUPABASE_URL'] || process.env['SUPABASE_URL'];
-  const SUPABASE_PUBLISHABLE_KEY = import.meta.env['VITE_SUPABASE_PUBLISHABLE_KEY'] || process.env['SUPABASE_PUBLISHABLE_KEY'];
+  // Resolve env vars across all possible runtimes:
+  // - import.meta.env: Vite client bundle (baked in at build time)
+  // - process.env: Node.js / Nitro server runtime
+  // - globalThis: Nitro edge/serverless fallback
+  const env: Record<string, string | undefined> =
+    typeof process !== 'undefined' && process.env
+      ? process.env
+      : {};
+
+  const SUPABASE_URL =
+    (typeof import.meta !== 'undefined' ? (import.meta as any).env?.['VITE_SUPABASE_URL'] : undefined) ||
+    env['VITE_SUPABASE_URL'] ||
+    env['SUPABASE_URL'];
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    (typeof import.meta !== 'undefined' ? (import.meta as any).env?.['VITE_SUPABASE_PUBLISHABLE_KEY'] : undefined) ||
+    env['VITE_SUPABASE_PUBLISHABLE_KEY'] ||
+    env['SUPABASE_PUBLISHABLE_KEY'];
 
   if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
     const missing = [
