@@ -15,7 +15,7 @@ import { l as ProfileDialog, n as AvatarFallback, r as AvatarImage, t as Avatar 
 import { t as Route$11 } from "./auth-D25gnW6D.mjs";
 import { n as useCart, t as CartProvider } from "./useCart-DQ27iwaQ.mjs";
 import { t as Route$12 } from "./product._slug-BoalF7jG.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-6l4J_jJU.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-C0sFEtVx.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-Dz7atxcM.css";
@@ -602,8 +602,8 @@ var Route$10 = createRootRouteWithContext()({
 			},
 			{
 				rel: "icon",
-				href: "/favicon.ico",
-				type: "image/x-icon"
+				href: "/favicon.png",
+				type: "image/png"
 			}
 		]
 	}),
