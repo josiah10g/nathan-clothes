@@ -20197,10 +20197,10 @@ var init_client = __esmMin((() => {
 	init_headers();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DkExaWGN.js
-var _tanstack_start_manifest_v_DkExaWGN_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CCso2qbR.js
+var _tanstack_start_manifest_v_CCso2qbR_exports = /* @__PURE__ */ __exportAll({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
+var init__tanstack_start_manifest_v_CCso2qbR = __esmMin((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/__root.tsx",
@@ -20217,7 +20217,7 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 				"/product/$slug"
 			],
 			preloads: [
-				"/assets/index-DyNAH5Je.js",
+				"/assets/index-DUyyWAIB.js",
 				"/assets/jsx-runtime-Dk72oS4N.js",
 				"/assets/utils-BiJ5wl_M.js",
 				"/assets/useStore-BBUHbJZj.js",
@@ -20231,15 +20231,15 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-DyNAH5Je.js"
+				src: "/assets/index-DUyyWAIB.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-DeeIe9vu.js",
-				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/routes-sI0yKBQc.js",
+				"/assets/useQuery-C646DoWF.js",
 				"/assets/ProductCard-BUZ6Bz-b.js"
 			]
 		},
@@ -20257,10 +20257,10 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/account.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/account-CJAUKqPx.js",
-				"/assets/useQuery-BrFq-zlP.js",
-				"/assets/badge-CjLGIPdt.js",
-				"/assets/tabs-IBYZ3fLw.js",
+				"/assets/account-CUI6VgRk.js",
+				"/assets/useQuery-C646DoWF.js",
+				"/assets/badge-BvQdHE-L.js",
+				"/assets/tabs-DulO9eZ0.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20268,8 +20268,8 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-DMa1qCbt.js",
-				"/assets/tabs-IBYZ3fLw.js",
+				"/assets/auth-Bv8k6_Me.js",
+				"/assets/tabs-DulO9eZ0.js",
 				"/assets/types-DKSnJpxg.js"
 			]
 		},
@@ -20277,9 +20277,9 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/cart.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cart-BL_ZTHkX.js",
-				"/assets/plus-DgAOnBZd.js",
-				"/assets/trash-2-hk_P_1Ys.js",
+				"/assets/cart-AEJZSZnC.js",
+				"/assets/plus-Dxi-6X3b.js",
+				"/assets/trash-2-BYxZgfx5.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
@@ -20287,10 +20287,10 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/checkout.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/checkout-BZzCyYa8.js",
-				"/assets/useQuery-BrFq-zlP.js",
-				"/assets/message-circle-CFDX5GFK.js",
-				"/assets/upload-zn3SbwFx.js",
+				"/assets/checkout-CiDD6_9j.js",
+				"/assets/useQuery-C646DoWF.js",
+				"/assets/message-circle-SR0ycoFB.js",
+				"/assets/upload-Bzct0J3p.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/types-DKSnJpxg.js"
@@ -20300,7 +20300,7 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/contact.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/contact-ibXuW8va.js",
+				"/assets/contact-CX_gCUXC.js",
 				"/assets/textarea-CXleoTI0.js",
 				"/assets/types-DKSnJpxg.js"
 			]
@@ -20309,8 +20309,8 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/shop.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/shop-18NE1Vmv.js",
-				"/assets/useQuery-BrFq-zlP.js",
+				"/assets/shop-Drlbge7e.js",
+				"/assets/useQuery-C646DoWF.js",
 				"/assets/ProductCard-BUZ6Bz-b.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -20319,29 +20319,29 @@ var init__tanstack_start_manifest_v_DkExaWGN = __esmMin((() => {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-Csl6QwwF.js",
-				"/assets/useQuery-BrFq-zlP.js",
-				"/assets/badge-CjLGIPdt.js",
-				"/assets/trash-2-hk_P_1Ys.js",
-				"/assets/upload-zn3SbwFx.js",
+				"/assets/admin-BbvX1Mpf.js",
+				"/assets/useQuery-C646DoWF.js",
+				"/assets/badge-BvQdHE-L.js",
+				"/assets/trash-2-BYxZgfx5.js",
+				"/assets/upload-Bzct0J3p.js",
 				"/assets/textarea-CXleoTI0.js",
-				"/assets/tabs-IBYZ3fLw.js",
+				"/assets/tabs-DulO9eZ0.js",
 				"/assets/format-ds1XI_sJ.js"
 			]
 		},
 		"/_authenticated/admin-setup": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/_authenticated/admin-setup.tsx",
 			children: void 0,
-			preloads: ["/assets/admin-setup-n_zyfRxi.js", "/assets/useQuery-BrFq-zlP.js"]
+			preloads: ["/assets/admin-setup-vsloHO5E.js", "/assets/useQuery-C646DoWF.js"]
 		},
 		"/product/$slug": {
 			filePath: "C:/Users/USER/Documents/Nathan Clothes/nathan-clothes/src/routes/product.$slug.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/product._slug-CEEoMwUA.js",
-				"/assets/useQuery-BrFq-zlP.js",
-				"/assets/message-circle-CFDX5GFK.js",
-				"/assets/plus-DgAOnBZd.js",
+				"/assets/product._slug-BDnO1m3c.js",
+				"/assets/useQuery-C646DoWF.js",
+				"/assets/message-circle-SR0ycoFB.js",
+				"/assets/plus-Dxi-6X3b.js",
 				"/assets/format-ds1XI_sJ.js",
 				"/assets/skeleton-Ct2wXPsQ.js"
 			]
@@ -62085,8 +62085,8 @@ var init_dist$1 = __esmMin((() => {
 	Description2 = AlertDialogDescription$1;
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/admin-Cca5xk4F.js
-var admin_Cca5xk4F_exports = /* @__PURE__ */ __exportAll({ component: () => AdminPage });
+//#region node_modules/.nitro/vite/services/ssr/assets/admin-CVyb4cH5.js
+var admin_CVyb4cH5_exports = /* @__PURE__ */ __exportAll({ component: () => AdminPage });
 function AdminPage() {
 	const { user, isAdmin, loading, signOut } = useAuth();
 	const navigate = useNavigate();
@@ -63110,30 +63110,30 @@ function AdminPage() {
 														children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(Upload, { className: "size-4" }), uploadingProductImage ? "Uploading…" : "Choose File"]
 													}),
 													draftProduct.image_url && /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-														className: "relative inline-flex items-center gap-3 border border-border bg-background/80 p-2 pr-4 rounded",
+														className: "relative flex items-center gap-3 border border-border bg-background p-2 pr-3 rounded max-w-full sm:max-w-md",
 														children: [
 															/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("img", {
 																src: draftProduct.image_url,
 																alt: "Preview",
-																className: "size-14 object-cover border border-border rounded"
+																className: "size-12 object-cover border border-border rounded shrink-0 bg-surface"
 															}),
 															/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("div", {
-																className: "min-w-0 max-w-xs",
+																className: "min-w-0 flex-1",
 																children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-																	className: "text-xs font-medium text-foreground truncate",
-																	children: "Image selected"
+																	className: "text-xs font-semibold text-foreground truncate",
+																	children: "Image uploaded"
 																}), /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
-																	className: "text-[11px] font-mono text-muted-foreground truncate",
-																	children: draftProduct.image_url
+																	className: "text-[10px] text-muted-foreground truncate font-mono",
+																	children: draftProduct.image_url.split("/").pop() || "product-image.jpg"
 																})]
 															}),
 															/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("button", {
 																type: "button",
 																onClick: handleRemoveProductImage,
-																className: "flex size-7 items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors",
-																title: "Delete selected image",
-																"aria-label": "Delete selected image",
-																children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(X, { className: "size-4" })
+																className: "flex size-6 shrink-0 items-center justify-center rounded-full bg-destructive/20 text-destructive hover:bg-destructive hover:text-white transition-colors",
+																title: "Remove selected image",
+																"aria-label": "Remove selected image",
+																children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(X, { className: "size-3.5" })
 															})
 														]
 													})
@@ -63950,7 +63950,7 @@ function AdminPage() {
 	});
 }
 var import_react$4, import_react$5, import_jsx_runtime$3, AlertDialog, AlertDialogPortal, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription, AlertDialogAction, AlertDialogCancel;
-var init_admin_Cca5xk4F = __esmMin((() => {
+var init_admin_CVyb4cH5 = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_utils_C_uf36nf();
@@ -64101,40 +64101,49 @@ var init_admin_setup_B8kNjt7k = __esmMin((() => {
 	init_dist$21();
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-BqU2HOfO.js
-var router_BqU2HOfO_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CyLX7_1j.js
+var router_CyLX7_1j_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 function Header() {
 	const { count } = useCart();
 	const { user, isAdmin, signOut } = useAuth();
 	const router = useRouter();
 	const [open, setOpen] = (0, import_react$2.useState)(false);
+	const [avatarMenuOpen, setAvatarMenuOpen] = (0, import_react$2.useState)(false);
 	const [profileOpen, setProfileOpen] = (0, import_react$2.useState)(false);
 	const handleSignOut = async () => {
 		await signOut();
 		setOpen(false);
+		setAvatarMenuOpen(false);
 		router.navigate({
 			to: "/",
 			replace: true
 		});
 	};
+	const toggleHamburger = () => {
+		if (!open) setAvatarMenuOpen(false);
+		setOpen((v) => !v);
+	};
+	const handleAvatarOpenChange = (nextOpen) => {
+		if (nextOpen) setOpen(false);
+		setAvatarMenuOpen(nextOpen);
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("header", {
 		className: "sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-				className: "mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6",
+				className: "mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-						className: "flex items-center gap-1 sm:gap-2 min-w-0",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
-							className: "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface md:hidden",
-							onClick: () => setOpen((v) => !v),
-							"aria-label": open ? "Close menu" : "Open menu",
-							children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-							to: user ? isAdmin ? "/admin" : "/account" : "/",
-							className: "text-display text-sm tracking-[0.18em] sm:text-xl sm:tracking-brand truncate",
+					/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+						className: "flex items-center min-w-0",
+						children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+							to: "/",
+							onClick: () => {
+								setOpen(false);
+								setAvatarMenuOpen(false);
+							},
+							className: "text-display text-base tracking-[0.15em] sm:text-xl sm:tracking-brand truncate hover:opacity-90 transition-opacity",
 							children: "NATHAN'S CLOTHES"
-						})]
+						})
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("nav", {
 						className: "hidden items-center gap-8 md:flex",
@@ -64145,10 +64154,11 @@ function Header() {
 						}, item.to))
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-						className: "flex items-center gap-1 sm:gap-2",
-						children: [user ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
-							className: "flex items-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenu, { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuTrigger, {
+						className: "flex items-center gap-2 sm:gap-3",
+						children: [user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenu, {
+							open: avatarMenuOpen,
+							onOpenChange: handleAvatarOpenChange,
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuTrigger, {
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
 									type: "button",
@@ -64168,7 +64178,7 @@ function Header() {
 								})
 							}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(DropdownMenuContent, {
 								align: "end",
-								className: "w-56 mt-1 border-border bg-background p-1.5 shadow-xl",
+								className: "w-56 mt-2 border-border bg-background p-1.5 shadow-xl",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 										className: "px-2 py-1.5 border-b border-border/60 mb-1",
@@ -64184,12 +64194,16 @@ function Header() {
 										asChild: true,
 										children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
 											to: isAdmin ? "/admin" : "/account",
+											onClick: () => setAvatarMenuOpen(false),
 											className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
 											children: isAdmin ? "Admin Dashboard" : "Customer Dashboard"
 										})
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(DropdownMenuItem, {
-										onClick: () => setProfileOpen(true),
+										onClick: () => {
+											setAvatarMenuOpen(false);
+											setProfileOpen(true);
+										},
 										className: "cursor-pointer text-xs uppercase tracking-[0.15em] font-medium",
 										children: "Manage Profile"
 									}),
@@ -64200,19 +64214,61 @@ function Header() {
 										children: "Sign out"
 									})
 								]
-							})] })
-						}) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-							className: "flex items-center gap-1 sm:gap-2",
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
+							className: "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-foreground hover:bg-surface",
+							onClick: toggleHamburger,
+							"aria-label": open ? "Close menu" : "Open menu",
+							children: open ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Menu$1, { className: "size-5" })
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+				className: cn$1("border-t border-border bg-background/95 backdrop-blur", open ? "block" : "hidden"),
+				children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("nav", {
+					className: "mx-auto flex max-w-7xl flex-col px-4 py-3 divide-y divide-border/40",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+							className: "flex flex-col py-1",
+							children: NAV.map((item) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
+								to: item.to,
+								onClick: () => setOpen(false),
+								className: "py-2.5 text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors font-medium",
+								children: item.label
+							}, item.to))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+							className: "py-2",
+							children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Link, {
+								to: "/cart",
+								onClick: () => setOpen(false),
+								className: "flex items-center justify-between py-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-foreground font-medium hover:text-primary transition-colors",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+									className: "flex items-center gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ShoppingBag, { className: "size-4" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "My Cart" })]
+								}), count > 0 ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+									className: "flex size-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground",
+									children: count
+								}) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+									className: "text-[11px] text-muted-foreground lowercase tracking-normal",
+									children: "0 items"
+								})]
+							})
+						}),
+						!user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+							className: "flex flex-col gap-2 pt-3 pb-1",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
 								to: "/auth",
 								search: {
 									mode: "signin",
 									redirect: void 0
 								},
+								onClick: () => setOpen(false),
+								className: "w-full",
 								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
-									variant: "ghost",
-									size: "sm",
-									className: "px-2 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
+									variant: "outline",
+									className: "w-full justify-center text-xs uppercase tracking-[0.2em] h-10",
 									children: "Log in"
 								})
 							}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
@@ -64221,100 +64277,13 @@ function Header() {
 									mode: "signup",
 									redirect: void 0
 								},
+								onClick: () => setOpen(false),
+								className: "w-full",
 								children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Button, {
 									variant: "default",
-									size: "sm",
-									className: "px-2.5 sm:px-3 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
+									className: "w-full justify-center text-xs uppercase tracking-[0.2em] h-10",
 									children: "Sign up"
 								})
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-							to: "/cart",
-							"aria-label": "Cart",
-							className: "relative shrink-0",
-							children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Button, {
-								variant: "ghost",
-								size: "sm",
-								className: "flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em]",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ShoppingBag, { className: "size-4" }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
-										className: "hidden xs:inline sm:inline",
-										children: "Cart"
-									}),
-									count > 0 && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
-										className: "flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground",
-										children: count
-									})
-								]
-							})
-						})]
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
-				className: cn$1("border-t border-border md:hidden", open ? "block" : "hidden"),
-				children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("nav", {
-					className: "mx-auto flex max-w-7xl flex-col px-4 py-2",
-					children: [
-						NAV.map((item) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-							to: item.to,
-							onClick: () => setOpen(false),
-							className: "py-3 text-sm uppercase tracking-[0.2em] text-muted-foreground",
-							children: item.label
-						}, item.to)),
-						user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(import_jsx_runtime$1.Fragment, { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Link, {
-								to: isAdmin ? "/admin" : "/account",
-								onClick: () => setOpen(false),
-								className: "py-3 text-left text-sm uppercase tracking-[0.2em] text-foreground font-semibold flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(Avatar, {
-									className: "size-6 border border-border",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarImage, {
-										src: user.user_metadata?.["avatar_url"] || "",
-										alt: "Profile",
-										className: "object-cover"
-									}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AvatarFallback, {
-										className: "text-[9px] font-bold",
-										children: (user.user_metadata?.["full_name"] || user.email || "U").slice(0, 2).toUpperCase()
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: isAdmin ? "Admin Dashboard" : "Customer Dashboard" })]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("button", {
-								type: "button",
-								onClick: () => {
-									setOpen(false);
-									setProfileOpen(true);
-								},
-								className: "py-3 text-left text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground font-medium flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(User, { className: "size-4" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "Manage Profile" })]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("button", {
-								onClick: handleSignOut,
-								className: "py-3 text-left text-sm uppercase tracking-[0.2em] text-destructive",
-								children: "Sign out"
-							})
-						] }),
-						!user && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
-							className: "flex flex-col gap-1 border-t border-border pt-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-								to: "/auth",
-								search: {
-									mode: "signin",
-									redirect: void 0
-								},
-								onClick: () => setOpen(false),
-								className: "py-2.5 text-sm uppercase tracking-[0.2em] text-muted-foreground",
-								children: "Log in"
-							}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Link, {
-								to: "/auth",
-								search: {
-									mode: "signup",
-									redirect: void 0
-								},
-								onClick: () => setOpen(false),
-								className: "py-2.5 text-sm uppercase tracking-[0.2em] text-foreground font-medium",
-								children: "Sign up"
 							})]
 						})
 					]
@@ -64581,7 +64550,7 @@ function RootComponent() {
 	});
 }
 var import_react$1, import_react$2, import_jsx_runtime$1, styles_default, DropdownMenu, DropdownMenuTrigger, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, NAV, Toaster$1, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AboutRoute, AccountRoute, AuthRoute, CartRoute, CheckoutRoute, ContactRoute, ShopRoute, AuthenticatedAdminRoute, AuthenticatedAdminSetupRoute, ProductSlugRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_BqU2HOfO = __esmMin((() => {
+var init_router_CyLX7_1j = __esmMin((() => {
 	init_client_BpGEELM_();
 	init_useAuth_DAQ2dthM();
 	init_useCart_B6US_OkA();
@@ -64598,7 +64567,7 @@ var init_router_BqU2HOfO = __esmMin((() => {
 	init_lucide_react();
 	init_dist$2();
 	init_dist$21();
-	styles_default = "/assets/styles-CezQ073_.css";
+	styles_default = "/assets/styles-BiINf8cT.css";
 	DropdownMenu = Root2$1;
 	DropdownMenuTrigger = Trigger;
 	DropdownMenuSubTrigger = import_react$1.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)(SubTrigger2, {
@@ -64905,7 +64874,7 @@ var init_router_BqU2HOfO = __esmMin((() => {
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$2, "component")
 	});
-	$$splitComponentImporter$1 = () => Promise.resolve().then(() => (init_admin_Cca5xk4F(), admin_Cca5xk4F_exports));
+	$$splitComponentImporter$1 = () => Promise.resolve().then(() => (init_admin_CVyb4cH5(), admin_CVyb4cH5_exports));
 	Route$1 = createFileRoute("/_authenticated/admin")({
 		head: () => ({ meta: [
 			{ title: "Admin Management — Nathan's Clothes" },
@@ -65094,8 +65063,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/server-D23z72ot.js
-var server_D23z72ot_exports = /* @__PURE__ */ __exportAll({
+//#region node_modules/.nitro/vite/services/ssr/assets/server-uUvrY-2z.js
+var server_uUvrY_2z_exports = /* @__PURE__ */ __exportAll({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -65161,7 +65130,7 @@ function getResponse() {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_DkExaWGN(), _tanstack_start_manifest_v_DkExaWGN_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CCso2qbR(), _tanstack_start_manifest_v_CCso2qbR_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -65929,7 +65898,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_BqU2HOfO(), router_BqU2HOfO_exports)),
+		Promise.resolve().then(() => (init_router_CyLX7_1j(), router_CyLX7_1j_exports)),
 		Promise.resolve().then(() => (init_start_6a91S_eZ(), start_6a91S_eZ_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -66305,7 +66274,7 @@ function createServerEntry(entry) {
 	} };
 }
 var import_jsx_runtime, defaultStreamHandler, GLOBAL_EVENT_STORAGE_KEY, globalObj$1, eventStorage, HEADERS, manifest, TSS_FORMDATA_CONTEXT, TSS_SERVER_FUNCTION, X_TSS_SERIALIZED, X_TSS_RAW_RESPONSE, TSS_CONTENT_TYPE_FRAMED, FrameType, TSS_CONTENT_TYPE_FRAMED_VERSIONED, GLOBAL_STORAGE_KEY, globalObj, startStorage, getStartOptions, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_D23z72ot = __esmMin((() => {
+var init_server_uUvrY_2z = __esmMin((() => {
 	init_createCsrfMiddleware_B2To0gPJ();
 	require_react();
 	init_esm();
@@ -66668,7 +66637,7 @@ function renderErrorPage(error) {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_D23z72ot(), server_D23z72ot_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_uUvrY_2z(), server_uUvrY_2z_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

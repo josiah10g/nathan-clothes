@@ -1174,26 +1174,26 @@ function AdminPage() {
                   </Button>
 
                   {draftProduct.image_url && (
-                    <div className="relative inline-flex items-center gap-3 border border-border bg-background/80 p-2 pr-4 rounded">
+                    <div className="relative flex items-center gap-3 border border-border bg-background p-2 pr-3 rounded max-w-full sm:max-w-md">
                       <img
                         src={draftProduct.image_url}
                         alt="Preview"
-                        className="size-14 object-cover border border-border rounded"
+                        className="size-12 object-cover border border-border rounded shrink-0 bg-surface"
                       />
-                      <div className="min-w-0 max-w-xs">
-                        <p className="text-xs font-medium text-foreground truncate">Image selected</p>
-                        <p className="text-[11px] font-mono text-muted-foreground truncate">
-                          {draftProduct.image_url}
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-semibold text-foreground truncate">Image uploaded</p>
+                        <p className="text-[10px] text-muted-foreground truncate font-mono">
+                          {draftProduct.image_url.split("/").pop() || "product-image.jpg"}
                         </p>
                       </div>
                       <button
                         type="button"
                         onClick={handleRemoveProductImage}
-                        className="flex size-7 items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors"
-                        title="Delete selected image"
-                        aria-label="Delete selected image"
+                        className="flex size-6 shrink-0 items-center justify-center rounded-full bg-destructive/20 text-destructive hover:bg-destructive hover:text-white transition-colors"
+                        title="Remove selected image"
+                        aria-label="Remove selected image"
                       >
-                        <X className="size-4" />
+                        <X className="size-3.5" />
                       </button>
                     </div>
                   )}
