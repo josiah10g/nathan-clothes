@@ -13,6 +13,11 @@ export default defineConfig({
     }),
     nitro({
       preset: "vercel",
+      moduleSideEffects: ["tslib"],
+      inlineDynamicImports: true,
+      rollupConfig: {
+        external: [],
+      },
     }),
     viteReact(),
     tailwindcss(),
