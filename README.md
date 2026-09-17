@@ -12,16 +12,4 @@ Full-stack, responsive e-commerce web application for **Nathan's Clothes** built
   - Update store settings (bank accounts, instructions, WhatsApp number, contact details).
   - Appoint new admins by email.
 
-## Development
 
-```sh
-npm install
-npm run dev
-```
-
-## Deployment to Vercel
-
-```sh
-npm run build
-```
-Deploy via Vercel CLI or connect the repository to Vercel (preset mapped via `vercel.json` and Nitro).
