@@ -2,7 +2,7 @@ import { N as require_jsx_runtime } from "../_libs/@radix-ui/react-alert-dialog+
 import { t as Button } from "./button-cHXlBU3y.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as formatPrice } from "./format-JcwKzGtU.mjs";
-import { a as Trash2, s as Plus, u as Minus } from "../_libs/lucide-react.mjs";
+import { a as Trash2, d as Minus, s as Plus } from "../_libs/lucide-react.mjs";
 import { n as useCart } from "./useCart-DQ27iwaQ.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/cart-DTdCkLJ8.js
 var import_jsx_runtime = require_jsx_runtime();

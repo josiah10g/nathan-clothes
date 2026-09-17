@@ -26,15 +26,14 @@ export const Route = createFileRoute("/checkout")({
 });
 
 const schema = z.object({
-  customer_name: z.string().trim().min(2, "Full name is required").max(100),
+  customer_name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
   phone: z
     .string()
     .trim()
-    .min(7, "Phone number must be at least 7 digits")
-    .max(15, "Phone number too long")
-    .regex(/^[0-9]+$/, "Phone number must contain numbers only"),
-  address: z.string().trim().min(5, "Delivery address is required").max(300),
+    .min(5, "Please enter a valid contact phone number")
+    .max(25, "Phone number is too long"),
+  address: z.string().trim().min(3, "Delivery address is required").max(300),
   notes: z.string().trim().max(500).optional(),
 });
 
@@ -54,13 +53,6 @@ function CheckoutPage() {
 
   // Unique order reference for this checkout session
   const [orderReference, setOrderReference] = useState(() => generateReference());
-  // If cart is empty after hydration, inform the user to visit cart and redirect
-  useEffect(() => {
-    if (hydrated && items.length === 0 && !completedOrder) {
-      toast.info("Your bag is empty. Please add items to your cart first.");
-      navigate({ to: "/cart" });
-    }
-  }, [hydrated, items.length, completedOrder, navigate]);
 
   // Fetch store settings for bank transfer instructions
   const { data: storeSettings, isLoading: loadingSettings } = useQuery({
@@ -178,6 +170,7 @@ function CheckoutPage() {
         const fileName = `${sanitizedRef}_${Date.now()}.${fileExt}`;
         const filePath = `receipts/${fileName}`;
 
+        // Upload to payment-receipts bucket (public bucket)
         const { data: uploadData, error: uploadError } = await supabase.storage
           .from("payment-receipts")
           .upload(filePath, receiptFile, {
@@ -186,9 +179,22 @@ function CheckoutPage() {
           });
 
         if (uploadError) {
-          console.warn("Storage warning:", uploadError);
+          console.warn("Storage upload error on payment-receipts:", uploadError);
+          // Fallback: store as base64 data URL so the order still saves with proof
+          if (receiptFile.type.startsWith("image/") && receiptFile.size <= 4 * 1024 * 1024) {
+            receiptPath = await new Promise<string>((resolve) => {
+              const reader = new FileReader();
+              reader.onloadend = () => resolve(reader.result as string);
+              reader.readAsDataURL(receiptFile);
+            });
+          } else {
+            // For large files or PDFs, just record that a receipt was attempted
+            receiptPath = filePath;
+          }
+        } else {
+          // Store the full path so admin can retrieve via public URL
+          receiptPath = uploadData?.path ?? filePath;
         }
-        receiptPath = uploadData?.path || filePath;
       }
 
       // 2. Insert Order into Supabase
@@ -223,6 +229,7 @@ function CheckoutPage() {
         receipt_uploaded_at: new Date().toISOString(),
       };
 
+      let confirmedRef = orderReference;
       const { data: createdOrder, error: orderError } = await supabase
         .from("orders")
         .insert(orderPayload)
@@ -230,16 +237,31 @@ function CheckoutPage() {
         .maybeSingle();
 
       if (orderError) {
-        console.error("Order creation error:", orderError);
-        toast.error(`Order failed to submit: ${orderError.message}`);
-        setSubmittingOrder(false);
-        return;
+        // If the insert failed only because select was restricted by RLS, attempt insert without select
+        if (orderError.code === "42501" || orderError.message?.toLowerCase().includes("permission")) {
+          const { error: insertOnlyError } = await supabase
+            .from("orders")
+            .insert(orderPayload);
+          if (insertOnlyError) {
+            console.error("Order creation fallback error:", insertOnlyError);
+            toast.error(`Order failed to submit: ${insertOnlyError.message}`);
+            setSubmittingOrder(false);
+            return;
+          }
+        } else {
+          console.error("Order creation error:", orderError);
+          toast.error(`Order failed to submit: ${orderError.message}`);
+          setSubmittingOrder(false);
+          return;
+        }
+      } else if (createdOrder?.reference) {
+        confirmedRef = createdOrder.reference;
       }
 
       // 3. Clear cart and set confirmation state
       clear();
       setCompletedOrder({
-        reference: createdOrder?.reference || orderReference,
+        reference: confirmedRef,
         total: totalNumeric,
         phone: parsed.data.phone,
         customer_name: parsed.data.customer_name,

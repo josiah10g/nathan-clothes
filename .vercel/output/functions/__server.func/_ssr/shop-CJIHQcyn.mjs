@@ -3,10 +3,10 @@ import { t as cn } from "./utils-C_uf36nf.mjs";
 import { u as require_react } from "../_libs/@floating-ui/react-dom+[...].mjs";
 import { N as require_jsx_runtime } from "../_libs/@radix-ui/react-alert-dialog+[...].mjs";
 import { t as supabase } from "./client-tCXTp6li.mjs";
-import { n as useQuery } from "../_libs/tanstack__react-query.mjs";
+import { i as useQueryClient, n as useQuery } from "../_libs/tanstack__react-query.mjs";
 import { t as Skeleton } from "./skeleton-D9W9wFsj.mjs";
 import { t as ProductCard } from "./ProductCard-RP9ReRpc.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/shop-XjQtUGkL.js
+//#region node_modules/.nitro/vite/services/ssr/assets/shop-CJIHQcyn.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILTERS = [
@@ -29,6 +29,19 @@ var FILTERS = [
 ];
 function Shop() {
 	const [filter, setFilter] = (0, import_react.useState)("all");
+	const qc = useQueryClient();
+	(0, import_react.useEffect)(() => {
+		const channel = supabase.channel("shop-realtime-products").on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "products"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["products"] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [qc]);
 	const { data, isLoading } = useQuery({
 		queryKey: ["products", "all"],
 		queryFn: async () => {

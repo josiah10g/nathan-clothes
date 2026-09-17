@@ -1,6 +1,6 @@
 import { f as lazyRouteComponent, p as createFileRoute } from "../_libs/@tanstack/react-router+[...].mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-hZF04tAm.js
-var $$splitComponentImporter = () => import("./product._slug-CFaX_sVP.mjs");
+//#region node_modules/.nitro/vite/services/ssr/assets/product._slug-BoalF7jG.js
+var $$splitComponentImporter = () => import("./product._slug-pCVqLlpb.mjs");
 var Route = createFileRoute("/product/$slug")({
 	head: ({ params }) => {
 		const title = `${params.slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} — Nathan's Clothing`;

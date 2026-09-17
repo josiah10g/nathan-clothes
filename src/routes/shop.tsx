@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard, type ProductCardData } from "@/components/site/ProductCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -36,6 +36,25 @@ type Filter = (typeof FILTERS)[number]["key"];
 
 function Shop() {
   const [filter, setFilter] = useState<Filter>("all");
+  const qc = useQueryClient();
+
+  // Real-time products catalog synchronization
+  useEffect(() => {
+    const channel = supabase
+      .channel("shop-realtime-products")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "products" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["products"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [qc]);
 
   const { data, isLoading } = useQuery({
     queryKey: ["products", "all"],

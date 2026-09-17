@@ -9,16 +9,16 @@ import { n as useAuth, t as AuthProvider } from "./useAuth-C_0aa20U.mjs";
 import { a as Label2, c as Root2, d as SubTrigger2, f as Trigger, i as ItemIndicator2, l as Separator2, n as Content2, o as Portal2, r as Item2, s as RadioItem2, t as CheckboxItem2, u as SubContent2 } from "../_libs/@radix-ui/react-dropdown-menu+[...].mjs";
 import { r as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-import { C as Check, S as ChevronRight, f as Menu, n as User, o as ShoppingBag, t as X, v as Circle } from "../_libs/lucide-react.mjs";
+import { E as Check, T as ChevronRight, n as User, o as ShoppingBag, p as Menu, t as X, x as Circle } from "../_libs/lucide-react.mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { l as ProfileDialog, n as AvatarFallback, r as AvatarImage, t as Avatar } from "./ProfileDialog-B0hVqzJb.mjs";
 import { t as Route$11 } from "./auth-D25gnW6D.mjs";
 import { n as useCart, t as CartProvider } from "./useCart-DQ27iwaQ.mjs";
-import { t as Route$12 } from "./product._slug-hZF04tAm.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-dd_wbEFm.js
+import { t as Route$12 } from "./product._slug-BoalF7jG.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/router-6l4J_jJU.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-BLcHFerh.css";
+var styles_default = "/assets/styles-Dz7atxcM.css";
 var DropdownMenu = Root2;
 var DropdownMenuTrigger = Trigger;
 var DropdownMenuSubTrigger = import_react.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SubTrigger2, {
@@ -389,23 +389,23 @@ function WhatsAppButton() {
 			target: "_blank",
 			rel: "noopener noreferrer",
 			"aria-label": "Chat with us on WhatsApp",
-			className: "group relative flex items-center gap-2.5 rounded-sm border border-emerald-500/40 bg-zinc-950/95 px-4 py-2.5 text-white shadow-2xl backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-zinc-900 active:scale-[0.97] focus:outline-none focus:ring-1 focus:ring-emerald-400",
+			className: "group relative flex items-center gap-2 rounded-full bg-black text-white px-4 py-2.5 shadow-2xl border border-white/10 transition-all duration-200 hover:scale-105 active:scale-95",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "flex size-5 items-center justify-center text-emerald-400 transition-transform group-hover:scale-105",
+				className: "flex size-4 items-center justify-center text-white",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
 					viewBox: "0 0 24 24",
-					width: "20",
-					height: "20",
+					width: "18",
+					height: "18",
 					stroke: "currentColor",
 					strokeWidth: "2",
 					fill: "none",
 					strokeLinecap: "round",
 					strokeLinejoin: "round",
-					className: "size-4.5 fill-emerald-500/20 text-emerald-400",
+					className: "size-4 text-white",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" })]
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "text-xs font-medium uppercase tracking-[0.2em] text-zinc-200 group-hover:text-white",
+				className: "text-xs font-medium text-white tracking-normal",
 				children: "Chat on WhatsApp"
 			})]
 		})
@@ -470,19 +470,19 @@ function LoadingScreen() {
 }
 var Toaster$1 = ({ ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster, {
-		theme: "dark",
-		richColors: true,
-		closeButton: true,
+		theme: "light",
+		richColors: false,
+		closeButton: false,
 		className: "toaster group",
 		toastOptions: { classNames: {
-			toast: "group toast group-[.toaster]:bg-zinc-950 group-[.toaster]:text-zinc-100 group-[.toaster]:border-zinc-800 group-[.toaster]:shadow-2xl group-[.toaster]:backdrop-blur-md group-[.toaster]:font-mono group-[.toaster]:text-xs",
-			description: "group-[.toast]:text-zinc-400 group-[.toast]:font-sans",
-			actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
-			cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
-			error: "!bg-red-950/90 !text-red-200 !border-red-800/60",
-			success: "!bg-emerald-950/90 !text-emerald-200 !border-emerald-800/60",
-			warning: "!bg-amber-950/90 !text-amber-200 !border-amber-800/60",
-			info: "!bg-zinc-900 !text-zinc-200 !border-zinc-700"
+			toast: "group toast group-[.toaster]:bg-white group-[.toaster]:text-zinc-900 group-[.toaster]:border group-[.toaster]:border-zinc-200 group-[.toaster]:shadow-lg group-[.toaster]:rounded-xl group-[.toaster]:font-sans group-[.toaster]:text-[13px] group-[.toaster]:font-medium group-[.toaster]:px-4 group-[.toaster]:py-3.5",
+			description: "group-[.toast]:text-zinc-500 group-[.toast]:font-sans group-[.toast]:text-xs",
+			actionButton: "group-[.toast]:bg-zinc-900 group-[.toast]:text-white",
+			cancelButton: "group-[.toast]:bg-zinc-100 group-[.toast]:text-zinc-700",
+			success: "!bg-white !text-zinc-900 !border-zinc-200",
+			error: "!bg-white !text-zinc-900 !border-red-200",
+			warning: "!bg-white !text-zinc-900 !border-amber-200",
+			info: "!bg-white !text-zinc-900 !border-zinc-200"
 		} },
 		...props
 	});
@@ -691,7 +691,7 @@ var Route$7 = createFileRoute("/about")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-var $$splitComponentImporter$6 = () => import("./account-ChdXFvUL.mjs");
+var $$splitComponentImporter$6 = () => import("./account-CeNC56TY.mjs");
 var Route$6 = createFileRoute("/account")({
 	head: () => ({ meta: [
 		{ title: "Customer Dashboard — Nathan's Clothes" },
@@ -729,7 +729,7 @@ var Route$5 = createFileRoute("/cart")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./checkout-DbCCwlXU.mjs");
+var $$splitComponentImporter$4 = () => import("./checkout-DBIUZ-S7.mjs");
 var Route$4 = createFileRoute("/checkout")({
 	head: () => ({ meta: [
 		{ title: "Checkout & Bank Transfer — Nathan's Clothes" },
@@ -767,7 +767,7 @@ var Route$3 = createFileRoute("/contact")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-var $$splitComponentImporter$2 = () => import("./shop-XjQtUGkL.mjs");
+var $$splitComponentImporter$2 = () => import("./shop-CJIHQcyn.mjs");
 var Route$2 = createFileRoute("/shop")({
 	head: () => ({ meta: [
 		{ title: "Shop All — Nathan's Clothing" },
@@ -786,7 +786,7 @@ var Route$2 = createFileRoute("/shop")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./admin-Iq8h5C0n.mjs");
+var $$splitComponentImporter$1 = () => import("./admin-B5rSDkw5.mjs");
 var Route$1 = createFileRoute("/_authenticated/admin")({
 	head: () => ({ meta: [
 		{ title: "Admin Management — Nathan's Clothes" },

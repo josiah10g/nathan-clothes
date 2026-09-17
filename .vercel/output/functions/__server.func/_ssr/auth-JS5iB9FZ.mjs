@@ -6,7 +6,7 @@ import { g as useNavigate } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as supabase } from "./client-tCXTp6li.mjs";
 import { n as useAuth } from "./useAuth-C_0aa20U.mjs";
 import { i as TabsTrigger, n as TabsContent, r as TabsList, t as Tabs } from "./tabs-CCJRliUM.mjs";
-import { m as EyeOff, p as Eye } from "../_libs/lucide-react.mjs";
+import { g as EyeOff, h as Eye } from "../_libs/lucide-react.mjs";
 import { n as Label, t as Input } from "./label-B7oQAA24.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { t as Route } from "./auth-D25gnW6D.mjs";

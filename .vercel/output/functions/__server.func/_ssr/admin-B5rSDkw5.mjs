@@ -3,19 +3,19 @@ import { t as cn } from "./utils-C_uf36nf.mjs";
 import { u as require_react } from "../_libs/@floating-ui/react-dom+[...].mjs";
 import { N as require_jsx_runtime, a as Overlay2, c as Title2, i as Description2, n as Cancel, o as Portal2, r as Content2, s as Root2, t as Action } from "../_libs/@radix-ui/react-alert-dialog+[...].mjs";
 import { n as buttonVariants, t as Button } from "./button-cHXlBU3y.mjs";
-import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { g as useNavigate, h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as supabase } from "./client-tCXTp6li.mjs";
 import { n as useAuth } from "./useAuth-C_0aa20U.mjs";
 import { t as Badge } from "./badge-D1Dupn2y.mjs";
 import { i as TabsTrigger, n as TabsContent, r as TabsList, t as Tabs } from "./tabs-CCJRliUM.mjs";
 import { n as formatPrice, t as formatDate } from "./format-JcwKzGtU.mjs";
 import { i as useQueryClient, n as useQuery, t as useMutation } from "../_libs/tanstack__react-query.mjs";
-import { a as Trash2, b as CircleCheckBig, c as PenLine, i as Upload, p as Eye, r as UserCheck, t as X, y as CircleX } from "../_libs/lucide-react.mjs";
+import { C as CircleCheckBig, S as CircleX, _ as ExternalLink, a as Trash2, h as Eye, i as Upload, l as PenLine, r as UserCheck, t as X } from "../_libs/lucide-react.mjs";
 import { n as Label, t as Input } from "./label-B7oQAA24.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { a as DialogContent, c as DialogTitle, i as Dialog, l as ProfileDialog, o as DialogDescription, s as DialogHeader } from "./ProfileDialog-B0hVqzJb.mjs";
 import { t as Textarea } from "./textarea-kko37XEX.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/admin-Iq8h5C0n.js
+//#region node_modules/.nitro/vite/services/ssr/assets/admin-B5rSDkw5.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var AlertDialog = Root2;
@@ -67,8 +67,76 @@ var AlertDialogCancel = import_react.forwardRef(({ className, ...props }, ref) =
 }));
 AlertDialogCancel.displayName = Cancel.displayName;
 function AdminPage() {
-	const { user, isAdmin, loading } = useAuth();
+	const { user, isAdmin, loading, signOut } = useAuth();
+	const navigate = useNavigate();
 	const qc = useQueryClient();
+	const handleInactivityLogout = (0, import_react.useCallback)(async () => {
+		try {
+			await signOut();
+			toast.info("Session timed out after 5 minutes of inactivity. Please log in again.");
+			navigate({ to: "/auth" });
+		} catch (e) {
+			console.error("Auto-logout error:", e);
+		}
+	}, [signOut, navigate]);
+	(0, import_react.useEffect)(() => {
+		if (!isAdmin) return;
+		const INACTIVITY_LIMIT_MS = 3e5;
+		let timeoutId;
+		const resetTimer = () => {
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => {
+				handleInactivityLogout();
+			}, INACTIVITY_LIMIT_MS);
+		};
+		const activityEvents = [
+			"mousemove",
+			"mousedown",
+			"keydown",
+			"touchstart",
+			"scroll",
+			"click"
+		];
+		activityEvents.forEach((event) => {
+			window.addEventListener(event, resetTimer, { passive: true });
+		});
+		resetTimer();
+		return () => {
+			clearTimeout(timeoutId);
+			activityEvents.forEach((event) => {
+				window.removeEventListener(event, resetTimer);
+			});
+		};
+	}, [isAdmin, handleInactivityLogout]);
+	(0, import_react.useEffect)(() => {
+		if (!isAdmin) return;
+		const channel = supabase.channel("admin-realtime-sync").on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "orders"
+		}, (payload) => {
+			console.log("[Realtime] Order update received:", payload);
+			qc.invalidateQueries({ queryKey: ["admin", "orders"] });
+			if (payload.eventType === "INSERT") toast.info(`New order received! Reference: ${payload.new?.reference || "New"}`);
+		}).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "products"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["admin", "products"] });
+			qc.invalidateQueries({ queryKey: ["products"] });
+		}).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "store_settings"
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["admin", "settings"] });
+			qc.invalidateQueries({ queryKey: ["store-settings"] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [isAdmin, qc]);
 	const ordersQuery = useQuery({
 		queryKey: ["admin", "orders"],
 		enabled: isAdmin,
@@ -116,6 +184,8 @@ function AdminPage() {
 	const [editProductTarget, setEditProductTarget] = (0, import_react.useState)(null);
 	const [editOrderTarget, setEditOrderTarget] = (0, import_react.useState)(null);
 	const [profileDialogOpen, setProfileDialogOpen] = (0, import_react.useState)(false);
+	const [receiptPreviewModal, setReceiptPreviewModal] = (0, import_react.useState)(null);
+	const [loadingReceipt, setLoadingReceipt] = (0, import_react.useState)(false);
 	const [newAdminEmail, setNewAdminEmail] = (0, import_react.useState)("");
 	const [appointingAdmin, setAppointingAdmin] = (0, import_react.useState)(false);
 	const [settingsDraft, setSettingsDraft] = (0, import_react.useState)(null);
@@ -176,26 +246,60 @@ function AdminPage() {
 			toast.error("Failed to delete order: " + err.message);
 		}
 	});
-	const viewReceiptProof = async (receiptPath) => {
+	const viewReceiptProof = async (order) => {
+		const receiptPath = order.receipt_path;
 		if (!receiptPath) {
 			toast.error("No receipt uploaded for this order.");
 			return;
 		}
+		setLoadingReceipt(true);
 		try {
-			const cleanPath = receiptPath.startsWith("receipts/") ? receiptPath : `receipts/${receiptPath}`;
-			const { data, error } = await supabase.storage.from("payment-receipts").createSignedUrl(cleanPath, 600);
-			if (error || !data?.signedUrl) {
-				const { data: rawData, error: rawError } = await supabase.storage.from("payment-receipts").createSignedUrl(receiptPath, 600);
-				if (rawError || !rawData?.signedUrl) {
-					toast.error("Could not generate receipt URL: " + (rawError?.message || error?.message));
-					return;
-				}
-				window.open(rawData.signedUrl, "_blank");
+			const sanitized = receiptPath.trim();
+			if (sanitized.startsWith("data:")) {
+				setReceiptPreviewModal({
+					url: sanitized,
+					reference: order.reference,
+					customerName: order.customer_name || order.full_name || "Customer",
+					fileName: "receipt_upload.jpg",
+					isPdf: sanitized.startsWith("data:application/pdf")
+				});
 				return;
 			}
-			window.open(data.signedUrl, "_blank");
+			let bucket = "payment-receipts";
+			let objectPath = sanitized;
+			if (sanitized.startsWith("product-images/")) {
+				bucket = "product-images";
+				objectPath = sanitized.replace(/^product-images\//, "");
+			} else if (sanitized.startsWith("payment-receipts/")) {
+				bucket = "payment-receipts";
+				objectPath = sanitized.replace(/^payment-receipts\//, "");
+			}
+			let resolvedUrl = null;
+			const { data: publicData } = supabase.storage.from(bucket).getPublicUrl(objectPath);
+			if (publicData?.publicUrl) resolvedUrl = publicData.publicUrl;
+			if (!resolvedUrl) {
+				const { data: signedData } = await supabase.storage.from(bucket).createSignedUrl(objectPath, 3600);
+				if (signedData?.signedUrl) resolvedUrl = signedData.signedUrl;
+			}
+			if (!resolvedUrl) {
+				const { data: blobData, error: blobError } = await supabase.storage.from(bucket).download(objectPath);
+				if (!blobError && blobData) resolvedUrl = URL.createObjectURL(blobData);
+			}
+			if (!resolvedUrl) throw new Error(`Could not load receipt. Make sure the "${bucket}" storage bucket exists and is accessible in Supabase.`);
+			const fileName = objectPath.split("/").pop() || "receipt.jpg";
+			const isPdf = fileName.toLowerCase().endsWith(".pdf");
+			setReceiptPreviewModal({
+				url: resolvedUrl,
+				reference: order.reference,
+				customerName: order.customer_name || order.full_name || "Customer",
+				fileName,
+				isPdf
+			});
 		} catch (err) {
+			console.error("Receipt preview error:", err);
 			toast.error("Receipt preview error: " + err.message);
+		} finally {
+			setLoadingReceipt(false);
 		}
 	};
 	const handleProductImageUpload = async (file) => {
@@ -621,7 +725,8 @@ function AdminPage() {
 													}), ord.receipt_path ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 														variant: "outline",
 														size: "sm",
-														onClick: () => viewReceiptProof(ord.receipt_path),
+														disabled: loadingReceipt,
+														onClick: () => viewReceiptProof(ord),
 														className: "gap-1.5 text-xs uppercase tracking-[0.15em]",
 														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "size-3.5" }), " View Receipt Proof"]
 													}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -1748,6 +1853,71 @@ function AdminPage() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProfileDialog, {
 				open: profileDialogOpen,
 				onOpenChange: setProfileDialogOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dialog, {
+				open: !!receiptPreviewModal,
+				onOpenChange: (open) => {
+					if (!open) setReceiptPreviewModal(null);
+				},
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogContent, {
+					className: "max-w-3xl max-h-[90vh] overflow-y-auto bg-surface border-border text-foreground",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogHeader, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogTitle, {
+						className: "text-xl font-serif",
+						children: "Customer Payment Receipt"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogDescription, {
+						className: "text-xs text-muted-foreground",
+						children: [
+							"Order Reference:",
+							" ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+								className: "text-foreground font-mono",
+								children: receiptPreviewModal?.reference
+							}),
+							" ",
+							"· Customer:",
+							" ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+								className: "text-foreground",
+								children: receiptPreviewModal?.customerName
+							})
+						]
+					})] }), receiptPreviewModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-4 pt-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "border border-border bg-background/80 rounded p-2 flex items-center justify-center min-h-[300px]",
+							children: receiptPreviewModal.isPdf ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("iframe", {
+								src: receiptPreviewModal.url,
+								title: "Receipt PDF",
+								className: "w-full h-[500px] rounded border border-border"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: receiptPreviewModal.url,
+								alt: "Customer Transfer Receipt",
+								className: "max-h-[550px] w-auto max-w-full object-contain rounded shadow-md"
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-border",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs text-muted-foreground truncate max-w-xs font-mono",
+								children: receiptPreviewModal.fileName
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+									href: receiptPreviewModal.url,
+									target: "_blank",
+									rel: "noopener noreferrer",
+									className: "inline-flex items-center gap-1.5 border border-border px-3 py-2 text-xs uppercase tracking-wider text-foreground hover:bg-border transition-colors",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "size-3.5" }), "Open in New Tab"]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+									type: "button",
+									variant: "outline",
+									onClick: () => setReceiptPreviewModal(null),
+									className: "text-xs uppercase tracking-wider",
+									children: "Close"
+								})]
+							})]
+						})]
+					})]
+				})
 			})
 		]
 	});

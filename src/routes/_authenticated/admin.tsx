@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import {
@@ -61,8 +61,90 @@ export const Route = createFileRoute("/_authenticated/admin")({
 });
 
 function AdminPage() {
-  const { user, isAdmin, loading } = useAuth();
+  const { user, isAdmin, loading, signOut } = useAuth();
+  const navigate = useNavigate();
   const qc = useQueryClient();
+
+  // 1. 5-Minute Admin Inactivity Auto-Logout
+  const handleInactivityLogout = useCallback(async () => {
+    try {
+      await signOut();
+      toast.info("Session timed out after 5 minutes of inactivity. Please log in again.");
+      navigate({ to: "/auth" });
+    } catch (e) {
+      console.error("Auto-logout error:", e);
+    }
+  }, [signOut, navigate]);
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    const INACTIVITY_LIMIT_MS = 5 * 60 * 1000; // 5 minutes
+    let timeoutId: NodeJS.Timeout;
+
+    const resetTimer = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        void handleInactivityLogout();
+      }, INACTIVITY_LIMIT_MS);
+    };
+
+    // Events to monitor user activity
+    const activityEvents = ["mousemove", "mousedown", "keydown", "touchstart", "scroll", "click"];
+    activityEvents.forEach((event) => {
+      window.addEventListener(event, resetTimer, { passive: true });
+    });
+
+    // Initialize timer
+    resetTimer();
+
+    return () => {
+      clearTimeout(timeoutId);
+      activityEvents.forEach((event) => {
+        window.removeEventListener(event, resetTimer);
+      });
+    };
+  }, [isAdmin, handleInactivityLogout]);
+
+  // 2. Real-Time Updates (Live Sync without reloading)
+  useEffect(() => {
+    if (!isAdmin) return;
+
+    // Realtime channel for orders and products
+    const channel = supabase
+      .channel("admin-realtime-sync")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "orders" },
+        (payload) => {
+          console.log("[Realtime] Order update received:", payload);
+          void qc.invalidateQueries({ queryKey: ["admin", "orders"] });
+          if (payload.eventType === "INSERT") {
+            toast.info(`New order received! Reference: ${payload.new?.reference || "New"}`);
+          }
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "products" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["admin", "products"] });
+          void qc.invalidateQueries({ queryKey: ["products"] });
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "store_settings" },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["admin", "settings"] });
+          void qc.invalidateQueries({ queryKey: ["store-settings"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [isAdmin, qc]);
 
   // Orders Query
   const ordersQuery = useQuery({
@@ -162,6 +244,16 @@ function AdminPage() {
   // Admin Profile Dialog State
   const [profileDialogOpen, setProfileDialogOpen] = useState(false);
 
+  // Receipt Preview Dialog State
+  const [receiptPreviewModal, setReceiptPreviewModal] = useState<{
+    url: string;
+    reference: string;
+    customerName: string;
+    fileName: string;
+    isPdf: boolean;
+  } | null>(null);
+  const [loadingReceipt, setLoadingReceipt] = useState(false);
+
   // Appoint Admin State
   const [newAdminEmail, setNewAdminEmail] = useState("");
   const [appointingAdmin, setAppointingAdmin] = useState(false);
@@ -256,37 +348,99 @@ function AdminPage() {
     },
   });
 
-  // Signed URL generator for private receipt proof
-  const viewReceiptProof = async (receiptPath: string | null) => {
+  // In-app viewer for customer payment receipts
+  const viewReceiptProof = async (order: {
+    receipt_path: string | null;
+    reference: string;
+    customer_name?: string;
+    full_name?: string;
+  }) => {
+    const receiptPath = order.receipt_path;
     if (!receiptPath) {
       toast.error("No receipt uploaded for this order.");
       return;
     }
 
+    setLoadingReceipt(true);
     try {
-      // Create signed URL valid for 10 minutes
-      const cleanPath = receiptPath.startsWith("receipts/") ? receiptPath : `receipts/${receiptPath}`;
-      const { data, error } = await supabase.storage
-        .from("payment-receipts")
-        .createSignedUrl(cleanPath, 600);
+      const sanitized = receiptPath.trim();
 
-      if (error || !data?.signedUrl) {
-        // Fallback: try raw path directly
-        const { data: rawData, error: rawError } = await supabase.storage
-          .from("payment-receipts")
-          .createSignedUrl(receiptPath, 600);
-
-        if (rawError || !rawData?.signedUrl) {
-          toast.error("Could not generate receipt URL: " + (rawError?.message || error?.message));
-          return;
-        }
-        window.open(rawData.signedUrl, "_blank");
+      // If stored directly as base64 data URL (small image fallback)
+      if (sanitized.startsWith("data:")) {
+        setReceiptPreviewModal({
+          url: sanitized,
+          reference: order.reference,
+          customerName: order.customer_name || order.full_name || "Customer",
+          fileName: "receipt_upload.jpg",
+          isPdf: sanitized.startsWith("data:application/pdf"),
+        });
         return;
       }
 
-      window.open(data.signedUrl, "_blank");
+      // Determine bucket and object path from stored receipt_path
+      let bucket = "payment-receipts";
+      let objectPath = sanitized;
+
+      if (sanitized.startsWith("product-images/")) {
+        bucket = "product-images";
+        objectPath = sanitized.replace(/^product-images\//, "");
+      } else if (sanitized.startsWith("payment-receipts/")) {
+        bucket = "payment-receipts";
+        objectPath = sanitized.replace(/^payment-receipts\//, "");
+      }
+
+      let resolvedUrl: string | null = null;
+
+      // 1. Public URL — works instantly for public buckets, no expiry
+      const { data: publicData } = supabase.storage
+        .from(bucket)
+        .getPublicUrl(objectPath);
+
+      if (publicData?.publicUrl) {
+        resolvedUrl = publicData.publicUrl;
+      }
+
+      // 2. Fallback: signed URL (1-hour expiry, works for private buckets too)
+      if (!resolvedUrl) {
+        const { data: signedData } = await supabase.storage
+          .from(bucket)
+          .createSignedUrl(objectPath, 3600);
+        if (signedData?.signedUrl) {
+          resolvedUrl = signedData.signedUrl;
+        }
+      }
+
+      // 3. Last resort: download as blob → object URL
+      if (!resolvedUrl) {
+        const { data: blobData, error: blobError } = await supabase.storage
+          .from(bucket)
+          .download(objectPath);
+        if (!blobError && blobData) {
+          resolvedUrl = URL.createObjectURL(blobData);
+        }
+      }
+
+      if (!resolvedUrl) {
+        throw new Error(
+          `Could not load receipt. Make sure the "${bucket}" storage bucket exists and is accessible in Supabase.`
+        );
+      }
+
+      const fileName = objectPath.split("/").pop() || "receipt.jpg";
+      const isPdf = fileName.toLowerCase().endsWith(".pdf");
+
+      setReceiptPreviewModal({
+        url: resolvedUrl,
+        reference: order.reference,
+        customerName: order.customer_name || order.full_name || "Customer",
+        fileName,
+        isPdf,
+      });
     } catch (err: any) {
+      console.error("Receipt preview error:", err);
       toast.error("Receipt preview error: " + err.message);
+    } finally {
+      setLoadingReceipt(false);
     }
   };
 
@@ -709,7 +863,8 @@ function AdminPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => viewReceiptProof(ord.receipt_path)}
+                          disabled={loadingReceipt}
+                          onClick={() => viewReceiptProof(ord)}
                           className="gap-1.5 text-xs uppercase tracking-[0.15em]"
                         >
                           <Eye className="size-3.5" /> View Receipt Proof
@@ -1687,6 +1842,79 @@ function AdminPage() {
 
       {/* Admin Profile Modal */}
       <ProfileDialog open={profileDialogOpen} onOpenChange={setProfileDialogOpen} />
+
+      {/* Customer Receipt Proof In-App Preview Modal */}
+      <Dialog
+        open={!!receiptPreviewModal}
+        onOpenChange={(open) => {
+          if (!open) setReceiptPreviewModal(null);
+        }}
+      >
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-surface border-border text-foreground">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-serif">
+              Customer Payment Receipt
+            </DialogTitle>
+            <DialogDescription className="text-xs text-muted-foreground">
+              Order Reference:{" "}
+              <strong className="text-foreground font-mono">
+                {receiptPreviewModal?.reference}
+              </strong>{" "}
+              &middot; Customer:{" "}
+              <strong className="text-foreground">
+                {receiptPreviewModal?.customerName}
+              </strong>
+            </DialogDescription>
+          </DialogHeader>
+
+          {receiptPreviewModal && (
+            <div className="space-y-4 pt-2">
+              <div className="border border-border bg-background/80 rounded p-2 flex items-center justify-center min-h-[300px]">
+                {receiptPreviewModal.isPdf ? (
+                  <iframe
+                    src={receiptPreviewModal.url}
+                    title="Receipt PDF"
+                    className="w-full h-[500px] rounded border border-border"
+                  />
+                ) : (
+                  <img
+                    src={receiptPreviewModal.url}
+                    alt="Customer Transfer Receipt"
+                    className="max-h-[550px] w-auto max-w-full object-contain rounded shadow-md"
+                  />
+                )}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-border">
+                <span className="text-xs text-muted-foreground truncate max-w-xs font-mono">
+                  {receiptPreviewModal.fileName}
+                </span>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={receiptPreviewModal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 border border-border px-3 py-2 text-xs uppercase tracking-wider text-foreground hover:bg-border transition-colors"
+                  >
+                    <ExternalLink className="size-3.5" />
+                    Open in New Tab
+                  </a>
+
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setReceiptPreviewModal(null)}
+                    className="text-xs uppercase tracking-wider"
+                  >
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

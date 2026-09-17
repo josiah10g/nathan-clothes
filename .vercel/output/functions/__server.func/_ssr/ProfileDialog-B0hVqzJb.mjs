@@ -5,7 +5,7 @@ import { N as require_jsx_runtime, d as DialogContent$1, f as DialogDescription$
 import { t as Button } from "./button-cHXlBU3y.mjs";
 import { t as supabase } from "./client-tCXTp6li.mjs";
 import { n as useAuth } from "./useAuth-C_0aa20U.mjs";
-import { m as EyeOff, p as Eye, t as X, w as Camera } from "../_libs/lucide-react.mjs";
+import { D as Camera, g as EyeOff, h as Eye, t as X } from "../_libs/lucide-react.mjs";
 import { n as Label, t as Input } from "./label-B7oQAA24.mjs";
 import { n as AvatarFallback$1, r as AvatarImage$1, t as Avatar$1 } from "../_libs/radix-ui__react-avatar.mjs";
 import { n as toast } from "../_libs/sonner.mjs";

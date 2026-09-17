@@ -7,20 +7,20 @@ import { t as supabase } from "./client-tCXTp6li.mjs";
 import { n as useAuth } from "./useAuth-C_0aa20U.mjs";
 import { n as formatPrice } from "./format-JcwKzGtU.mjs";
 import { n as useQuery } from "../_libs/tanstack__react-query.mjs";
-import { C as Check, d as MessageCircle, g as Copy, i as Upload } from "../_libs/lucide-react.mjs";
+import { E as Check, f as MessageCircle, i as Upload, y as Copy } from "../_libs/lucide-react.mjs";
 import { n as Label, t as Input } from "./label-B7oQAA24.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { t as Textarea } from "./textarea-kko37XEX.mjs";
 import { n as stringType, t as objectType } from "../_libs/zod.mjs";
 import { n as useCart } from "./useCart-DQ27iwaQ.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/checkout-DbCCwlXU.js
+//#region node_modules/.nitro/vite/services/ssr/assets/checkout-DBIUZ-S7.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var schema = objectType({
-	customer_name: stringType().trim().min(2, "Full name is required").max(100),
+	customer_name: stringType().trim().min(1, "Name is required").max(100),
 	email: stringType().trim().email("Enter a valid email").max(255),
-	phone: stringType().trim().min(7, "Phone number must be at least 7 digits").max(15, "Phone number too long").regex(/^[0-9]+$/, "Phone number must contain numbers only"),
-	address: stringType().trim().min(5, "Delivery address is required").max(300),
+	phone: stringType().trim().min(5, "Please enter a valid contact phone number").max(25, "Phone number is too long"),
+	address: stringType().trim().min(3, "Delivery address is required").max(300),
 	notes: stringType().trim().max(500).optional()
 });
 function generateReference() {
@@ -32,19 +32,8 @@ function generateReference() {
 function CheckoutPage() {
 	const { user } = useAuth();
 	const { items, subtotalCents, clear, hydrated } = useCart();
-	const navigate = useNavigate();
+	useNavigate();
 	const [orderReference, setOrderReference] = (0, import_react.useState)(() => generateReference());
-	(0, import_react.useEffect)(() => {
-		if (hydrated && items.length === 0 && !completedOrder) {
-			toast.info("Your bag is empty. Please add items to your cart first.");
-			navigate({ to: "/cart" });
-		}
-	}, [
-		hydrated,
-		items.length,
-		completedOrder,
-		navigate
-	]);
 	const { data: storeSettings, isLoading: loadingSettings } = useQuery({
 		queryKey: ["store-settings"],
 		queryFn: async () => {
@@ -131,8 +120,15 @@ function CheckoutPage() {
 					cacheControl: "3600",
 					upsert: true
 				});
-				if (uploadError) console.warn("Storage warning:", uploadError);
-				receiptPath = uploadData?.path || filePath;
+				if (uploadError) {
+					console.warn("Storage upload error on payment-receipts:", uploadError);
+					if (receiptFile.type.startsWith("image/") && receiptFile.size <= 4194304) receiptPath = await new Promise((resolve) => {
+						const reader = new FileReader();
+						reader.onloadend = () => resolve(reader.result);
+						reader.readAsDataURL(receiptFile);
+					});
+					else receiptPath = filePath;
+				} else receiptPath = uploadData?.path ?? filePath;
 			}
 			const orderPayload = {
 				reference: orderReference,
@@ -164,16 +160,26 @@ function CheckoutPage() {
 				receipt_path: receiptPath,
 				receipt_uploaded_at: (/* @__PURE__ */ new Date()).toISOString()
 			};
+			let confirmedRef = orderReference;
 			const { data: createdOrder, error: orderError } = await supabase.from("orders").insert(orderPayload).select("id, reference, phone, customer_name, total").maybeSingle();
-			if (orderError) {
+			if (orderError) if (orderError.code === "42501" || orderError.message?.toLowerCase().includes("permission")) {
+				const { error: insertOnlyError } = await supabase.from("orders").insert(orderPayload);
+				if (insertOnlyError) {
+					console.error("Order creation fallback error:", insertOnlyError);
+					toast.error(`Order failed to submit: ${insertOnlyError.message}`);
+					setSubmittingOrder(false);
+					return;
+				}
+			} else {
 				console.error("Order creation error:", orderError);
 				toast.error(`Order failed to submit: ${orderError.message}`);
 				setSubmittingOrder(false);
 				return;
 			}
+			else if (createdOrder?.reference) confirmedRef = createdOrder.reference;
 			clear();
 			setCompletedOrder({
-				reference: createdOrder?.reference || orderReference,
+				reference: confirmedRef,
 				total: totalNumeric,
 				phone: parsed.data.phone,
 				customer_name: parsed.data.customer_name

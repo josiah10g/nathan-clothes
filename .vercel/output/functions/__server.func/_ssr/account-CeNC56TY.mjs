@@ -8,14 +8,15 @@ import { n as useAuth } from "./useAuth-C_0aa20U.mjs";
 import { t as Badge } from "./badge-D1Dupn2y.mjs";
 import { i as TabsTrigger, n as TabsContent, r as TabsList, t as Tabs } from "./tabs-CCJRliUM.mjs";
 import { n as formatPrice, t as formatDate } from "./format-JcwKzGtU.mjs";
-import { n as useQuery } from "../_libs/tanstack__react-query.mjs";
-import { _ as Clock, b as CircleCheckBig, h as CreditCard, l as Package, n as User, x as CircleAlert } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/account-ChdXFvUL.js
+import { i as useQueryClient, n as useQuery } from "../_libs/tanstack__react-query.mjs";
+import { C as CircleCheckBig, b as Clock, n as User, u as Package, v as CreditCard, w as CircleAlert } from "../_libs/lucide-react.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/account-CeNC56TY.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function AccountPage() {
 	const { user, isAdmin, loading, signOut } = useAuth();
 	const navigate = useNavigate();
+	const qc = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		if (!loading && user && isAdmin) navigate({
 			to: "/admin",
@@ -27,6 +28,20 @@ function AccountPage() {
 		loading,
 		navigate
 	]);
+	(0, import_react.useEffect)(() => {
+		if (!user) return;
+		const channel = supabase.channel(`customer-orders-${user.id}`).on("postgres_changes", {
+			event: "*",
+			schema: "public",
+			table: "orders",
+			filter: `user_id=eq.${user.id}`
+		}, () => {
+			qc.invalidateQueries({ queryKey: ["my-orders", user.id] });
+		}).subscribe();
+		return () => {
+			supabase.removeChannel(channel);
+		};
+	}, [user, qc]);
 	const displayName = user?.user_metadata?.["full_name"] || user?.email?.split("@")[0] || "Customer";
 	const { data: myOrders, isLoading: loadingMyOrders } = useQuery({
 		queryKey: ["my-orders", user?.id],

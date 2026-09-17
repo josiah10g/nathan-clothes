@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Package,
   CreditCard,
@@ -37,6 +37,7 @@ export const Route = createFileRoute("/account")({
 function AccountPage() {
   const { user, isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
+  const qc = useQueryClient();
 
   // Prevent admin from viewing customer dashboard - redirect to admin portal
   useEffect(() => {
@@ -44,6 +45,30 @@ function AccountPage() {
       navigate({ to: "/admin", replace: true });
     }
   }, [user, isAdmin, loading, navigate]);
+
+  // Real-time updates on customer screen without page reload
+  useEffect(() => {
+    if (!user) return;
+    const channel = supabase
+      .channel(`customer-orders-${user.id}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "orders",
+          filter: `user_id=eq.${user.id}`,
+        },
+        () => {
+          void qc.invalidateQueries({ queryKey: ["my-orders", user.id] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [user, qc]);
 
   // Extract display customer name
   const displayName =
